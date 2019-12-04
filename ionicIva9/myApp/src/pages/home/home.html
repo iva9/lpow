@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to Buetooth!</h2>
+  <p>
+    This starter project comes with simple tabs-based layout for apps
+    that are going to primarily use a Tabbed UI.
+  </p>
+  <p>
+    Take a look at the <code>src/pages/</code> directory to add or change tabs,
+    update any existing page or create new pages.
+  </p>
+  <ion-list padding>
+    <button ion-button block (click)="IVA()">Procurar aparelho</button>
+    <ion-list-header>
+      Paired Devices
+    </ion-list-header>
+    <ion-item *ngFor="let device of pairedDevices">
+      {{device.name}}
+    </ion-item>
+    <button ion-button block (click)="ivanov()">Disconnect</button>
+    <ion-list-header>
+      availlable Devices
+    </ion-list-header>
+    <ion-item *ngFor='let device of unpairedDevices'>
+      <span (click)="selectDevice(device.address)">
+        {{device.name}}
+      </span>
+      <button ion-button block (click)="ligarLed()">Led</button>
+          </ion-item>
+    <ion-spinner name="crescent" *ngIf="gettingDevices"></ion-spinner>
+  </ion-list>
+</ion-content>

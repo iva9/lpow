@@ -1,0 +1,10 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>About</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <img *ngIf="img"[src]= "" alt=""> 
+    <button ion-button block (click)="tirarFoto()">Tirar Foto</button>
+  </ion-content>
