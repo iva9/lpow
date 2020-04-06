@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Image
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+
+  <div class="center">
+    <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebtn" #fileButton/>
+
+    <ion-button shape="round" color="primary" (click)="startUpload() " *ngIf="!imageURL" fill="outline">Upload File</ion-button>
+
+    <ion-card *ngIf="imageURL">
+      <img src="imageUrl">
+      <ion-card-content>
+        <ion-textarea placeholder="Escreva o texto" [(ngModel)]="desc"></ion-textarea>
+        <ion-button shape="round" color="primary " (click)="createPost()">POST</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>  
