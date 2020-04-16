@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+  <button ion-button color="primary" routerLink="/home" routerDirection="backyard">
+    <ion-icon name="chevron-back-outline">
+    </ion-icon>
+  </button>
+</ion-header>
+
+<ion-content>
+  <div class="center">
+    <ion-card>
+      <input type="file" (change)="filechanged($event)" />
+      <img src="https://cdn.phouse.com.br/wp-content/uploads/2019/07/Federal-Music.jpg">
+      <ion-card-content>
+        <form [formGroup]="contatoForm" (ngSubmit)="cadastraEvento()">
+          <ion-list>
+            <ion-item>
+              <ion-input type="text" placeholder="Nome do Evento" formControlName="name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Local do Evento" formControlName="local"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Ingressos(Link)" formControlName="link"></ion-input>
+            </ion-item>
+            <ion-button shape="round" color="primary" (click)="cadastraEvento()">Pubilcar</ion-button>
+          </ion-list>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

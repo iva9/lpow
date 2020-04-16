@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="tru">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" color="">
+    <ion-fab-button>
+      <ion-icon name="radio-button-off-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button routerLink="/perfil" routerDirection="backyard">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="end">
+      <ion-fab-button routerLink="/add" routerDirection="backyard">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-card class="center" *ngFor="let evento of eventos">
+    <img src="data:image/jpeg;base64,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" />
+    <ion-card-header>
+      <ion-card-subtitle>Candidato</ion-card-subtitle>
+      <ion-card-title>{{ evento.nome }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Pela rede federal de ensino concorre Ivanov Machado dos Santos, do Instituto Federal de Brasília (IFB)
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <img src="https://www.incimages.com/uploaded_files/image/970x450/getty_483517958_368760.jpg" />
+    <ion-card-header>
+      <ion-card-subtitle>Destination</ion-card-subtitle>
+      <ion-card-title>Madison, WI</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+    </ion-card-content>
+  </ion-card>
+</ion-content>
