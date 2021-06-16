@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="x" size="large"  class="centertt">{{ x.nome }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="corbot" defaultHref="home" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="card">
+    <img *ngIf="x"  [src]="x.url" />
+  </ion-card>
+  <ion-list class="fundo">
+    <ion-item *ngIf="x" >
+      <ion-icon  class="branco"   name="location-sharp" size="large"></ion-icon>
+      <h2 class="com">{{ x.local.description }}</h2>
+    </ion-item>
+    <ion-item *ngIf="x" >
+      <ion-icon  class="branco"  name="calendar-outline" item-start></ion-icon>
+      <h2 class="com"> {{ x.dia }} </h2>
+    </ion-item>
+    <ion-item *ngIf="x">
+      <ion-icon  class="branco"  name="globe-outline"></ion-icon>
+      <h2 class="com">Link</h2>
+    </ion-item>
+    <ion-item *ngIf="x" >
+      <ion-icon  class="branco"  name="person-sharp"></ion-icon>
+      <h2 class="com">{{ x.userID[1] }}</h2>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-fab *ngIf="aparecer" vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="radio-button-off-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button (click)="shareInstagram()" >
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="shareWatsapp()">
+        <ion-icon name="logo-whatsapp"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="start">
+      <ion-fab-button (click)="shareTwitter()">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="shareFacebook()">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

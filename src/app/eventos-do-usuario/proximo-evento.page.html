@@ -1,0 +1,62 @@
+<ion-header><ion-toolbar>
+  <ion-title size="large" class="centertt"> Eventos </ion-title>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="home" text=""></ion-back-button>
+  </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides>
+  <ion-slide  >
+    <div>
+    <a class="a">Eventos Criados</a>
+    <ion-card  *ngFor="let evento of criados"class="card">
+      <img class="imagem" [src]="evento.url"  (click)="showmodal(evento)"/>
+      <ion-card-header class="">
+        <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+        <ion-card-subtitle class="branco">{{ evento.up.length }}</ion-card-subtitle>
+        <ion-card-title class="branco">{{ evento.nome }}</ion-card-title>
+      </ion-card-header>
+      <ion-row>
+        <ion-col>
+          <ion-icon size="large" name="location-sharp" icon-start clear small end style="padding-right:100px">
+          </ion-icon>
+          <ion-icon *ngIf="evento.ingresso" size="large" name="logo-usd" icon-start clear small end
+            style="padding-left:100px"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-button color="primary" (click)="delete(evento)" ><ion-icon name="trash-outline"></ion-icon></ion-button>
+    </ion-card>
+    
+  </div>
+  </ion-slide>
+
+ 
+
+  <ion-slide>
+    <div >
+      <a class="a">Lista de Up</a>
+      <ion-card  *ngFor="let evento of ups"class="card" (click)="showmodal(evento)">
+        <img class="imagem" [src]="evento.url"/>
+        <ion-card-header class="">
+          <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+          <ion-card-subtitle class="branco">{{ evento.up.length }}</ion-card-subtitle>
+          <ion-card-title class="branco">{{ evento.nome }}</ion-card-title>
+        </ion-card-header>
+        <ion-row>
+          <ion-col>
+            <ion-icon size="large" name="location-sharp" icon-start clear small end style="padding-right:100px">
+            </ion-icon>
+            <ion-icon *ngIf="evento.ingresso" size="large" name="logo-usd" icon-start clear small end
+              style="padding-left:100px"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-button color="primary" round (click)="Up(evento)">UP</ion-button>
+      </ion-card>
+      
+      </div>
+  </ion-slide>
+
+</ion-slides>
+</ion-content>

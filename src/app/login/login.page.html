@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title  class="title">Log in</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="criar-user" text="" class="margin" (click)="voltar()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list *ngIf="!temqverificar">
+    <ion-item class="holder">
+      <ion-label position="floating" >Email :</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+  
+    <ion-item class="holder">
+      <ion-label position="floating">senha :</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <div>
+    <p class="p" (click)="abriu()">Esqueci minha senha</p>
+    <ion-item class="holder2" [hidden]="!abrir">
+      <ion-label position="floating">Email da conta :</ion-label>
+      <ion-input type="email" [(ngModel)]="emailrecu"></ion-input>
+      <ion-button type="submit"  (click)="enviar()">enviar</ion-button>
+    </ion-item>
+  </div>
+
+    <ion-button  shape="round" expand="full" type="submit" (click)="login()">Log in</ion-button>
+  </ion-list>
+
+  <ion-list>
+    <div *ngIf="temqverificar">
+      <p class="p" >Enviamos um e-mail de verificação pra você</p>
+      <ion-item class="holder2"  lines="none">
+        <ion-button type="submit"  (click)="enviaremaildeverific()">Re-enviar</ion-button>
+        <ion-button type="submit"  (click)="emailverificado()">Confirmar</ion-button>
+      </ion-item>
+    </div>  
+  </ion-list>
+
+</ion-content>

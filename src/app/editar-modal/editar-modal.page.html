@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title (click)="close()" size="large" class="centertt">Editar </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="center">
+    <input type="file" (change)="showPreview($event)" class="filebtn" #fileButton/>
+    <img class="imagem"  (click)="writeUserData()" [src]="img">
+    <ion-list class="margintop" no-lines>
+      <ion-item lines="none" >
+        <ion-input type="text" placeholder="Nome de Usuario" name="id" [(ngModel)]="newUsername"></ion-input>
+      </ion-item>
+      </ion-list>
+      </div>
+      <div class="publicar">    
+      <ion-button shape="round"  (click)="editar() "  class="publicar">Concluir</ion-button>
+      </div>
+</ion-content>

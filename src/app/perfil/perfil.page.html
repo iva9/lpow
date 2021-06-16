@@ -1,19 +1,89 @@
 <ion-header>
+
   <ion-toolbar>
-    <ion-title>Perfil</ion-title>
-    <button ion-button color="primary" routerLink="/home" routerDirection="backyard">
-      <ion-icon name="chevron-forward-outline">
-      </ion-icon>
-    </button>
+    <ion-title *ngIf="perfilnome"class="title" size="large">{{ perfilnome }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" ></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="presentActionSheet()">
+      <ion-icon name="menu-outline" size="large"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content> 
-  <ion-card class="center">
-    <img src="../assets/icon/profile.png" />
-    <ion-card-header>
-      <ion-card-subtitle>Candidato</ion-card-subtitle>
-      <ion-card-title>Ivanov Machado</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
+<ion-content>
+  <img *ngIf="perfilimg" (click)="showmodal()" class="imagem" [src]="perfilimg" />
+  <ion-searchbar class="searchbar" placeholder="Escolher cidade" (ionInput)="getItems($event)" (click)="abriu()"  [(ngModel)]="cidade"
+    clearInput></ion-searchbar>
+  <ion-list *ngIf="cidade.length > 0 || abrir" class="filtro">
+    <ion-item (click)="meuslugares(item.lugar)" *ngFor="let item of todositems" class="filtro">
+      {{ item.lugar }}
+    </ion-item>
+  </ion-list>
+  <ion-slides>
+
+    <ion-slide>
+      <div>
+        <a class="a">Lista de Up</a>
+        <ion-list>
+          <ion-item lines="none" *ngFor="let evento of ups" (click)="modalevento(evento)">
+            <ion-thumbnail>
+              <img class="imag" [src]="evento.url">
+            </ion-thumbnail>
+            <h2 class="com">{{ evento.nome }} </h2>
+            <ion-badge slot="end">{{ evento.UPnum }}</ion-badge>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item lines="none" *ngFor="let evento of ups2" (click)="modalevento(evento)">
+            <ion-thumbnail>
+              <img class="imag" [src]="evento.url">
+            </ion-thumbnail>
+            <h2 class="com">{{ evento.nome }} </h2>
+            <ion-badge slot="end">{{ evento.UPnum }}</ion-badge>
+          </ion-item>
+        </ion-list>
+        <ion-infinite-scroll threshold="40%" (ionInfinite)="loadups($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Carregando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </div>
+    </ion-slide>
+
+    <ion-slide  *ngIf="criados.length > 0">
+      <div>
+        <a class="a">Eventos Publicados</a>
+        <ion-list>
+          <ion-item *ngFor="let evento of criados" lines="none">
+            <ion-thumbnail  (click)="modalevento(evento)">
+              <img class="imag" [src]="evento.url">
+            </ion-thumbnail>
+            <h2 class="com"  (click)="modalevento(evento)" >{{ evento.nome }} </h2>
+            <ion-button class="excl" color="primary" (click)="deletaract(evento)" routerDirection="backyard"> Excluir
+            </ion-button>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item *ngFor="let evento of criados2" lines="none">
+            <ion-thumbnail  (click)="modalevento(evento)">
+              <img class="imag" [src]="evento.url">
+            </ion-thumbnail>
+            <h2 class="com"  (click)="modalevento(evento)" >{{ evento.nome }} </h2>
+            <ion-button class="excl" color="primary" (click)="deletaract(evento)" routerDirection="backyard"> Excluir
+            </ion-button>
+          </ion-item>
+        </ion-list>
+        <ion-infinite-scroll threshold="20%" (ionInfinite)="loadcriados($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Carregando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
 </ion-content>

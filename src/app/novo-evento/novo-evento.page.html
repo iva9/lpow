@@ -1,33 +1,118 @@
 <ion-header>
   <ion-toolbar>
+    <ion-title size="large" class="centertt">Publicar Evento</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="perfil" text=""></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
-  <button ion-button color="primary" routerLink="/home" routerDirection="backyard">
-    <ion-icon name="chevron-back-outline">
-    </ion-icon>
-  </button>
 </ion-header>
 
 <ion-content>
-  <div class="center">
-    <ion-card>
-      <input type="file" (change)="filechanged($event)" />
-      <img src="https://cdn.phouse.com.br/wp-content/uploads/2019/07/Federal-Music.jpg">
-      <ion-card-content>
-        <form [formGroup]="contatoForm" (ngSubmit)="cadastraEvento()">
-          <ion-list>
-            <ion-item>
-              <ion-input type="text" placeholder="Nome do Evento" formControlName="name"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input type="text" placeholder="Local do Evento" formControlName="local"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input type="text" placeholder="Ingressos(Link)" formControlName="link"></ion-input>
-            </ion-item>
-            <ion-button shape="round" color="primary" (click)="cadastraEvento()">Pubilcar</ion-button>
-          </ion-list>
-        </form>
-      </ion-card-content>
-    </ion-card>
-  </div>
-</ion-content>
+  <ion-slides  #slides>
+    <ion-slide >
+
+        <h2 class="th2">Seu evento é <br> Presencial ou Online?</h2>
+        <ion-button class="btn" expand="block" shape="round" (click)="Presencial()"> Presencial </ion-button>
+        <ion-button expand="block" shape="round" (click)="Online()"> Online </ion-button>
+        <h2 class="th2"></h2>
+       
+    </ion-slide>  
+    <ion-slide>    
+        <h2 class="th2">Banner do evento</h2>
+        <ion-card class="card">
+          <input type="file" (change)="showPreview($event)" class="filebtn" #fileButton/>
+          <img class="imag" [src]="img" (click)="writeUserData()">
+        </ion-card>
+        <h2 class="th2"></h2>
+    </ion-slide>
+
+    <ion-slide>
+     
+        <h2 class="th2">O nome</h2>
+        <ion-list class="fundo">
+          <ion-item  lines="none" class="itemm">
+            <ion-input  #myinput enterkeyhint="done" placeholder="Show do Kleb"  type="text" [(ngModel)]="nome" ></ion-input>
+            <ion-button  (click)="next()" color="primary"  [disabled]="!nome"> Confirmar
+            </ion-button>
+          </ion-item>
+        </ion-list>
+  
+    </ion-slide>
+
+    <ion-slide>
+      <h2 class="th2">A data</h2>
+      <ion-list lines="none">
+      <ion-item class="holder">
+        <ion-datetime  placeholder="Início" displayFormat="DD MMMM HH:mm"[(ngModel)]="dia"
+          monthNames="Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro">
+        </ion-datetime>
+      </ion-item>
+    
+      <ion-item class="holder">
+        <ion-datetime placeholder="Fim"displayFormat="DD MMMM HH:mm" [(ngModel)]="fim" 
+         monthNames="Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro">
+        </ion-datetime>
+      </ion-item>
+    </ion-list>
+      <ion-button class="btn2"  shape="round" (click)="novaData()"> Ok </ion-button>
+    </ion-slide>
+
+    <ion-slide>
+      <h2 class="th2">O link </h2>
+      <ion-list class="fundo">
+        <ion-item  lines="none" class="itemm">
+          <ion-input  #myinput enterkeyhint="done" placeholder="https:"  type="url" [(ngModel)]="ingresso" ></ion-input>
+          <ion-button   color="primary"(click)="next()"  [disabled]="!ingresso"> Confirmar
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+  
+    <ion-slide *ngIf="presenca">
+      <ion-searchbar class="searchbar" placeholder="Local" (ionChange)="searchChanged()" [(ngModel)]="search">
+      </ion-searchbar>
+      <ion-item *ngIf="local" class="filtro">
+        {{ local.description }}
+      </ion-item>
+      <ion-list [hidden]="!search.length" class="filtro">
+        <ion-item (click)="localizou(result)" *ngFor="let result of searchResults" class="holder">
+          {{ result.description }}
+        </ion-item>
+      
+       </ion-list> 
+    </ion-slide>  
+
+    <ion-slide>
+      <ion-card  class="card">
+        <img class="imag" [src]="img" />
+      </ion-card>
+      <ion-list lines="none">
+        <ion-item *ngIf="nome" class="item1">
+          <ion-icon  name="checkmark-done-outline"></ion-icon>
+          <h6 class="ma">{{ nome }}</h6>
+        </ion-item>
+        <ion-item *ngIf="dia2" class="item1">
+          <ion-icon  name="calendar-outline" ></ion-icon>
+          <h6 class="ma">{{ dia2 }}</h6>
+        </ion-item>
+        <ion-item *ngIf="ingresso" class="item1">
+          <ion-icon name="globe-outline"></ion-icon>
+          <h6 class="ma">Link</h6>
+        </ion-item>
+        <ion-item *ngIf="local" class="item1">
+          <ion-icon name="location-sharp" size="large"></ion-icon>
+          <h6 class="ma">{{ local.description }}</h6>
+        </ion-item>
+        <ion-item class="item1">
+          <ion-icon  name="person-sharp"></ion-icon>
+          <h6 class="ma">{{ usuario }}</h6>
+        </ion-item>
+      </ion-list>  
+     
+        <ion-button expand="block" shape="round" (click)="save()"> Publicar </ion-button>
+      
+    </ion-slide>  
+  
+  </ion-slides>
+  
+ 

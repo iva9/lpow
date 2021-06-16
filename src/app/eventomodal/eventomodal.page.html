@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="x"(click)="close()" size="large" class="centertt">{{ x.nome }} </ion-title>
+    <ion-icon (click)="close()" class="icon" name="chevron-down-sharp"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="black">
+  <ion-card class="card">
+    <img  class="imag"*ngIf="x" (click)="close()"[src]="x.url" />
+  </ion-card>
+  <ion-list lines="none" no-lines>
+    <ion-item >
+        <ion-button size="small"color="primary" (click)="UP()" slot="start">UP</ion-button>
+        {{ UPnum }}
+    </ion-item>
+    <ion-item > 
+        <ion-icon  size="large" name="chatbubble-sharp" slot="start"></ion-icon>
+        {{ numcoments }}
+    </ion-item>
+    <ion-item *ngIf="x" >
+      <ion-icon name="calendar-outline" item-start></ion-icon>
+      <h2 class="com"> {{ x.dia }} </h2>
+    </ion-item>
+    <ion-item *ngIf="x" (click)="redirectlink()" >
+      <ion-icon name="globe-outline"></ion-icon>
+      <h2 class="com">Link</h2>
+    </ion-item>
+    <ion-item  *ngIf="x" (click)="redirectmap()">
+      <ion-icon name="location-sharp" size="large"></ion-icon>
+      <h2 class="com">{{ x.local.description }}</h2>
+    </ion-item>
+    <ion-item  *ngIf="x" (click)="redirectUser()">
+      <ion-icon name="person-sharp"></ion-icon>
+      <h2 class="com">{{ x.userID[1] }}</h2>
+    </ion-item>
+  </ion-list>
+  <ion-list lines="none">
+    <ion-item no-lines>
+      <ion-input placeholder="Comentario:" type="string" [(ngModel)]="comentario"></ion-input>
+      <ion-button color="primary" (click)="setcoment()" [disabled]="!comentario.length"> Enviar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-list lines="none">
+    <div *ngFor="let kdcoment of coments" (click)="page(kdcoment)">
+      <ion-item id="output" >
+        <ion-avatar item-start>
+          <img [src]="kdcoment.img">
+        </ion-avatar>
+        <h2 class="com">{{ kdcoment.username }} : {{ kdcoment.comentarioU }} </h2>
+      </ion-item>
+    </div>
+  </ion-list>
+  <ion-infinite-scroll [disabled]="numTimesLeft <= 0" threshold="40%" (ionInfinite)="loadcoments($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Carregando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

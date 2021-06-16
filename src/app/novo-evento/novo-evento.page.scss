@@ -1,5 +1,95 @@
-#center{
-    display: flex,;
-    justify-content: center; 
-    align-items: center;
+
+
+  .shw{
+    margin-top: -10em;
+    padding-top: -4em;
   }
+  ion-slide{ 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90%
+  }
+
+  .icon{
+    color: #FFFFFF;
+    margin-top: -1em;
+  }
+  .th2{  
+    color: #FFFFFF;
+    text-align: left;
+  }
+  ion-content {
+    --ion-background-color: #000000;}
+
+    
+    .item1{
+      margin-top:0.1em;
+      --background: #000000;
+      --color:#FFFFFF;
+  }
+  .itemm{
+    margin-top:1em;
+    --background: #000000;
+    --color:#FFFFFF;
+}
+  ion-list{
+      --background-color: #1C1C1C;
+       --color: white;
+     }
+    ion-toolbar{
+      --padding-top: 24px ;
+      --background: black;
+  }
+  .searchbar{
+    --color: #FFFFFF; 
+    --placeholder-color:#FFFFFF;
+    --background:#1C1C1C;
+ }
+ .imag{
+  height: 100%;
+  width: 100%;
+ }
+ .ma{
+   margin-left: 1em;
+ }
+ .card{
+  height: 17.5em ;
+  align-content: center;;
+  background:rgba(92, 92, 92, 0.473);
+  color: white;
+}
+
+.holder{
+  --color: #FFFFFF; 
+  --placeholder-color:#FFFFFF;
+  --background:#000000;
+}  
+.centertt{
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+.publicar{
+  text-align: center;
+}
+ion-list{
+ --background-color: #1C1C1C;
+  --color: white;
+}
+.filtro{
+  --background-color:#1C1C1C;
+  --color: white;
+}
+.filebtn {
+	opacity: 0;
+	position: absolute;
+	top: -100em;
+	left: -100em;
+}
+.btn{
+  margin-top: 85%;
+}
+.btn2{
+  margin-top: 10%;
+}
