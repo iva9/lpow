@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { AlertController , ModalController} from '@ionic/angular';
+import { AlertController , LoadingController , ModalController} from '@ionic/angular';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database'
 import { AngularFirestore } from '@angular/fire/firestore'
 import { UserService } from '../user.service';
@@ -14,6 +14,7 @@ import { TutorialPage } from '../tutorial/tutorial.page';
   styleUrls: ['./criar.page.scss'],
 })
 export class CriarPage implements OnInit {
+  public loading: any
   username: string = ""
   abrir: boolean = false;
   items ;
@@ -30,7 +31,8 @@ export class CriarPage implements OnInit {
     public afdatabase: AngularFireDatabase,
     private firestore : AngularFirestore,
     public user: UserService,
-    private modal: ModalController
+    private modal: ModalController,
+    public loadingC: LoadingController
   ){ 
 
     }
@@ -71,7 +73,6 @@ export class CriarPage implements OnInit {
              const res = await this.afAuth.createUserWithEmailAndPassword(email , password)
              console.log(res)
              var iduser = res.user.uid
-             this.showalert("Sucess!" , "Bem vindo")
              this.firestore.collection("users").doc(`${res.user.uid}`).set({
               username , iduser ,imgUser
              })
@@ -80,7 +81,6 @@ export class CriarPage implements OnInit {
               })
               this.enviaremaildeverific()
               this.user.updateProfile( imgUser , username)
-              this.showmodalTutoria()
              
          }catch(error) {
            if(error.code == "auth/weak-password" ){
@@ -121,16 +121,36 @@ export class CriarPage implements OnInit {
     
      }
 
-    async javerifiquei(){
-      const foi = (await this.afAuth.currentUser).emailVerified
-      if (foi){
-        this.route.navigate([ './home' ])
+     
+     async presentLoading(){
+      this.loading = await this.loadingC.create({
+         cssClass: 'my-custom-class',
+         message: 'Espere um momento...',
+         duration: 2000
+       });
+       await this.loading.present();
       }
+
+     async javerifiquei(){ 
+      this.presentLoading()
+      const foi = (await this.afAuth.currentUser)
+      foi.reload()
+      setTimeout(() => {
+        console.log("RELOAD")
+        var dd = foi.emailVerified
+        console.log(dd ,"email verified na criar user")
+        if (dd == true){
+          this.showmodalTutoria()
+          this.route.navigate([ './home' ])
+          this.showalert("Sucesso!" , "Bem vindo")
+        }
+      
+      }, 3500);
+     
     }
      async enviaremaildeverific(){
      (await this.afAuth.currentUser).sendEmailVerification()
       
       this.jalogs()
-      this.javerifiquei()
     }
     }

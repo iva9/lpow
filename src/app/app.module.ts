@@ -14,6 +14,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule  } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard'
 
 
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
@@ -61,6 +62,7 @@ import { SocialSharing  } from "@ionic-native/social-sharing/ngx"
       AngularFirestoreModule,
       AngularFireModule.initializeApp(environment.firebaseConfig),
       AngularFireStorageModule,
+      AngularFireAuthGuardModule,
       AngularFireDatabaseModule,   
       ReactiveFormsModule,
       HomePageModule,

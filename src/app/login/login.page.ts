@@ -38,7 +38,8 @@ async login (){
          uid: res.user.uid,
          foto : res.user.photoURL,
       })
-      this.emailverificado()  
+      this.showalert('' ,'Login com sucesso' )
+      this.router.navigate([ './home' ])
   
     }
   }catch(err){

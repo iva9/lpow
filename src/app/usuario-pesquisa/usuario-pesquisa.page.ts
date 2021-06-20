@@ -124,13 +124,14 @@ export class UsuarioPesquisaPage implements OnInit {
         handler: () => {
        this.denuncia()
         }
-      }, {
-        text: 'ligar notificações',
-        icon: 'notifications',
-        handler: () => {
+      }, //{
+       // text: 'ligar notificações',
+       // icon: 'notifications',
+       // handler: () => {
 
-        }
-      }, {
+        //}
+     // }
+       {
         text: 'Sair',
         role: 'destructive',
         icon: 'log-out',

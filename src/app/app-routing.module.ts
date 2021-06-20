@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import {  RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard';
-import { GuardGuard } from './login/guard.guard';
-import { SimpleLoadingStrategy } from './selective-loading-strategy.service'
 
+import { SimpleLoadingStrategy } from './selective-loading-strategy.service'
+import { AngularFireAuthGuard  ,redirectUnauthorizedTo, redirectLoggedInTo  } from '@angular/fire/auth-guard'
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['criar-user']);
+const redirectLoggedInToItems = () => redirectLoggedInTo(['home']);
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home',
@@ -11,8 +13,8 @@ const routes: Routes = [
     {
       path: '',
       loadChildren: () =>
-        import('./home/home.module').then( m => m.HomePageModule) , canActivate : [AuthGuard],
-        data: {preload: true}    
+        import('./home/home.module').then( m => m.HomePageModule) ,canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
+      //  data: {preload: true}    
       }
     ]   
   },
@@ -22,8 +24,8 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-        import('./perfil/perfil.module').then( m => m.PerfilPageModule),
-        data: {preload: true}
+        import('./perfil/perfil.module').then( m => m.PerfilPageModule), canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin },
+       // data: {preload: true}
       }
     ]
   }, 
@@ -47,7 +49,7 @@ const routes: Routes = [
 },
   {
     path: 'criar-user',
-    loadChildren: () => import('./criar-user/criar-user.module').then( m => m.CriarUserPageModule)
+    loadChildren: () => import('./criar-user/criar-user.module').then( m => m.CriarUserPageModule) , canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToItems}
   },
   {
     path: 'criar',
@@ -55,7 +57,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule) , canActivate : [GuardGuard]
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule) , 
   },
   {
     path: 'eventomodal',

@@ -33,7 +33,7 @@
         </ion-infinite-scroll>
       </div>
     </ion-slide>
-    <ion-slide *ngIf="cidadesDoUsuario">
+    <ion-slide *ngIf="cidade.length > 0">
       <div>
         <a class="a">{{ cidadesDoUsuario }}</a>
         <ion-card *ngFor="let evento of cidade" class="card">

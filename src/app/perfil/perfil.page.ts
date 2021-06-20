@@ -209,7 +209,7 @@ export class PerfilPage implements OnInit {
   });    setTimeout(() => {  
   }, 3500);
   this.route.navigate(['/criar-user'])
-  this.loading.dismiss()
+  this.loadingC.dismiss()
   }
  
 
