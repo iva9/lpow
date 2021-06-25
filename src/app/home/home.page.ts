@@ -123,8 +123,8 @@ export class HomePage {
     //})
   }
   async ionViewDidEnter() {
-    await this.SimpleLoad.preloadRoute('pesquisar');
-    await this.SimpleLoad.preloadRoute('perfil');
+    await this.SimpleLoad.preloadRoute('/pesquisar');
+    await this.SimpleLoad.preloadRoute('/perfil');
     console.log("did enter __________________")
   }
 
@@ -290,10 +290,10 @@ export class HomePage {
   
   listaonline() {
     if (this.ordenarpor == true){
-      this.eventoOnline = this.firestore.collection('eventos', ref => ref.where('online', '==', `online`).where('passado', '==', false).orderBy('dia', 'asc').limit(1))
+      this.eventoOnline = this.firestore.collection('eventos', ref => ref.where('online', '==', `online`).where('passado', '==', false).orderBy('dia', 'asc').limit(2))
     }
     if(this.ordenarpor == false){
-    this.eventoOnline = this.firestore.collection('eventos', ref => ref.where('online', '==', `online`).where('passado', '==', false).orderBy('UPnum', 'desc').limit(1))}
+    this.eventoOnline = this.firestore.collection('eventos', ref => ref.where('online', '==', `online`).where('passado', '==', false).orderBy('UPnum', 'desc').limit(2))}
     return this.eventoOnline.get().subscribe(coisas => {
       coisas.forEach(o => {
         const data = o.data()
@@ -544,8 +544,6 @@ export class HomePage {
 
   //  }
   ngOnDestroy() {
-    
-
     console.log('_________________destruiu home ______________')
     // concertando bug troca de ordem
     this.cidade3 = new Array<any>(); //2° da cidade

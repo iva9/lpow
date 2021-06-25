@@ -1,21 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title *ngFor="let evento of eventodb" size="large" class="centertt">{{ evento.nome }}</ion-title>
+    <ion-title  *ngIf="pode" size="large" class="centertt">{{ eventodb.nome }}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="pesquisar" text=""></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div *ngFor="let evento of eventodb">
-    <ion-card *ngFor="let evento of eventodb" class="card">
-      <img class="imagem" [src]="evento.url" />
+<ion-content  *ngIf="pode">
+  <div>
+    <ion-card class="card">
+      <img class="imagem" [src]="eventodb.url" />
     </ion-card>
     <ion-list lines="none">
       <ion-item >
-        <ion-button size="small"color="primary" (click)="UP()" slot="start">UP</ion-button>
-        {{ evento.UPnum }}
+        <ion-button size="small"color="primary"  [disabled]="jadeuUP" (click)="UP()" slot="start">UP</ion-button>
+        {{ eventodb.UPnum }}
     </ion-item>
     <ion-item > 
         <ion-icon  size="large" name="chatbubble-sharp" slot="start"></ion-icon>
@@ -23,19 +23,19 @@
     </ion-item>
       <ion-item>
         <ion-icon name="calendar-outline" item-start></ion-icon>
-        <h2 class="com"> {{ evento.dia }} </h2>
+        <h2 class="com"> {{ eventodb.dia }} </h2>
       </ion-item>
       <ion-item (click)="redirectlink()">
         <ion-icon name="globe-outline"></ion-icon>
         <h2 class="com">Link</h2>
       </ion-item>
-      <ion-item *ngIf="evento.local" (click)="redirectmap()">
+      <ion-item *ngIf="eventodb.local" (click)="redirectmap()">
         <ion-icon name="location-sharp" size="large"></ion-icon>
-        <h2 class="com">{{ evento.local.description }}</h2>
+        <h2 class="com">{{ eventodb.local.description }}</h2>
       </ion-item>
       <ion-item (click)="redirectUser()">
         <ion-icon name="person-sharp"></ion-icon>
-        <h2 class="com">{{ evento.userID[1] }}</h2>
+        <h2 class="com">{{ eventodb.userID[1] }}</h2>
       </ion-item>
     </ion-list>
   </div>

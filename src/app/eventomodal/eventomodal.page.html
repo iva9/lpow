@@ -11,7 +11,7 @@
   </ion-card>
   <ion-list lines="none" no-lines>
     <ion-item >
-        <ion-button size="small"color="primary" (click)="UP()" slot="start">UP</ion-button>
+        <ion-button size="small"color="primary"  [disabled]="jadeuUP" (click)="UP()" slot="start">UP</ion-button>
         {{ UPnum }}
     </ion-item>
     <ion-item > 
@@ -26,7 +26,7 @@
       <ion-icon name="globe-outline"></ion-icon>
       <h2 class="com">Link</h2>
     </ion-item>
-    <ion-item  *ngIf="x" (click)="redirectmap()">
+    <ion-item  *ngIf="description" (click)="redirectmap()">
       <ion-icon name="location-sharp" size="large"></ion-icon>
       <h2 class="com">{{ x.local.description }}</h2>
     </ion-item>

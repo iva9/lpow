@@ -23,8 +23,10 @@ export class EventoPesquisaPage implements OnInit {
 eventoID;
 lugaresdocomentario;
 coments;
+pode : boolean = false
 imgus;
 numcoments = 0;
+jadeuUP : boolean = true
 m
 private evento : AngularFirestoreCollection
 eventodb;
@@ -49,17 +51,8 @@ constructor(
     private iab : InAppBrowser,)
  { 
   this.eventoID = this.route.snapshot.paramMap.get('chave')
-  console.log(this.eventoID, 'ali')
-  this.getevento().subscribe(data => {
-    this.eventodb = data;
-    moment.locale('pt-BR')
-    this.m = moment(this.eventodb[0].dia).format('ddd DD MMM  - HH:mm')
-    this.eventodb[0].dia = this.m
-    this.getComent(this.eventodb[0].id)
-    this.lugardocomentario =this.Firebase.database.ref(`coments/${this.eventodb[0].id}`)
-    this.user()
-  })
-}
+  this.getevento(this.eventoID)
+ }
 
 ngOnInit() { 
 
@@ -70,23 +63,38 @@ async user(){
   this.imgus  = res.photoURL
   this.iduser = res.uid
 }
-redirectUser(){
-  this.router.navigate(['/usuario-pesquisa/' + this.eventodb[0].userID[1]])
+
+jaUpou(){
+  if(this.eventodb.up.includes(this.iduser)){
+    this.jadeuUP = true
+  }
 }
-getevento(){
-  this.evento = this.firestore.collection('eventos', ref => ref.where('chave2','==',`${this.eventoID}`)) // Firestore evento
-  return this.evento.snapshotChanges().pipe(
-    map(actions => {
-      return actions.map(b => {
-        const data = b.payload.doc.data();
-      
-        return {  ...data };
-      });
-    })
-  );
+redirectUser(){
+  this.router.navigate(['/usuario-pesquisa/' + this.eventodb.userID[1]])
+}
+getevento(tt){
+  //refazer
+
+  this.evento = this.firestore.collection('eventos', ref => ref.where('chave2','==',`${tt}`)) // Firestore evento
+  return this.evento.get().subscribe(coisas => {
+    coisas.forEach(b => {
+      const data = b.data()
+      const id = b.id
+      moment.locale('pt-BR')
+      this.m = moment(data.dia).format('ddd DD MMM - HH:mm')
+      data.dia = this.m
+      this.eventodb = { id,... data}
+      this.getComent(this.eventodb.id)
+      this.jaUpou()
+      console.log(this.eventodb)
+      this.pode = true
+    }
+    )
+  }
+  )
 }
 redirectlink(){
- const browser =  this.iab.create(`https://${this.eventodb[0].ingresso}`,'_system',{location :'no'})
+ const browser =  this.iab.create(`https://${this.eventodb.ingresso}`,'_system',{location :'no'})
 
 browser.on('loadstop').subscribe(event => {
    browser.insertCSS({ code: "body{color: red;" });
@@ -95,7 +103,7 @@ browser.on('loadstop').subscribe(event => {
 browser.close();
 }
 redirectmap(){
- const map = this.iab.create(`https://www.google.com/maps/search/?api=1&query=${this.eventodb[0].local.description}`,'_system')
+ const map = this.iab.create(`https://www.google.com/maps/search/?api=1&query=${this.eventodb.local.description}`,'_system')
  
  map.on('loadstop').subscribe(event => {
   map.insertCSS({ code: "body{color: red;" });
@@ -132,16 +140,20 @@ getComent(x){
    }
 
     async  UP(){
+      this.jadeuUP = true
       const res = await this.auth.currentUser
-      if(this.eventodb[0].up.includes(this.iduser)){
+      if(this.eventodb.up.includes(this.iduser)){
         return this.showalert("Ops!", "Você ja deu UP nesse evento")
         
       }
-      this.upReference  = this.firestore.doc(`eventos/${this.eventodb[0].id}`)
+      else{
+      this.upReference  = this.firestore.doc(`eventos/${this.eventodb.id}`)
       this.upReference.update( {
         up : firebase.firestore.FieldValue.arrayUnion(res.uid),
         UPnum: firebase.firestore.FieldValue.increment(1)
       })
+      this.eventodb.UPnum +=  1
+    }
      } 
      async showalert(header : string , message: string){
       const alert = await  this.alert.create({
@@ -152,6 +164,6 @@ getComent(x){
       await alert.present() 
     }
     Compartilhar(){
-      this.router.navigate(['/share/' + this.eventodb[0].chave2])
+      this.router.navigate(['/share/' + this.eventodb.chave2])
      }
 }

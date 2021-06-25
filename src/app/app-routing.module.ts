@@ -9,36 +9,28 @@ const redirectLoggedInToItems = () => redirectLoggedInTo(['home']);
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home',
-  children: [
-    {
-      path: '',
+  
       loadChildren: () =>
-        import('./home/home.module').then( m => m.HomePageModule) ,canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
-      //  data: {preload: true}    
-      }
-    ]   
+        import('./home/home.module').then( m => m.HomePageModule) ,canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin , preload: true }
+  
   },
   {
     path: 'perfil',
-    children: [
-      {
-        path: '',
+    
         loadChildren: () =>
-        import('./perfil/perfil.module').then( m => m.PerfilPageModule), canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin },
-       // data: {preload: true}
-      }
-    ]
+        import('./perfil/perfil.module').then( m => m.PerfilPageModule), canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin  , preload : true},
+      
+      
+   
   }, 
   {
     path: 'pesquisar',
-    children: [
-      {
-        path: '',
+   
+    
         loadChildren: () =>
         import('./pesquisar/pesquisar.module').then( m => m.PesquisarPageModule),
         data: {preload: true}
-      }
-    ]
+  
   },
   
   

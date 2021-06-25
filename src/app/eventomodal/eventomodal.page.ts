@@ -23,13 +23,15 @@ export class EventomodalPage implements OnInit {
   num  = 30
   updateReference;
   denunciaReference;
-  nome;
+  nome; 
+  jadeuUP : boolean = true
   numcoments = 0;
   newlocal;
   dado : Array<object> = []
   lugardocomentario;
   comentario : string = ""
    coments;
+   description:boolean = false
    iduser
    userIDCOMENT
    numTimesLeft = 2;
@@ -63,6 +65,10 @@ export class EventomodalPage implements OnInit {
      this.iduser = res.uid
      this.getComent()
      this.UPnum = this.x.UPnum
+     if(this.x.local){
+       this.description = true
+     }
+
   }
 criandomodal(evento){
   this.x = evento
@@ -86,6 +92,9 @@ async setcoment(){
   this.lugardocomentario.push(this.ComentSet)
 }
 }
+
+
+
 getComent(){
   this.lugaresdocomentario = this.Firebase.list(`coments/${this.x.id}`, ref => ref.limitToFirst(this.num));
 this.lugaresdocomentario.valueChanges().subscribe(
@@ -94,6 +103,7 @@ this.lugaresdocomentario.valueChanges().subscribe(
   }) 
 }
 async  UP(){
+  this.jadeuUP = true
   const res = await this.auth.currentUser
   if(this.x.up.includes(this.iduser)){
     return this.showalert("Ops!", "Você ja deu UP nesse evento")
@@ -105,8 +115,15 @@ async  UP(){
       up : firebase.firestore.FieldValue.arrayUnion(res.uid),
       UPnum: firebase.firestore.FieldValue.increment(1)
     })
+    this.x.UPnum +=  1
   }
  
+  jaUpou(){
+    if(this.x.up.includes(this.iduser)){
+      this.jadeuUP = true
+    }
+  }
+   
   
 redirectmap(){
   this.iab.create(`https://www.google.com/maps/search/?api=1&query=${this.x.local.description}`,'_system')

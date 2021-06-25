@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild,Inject } from '@angular/core';
-import { NavParams , ModalController } from '@ionic/angular';
+import { NavParams , ModalController, LoadingController } from '@ionic/angular';
 import { AngularFireAuth} from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireDatabase } from '@angular/fire/database'
@@ -24,7 +24,7 @@ export class EditarModalPage implements OnInit {
     img;
     url
     newUsername = ''
- 
+    loading
     coisas : Data[];
     private eventocidade: AngularFirestoreCollection;
     public cidade = new Array<any>();
@@ -42,6 +42,7 @@ export class EditarModalPage implements OnInit {
   private firestore : AngularFirestore,
   public alert: AlertController,
   private navparams : NavParams,
+  private loadingC : LoadingController,
   private firebase : AngularFireDatabase,
   private route : Router
   ) {
@@ -68,7 +69,18 @@ export class EditarModalPage implements OnInit {
   writeUserData( ){
     this.fileButton.nativeElement.click()
  }
+
+ async presentLoading(){
+  this.loading = await this.loadingC.create({
+     cssClass: 'my-custom-class',
+     message: 'Espere um momento...',
+     duration: 2000
+   });
+   await this.loading.present();
+  }
+
 async editar(){
+  this.presentLoading()
   const todosnomes = this.items
   const osnomes = this.newUsername.toLowerCase()
   if (!this.selectedImage && !this.newUsername){
@@ -103,8 +115,8 @@ async editar(){
         this.user.updateProfile(this.url , this.newUsername)
     }} ) }
           
-          this.route.navigate(['/home'])
           this.close()
+          this.loadingC.dismiss()
           } 
 criandomodal(){}
 

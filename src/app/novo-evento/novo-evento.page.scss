@@ -49,12 +49,13 @@
  .imag{
   height: 100%;
   width: 100%;
+  object-fit: cover;
  }
  .ma{
    margin-left: 1em;
  }
  .card{
-  height: 17.5em ;
+  max-height: 18em ;
   align-content: center;;
   background:rgba(92, 92, 92, 0.473);
   color: white;

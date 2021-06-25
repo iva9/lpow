@@ -65,11 +65,12 @@ export class PerfilPage implements OnInit {
     public eventModal : EventomodalPage,
     
     ) {
-      this.dadosperfil()
+  
   
    }
-
-  async ngOnInit() {
+  async ionViewDidEnter() {
+    this.dadosperfil()
+    //bug entrar com outra conta
     const res = await this.afAuth.currentUser
     this.usuario = res.uid
     this.getDataFromFire();
@@ -77,6 +78,12 @@ export class PerfilPage implements OnInit {
     this.criados = this.user.w
     this.user.listadeup(res.uid)
     this.ups = this.user.y
+
+  }
+  async ngOnInit() {
+    const res = await this.afAuth.currentUser
+    this.usuario = res.uid
+    this.getDataFromFire();
   }
 
   async presentActionSheet() {
@@ -208,6 +215,7 @@ export class PerfilPage implements OnInit {
     // An error happened.
   });    setTimeout(() => {  
   }, 3500);
+  this.ngOnDestroy()
   this.route.navigate(['/criar-user'])
   this.loadingC.dismiss()
   }
@@ -282,6 +290,17 @@ export class PerfilPage implements OnInit {
         })
         this.afd.database.ref(`eventDetails/${evento.chave2}`).remove()
           console.log(evento.id)
+
+        this.showalert("Excluido!" , "O evento irá desaparecer em instantes.")
+        }
+
+        async showalert(header : string , message: string){
+          const alert = await  this.alertController.create({
+            header,
+            message,
+            buttons: ["Ok"]
+          })
+          await alert.present() 
         }
 
         ngOnDestroy(){
@@ -290,7 +309,23 @@ export class PerfilPage implements OnInit {
           this.user.w2 = []
           this.user.y = []
           this.user.w2 = []
+          this.criados = []
+          this.criados2 = []
+          this.ups = []
+          this.ups2 = []
         }  
+
+        async ionViewDidLeave() {
+
+          this.user.w = []
+          this.user.w2 = []
+          this.user.y = []
+          this.user.w2 = []
+          this.criados = []
+          this.criados2 = []
+          this.ups = []
+          this.ups2 = []
+        }
 
      }
     
