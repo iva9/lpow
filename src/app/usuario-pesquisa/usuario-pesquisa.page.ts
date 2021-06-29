@@ -72,6 +72,7 @@ export class UsuarioPesquisaPage implements OnInit {
     this.userID = this.route.snapshot.paramMap.get('uid')
     this.getUser(this.userID).subscribe(data => {
       this.userrr = data;
+      console.log(data)
     })
     console.log(this.userID)
     this.listadeup(this.userID)

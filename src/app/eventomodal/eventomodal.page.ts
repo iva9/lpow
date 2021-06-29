@@ -90,6 +90,7 @@ async setcoment(){
     UID : this.iduser
   }
   this.lugardocomentario.push(this.ComentSet)
+  this.comentario = ""
 }
 }
 

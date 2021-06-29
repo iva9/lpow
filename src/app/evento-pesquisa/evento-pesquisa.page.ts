@@ -24,6 +24,7 @@ eventoID;
 lugaresdocomentario;
 coments;
 pode : boolean = false
+nome
 imgus;
 numcoments = 0;
 jadeuUP : boolean = true
@@ -59,9 +60,10 @@ ngOnInit() {
  }
 
 async user(){
-  const res =await this.auth.currentUser
+  const res = await this.auth.currentUser
   this.imgus  = res.photoURL
   this.iduser = res.uid
+  this.nome = res.displayName
 }
 
 jaUpou(){
@@ -85,6 +87,7 @@ getevento(tt){
       data.dia = this.m
       this.eventodb = { id,... data}
       this.getComent(this.eventodb.id)
+      this.lugardocomentario =this.Firebase.list(`coments/${this.eventodb.id}`, ref => ref.limitToLast(75));
       this.jaUpou()
       console.log(this.eventodb)
       this.pode = true
@@ -112,14 +115,16 @@ redirectmap(){
  map.close();
 }
 async setcoment(){
+  this.user()
   const res =await this.auth.currentUser
   this.ComentSet ={
-    img : res.photoURL,
-    username : res.displayName,
+    img : this.imgus,
+    username : this.nome,
     comentarioU : this.comentario,
     UID : this.iduser
   }
   this.lugardocomentario.push(this.ComentSet)
+  this.comentario = ""
 }
 getComent(x){
   this.lugaresdocomentario =this.Firebase.list(`coments/${x}`, ref => ref.limitToLast(75));

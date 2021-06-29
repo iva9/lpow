@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home" text="" class="margin"></ion-back-button>
+      <ion-back-button defaultHref="home" text="" class="margin" (click)="voltar()"></ion-back-button>
     </ion-buttons>
     <ion-searchbar class="searchbar" placeholder="Eventos" [(ngModel)]="queryText" (ionInput)="filterEvento($event)" clearInput>
     </ion-searchbar>

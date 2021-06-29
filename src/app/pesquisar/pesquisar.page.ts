@@ -22,7 +22,8 @@ export class PesquisarPage implements OnInit {
   eventoID;
   eventos;
 
-  constructor( public fd :  AngularFireDatabase , private auth : AngularFireAuth , private firestore : AngularFirestore, private router : Router) { 
+  constructor( public fd :  AngularFireDatabase ,
+     private auth : AngularFireAuth , private firestore : AngularFirestore, private router : Router) { 
     this.queryText ='';
     console.log("pré LoAD")
 
@@ -63,6 +64,9 @@ export class PesquisarPage implements OnInit {
 }
 
 
+voltar(){
+  this.router.navigate(['./home'])
+}
 
 pesq(evento){
   this.eventoID = evento.chave

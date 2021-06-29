@@ -156,6 +156,10 @@ export class PerfilPage implements OnInit {
   orderBy(){
     this.user.ordenar(this.usuario , this.perfilUP)
    }
+
+   voltar(){
+    this.route.navigate(['./home'])
+  }
   
    async showmodalTutorial(){
     const modal = await this.modalCtrl.create({

@@ -15,6 +15,7 @@ import { TutorialPage } from '../tutorial/tutorial.page';
 })
 export class CriarPage implements OnInit {
   public loading: any
+  arraydenomes = new Array<any>();
   username: string = ""
   abrir: boolean = false;
   items ;
@@ -49,24 +50,31 @@ export class CriarPage implements OnInit {
     }
     trataDados(dados){
       this.items = Object.keys(dados).map(i => dados[i])  
-      console.log(this.items)
+      for (const key in this.items) {
+       this.arraydenomes.push(this.items[key].username.username)
+      }
+      
 
        } 
       async register(){
+        this.presentLoading()
         const todosnomes = this.items
         const osnomes = this.username.toLowerCase()
         const {username, email , password ,cpassword } = this 
         var imgUser = "https://firebasestorage.googleapis.com/v0/b/oreon-4bfc2.appspot.com/o/profile.png?alt=media&token=3ac5e17d-8119-46e5-9a20-e2e8d1080b18"
         username.toLowerCase()
         if ( !username ){
-         this.showalert("Erro" ,"insira nome de usuario")
+          this.loadingC.dismiss()
+        return this.showalert("Erro" ,"insira nome de usuario")
          
        }      
-        if( todosnomes.some( nome => (nome.username.username == osnomes)) ){
+        if( this.arraydenomes.includes(osnomes)){
+            this.loadingC.dismiss()
            return this.showalert("Erro" ,"nome ja existente")
          
          }
         if (password !== cpassword ){
+            this.loadingC.dismiss()
             return   this.showalert("Erro" ,"senhas diferentes")
           }
           try{
@@ -84,16 +92,21 @@ export class CriarPage implements OnInit {
              
          }catch(error) {
            if(error.code == "auth/weak-password" ){
+            this.loadingC.dismiss()
             return this.showalert("Senha Fraca" , "Senha deve ter no mínimo 6 caracteres")
            }
            if(error.code == "auth/invalid-email" ){
+            this.loadingC.dismiss()
             return this.showalert("Erro" , "Email invalido")
            }
            if(error.code == "auth/email-already-in-use" ){
-          return   this.showalert("Erro" , "Email ja em uso")
+            this.loadingC.dismiss()
+            return   this.showalert("Erro" , "Email ja em uso")
+            
            }
       
          }
+         this.loadingC.dismiss()
         
     }
      async showalert(header : string , message: string){
@@ -108,6 +121,11 @@ export class CriarPage implements OnInit {
      abriu(){
       this.abrir = !this.abrir
     }
+
+    voltar(){
+      this.route.navigate(['./criar-user'])
+    }
+
     jalogs(){
       this.jalogado = true
     }
@@ -143,6 +161,10 @@ export class CriarPage implements OnInit {
           this.showmodalTutoria()
           this.route.navigate([ './home' ])
           this.showalert("Sucesso!" , "Bem vindo")
+        }
+        if (dd == false){
+          
+          this.showalert("Ops!" , "Tente novamente em instantes")
         }
       
       }, 3500);
