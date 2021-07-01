@@ -3,7 +3,7 @@
   <ion-toolbar>
     <ion-title *ngIf="perfilnome"class="title" size="large">{{ perfilnome }}</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button routerLink="/perfil" (click)="voltar()" text="" ></ion-back-button>
+      <ion-back-button defaultHref="home" (click)="voltar()" text="" ></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end" (click)="presentActionSheet()">
       <ion-icon name="menu-outline" size="large"></ion-icon>

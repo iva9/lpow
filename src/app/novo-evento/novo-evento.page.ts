@@ -114,6 +114,8 @@ export class NovoEventoPage implements OnInit {
 }
 Online(){
   this.presenca = false
+  this.local = null
+  this.lugar = null
   this.next()
 }
 
