@@ -124,6 +124,7 @@ async name(){
   this.usuario = res
 }
   save(){
+    if (this.presenca == true){
     this.presentLoading()
     if(this.nome == null){
       return  this.showalert("Erro " , "Nome do evento é Obrigatório")
@@ -162,6 +163,38 @@ async name(){
       ).subscribe();
       this.loading.dismiss()
       this.showalert("Evento " , "Publicado com sucesso")
+    }
+    if (this.presenca == false) {
+      this.presentLoading()
+    if(this.nome == null){
+      return  this.showalert("Erro " , "Nome do evento é Obrigatório")
+    }
+    if(this.selectedImage == null){
+      return  this.showalert("Erro " , "Imagem do evento é Obrigatório")
+    }
+    if(this.dia == null){
+      return  this.showalert("Erro " , "Data de ínicio do evento é Obrigatório")
+    }
+    if(this.fim == null){
+      return  this.showalert("Erro " , "Data de fim do evento é Obrigatório")
+    }
+    if(this.link == null){
+      return  this.showalert("Erro " , "Link do evento é Obrigatório")
+    }
+    var name = this.selectedImage.name;
+    const fileRef = this.storage.ref(name);
+    this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(
+      finalize(() => {
+        fileRef.getDownloadURL().subscribe((url) => {
+          this.url = url;
+          this.eventoService.insertOnline(this.nome,this.url, this.link, this.dia,this.fim);                   
+        })
+      })
+    ).subscribe();
+    this.loading.dismiss()
+    this.showalert("Evento " , "Publicado com sucesso")
+
+    }
   }
   imagepicker(){
     console.log("chamou")

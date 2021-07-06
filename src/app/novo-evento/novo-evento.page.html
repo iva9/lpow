@@ -57,12 +57,23 @@
       <ion-button class="btn2"  shape="round" (click)="novaData()"> Ok </ion-button>
     </ion-slide>
 
-    <ion-slide>
+    <ion-slide *ngIf="presenca">
       <h2 class="th2">O link </h2>
       <ion-list class="fundo">
         <ion-item  lines="none" class="itemm">
           <ion-input  #myinput enterkeyhint="done" placeholder="https:"  type="url" [(ngModel)]="ingresso" ></ion-input>
           <ion-button   color="primary"(click)="next()"  [disabled]="!ingresso"> Confirmar
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide  *ngIf="!presenca">
+      <h2 class="th2">O link </h2>
+      <ion-list class="fundo">
+        <ion-item  lines="none" class="itemm">
+          <ion-input  #myinput enterkeyhint="done" placeholder="https:"  type="url" [(ngModel)]="link" ></ion-input>
+          <ion-button   color="primary"(click)="next()"  [disabled]="!link"> Confirmar
           </ion-button>
         </ion-item>
       </ion-list>
@@ -96,6 +107,10 @@
           <h6 class="ma">{{ dia2 }}</h6>
         </ion-item>
         <ion-item *ngIf="ingresso" class="item1">
+          <ion-icon name="globe-outline"></ion-icon>
+          <h6 class="ma">Link</h6>
+        </ion-item>
+        <ion-item *ngIf="link" class="item1">
           <ion-icon name="globe-outline"></ion-icon>
           <h6 class="ma">Link</h6>
         </ion-item>
