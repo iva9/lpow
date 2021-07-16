@@ -141,6 +141,10 @@ async name(){
     if(this.local == null){
       return  this.showalert("Erro " , "Local do evento é Obrigatório")
     }
+    if(this.ingresso == null){
+      console.log(this.ingresso)
+      return  this.showalert("Erro " , "Link do evento é Obrigatório, caso o evento não possua link de ingresso use o link de perfil do instagram do evento ou do produtor.")
+    }
       var name = this.selectedImage.name;
       const fileRef = this.storage.ref(name);
       this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(
@@ -150,7 +154,9 @@ async name(){
             
             this.eventoService.insertImageDetails(this.nome,this.url, this.ingresso, this.dia,this.fim, this.local ,this.lugar);
             if( this.items.some( cidade => (cidade.lugar == this.lugar)) ){
-              return console.log("cidade" ,"ja existente")
+               console.log("cidade" ,"ja existente")
+               this.loading.dismiss()
+               this.showalert("Evento " , "Publicado com sucesso")
             } else {
               var lugar = this.lugar
               this.firebase.list('cidades').push({
@@ -187,12 +193,13 @@ async name(){
       finalize(() => {
         fileRef.getDownloadURL().subscribe((url) => {
           this.url = url;
-          this.eventoService.insertOnline(this.nome,this.url, this.link, this.dia,this.fim);                   
+          this.eventoService.insertOnline(this.nome,this.url, this.link, this.dia,this.fim);  
+          this.loading.dismiss()
+          this.showalert("Evento " , "Publicado com sucesso")                 
         })
       })
     ).subscribe();
-    this.loading.dismiss()
-    this.showalert("Evento " , "Publicado com sucesso")
+  
 
     }
   }
@@ -262,12 +269,21 @@ async showalert(header : string , message: string){
    const info : any = await  Geocoder.geocode( {address: this.destnation.description } );
     this.lugar = info[0].subAdminArea;
     if (info[0].adminArea == "Distrito Federal"){
-      this.lugar = "Brasilia"
+      this.lugar = "Brasília"
     }
-    if (this.lugar != "Brasilia" || "Rio de Janeiro" || "São Paulo"){
-      this.lugar , this.local = ""
-      return this.showalert("Ops!" , "O Oreon só esta disponivel em Brasilia, Rio de Janeiro e São paulo")
+    if (this.lugar == "Brasília"){
+      console.log("ok")
     }
+    else if(this.lugar == "Rio de Janeiro"){
+      console.log("ok")
+    }
+    else if(this.lugar == "São Paulo"){
+      console.log("ok")
+    }
+    else{
+        this.lugar , this.local = ""
+        return this.showalert("Ops!" , "O Oreon só esta disponivel em Brasília, Rio de Janeiro e São paulo")
+      }
     console.log(this.lugar)
     return this.local , this.lugar ;   
   }

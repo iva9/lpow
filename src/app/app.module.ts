@@ -53,6 +53,7 @@ import { ProximoEventoPageModule } from './eventos-do-usuario/proximo-evento.mod
 import { ProximoEventoPage } from './eventos-do-usuario/proximo-evento.page';
 import { PesquisarPage } from './pesquisar/pesquisar.page';
 import { SocialSharing  } from "@ionic-native/social-sharing/ngx"
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 @NgModule({
   declarations: [AppComponent, ],
   entryComponents: [  ],
@@ -94,6 +95,7 @@ import { SocialSharing  } from "@ionic-native/social-sharing/ngx"
     Screenshot,
     InAppBrowser,
     SocialSharing,
+    BackgroundMode,
     NavParams,
     ImagePicker,
     File,

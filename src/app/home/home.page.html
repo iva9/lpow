@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="tool">
-    <ion-title size="large" class="centertt" (click)="scrollTop()">Oreon</ion-title>
+    <ion-title size="large" class="centertt" (click)="tamanho()">Oreon</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +15,7 @@
           <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
-            <ion-card-title class="branco">{{ evento.nome }}</ion-card-title>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
             <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
           </ion-card-header>
         </ion-card>
@@ -23,11 +23,11 @@
           <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
-            <ion-card-title class="branco">{{ evento.nome }}</ion-card-title>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
             <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
           </ion-card-header>
         </ion-card>
-        <ion-infinite-scroll threshold="20%" (ionInfinite)="loadOnline($event)">
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadOnline($event)">
           <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
           </ion-infinite-scroll-content>
         </ion-infinite-scroll>
@@ -40,7 +40,7 @@
           <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
-            <ion-card-title class="branco">{{ evento.nome }}</ion-card-title>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
             <ion-badge item-end>
               {{ evento.UPnum }}</ion-badge>
           </ion-card-header>
@@ -49,12 +49,12 @@
           <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
-            <ion-card-title class="branco">{{ evento.nome }}</ion-card-title>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
             <ion-badge item-end>
               {{ evento.UPnum }}</ion-badge>
           </ion-card-header>
         </ion-card>
-        <ion-infinite-scroll threshold="20%" (ionInfinite)="loadcidade($event)">
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadcidade($event)">
           <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
           </ion-infinite-scroll-content>
         </ion-infinite-scroll>
@@ -69,7 +69,7 @@
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
             <ion-card-subtitle class="branco">{{ evento.lugar }}</ion-card-subtitle>
-            <ion-card-title class="branco">{{ evento.nome }}</ion-card-title>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
             <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
           </ion-card-header>
         </ion-card>
@@ -78,11 +78,11 @@
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
             <ion-card-subtitle class="branco">{{ evento.lugar }}</ion-card-subtitle>
-            <ion-card-title class="branco">{{ evento.nome }}</ion-card-title>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
             <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
           </ion-card-header>
         </ion-card>
-        <ion-infinite-scroll threshold="20%" (ionInfinite)="loadnacional($event)">
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadnacional($event)">
           <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
           </ion-infinite-scroll-content>
         </ion-infinite-scroll>

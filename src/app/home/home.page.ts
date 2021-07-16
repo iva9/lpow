@@ -21,6 +21,7 @@ import { SimpleLoadingStrategy } from '../selective-loading-strategy.service';
 import { PesquisarPage } from '../pesquisar/pesquisar.page';
 import { LoginPage } from '../login/login.page';
 import { CriarUserPage } from '../criar-user/criar-user.page';
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 
 
 
@@ -78,7 +79,7 @@ export class HomePage {
   lugardouser;
   lugar;
   ordenarpor = false; 
-
+  iduser
 
   provCid1  // array provisorio lisata cidade
   provNac1  // array provisorio lisata nacional
@@ -110,9 +111,13 @@ export class HomePage {
     public proxevent: ProximoEventoPage,
     private route: Router,
     private SimpleLoad: SimpleLoadingStrategy,
+    private backgroundMode: BackgroundMode
   ) {
 
     console.log(this.hjdia)
+    
+this.backgroundMode.disable() 
+
     // this.eventosSubscription = this.service.getEventos().subscribe(data => {
     //this.eventos = data;
     // for (const index in this.eventos) {
@@ -122,6 +127,7 @@ export class HomePage {
     // }
     //})
   }
+  
   async ionViewDidEnter() {
     await this.SimpleLoad.preloadRoute('/pesquisar');
     await this.SimpleLoad.preloadRoute('/perfil');
@@ -129,8 +135,17 @@ export class HomePage {
   }
 
   async ngOnInit() {
+    this.cidade3 = new Array<any>(); //2° da cidade
+    this.online = new Array<any>(); //1° do online
+    this.onlines = new Array<any>();//2° do online
+    this.nacional = new Array<any>(); //2° -> do nacional
+    this.nacionais = new Array<any>(); //1° -> dos nacionais
+    this.cidade = new Array<any>();//1° -> cidade
+
+   
     // ARRUMAR BUSCA NO NACIONAL (ESTA MOSTRANDO OS EVENTOS ONLINE TBM)
     const res = await this.authh.currentUser
+    this.iduser = res.uid
     console.log("nome : " , res.displayName)
     if (!res.emailVerified) {
       console.log(res.emailVerified, "emailverified")
@@ -141,20 +156,25 @@ export class HomePage {
     
   
 
+   
+     
     this.getcidadade(res.uid).subscribe(cit => {
       this.lugar = cit;
-      if (this.lugar) {
+      if (this.lugar ) {
         console.log(this.lugar)
         this.cidadesDoUsuario = this.lugar
         this.cidadedoUSER(this.cidadesDoUsuario)
+
       }
-      this.cidade = this.y
+      console.log("TAMANHO LENGHT ->",this.nacional.length)
+   
+      
      
       // -> Cidade do usuario e Cidade segment
     })
+    
+
   
-
-
   }
   perfil() {
     this.scrollTop()
@@ -196,9 +216,9 @@ export class HomePage {
   mudouacidade(newcitty) {
     this.cidade = new Array<any>()
     this.cidade3 = new Array<any>()
-    console.log(this.cidade ,"mudou a cidade", this.cidade3)
+    //console.log(this.cidade ,"mudou a cidade", this.cidade3)
     this.cidadedoUSER(newcitty)
-    console.log(this.cidade ,"mudou a cidade", this.cidade3)
+    //console.log(this.cidade ,"mudou a cidade", this.cidade3)
   }
 
   // função eventos de up por dia hoje  só no Oreon V2
@@ -227,7 +247,7 @@ export class HomePage {
   //}
 
   getcidadade(user) {
-    console.log("getcidade")
+    //console.log("getcidade")
     this.userDOC = this.firestore.collection(`users`, ref => ref.where('iduser', '==', `${user}`))
     return this.userDOC.snapshotChanges().pipe(
       map(actions => {
@@ -238,12 +258,17 @@ export class HomePage {
           if(this.ordenarpor == null){
             this.ordenarpor = false
           }
-          console.log(this.ordenarpor ," ----------------------")
+          //console.log(this.ordenarpor ," ----------------------")
+          if(this.nacionais.length == 0){
           this.eventosNacional = this.listanacional()//  ->  Nacional segment
           this.nacionais = this.w;
-      
-          this.eventosOnline = this.listaonline()
-          this.online = this.z//  ->  online segment      
+          }
+        
+          if(this.online.length == 0){
+            this.eventosOnline = this.listaonline()
+            this.online = this.z//  ->  online segment  
+            }
+           
           return data
         });
       })
@@ -254,9 +279,10 @@ export class HomePage {
   cidadedoUSER(dados) {
     this.cidade3 = []
     this.lugarsin = dados
+    if(this.cidade.length == 0){
     this.eventosdacidade = this.listadaciadade(dados)//((data) => { // evento service -> get cidade do usuario 
     this.cidade = this.y
-
+    }
   }
   listadaciadade(x) {
     if( this.ordenarpor == true){
@@ -271,7 +297,7 @@ export class HomePage {
         const data = b.data()
         const id = b.id
         if (data.fim < this.hjdia) {
-          console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
+          //console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
           this.passadostate = this.firestore.doc(`eventos/${id}`)
           this.passadostate.update({
             passado: true
@@ -283,9 +309,11 @@ export class HomePage {
         this.provCid1 = { id, ...data }
         this.y.push(this.provCid1)
         this.nextQueryAfter = b
+  
       })
 
     })
+    
   }
   
   listaonline() {
@@ -299,7 +327,7 @@ export class HomePage {
         const data = o.data()
         const id = o.id
         if (data.fim < this.hjdia) {
-          console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
+          //console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
           this.passadostate = this.firestore.doc(`eventos/${id}`)
           this.passadostate.update({
             passado: true
@@ -311,19 +339,28 @@ export class HomePage {
         this.provOnl1 = { id, ...data }
         this.z.push(this.provOnl1)
         this.nextQueryOnline = o
-      })
+     
     })
 
+  })
+}
+tamanho(){
+  if(this.nacionais.length == 4){
+  console.log("TAMANHO LENGHT ->",this.nacionais.length, this.nacionais)
   }
-
+  if(this.nacionais.length == 2){
+    console.log("esse" , this.iduser)
+    this.getcidadade(this.iduser)
+  }
+}
 
   listanacional() {
     if (this.ordenarpor == true){
-      console.log("true")
+      //console.log("true")
       this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('dia', 'asc').limit(2))
     }
     if (this.ordenarpor == false){
-      console.log("false")
+      //console.log("false")
     this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('UPnum', 'desc').limit(2))}
     return this.eventoNacional.get().subscribe(coisas => {
       coisas.forEach(n => {
@@ -342,25 +379,27 @@ export class HomePage {
         this.provNac1 = { id, ...data }
         this.w.push(this.provNac1)
         this.nextQuerynacional = n
+     
       })
     })
+
   }
 
   loadcidade(event) { // scroll down (Cidade)
     setTimeout(() => {
-      console.log();
+
       this.num = 2
       if (this.cidade.length >= 1) {
         this.eventosdacidade2 = this.listadaciadade2(this.cidadesDoUsuario)
       }
       event.target.complete();
-      console.log(this.cidade3, "cidade3")
+      //console.log(this.cidade3, "cidade3")
     }, 2000);
   }
 
   loadnacional(event) { // scroll down (nacional)
     setTimeout(() => {
-      console.log("chamei ele veio");
+      //console.log("chamei ele veio");
       this.num = 2
       if (this.nacionais.length >= 1) {
         this.eventosNacional2 = this.listanacional2()
@@ -373,7 +412,7 @@ export class HomePage {
   loadOnline(event) {
     // scroll down (Online)
     setTimeout(() => {
-      console.log();
+      //console.log();
       this.num = 2
       if (this.online.length >= 1) {
         this.eventosOnline2 = this.listaonline2()
@@ -395,7 +434,7 @@ export class HomePage {
         const data = a.data();
         const id = a.id;
         if (data.fim < this.hjdia) {
-          console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
+          //console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
           this.passadostate = this.firestore.doc(`eventos/${id}`)
           this.passadostate.update({
             passado: true
@@ -424,7 +463,7 @@ export class HomePage {
   }
 
   listanacional2() {
-    console.log("nacional chamado")
+    //console.log("nacional chamado")
     if (this.ordenarpor == true){
       this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('dia', 'asc').startAfter(this.nextQuerynacional).limit(1))
     }
@@ -454,7 +493,7 @@ export class HomePage {
           })
         //não repete eventos (bug)
         this.nacional = uniqueAddressesNac
-        console.log(this.nacional)
+        //console.log(this.nacional)
 
         return { id, ...data };
       })
@@ -544,7 +583,7 @@ export class HomePage {
 
   //  }
   ngOnDestroy() {
-    console.log('_________________destruiu home ______________')
+    //console.log('_________________destruiu home ______________')
     // concertando bug troca de ordem
     this.cidade3 = new Array<any>(); //2° da cidade
     this.online = new Array<any>(); //1° do online

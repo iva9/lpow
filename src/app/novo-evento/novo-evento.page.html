@@ -80,11 +80,12 @@
     </ion-slide>
   
     <ion-slide *ngIf="presenca">
-      <ion-searchbar class="searchbar" placeholder="Local" (ionChange)="searchChanged()" [(ngModel)]="search">
-      </ion-searchbar>
       <ion-item *ngIf="local" class="filtro">
         {{ local.description }}
+        <ion-icon (click)="next()" class="corbot" slot="end" name="checkmark-circle-outline"></ion-icon>
       </ion-item>
+      <ion-searchbar class="searchbar" placeholder="Local" (ionChange)="searchChanged()" [(ngModel)]="search">
+      </ion-searchbar>
       <ion-list [hidden]="!search.length" class="filtro">
         <ion-item (click)="localizou(result)" *ngFor="let result of searchResults" class="holder">
           {{ result.description }}
