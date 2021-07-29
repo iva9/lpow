@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title  *ngIf="pode" size="large" class="centertt">{{ eventodb.nome }}</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="pesquisar" text=""></ion-back-button>
+      <ion-back-button class="margin" defaultHref="pesquisar" text=""></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -42,8 +42,8 @@
 
 
 
-  <ion-list>
-    <ion-item>
+  <ion-list lines="none">
+    <ion-item  no-lines>
       <ion-input placeholder="Comentario:" type="string" [(ngModel)]="comentario"></ion-input>
       <ion-button color="primary" (click)="setcoment()"> Enviar
       </ion-button>

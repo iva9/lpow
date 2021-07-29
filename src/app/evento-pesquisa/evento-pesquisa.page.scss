@@ -22,16 +22,22 @@
   
     margin: 0;
   }
-  
+  .margin{
+    padding-right: 1em;
+    margin-right: 1em;
+    --icon-margin-end: 1em;
+    --icon-padding-end: 1em;
+  }
   #container a {
     text-decoration: none;
   }
   ion-toolbar{
+    
     --padding-top: 24px ;
   --background: black;
   --color : white;
   }
-  
+
   ion-content {
     --background: black;
   }
@@ -46,6 +52,7 @@
       text-align: center;
   }
   .centertt{
+    margin-left: 0.5em;
     text-align: center;
     background-color: black;
     color: white;
