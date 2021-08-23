@@ -7,9 +7,7 @@
         color: white;
         background-color: black;
     }
-    .aloha{
-        background-color: black;           
-}
+ 
 .spaço{
     text-align: center;
     color: white;
@@ -19,8 +17,11 @@
 ion-content {
     --ion-background-color: #000000;
   }
-  ion-toolbar {
-    --padding-top: 56px ;
-    --ion-background-color: #000000;
-  }
+
+    ion-toolbar{
+      margin-top: 0.7em ;
+      --background: black;
+      --padding-top: 15px ;
+    }
+
   

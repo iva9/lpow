@@ -1,12 +1,10 @@
 <ion-header>
-  <ion-toolbar class="tool">
-    <ion-title size="large" class="centertt" (click)="tamanho()">Oreon</ion-title>
+  <ion-toolbar>
+    <ion-title size="large" class="centertt">Oreon</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="fundo" #content>
-
-
   <ion-slides class="centertt">
     <ion-slide *ngIf="online.length > 0">
       <div>

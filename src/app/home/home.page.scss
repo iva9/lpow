@@ -1,6 +1,7 @@
-.tool{
-	padding-top: 2ex;
-	--background:black;
+ion-toolbar{
+  margin-top: 0.7em ;
+  --background: black;
+  --padding-top: 15px ;
 }
 #container {
   text-align: center;
@@ -43,7 +44,7 @@ ion-content {
     text-align: center;
 }
 .centertt{
-  padding-top:1ex;
+ 
   text-align: center;
   background-color: black;
   color: white;
