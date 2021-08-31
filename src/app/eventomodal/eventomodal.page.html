@@ -37,7 +37,7 @@
   </ion-list>
   <ion-list lines="none">
     <ion-item no-lines>
-      <ion-input placeholder="Comentario:" type="string" [(ngModel)]="comentario"></ion-input>
+      <ion-input placeholder="Comentario:" type="string" [disabled]="noAuth" [(ngModel)]="comentario"></ion-input>
       <ion-button color="primary" (click)="setcoment()" [disabled]="!comentario.length"> Enviar
       </ion-button>
     </ion-item>

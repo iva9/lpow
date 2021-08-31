@@ -40,6 +40,8 @@ async login (){
       })
       this.showalert('' ,'Login com sucesso' )
       this.router.navigate([ './home' ])
+      this.email ="";
+      this.password = "";
   
     }
   }catch(err){

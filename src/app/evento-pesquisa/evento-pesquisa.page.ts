@@ -23,17 +23,18 @@ export class EventoPesquisaPage implements OnInit {
 eventoID;
 lugaresdocomentario;
 coments;
+noAuth = true 
 pode : boolean = false
 nome
 imgus;
 numcoments = 0;
-jadeuUP : boolean = true
+jadeuUP : boolean = false
 m
 private evento : AngularFirestoreCollection
 eventodb;
 upReference;
 todoscoments
-iduser
+iduser 
 lugardocomentario
 comentario = ""
 ComentSet : ComentUsuario ={    
@@ -56,23 +57,43 @@ constructor(
  }
 
 ngOnInit() { 
-
+  this.auth.onAuthStateChanged((user)=>{
+    if (user) {
+     // User is signed in, see docs for a list of available properties
+     // https://firebase.google.com/docs/reference/js/firebase.User
+     var uid = user.uid;
+     console.log( "logado por aqui")
+      this.iduser = uid
+     // ...
+   } else {
+    this.iduser == null
+     console.log("Deslogado")
+     // User is signed out
+     // ...
+   }
+ })
  }
 
 async user(){
   const res = await this.auth.currentUser
-  this.imgus  = res.photoURL
-  this.iduser = res.uid
-  this.nome = res.displayName
+  if (res != null){
+    this.imgus  = res.photoURL
+    this.iduser = res.uid
+    this.nome = res.displayName
+  } 
+
 }
 
 jaUpou(){
+  if (this.iduser == null){
+    this.showAlertLogin()
+  }
   if(this.eventodb.up.includes(this.iduser)){
     this.jadeuUP = true
   }
 }
 redirectUser(){
-  this.router.navigate(['/usuario-pesquisa/' + this.eventodb.userID[1]])
+  this.router.navigate(['/usuario-pesquisa/' + this.eventodb.userID[0]])
 }
 getevento(tt){
   //refazer
@@ -88,7 +109,6 @@ getevento(tt){
       this.eventodb = { id,... data}
       this.getComent(this.eventodb.id)
       this.lugardocomentario =this.Firebase.list(`coments/${this.eventodb.id}`, ref => ref.limitToLast(75));
-      this.jaUpou()
       console.log(this.eventodb)
       this.pode = true
     }
@@ -143,6 +163,32 @@ getComent(x){
     this.router.navigate(['/usuario-pesquisa/' + kdcoment.UID])
      
    }
+
+   async showAlertLogin() {
+    const alert = await this.alert.create({
+      header: 'Ops!',
+      message: 'Crie ou entre em uma conta para usar ups e comentários.',
+      buttons: [
+        {
+          text: 'Criar / Entrar',
+         
+          handler: ()  => {
+           this.router.navigate(['/criar-user'])
+       
+          }
+        }, {
+          text: 'Ok',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+  
+    await alert.present();
+  }
+  
+
 
     async  UP(){
       this.jadeuUP = true

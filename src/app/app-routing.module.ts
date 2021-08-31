@@ -4,21 +4,21 @@ import {  RouterModule, Routes } from '@angular/router';
 import { SimpleLoadingStrategy } from './selective-loading-strategy.service'
 import { AngularFireAuthGuard  ,redirectUnauthorizedTo, redirectLoggedInTo  } from '@angular/fire/auth-guard'
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['criar-user']);
+//const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['criar-user']);
 const redirectLoggedInToItems = () => redirectLoggedInTo(['home']);
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'criar-user', pathMatch: 'full' },
   { path: 'home',
   
       loadChildren: () =>
-        import('./home/home.module').then( m => m.HomePageModule) ,canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin , preload: true }
+        import('./home/home.module').then( m => m.HomePageModule) //,canActivate: [AngularFireAuthGuard], data: {  preload: true } // authGuardPipe: redirectUnauthorizedToLogin
   
   },
   {
     path: 'perfil',
     
         loadChildren: () =>
-        import('./perfil/perfil.module').then( m => m.PerfilPageModule), canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin  , preload : true},
+        import('./perfil/perfil.module').then( m => m.PerfilPageModule)//, canActivate: [AngularFireAuthGuard], data: {  preload : true}, //authGuardPipe: redirectUnauthorizedToLogin  ,
       
       
    
@@ -41,7 +41,7 @@ const routes: Routes = [
 },
   {
     path: 'criar-user',
-    loadChildren: () => import('./criar-user/criar-user.module').then( m => m.CriarUserPageModule) , canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToItems}
+    loadChildren: () => import('./criar-user/criar-user.module').then( m => m.CriarUserPageModule),  canActivate: [AngularFireAuthGuard], data: {authGuardPipe: redirectLoggedInToItems}
   },
   {
     path: 'criar',

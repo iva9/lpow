@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title size="large" class="centertt">Oreon</ion-title>
+    <ion-title size="large" class="centertt" (click)="showDacidade()">Oreon</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -31,7 +31,10 @@
         </ion-infinite-scroll>
       </div>
     </ion-slide>
-    <ion-slide *ngIf="cidade.length > 0">
+
+
+
+    <ion-slide *ngIf="cidade.length > 0 && noAuth == false">
       <div>
         <a class="a">{{ cidadesDoUsuario }}</a>
         <ion-card *ngFor="let evento of cidade" class="card">
@@ -58,6 +61,8 @@
         </ion-infinite-scroll>
       </div>
     </ion-slide>
+
+
 
     <ion-slide>
       <div>
@@ -87,6 +92,44 @@
       </div>
     </ion-slide>
 
+
+
+
+    <ion-slide *ngIf="noAuth">
+      <div class="noauth">
+        <a class="a" >{{ escolhaNoAuth }}</a>
+        <ion-searchbar class="searchbar" placeholder="Escolher cidade" (ionInput)="getItems($event)" (click)="abriu()"
+          [(ngModel)]="_cidade" clearInput></ion-searchbar>
+        <ion-list *ngIf="abrir" class="filtro" lines="none" no-lines>
+          <ion-item (click)="noAuth_cidade(item.lugar)" *ngFor="let item of todositems" class="filtro">
+            {{ item.lugar }}
+          </ion-item>
+        </ion-list>
+        <ion-card *ngFor="let evento of cidade" class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>
+              {{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-card *ngFor="let evento of cidade3" class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>
+              {{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadcidade($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </div>
+    </ion-slide> 
+
   
   </ion-slides>
 
@@ -105,6 +148,4 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
-
-
 </ion-content>

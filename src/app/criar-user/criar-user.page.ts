@@ -27,6 +27,9 @@ export class CriarUserPage implements OnInit {
   ngOnInit() {
   }
 
+  home(){
+    this.route.navigate(['/home'])
+  }
   async showalert(header : string , message: string){
     const alert = await  this.alert.create({
       header,

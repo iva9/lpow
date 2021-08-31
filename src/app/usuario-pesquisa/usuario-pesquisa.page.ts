@@ -132,14 +132,8 @@ export class UsuarioPesquisaPage implements OnInit {
 
         //}
      // }
-       {
-        text: 'Sair',
-        role: 'destructive',
-        icon: 'log-out',
-        handler: () => {
-
-        }
-      }, {
+    
+      , {
         text: 'Cancel',
         icon: 'close',
         role: 'cancel',
@@ -199,7 +193,7 @@ async  follow(){
     }
 
     listadecriados(cria){
-      console.log(cria)
+      //console.log(cria)
       this.eventocriado = this.firestore.collection('eventos', ref => ref.where('userID','array-contains',`${cria}`).orderBy("UPnum" , "desc").limit(10))
       this.eventocriado.get().subscribe( criados =>{
          criados.forEach( Evcup =>{
@@ -230,7 +224,7 @@ async  follow(){
           const data = cRia.data()
           const id = cRia.id
           if (data.fim < this.hjdia) {
-           console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
+        //   console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
            this.passadostate = this.firestore.doc(`eventos/${id}`)
            this.passadostate.update({
              passado: true
@@ -253,7 +247,7 @@ async  follow(){
           const data = Ups.data()
            const id = Ups.id
            if (data.fim < this.hjdia) {
-            console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
+         //   console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
             this.passadostate = this.firestore.doc(`eventos/${id}`)
             this.passadostate.update({
               passado: true
@@ -281,7 +275,7 @@ async  follow(){
           const data = upi2.data()
           const id = upi2.id
           if (data.fim < this.hjdia) {
-           console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
+        //   console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
            this.passadostate = this.firestore.doc(`eventos/${id}`)
            this.passadostate.update({
              passado: true

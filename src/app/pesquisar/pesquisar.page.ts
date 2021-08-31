@@ -23,7 +23,7 @@ export class PesquisarPage implements OnInit {
   eventos;
 
   constructor( public fd :  AngularFireDatabase ,
-     private auth : AngularFireAuth , private firestore : AngularFirestore, private router : Router) { 
+    private firestore : AngularFirestore, private router : Router) { 
     this.queryText ='';
     console.log("pré LoAD")
 

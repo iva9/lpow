@@ -23,8 +23,9 @@ export class EventomodalPage implements OnInit {
   num  = 30
   updateReference;
   denunciaReference;
+  noAuth = true 
   nome; 
-  jadeuUP : boolean = true
+  jadeuUP : boolean = false
   numcoments = 0;
   newlocal;
   dado : Array<object> = []
@@ -60,14 +61,18 @@ export class EventomodalPage implements OnInit {
     }
   async ngOnInit() {
     const res  = await this.auth.currentUser
+    if (res != null){
+      this.iduser = res.uid
+      this.noAuth = false
+    } 
      this.x = this.navparams.get('customid')
      this.lugardocomentario = this.Firebase.database.ref(`coments/${this.x.id}`)
-     this.iduser = res.uid
      this.getComent()
      this.UPnum = this.x.UPnum
      if(this.x.local){
        this.description = true
      }
+     this.jaUpou()
 
   }
 criandomodal(evento){
@@ -110,19 +115,25 @@ async  UP(){
     return this.showalert("Ops!", "Você ja deu UP nesse evento")
     
   }
-  
+  this.x.UPnum +=  1
+  this.UPnum += 1
     this.updateReference  = this.firestore.doc(`eventos/${this.x.id}`)
     this.updateReference.update( {
       up : firebase.firestore.FieldValue.arrayUnion(res.uid),
       UPnum: firebase.firestore.FieldValue.increment(1)
     })
-    this.x.UPnum +=  1
+    
   }
  
   jaUpou(){
     if(this.x.up.includes(this.iduser)){
       this.jadeuUP = true
     }
+    if (this.iduser == null){
+      this.showAlertLogin()
+      this.jadeuUP = true
+    }
+    
   }
    
   
@@ -151,6 +162,31 @@ this.numcoments = this.coments.length
 this.todoscoments = this.coments
 console.log(this.todoscoments,'foi')
 }
+
+async showAlertLogin() {
+  const alert = await this.alert.create({
+    header: 'Ops!',
+    message: 'Crie ou entre em uma conta para usar ups e comentários.',
+    buttons: [
+      {
+        text: 'Criar / Entrar',
+       
+        handler: ()  => {
+         this.router.navigate(['/criar-user'])
+         this.close()
+        }
+      }, {
+        text: 'Ok',
+        handler: () => {
+          console.log('Confirm Okay');
+        }
+      }
+    ]
+  });
+
+  await alert.present();
+}
+
 
 loadcoments(event){
   this.num = this.num + 60

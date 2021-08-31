@@ -27,6 +27,7 @@ export class PerfilPage implements OnInit {
   items; 
   mainuser : AngularFirestoreDocument
   sub
+  noAuth = true
   passadostate;
   m
   loading : any
@@ -71,19 +72,27 @@ export class PerfilPage implements OnInit {
   async ionViewDidEnter() {
     this.dadosperfil()
     //bug entrar com outra conta
-    const res = await this.afAuth.currentUser
-    this.usuario = res.uid
-    this.getDataFromFire();
-    this.user.listadecriados(res.uid)
-    this.criados = this.user.w
-    this.user.listadeup(res.uid)
-    this.ups = this.user.y
+    this.afAuth.onAuthStateChanged((user)=>{
+      if (user) {
+       // User is signed in, see docs for a list of available properties
+       // https://firebase.google.com/docs/reference/js/firebase.User
+       var uid = user.uid;
+       var res = user
+       this.usuario = res.uid
+       this.getDataFromFire();
+       this.user.listadecriados(res.uid)
+       this.criados = this.user.w
+       this.user.listadeup(res.uid)
+       this.ups = this.user.y
+      }
+      else{
+        this.noAuth = true
+      }
 
+    })
   }
   async ngOnInit() {
-    const res = await this.afAuth.currentUser
-    this.usuario = res.uid
-    this.getDataFromFire();
+    
   }
 
   async presentActionSheet() {
@@ -171,13 +180,15 @@ export class PerfilPage implements OnInit {
 
   async dadosperfil(){
    const res = await this.afAuth.currentUser
-  this.mainuser =   this.firestore.doc(`users/${res.uid}`)
-  this.sub = this.mainuser.valueChanges().subscribe(usuario => {
+   if (res != null){
+    this.noAuth = false
+    this.mainuser =   this.firestore.doc(`users/${res.uid}`)
+    this.sub = this.mainuser.valueChanges().subscribe(usuario => {
     this.perfilnome = usuario.username
     this.perfilimg = usuario.imgUser
     this.perfilUP = usuario.UP
   })
-
+   }
   }
   async showmodal(){
     const modal = await this.modalCtrl.create({
@@ -217,10 +228,10 @@ export class PerfilPage implements OnInit {
   }).catch(function(error) {
     console.log(error)
     // An error happened.
-  });    setTimeout(() => {  
+  });    setTimeout(() => { this.route.navigate(['/criar-user']) 
   }, 3500);
   this.ngOnDestroy()
-  this.route.navigate(['/criar-user'])
+ 
   this.loadingC.dismiss()
   }
  
@@ -262,6 +273,7 @@ export class PerfilPage implements OnInit {
 
      } 
      async meuslugares(item){
+       // esta fazendo 4 leituras na home por cada alteração
      var meulugar = item
        const res =  await this.afAuth.currentUser
        console.log(meulugar, "aki")
@@ -269,7 +281,6 @@ export class PerfilPage implements OnInit {
        })
       this.afd.database.ref(`users/${res.uid}/cidade`).set(meulugar)
    
-      this.route.navigate(['/home'])
         }
 
         async deletaract(rte) {const alert = await  this.alertController.create({

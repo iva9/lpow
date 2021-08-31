@@ -22,7 +22,7 @@ import { PesquisarPage } from '../pesquisar/pesquisar.page';
 import { LoginPage } from '../login/login.page';
 import { CriarUserPage } from '../criar-user/criar-user.page';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
-
+import _ from 'lodash';
 
 
 @Component({
@@ -48,7 +48,7 @@ export class HomePage {
   day = true;
   numTimesLeft = 10;
   num = 10;
-  items = [];
+  items 
 
   public cidade2 = new Array<any>();
   public cidade3 = new Array<any>();
@@ -76,11 +76,16 @@ export class HomePage {
   post;
   private userDOC: AngularFirestoreCollection;
   unique;
+  escolhaNoAuth = " Cidade "
+  allitems
   lugardouser;
+  abrir
   lugar;
   ordenarpor = false; 
   iduser
-
+  noAuth = false
+  todositems 
+  noAuthCidade
   provCid1  // array provisorio lisata cidade
   provNac1  // array provisorio lisata nacional
   provOnl1 // array provisorio lista online;
@@ -116,7 +121,7 @@ export class HomePage {
 
     console.log(this.hjdia)
     
-this.backgroundMode.disable() 
+this.backgroundMode.disable()
 
     // this.eventosSubscription = this.service.getEventos().subscribe(data => {
     //this.eventos = data;
@@ -141,41 +146,112 @@ this.backgroundMode.disable()
     this.nacional = new Array<any>(); //2° -> do nacional
     this.nacionais = new Array<any>(); //1° -> dos nacionais
     this.cidade = new Array<any>();//1° -> cidade
-
-   
-    // ARRUMAR BUSCA NO NACIONAL (ESTA MOSTRANDO OS EVENTOS ONLINE TBM)
-    const res = await this.authh.currentUser
-    this.iduser = res.uid
-    console.log("nome : " , res.displayName)
-    if (!res.emailVerified) {
-      console.log(res.emailVerified, "emailverified")
-      this.route.navigate(['/criar-user'])
-      this.criaruserpage.showalert("Ops você já criou uma conta ", "Mas não clickou no link que enviamos, verifique e volte ")
-      this.login.enviaremaildeverific()
-    }
-    
-  
-
-   
-     
-    this.getcidadade(res.uid).subscribe(cit => {
-      this.lugar = cit;
-      if (this.lugar ) {
-        console.log(this.lugar)
-        this.cidadesDoUsuario = this.lugar
-        this.cidadedoUSER(this.cidadesDoUsuario)
-
-      }
-      console.log("TAMANHO LENGHT ->",this.nacional.length)
-   
-      
-     
-      // -> Cidade do usuario e Cidade segment
-    })
-    
-
+    this.showeventos()
+    this.showDacidade()
+    // ARRUMAR BUSCA NO NACIONAL (ESTA MOSTRANDO OS EVENTOS ONLINE TB)
   
   }
+
+
+  showeventos(){
+   if(this.nacionais.length == 0){
+    this.eventosNacional = this.listanacional()//  ->  Nacional segment
+    this.nacionais = this.w;
+    }
+  
+    if(this.online.length == 0){
+      this.eventosOnline = this.listaonline()
+      this.online = this.z//  ->  online segment  
+      }
+  }
+  showDacidade(){
+    this.authh.onAuthStateChanged((user)=>{
+      if (user) {
+       // User is signed in, see docs for a list of available properties
+       // https://firebase.google.com/docs/reference/js/firebase.User
+       var uid = user.uid;
+       console.log( "logado por aqui")
+       this.getcidadade(uid).subscribe(cit => {
+        this.lugar = cit;
+        if (this.lugar) {
+          console.log(this.lugar)
+          this.cidadesDoUsuario = this.lugar
+          this.cidadedoUSER(this.cidadesDoUsuario)
+
+        }
+        console.log("TAMANHO LENGHT ->", this.nacional.length)
+
+
+
+        // -> Cidade do usuario e Cidade segment
+      })
+       // ...
+     }
+     else{
+       this.AuthstateDeslogado()
+     } 
+   })
+      
+  }
+
+  AuthstateLogado(user){
+    const res = user
+    this.iduser = res
+    console.log("authstatelogado" , res.uid )
+  //  if (!res.emailVerified) {
+      //console.log(res.emailVerified, "emailverified")
+   //   this.criaruserpage.showalert("Ops você já criou uma conta ", "Mas não clickou no link que enviamos, verifique e volte ")
+   //   this.login.enviaremaildeverific()
+   // }
+  }
+
+  AuthstateDeslogado(){
+     this.getDataFromFire()
+     this.noAuth = true
+    }
+  
+
+  getDataFromFire(){
+    this.firebase.list('cidades').valueChanges().subscribe(
+      data =>{
+        this.trataDados(data)
+      }) 
+  }
+
+  
+
+  noAuth_cidade(item){
+    this.abriu()
+    this.mudouacidade(item)
+    this.escolhaNoAuth = item
+  }
+
+  trataDados(dados){
+    this.items = Object.keys(dados).map(i => dados[i])
+    this.todositems = this.items
+  }
+     
+
+     abriu(){
+      this.abrir = !this.abrir
+    }
+    getItems(ev: any) {
+      // Reset items back to all of the items
+      this.todositems = this.items
+      this.allitems = this.todositems
+  
+      let val = ev.target.value;
+      console.log(this.todositems)
+      if ( val && val.trim() != ''){
+        this.todositems = _.values(this.allitems);
+        this.todositems = this.todositems.filter((_cidade) => {
+          return (_cidade.lugar.toLocaleLowerCase().indexOf(val.toLowerCase()) > -1);
+        }) 
+      } else {
+        this.todositems = this.allitems
+      }
+    }
+
   perfil() {
     this.scrollTop()
     if (this.cidadesDoUsuario) {
@@ -197,6 +273,11 @@ this.backgroundMode.disable()
   scrollTop() {
     this.content.scrollToTop(300)
   }
+  async dadosperfil(){
+    const res = await this.authh.currentUser
+    if (res != null){
+     this.getcidadade(res.uid)
+    }}
   
   getData(data) {
     var events = data.val()
@@ -213,11 +294,12 @@ this.backgroundMode.disable()
     modal.present();;
     this.eventModal.criandomodal(zeta)
   }
-  mudouacidade(newcitty) {
-    this.cidade = new Array<any>()
-    this.cidade3 = new Array<any>()
-    //console.log(this.cidade ,"mudou a cidade", this.cidade3)
-    this.cidadedoUSER(newcitty)
+  mudouacidade(item) {
+    this.cidade = []
+    this.y = []
+    this.cidade3 = []
+    console.log(this.cidade ,"mudou a cidade",item)
+    this.cidadedoUSER(item)
     //console.log(this.cidade ,"mudou a cidade", this.cidade3)
   }
 
@@ -247,7 +329,7 @@ this.backgroundMode.disable()
   //}
 
   getcidadade(user) {
-    //console.log("getcidade")
+    console.log("getcidade")
     this.userDOC = this.firestore.collection(`users`, ref => ref.where('iduser', '==', `${user}`))
     return this.userDOC.snapshotChanges().pipe(
       map(actions => {
@@ -259,16 +341,8 @@ this.backgroundMode.disable()
             this.ordenarpor = false
           }
           //console.log(this.ordenarpor ," ----------------------")
-          if(this.nacionais.length == 0){
-          this.eventosNacional = this.listanacional()//  ->  Nacional segment
-          this.nacionais = this.w;
-          }
-        
-          if(this.online.length == 0){
-            this.eventosOnline = this.listaonline()
-            this.online = this.z//  ->  online segment  
-            }
-           
+          //console.log(this.nacionais.length == 0)
+    
           return data
         });
       })
@@ -279,12 +353,13 @@ this.backgroundMode.disable()
   cidadedoUSER(dados) {
     this.cidade3 = []
     this.lugarsin = dados
-    if(this.cidade.length == 0){
+    if(this.cidade.length == 0 && this.y.length == 0){
     this.eventosdacidade = this.listadaciadade(dados)//((data) => { // evento service -> get cidade do usuario 
     this.cidade = this.y
     }
   }
   listadaciadade(x) {
+
     if( this.ordenarpor == true){
       this.eventocidade = this.firestore.collection('eventos', ref => ref.where('lugar', '==', `${x}`).where('passado', '==', false).orderBy('dia', 'asc').limit(3))
     }
@@ -583,7 +658,7 @@ tamanho(){
 
   //  }
   ngOnDestroy() {
-    //console.log('_________________destruiu home ______________')
+    console.log('_________________destruiu home ______________')
     // concertando bug troca de ordem
     this.cidade3 = new Array<any>(); //2° da cidade
     this.online = new Array<any>(); //1° do online
