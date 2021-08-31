@@ -6,33 +6,6 @@
 
 <ion-content [fullscreen]="true" class="fundo" #content>
   <ion-slides class="centertt">
-    <ion-slide *ngIf="online.length > 0">
-      <div>
-        <a class="a"> Online </a>
-        <ion-card *ngFor="let evento of online " class="card">
-          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
-          <ion-card-header class="">
-            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
-            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
-            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
-          </ion-card-header>
-        </ion-card>
-        <ion-card *ngFor="let evento of onlines" class="card">
-          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
-          <ion-card-header class="">
-            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
-            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
-            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
-          </ion-card-header>
-        </ion-card>
-        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadOnline($event)">
-          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
-          </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
-      </div>
-    </ion-slide>
-
-
 
     <ion-slide *ngIf="cidade.length > 0 && noAuth == false">
       <div>
@@ -61,7 +34,6 @@
         </ion-infinite-scroll>
       </div>
     </ion-slide>
-
 
 
     <ion-slide>
@@ -130,6 +102,31 @@
       </div>
     </ion-slide> 
 
+    <ion-slide *ngIf="online.length > 0">
+      <div>
+        <a class="a"> Online </a>
+        <ion-card *ngFor="let evento of online " class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-card *ngFor="let evento of onlines" class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadOnline($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </div>
+    </ion-slide>
   
   </ion-slides>
 
