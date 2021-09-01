@@ -10,6 +10,7 @@ import { delay , map } from 'rxjs/operators';
 import { Data } from '../evento.service'
 import { Subscription } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection,  } from '@angular/fire/firestore';
+import { Camera } from '@ionic-native/camera/ngx';
 @Component({
   selector: 'app-editar-modal',
   templateUrl: './editar-modal.page.html',
@@ -38,6 +39,7 @@ export class EditarModalPage implements OnInit {
   private storage: AngularFireStorage ,@Inject(UserService) 
   private modal : ModalController ,
   private auth : AngularFireAuth,
+  private camera : Camera,
   private user : UserService,
   private firestore : AngularFirestore,
   public alert: AlertController,
@@ -54,6 +56,19 @@ export class EditarModalPage implements OnInit {
     this.img = "../assets/icon/profile.png";
     this.getDataFromFire()
    }
+
+
+   takePicture() {
+    this.camera.getPicture({
+      sourceType : this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType : this.camera.DestinationType.DATA_URL
+    }).then(res => {
+      this.img = "data:image/jpeg;base64," + res
+    }).catch(e =>{
+      console.log(e)
+    })
+
+  }
 
    showPreview(event: any){
     if (event.target.files && event.target.files[0]) {

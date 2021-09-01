@@ -11,6 +11,7 @@ import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { ImagePicker , ImagePickerOptions} from '@ionic-native/image-picker/ngx' ;
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Camera } from "@ionic-native/camera/ngx"
 declare var google : any;
 
 
@@ -61,6 +62,7 @@ export class NovoEventoPage implements OnInit {
 
        constructor(@Inject(AngularFireStorage) 
         private storage : AngularFireStorage , @Inject(EventoService) 
+        private camera : Camera,
        private eventoService: EventoService ,
        public firebase : AngularFireDatabase,
        private ngzone: NgZone,
@@ -203,18 +205,17 @@ async name(){
 
     }
   }
-  imagepicker(){
-    console.log("chamou")
-    var options : ImagePickerOptions ={
-      maximumImagesCount : 1,
-      allow_video : false
-    }
-    this.imgPic.getPictures(options).then((results) => {
-      for (var i = 0; i < results.length; i++) {
-          console.log('Image URI: ' + results[i]);
-      }
-    }, (err) => { });
-    
+  
+  takePicture() {
+    this.camera.getPicture({
+      sourceType : this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType : this.camera.DestinationType.DATA_URL
+    }).then(res => {
+      this.img = "data:image/jpeg;base64," + res
+    }).catch(e =>{
+      console.log(e)
+    })
+
   }
 
   save2(){
