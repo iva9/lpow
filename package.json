@@ -19,7 +19,7 @@
     "@angular/cdk": "^11.1.2",
     "@angular/common": "^11.1.2",
     "@angular/core": "^11.1.2",
-    "@angular/fire": "^6.1.4",
+    "@angular/fire": "^6.0.4-canary.9a26fbe",
     "@angular/forms": "^11.1.2",
     "@angular/http": "^7.2.16",
     "@angular/material": "^11.1.2",
@@ -36,6 +36,7 @@
     "@ionic-native/file": "^5.31.1",
     "@ionic-native/firebase": "^5.31.1",
     "@ionic-native/google-maps": "^5.5.0",
+    "@ionic-native/google-plus": "^5.36.0",
     "@ionic-native/image-picker": "^5.31.1",
     "@ionic-native/in-app-browser": "^5.31.1",
     "@ionic-native/native-geocoder": "^5.31.1",
@@ -56,12 +57,13 @@
     "cordova-ios": "^6.2.0",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-googlemaps": "^2.7.1",
+    "cordova-plugin-googleplus": "8.5.2",
     "cordova-plugin-nativegeocoder": "^3.4.1",
     "cordova-plugin-telerik-imagepicker": "^2.3.6",
     "cordova-plugin-x-socialsharing": "^6.0.3",
     "core-js": "^3.8.3",
     "es6-promise-plugin": "^4.2.2",
-    "firebase": "^8.2.6",
+    "firebase": "^7.24.0",
     "ionic-angular": "^3.9.10",
     "moment": "^2.29.1",
     "rxjs": "^6.6.3",
@@ -126,8 +128,10 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-network-information": {},
       "cordova-plugin-background-mode": {},
-      "cordova-plugin-camera": {
-        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      "cordova-plugin-camera": {},
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "373924502179-d29hkb11j7e9nu15mvsltmqovktpi06q.apps.googleusercontent.com",
+        "WEB_APPLICATION_CLIENT_ID": "373924502179-einm9ptc46uo3dse06qqpp95dn58k1tv.apps.googleusercontent.com"
       }
     },
     "platforms": [

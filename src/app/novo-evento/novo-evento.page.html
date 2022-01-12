@@ -21,7 +21,7 @@
         <h2 class="th2">Banner do evento</h2>
         <ion-card class="card">
           <input type="file" (change)="showPreview($event)" class="filebtn" #fileButton/>
-          <img class="imag" [src]="img" (click)="takePicture()">
+          <img class="imagem"  (click)="writeUserData()" [src]="img">
         </ion-card>
         <h2 class="th2"></h2>
     </ion-slide>
@@ -61,7 +61,7 @@
       <h2 class="th2">O link </h2>
       <ion-list class="fundo">
         <ion-item  lines="none" class="itemm">
-          <ion-input  #myinput enterkeyhint="done" placeholder="https:"  type="url" [(ngModel)]="ingresso" ></ion-input>
+          <ion-input  #myinput enterkeyhint="done" placeholder="Link do evento"  type="url" [(ngModel)]="ingresso" ></ion-input>
           <ion-button   color="primary"(click)="next()"  [disabled]="!ingresso"> Confirmar
           </ion-button>
         </ion-item>
@@ -97,27 +97,28 @@
     </ion-slide>  
 
     <ion-slide>
-      <ion-card  class="card">
-        <img class="imag" [src]="img" />
+      <ion-card class="card">
+        <input type="file" (change)="showPreview($event)" class="filebtn" #fileButton/>
+        <img class="imagem"  (click)="writeUserData()" [src]="img">
       </ion-card>
       <ion-list lines="none">
-        <ion-item *ngIf="nome" class="item1">
+        <ion-item (click)="editNome()" *ngIf="nome" class="item1">
           <ion-icon  name="checkmark-done-outline"></ion-icon>
           <h6 class="ma">{{ nome }}</h6>
         </ion-item>
-        <ion-item *ngIf="dia2" class="item1">
+        <ion-item  (click)="editDia()" *ngIf="dia2" class="item1">
           <ion-icon  name="calendar-outline" ></ion-icon>
           <h6 class="ma">{{ dia2 }}</h6>
         </ion-item>
-        <ion-item *ngIf="ingresso" class="item1">
+        <ion-item (click)="editIngresso()"  *ngIf="ingresso" class="item1">
           <ion-icon name="globe-outline"></ion-icon>
           <h6 class="ma">Link</h6>
         </ion-item>
-        <ion-item *ngIf="link" class="item1">
+        <ion-item (click)="editLink()"  *ngIf="link" class="item1">
           <ion-icon name="globe-outline"></ion-icon>
           <h6 class="ma">Link</h6>
         </ion-item>
-        <ion-item *ngIf="local" class="item1">
+        <ion-item (click)="editLocal()" *ngIf="local" class="item1">
           <ion-icon name="location-sharp" size="large"></ion-icon>
           <h6 class="ma">{{ local.description }}</h6>
         </ion-item>

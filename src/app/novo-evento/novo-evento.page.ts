@@ -8,10 +8,10 @@ import { AngularFireDatabase } from '@angular/fire/database'
 import { Environment,  Geocoder  } from '@ionic-native/google-maps'
 import * as moment from 'moment'
 import { AlertController } from '@ionic/angular';
-import { LoadingController } from '@ionic/angular';
-import { ImagePicker , ImagePickerOptions} from '@ionic-native/image-picker/ngx' ;
+import { LoadingController , ModalController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Camera } from "@ionic-native/camera/ngx"
+import { Camera ,CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx'
+import { EditarModalPage } from '../editar-modal/editar-modal.page'
 declare var google : any;
 
 
@@ -28,12 +28,11 @@ export class NovoEventoPage implements OnInit {
   public next(){
     this.slides.slideNext();
   }
-
   public prev(){
     this.slides.slidePrev();
   }
   loading : any;
-  img : any;
+  img 
   selectedImage: any = null;
   items;
   presenca = true
@@ -62,14 +61,15 @@ export class NovoEventoPage implements OnInit {
 
        constructor(@Inject(AngularFireStorage) 
         private storage : AngularFireStorage , @Inject(EventoService) 
-        private camera : Camera,
+        public camera : Camera,
        private eventoService: EventoService ,
+      
+       private modalCtrl : ModalController,
        public firebase : AngularFireDatabase,
        private ngzone: NgZone,
-       private imgPic : ImagePicker,
        public alert: AlertController,
        private auth: AngularFireAuth ,
-       private loadingC : LoadingController
+       private loadingC : LoadingController,
        )
         {  }
 
@@ -89,36 +89,38 @@ export class NovoEventoPage implements OnInit {
          console.log(this.items,"todas as city")
        }
 
-  showPreview(event: any){
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => this.img = e.target.result;
-      reader.readAsDataURL(event.target.files[0]);
-      this.selectedImage = event.target.files[0];
-      this.next()
-    }else{
-      this.img = "../assets/icon/unnamed.png";
-      this.selectedImage = null;
-    }
-  }
-  writeUserData( ){
-    this.fileButton.nativeElement.click()
- }
-
  novaData(){
   this.next()
   moment.locale('pt-BR')
   this.dia2 = moment(this.dia).format('ddd DD MMM')
  }
+
+
  Presencial(){
+  if(this.usuario == "Usuario"){
+     this.showalert("OPS!", "Mude seu nome de usuario para publicar um evento")
+   return  this.showmodal()
+  }
   this.presenca = true
   this.next()
 }
 Online(){
+  if(this.usuario == "Usuario"){
+    this.showalert("OPS!", "Mude seu nome de usuario para publicar um evento")
+   return this.showmodal()
+ }
   this.presenca = false
   this.local = null
   this.lugar = null
   this.next()
+}
+async showmodal(){
+  const modal = await this.modalCtrl.create({
+    component : EditarModalPage,
+    componentProps:{
+       }
+  })
+  modal.present();;
 }
 
 async name(){
@@ -205,19 +207,21 @@ async name(){
 
     }
   }
-  
-  takePicture() {
-    this.camera.getPicture({
-      sourceType : this.camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType : this.camera.DestinationType.DATA_URL
-    }).then(res => {
-      this.img = "data:image/jpeg;base64," + res
-    }).catch(e =>{
-      console.log(e)
-    })
-
-  }
-
+    showPreview(event: any){
+      if (event.target.files && event.target.files[0]) {
+        const reader = new FileReader();
+        reader.onload = (e: any) => this.img = e.target.result;
+        reader.readAsDataURL(event.target.files[0]);
+        this.selectedImage = event.target.files[0];
+        this.next()
+      }else{
+        this.img = "../assets/icon/profile.png";
+        this.selectedImage = null;
+      }
+    }
+    writeUserData( ){
+      this.fileButton.nativeElement.click()
+   }
   save2(){
     this.presentLoading()
     if(this.nome == null){
@@ -302,5 +306,29 @@ async presentLoading(){
   });
   await this.loading.present();
 } 
+
+editNome(){
+  this.prev()
+  this.prev()
+  this.prev()
+  this.prev()
+}
+editDia(){
+  this.prev()
+  this.prev()
+  this.prev()
+}
+editIngresso(){
+  this.prev()
+  this.prev()
+}
+editLink(){
+  this.prev()
+  this.prev()
+}
+editLocal(){
+  this.prev()
+}
+
 
 }

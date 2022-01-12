@@ -6,7 +6,7 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content [hidden]="abrir">
   <ion-list *ngIf="!temqverificar">
     <ion-item class="holder">
       <ion-label position="floating" >Email :</ion-label>
@@ -20,11 +20,7 @@
 
     <div>
     <p class="p" (click)="abriu()">Esqueci minha senha</p>
-    <ion-item class="holder2" [hidden]="!abrir">
-      <ion-label position="floating">Email da conta :</ion-label>
-      <ion-input type="email" [(ngModel)]="emailrecu"></ion-input>
-      <ion-button type="submit"  (click)="enviar()">enviar</ion-button>
-    </ion-item>
+    
   </div>
 
     <ion-button  shape="round" expand="full" type="submit" (click)="login()">Log in</ion-button>
@@ -39,5 +35,22 @@
       </ion-item>
     </div>  
   </ion-list>
+  
+  <p class="p2" >Log in com Gmail:</p>
+  <ion-button (click)="loginGooglecom()" class="google" >
+    <ion-icon name="logo-google" size="large"></ion-icon>
+  </ion-button>
 
+
+</ion-content>
+
+<ion-content [hidden]="!abrir">
+  <div> 
+    <p class="p" (click)="abriu()">Voltar</p>
+    <ion-item class="holder2" >
+      <ion-label position="floating">Email da conta :</ion-label>
+      <ion-input type="email" [(ngModel)]="emailrecu"></ion-input>
+      <ion-button type="submit"  (click)="enviar()">enviar</ion-button>
+    </ion-item>
+  </div>
 </ion-content>

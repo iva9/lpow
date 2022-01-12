@@ -40,6 +40,8 @@ import { Network } from '@ionic-native/network/ngx';
 import { SimpleLoadingStrategy } from './selective-loading-strategy.service'
 import { EditarModalPage } from './editar-modal/editar-modal.page';
 import { EditarModalPageModule }from './editar-modal/editar-modal.module';
+import { NovoEventoPage } from './novo-evento/novo-evento.page';
+import { NovoEventoPageModule } from './novo-evento/novo-evento.module';
 import { Screenshot } from "@ionic-native/screenshot/ngx"
 import{ UsuarioPesquisaPage } from './usuario-pesquisa/usuario-pesquisa.page';
 import { UsuarioPesquisaPageModule } from './usuario-pesquisa/usuario-pesquisa.module'
@@ -54,7 +56,9 @@ import { ProximoEventoPage } from './eventos-do-usuario/proximo-evento.page';
 import { PesquisarPage } from './pesquisar/pesquisar.page';
 import { SocialSharing  } from "@ionic-native/social-sharing/ngx"
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
-import { Camera } from "@ionic-native/camera/ngx"
+import { Camera} from "@ionic-native/camera/ngx";
+import { CameraOptions} from "@ionic-native/camera/ngx"
+import { GooglePlus } from "@ionic-native/google-plus/ngx"
 @NgModule({
   declarations: [AppComponent, ],
   entryComponents: [  ],
@@ -71,6 +75,7 @@ import { Camera } from "@ionic-native/camera/ngx"
       FormsModule,
       AngularFireAuthModule,
       EventomodalPageModule,
+      NovoEventoPageModule,
       ProximoEventoPageModule,
       EditarModalPageModule,
       TutorialPageModule,
@@ -86,6 +91,7 @@ import { Camera } from "@ionic-native/camera/ngx"
     PerfilPage,
     CriarUserPage,
     PesquisarPage,
+    NovoEventoPage,
     TutorialPage,
     LoginPage,
     SimpleLoadingStrategy,
@@ -100,6 +106,7 @@ import { Camera } from "@ionic-native/camera/ngx"
     NavParams,
     ImagePicker,
     Camera,
+    GooglePlus,
     File,
     ActionSheetController,
     ProximoEventoPage,

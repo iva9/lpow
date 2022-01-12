@@ -5,8 +5,8 @@ import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angula
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore'
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NovoEventoPage } from '../novo-evento/novo-evento.page';
-import { IonContent } from "@ionic/angular";
-import { Slides } from 'ionic-angular';
+import { AlertController, IonContent } from "@ionic/angular";
+import { IonSlides} from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { EventomodalPage } from '../eventomodal/eventomodal.page';
 import { ProximoEventoPage } from '../eventos-do-usuario/proximo-evento.page'
@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 import { Data } from '../evento.service'
 import { map } from 'rxjs/operators';
 import { ActionSheetController } from '@ionic/angular'
-import * as firebase from 'firebase/firestore/bundle';
+//import * as firebase from 'firebase/firestore/bundle';
 import * as moment from 'moment'
 import { SimpleLoadingStrategy } from '../selective-loading-strategy.service';
 import { PesquisarPage } from '../pesquisar/pesquisar.page';
@@ -23,7 +23,9 @@ import { LoginPage } from '../login/login.page';
 import { CriarUserPage } from '../criar-user/criar-user.page';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import _ from 'lodash';
-
+import { UserService } from '../user.service';
+import { Camera } from '@ionic-native/camera'
+import { TutorialPage } from '../tutorial/tutorial.page';
 
 @Component({
   selector: 'app-home',
@@ -35,7 +37,10 @@ export class HomePage {
 
   @ViewChild('SwipedTabsSlider', { static: false })
   @ViewChild(IonContent, { static: true }) content: IonContent;
-  @ViewChild(Slides, { static: true }) slides: Slides
+  @ViewChild('slides' ,{static: false})  slides: IonSlides;
+  public nextcity(){
+    this.slides.slideNext(800);
+  }
   private eventocidade: AngularFirestoreCollection;
   private eventoNacional: AngularFirestoreCollection
   private eventoOnline: AngularFirestoreCollection
@@ -105,7 +110,9 @@ export class HomePage {
   number = 0;
   // public keys : Array<object> = [];
   constructor(
+    public alertCtrl: AlertController,
     private login: LoginPage,
+    private UserSe : UserService,
     public eventModal: EventomodalPage,
     private modalCtrl: ModalController,
     public firebase: AngularFireDatabase,
@@ -114,6 +121,7 @@ export class HomePage {
     public authh: AngularFireAuth,
     private criaruserpage: CriarUserPage,
     public proxevent: ProximoEventoPage,
+    private tutorial : TutorialPage,
     private route: Router,
     private SimpleLoad: SimpleLoadingStrategy,
     private backgroundMode: BackgroundMode
@@ -151,8 +159,10 @@ this.backgroundMode.disable()
     // ARRUMAR BUSCA NO NACIONAL (ESTA MOSTRANDO OS EVENTOS ONLINE TB)
   
   }
-
-
+  ss(){
+    
+  this.nextcity()
+}
   showeventos(){
    if(this.nacionais.length == 0){
     this.eventosNacional = this.listanacional()//  ->  Nacional segment
@@ -170,6 +180,7 @@ this.backgroundMode.disable()
        // User is signed in, see docs for a list of available properties
        // https://firebase.google.com/docs/reference/js/firebase.User
        var uid = user.uid;
+       var res = user
        console.log( "logado por aqui")
        this.getcidadade(uid).subscribe(cit => {
         this.lugar = cit;
@@ -179,12 +190,15 @@ this.backgroundMode.disable()
           this.cidadedoUSER(this.cidadesDoUsuario)
 
         }
-        console.log("TAMANHO LENGHT ->", this.nacional.length)
-
 
 
         // -> Cidade do usuario e Cidade segment
       })
+      if (res.emailVerified == false) {
+        console.log(res.emailVerified, "emailverified")
+        this.criaruserpage.showalert("Ops você já criou uma conta ", "Mas não clickou no link que enviamos, verifique e volte ")
+        this.login.enviaremaildeverific()
+      }
        // ...
      }
      else{
@@ -198,17 +212,15 @@ this.backgroundMode.disable()
     const res = user
     this.iduser = res
     console.log("authstatelogado" , res.uid )
-  //  if (!res.emailVerified) {
-      //console.log(res.emailVerified, "emailverified")
-   //   this.criaruserpage.showalert("Ops você já criou uma conta ", "Mas não clickou no link que enviamos, verifique e volte ")
-   //   this.login.enviaremaildeverific()
-   // }
+
   }
 
   AuthstateDeslogado(){
      this.getDataFromFire()
      this.noAuth = true
     }
+  
+ 
   
 
   getDataFromFire(){
@@ -577,6 +589,16 @@ tamanho(){
 
   }
 
+  async ajuda(){
+    const modal = await this.modalCtrl.create({
+      component: TutorialPage,
+      componentProps: {
+    
+      }
+    })
+    modal.present();;
+
+  }
 
   listaonline2() {
     if (this.ordenarpor == true){
@@ -626,6 +648,49 @@ tamanho(){
       event.target.complete();
     }, 2000);
   }
+
+  //ORDENAR SEM TAR LOGADO (DIA/UP)
+  //async optionsNoAuth(){
+   // const alert = await this.alertCtrl.create({
+    //  cssClass: 'my-custom-class',
+     // header: 'Ajuste de Listas',
+     // message: 'Deseja ordenar os eventos por',
+     // buttons: [
+      //  {
+       //   text: 'Dia',
+        //  role: 'cancel',
+       //   cssClass: 'secondary',
+        //  handler: () => {
+        //    console.log("dia")
+         //   this.ordenarpor = true
+       //     this.ngOnInit()           
+        //  }
+   //     },
+     //   {
+       //   text: 'Up',
+         // role: 'cancel',
+       //   cssClass: 'secondary',
+     //     handler: () => {
+   //         this.ordenarpor = true
+         //   console.log("up")
+          //  this.ngOnInit()
+        //  }
+       // }, {
+       //   text: 'Cancelar',
+      //    handler: () => {
+           // console.log('Confirm Okay');
+         // }
+       // }
+     // ]
+   // });
+
+ //   await alert.present();
+ // }
+
+
+
+
+
   //hoje(x) { // refeito precisa ser 
   //this.eventodehoje = this.firestore.collection('eventos', ref => ref
   // .where('lugar', '==', `${x}`).where('passado', '==', false)

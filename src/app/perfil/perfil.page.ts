@@ -27,7 +27,7 @@ export class PerfilPage implements OnInit {
   items; 
   mainuser : AngularFirestoreDocument
   sub
-  noAuth = true
+  noAuth : boolean
   passadostate;
   m
   loading : any
@@ -42,6 +42,7 @@ export class PerfilPage implements OnInit {
   perfilnome;
   perfilimg;
   perfilUP = false;
+  escolha = "Data"
   ultimoUP;
   ultimoCriado;
   private criados = new Array<any>();
@@ -120,7 +121,7 @@ export class PerfilPage implements OnInit {
           this.showmodal();
         }
       },{
-          text: 'Ordenar eventos por data/Up',
+          text: 'Ordenar eventos por ' + this.escolha,
           icon: 'options',
           handler: () => {
             this.orderBy();
@@ -187,6 +188,12 @@ export class PerfilPage implements OnInit {
     this.perfilnome = usuario.username
     this.perfilimg = usuario.imgUser
     this.perfilUP = usuario.UP
+    if (this.perfilUP == false){
+      this.escolha = "Data"
+    }
+    else{
+      this.escolha = "UP"
+    }
   })
    }
   }
@@ -222,6 +229,8 @@ export class PerfilPage implements OnInit {
       this.todositems = this.allitems
     }
   }
+
+  
   logout(){ 
     this.presentLoading()
       this.afAuth.signOut().then(function() {  // Sign-out successful.

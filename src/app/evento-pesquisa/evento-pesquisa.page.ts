@@ -117,7 +117,7 @@ getevento(tt){
   )
 }
 redirectlink(){
- const browser =  this.iab.create(`https://${this.eventodb.ingresso}`,'_system',{location :'no'})
+ const browser =  this.iab.create(`${this.eventodb.ingresso}`,'_system',{location :'no'})
 
 browser.on('loadstop').subscribe(event => {
    browser.insertCSS({ code: "body{color: red;" });

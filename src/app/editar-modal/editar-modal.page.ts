@@ -11,6 +11,7 @@ import { Data } from '../evento.service'
 import { Subscription } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection,  } from '@angular/fire/firestore';
 import { Camera } from '@ionic-native/camera/ngx';
+import { NovoEventoPage } from '../novo-evento/novo-evento.page';
 @Component({
   selector: 'app-editar-modal',
   templateUrl: './editar-modal.page.html',
@@ -46,7 +47,8 @@ export class EditarModalPage implements OnInit {
   private navparams : NavParams,
   private loadingC : LoadingController,
   private firebase : AngularFireDatabase,
-  private route : Router
+  private route : Router,
+  private novoe : NovoEventoPage
   ) {
    
    }
@@ -58,16 +60,18 @@ export class EditarModalPage implements OnInit {
    }
 
 
-   takePicture() {
+    takePicture() {
     this.camera.getPicture({
       sourceType : this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType : this.camera.DestinationType.DATA_URL
     }).then(res => {
-      this.img = "data:image/jpeg;base64," + res
+     return this.img =  "data:image/jpeg;base64," + res
+      
     }).catch(e =>{
       console.log(e)
     })
 
+    return this.img
   }
 
    showPreview(event: any){
@@ -76,6 +80,7 @@ export class EditarModalPage implements OnInit {
       reader.onload = (e: any) => this.img = e.target.result;
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
+      this.novoe.img = event.target.files[0]
     }else{
       this.img = "../assets/icon/profile.png";
       this.selectedImage = null;

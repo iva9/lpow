@@ -109,6 +109,10 @@ this.lugaresdocomentario.valueChanges().subscribe(
   }) 
 }
 async  UP(){
+  if (this.iduser == null){
+    this.jadeuUP = true
+    return this.showAlertLogin()
+  }
   this.jadeuUP = true
   const res = await this.auth.currentUser
   if(this.x.up.includes(this.iduser)){
@@ -129,11 +133,14 @@ async  UP(){
     if(this.x.up.includes(this.iduser)){
       this.jadeuUP = true
     }
+
+    
+  }
+
+  comentauth(){
     if (this.iduser == null){
       this.showAlertLogin()
-      this.jadeuUP = true
     }
-    
   }
    
   
@@ -142,7 +149,8 @@ redirectmap(){
 }
 
 redirectlink(){
- this.iab.create(`https://${this.x.ingresso}` ,'_system')
+  
+ this.iab.create(`${this.x.ingresso}` ,'_system')
 }
 redirectUser(){
   this.close()

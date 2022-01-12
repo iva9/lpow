@@ -1,12 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title size="large" class="centertt" (click)="showDacidade()">Oreon</ion-title>
+    <ion-title size="large" class="centertt" (click)="ss()">Oreon</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="fundo" #content>
-  <ion-slides class="centertt">
-
+  <ion-slides  class="centertt" #slides>
     <ion-slide *ngIf="cidade.length > 0 && noAuth == false">
       <div>
         <a class="a">{{ cidadesDoUsuario }}</a>
@@ -38,7 +37,7 @@
 
     <ion-slide>
       <div>
-        <a class="a"> Nacional </a>
+        <a class="a" (click)="ss()"> Nacional </a>
         <ion-card *ngFor="let evento of nacionais " class="card">
           <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
           <ion-card-header class="">
@@ -142,6 +141,11 @@
     <ion-fab-list side="end">
       <ion-fab-button routerLink="/pesquisar"  replaceUrl="true" routerDirection="forward">
         <ion-icon name="search"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list *ngIf="noAuth" side="top">
+      <ion-fab-button (click)="ajuda()">
+        <ion-icon name="help"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>

@@ -35,9 +35,9 @@
       <h2 class="com">{{ x.userID[1] }}</h2>
     </ion-item>
   </ion-list>
-  <ion-list lines="none">
-    <ion-item no-lines>
-      <ion-input placeholder="Comentario:" type="string" [disabled]="noAuth" [(ngModel)]="comentario"></ion-input>
+  <ion-list (click)="comentauth()" lines="none">
+    <ion-item no-lines >
+      <ion-input  placeholder="Comentario:" type="string" [disabled]="noAuth" [(ngModel)]="comentario"></ion-input>
       <ion-button color="primary" (click)="setcoment()" [disabled]="!comentario.length"> Enviar
       </ion-button>
     </ion-item>
