@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title  *ngIf="pode" size="large" class="centertt">{{ eventodb.nome }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="margin" defaultHref="pesquisar" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  *ngIf="pode">
+  <div>
+    <ion-card class="card">
+      <img class="imagem" [src]="eventodb.url" />
+    </ion-card>
+    <ion-list lines="none">
+      <ion-item >
+        <ion-button size="small"color="primary"  [disabled]="jadeuUP" (click)="UP()" slot="start">UP</ion-button>
+        {{ eventodb.UPnum }}
+    </ion-item>
+    <ion-item > 
+        <ion-icon  size="large" name="chatbubble-sharp" slot="start"></ion-icon>
+        {{ numcoments }}
+    </ion-item>
+      <ion-item>
+        <ion-icon name="calendar-outline" item-start></ion-icon>
+        <h2 class="com"> {{ eventodb.dia }} </h2>
+      </ion-item>
+      <ion-item (click)="redirectlink()">
+        <ion-icon name="globe-outline"></ion-icon>
+        <h2 class="com">Link</h2>
+      </ion-item>
+      <ion-item *ngIf="eventodb.local" (click)="redirectmap()">
+        <ion-icon name="location-sharp" size="large"></ion-icon>
+        <h2 class="com">{{ eventodb.local.description }}</h2>
+      </ion-item>
+      <ion-item (click)="redirectUser()">
+        <ion-icon name="person-sharp"></ion-icon>
+        <h2 class="com">{{ eventodb.userID[1] }}</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+
+
+
+  <ion-list lines="none">
+    <ion-item  no-lines>
+      <ion-input placeholder="Comentario:" type="string" [(ngModel)]="comentario"></ion-input>
+      <ion-button color="primary" (click)="setcoment()"   [disabled]="noAuth"> Enviar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-list lines="none">
+    <div *ngFor="let kdcoment of coments">
+      <ion-item id="output">
+        <ion-avatar item-start>
+          <img [src]="kdcoment.img">
+        </ion-avatar>
+        <h2 class="com">{{ kdcoment.username }} : {{ kdcoment.comentarioU }} </h2>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

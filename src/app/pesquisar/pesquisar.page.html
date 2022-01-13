@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" class="margin" (click)="voltar()"></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar class="searchbar" placeholder="Eventos" [(ngModel)]="queryText" (ionInput)="filterEvento($event)" clearInput>
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item (click)="pesq(evento)" no lines *ngFor="let evento of eventoY">
+      <ion-thumbnail item-start>
+        <img class="" [src]="evento.dataseet.url">
+      </ion-thumbnail>
+      <div>
+      <h2 class="com">{{ evento.dataseet.nome }}  </h2>
+      <h3 class="sub">{{ evento.dataseet.lugar }}</h3>
+    </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

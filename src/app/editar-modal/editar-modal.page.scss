@@ -1,0 +1,49 @@
+.filebtn {
+	opacity: 0;
+	position: absolute;
+	top: -100em;
+	left: -100em;
+}
+ion-content {
+	--background: black;
+  }
+
+  ion-toolbar{
+    --padding-top: 24px ;
+	--background: black;
+	--color : white;
+}
+ion-item{
+	--placeholder-color:#FFFFFF;
+	--background:black;
+	--color: white;
+  
+}
+.vertical-center {
+	text-align: center;
+	margin: auto;
+	position: absolute;
+	-ms-transform: translateX(-50%, -50%);
+  transform: translateX(-50%, -50%);
+  }
+  .centertt{
+	text-align: center;
+	background-color: black;
+	color: white;
+  }
+
+  .publicar{
+	text-align: center;
+  }
+
+  .imagem{
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 250px;
+}
+.margintop{
+	margin-top: 1em;
+}

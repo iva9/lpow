@@ -1,0 +1,74 @@
+{
+  "version": "8.5.2",
+  "name": "cordova-plugin-googleplus",
+  "cordova_name": "Google SignIn",
+  "description": "Use your Google account to authenticate with the app.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EddyVerbruggen/cordova-plugin-googleplus/issues"
+  },
+  "homepage": "https://github.com/EddyVerbruggen/cordova-plugin-googleplus#readme",
+  "keywords": [
+    "Google",
+    "Google SignIn",
+    "Google Sign In",
+    "GoogleSignIn",
+    "Google Login",
+    "Google Plus",
+    "Login",
+    "OAuth",
+    "Identity",
+    "Authentication",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "platforms": [
+    "android",
+    "ios"
+  ],
+  "dependencies": {
+    "q": "*"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.5.0"
+    }
+  ],
+  "gitHead": "dd5f7921c9bd3b348717ceda66895fac4a3ebcf1",
+  "_id": "cordova-plugin-googleplus@8.5.2",
+  "_nodeVersion": "14.15.1",
+  "_npmVersion": "6.14.11",
+  "dist": {
+    "integrity": "sha512-I4G1zQcQrrtvdNZbwiDFfWZoIAHmwF4y8dZtnssjYkf1L10hoXF8b/ry+qlW1VK5TLhDgRgEnE45MkaaxBWpXg==",
+    "shasum": "d73bda05e2725d3493049bdbe813d113a6f6e508",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-googleplus/-/cordova-plugin-googleplus-8.5.2.tgz",
+    "fileCount": 15,
+    "unpackedSize": 72529,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgJWysCRA9TVsSAnZWagAACMkP/3CRt7AvE6kCnqSAlCnx\nrbPecwb0+sIhPxtJrZKhsrLSu76zXZsg7893BtMLlQ0Unw1YvGZVAHbLBGMc\nGZDuzXHfqlN4v0feHuWxDWknTV41WaXwImFiqdNFIPIoTABsGA4KKNpDmaoI\njjVxPOIJQpcAaqGVwgS9MdvFvdtT4bn1s4qBZBKF9dMGqP2fgSxeou5S/3sb\nnwkmqoEcoCjvN2wpGGeHjIySBTArLnyYObaUdBk83rt7WXwN3pYPtEqUzyMJ\n45gQzs3Yl2w+awtsGlPBbh3G07V4f6JPMNkSEEToVy3feFvMjHOOeenXBUp1\nZb+vsy94aRIM8vKNihk1LIeS1mgXIE38j3BLYdVRYC/NlxAWdxhzaTnhz9Eb\n7lw0Qm5xOtOxgAPzGy7o91wSFAII71K1/vS1bqqv8ShxXj20rZbvFXbc7MC4\nQ72BQJbMXcxelK4ji2dbfb20iJDTEH1FhsOcicj3CAcCf29OXfKewxdmVNdJ\nsFW0ItX+FFagskKsn1B/msQboQYOYEnMFr2Mq1slCOvvrl9wNJ+vO9eT/gGZ\nsKS7jEng7Kt/7xTEOl1GBLrMNdl5YEfIGmvYPMVjEslZ2nMMMGyevQ/jPK/F\nm40C+8woLgnoMFTZBKUwLx+PyCQEvWd2LtY/QhPPwVxbhXFmubn7hSycLJYd\nSs74\r\n=5ZOl\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "_npmUser": {
+    "name": "eddyverbruggen",
+    "email": "eddyverbruggen@gmail.com"
+  },
+  "directories": {},
+  "maintainers": [
+    {
+      "name": "eddyverbruggen",
+      "email": "eddyverbruggen@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-googleplus_8.5.2_1613065388326_0.42422051543200046"
+  },
+  "_hasShrinkwrap": false,
+  "_shasum": "d73bda05e2725d3493049bdbe813d113a6f6e508",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-googleplus/-/cordova-plugin-googleplus-8.5.2.tgz",
+  "_from": "cordova-plugin-googleplus@latest"
+}

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="title">Registro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="criar-user" text="" class="margin" (click)="voltar()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content> 
+  <ion-list *ngIf="!jalogado">
+  <ion-item class="holder">
+    <ion-label position="floating"> Nome de Usuario :</ion-label>
+    <ion-input type="email" [(ngModel)]="username"></ion-input>
+  </ion-item>
+
+    <ion-item class="holder">
+      <ion-label position="floating">Email :</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+  
+    <ion-item class="holder">
+      <ion-label position="floating">Senha :</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <ion-item class="holder">
+      <ion-label position="floating">Confirme senha :</ion-label>
+      <ion-input type="password" [(ngModel)]="cpassword"></ion-input>
+    </ion-item>
+
+    <ion-button  shape="round" expand="full" type="submit" (click)="register()">Criar</ion-button>
+
+    
+    <p class="pp">Criar com Gmail:</p>
+    <ion-button (click)="loginGooglecom()" class="google">
+      <ion-icon name="logo-google" size="large"></ion-icon>
+    </ion-button>
+    
+
+    </ion-list>
+    <div *ngIf="jalogado">
+      <h2 class="p" >Enviamos um link de verificação pro seu email confirme após clickar nele.</h2>
+      <ion-item class="holder2"  lines="none">
+        <ion-button size="default" type="submit"  (click)="enviaremaildeverific()">Reenviar</ion-button>
+        <ion-button  size="default" type="submit"  (click)="javerifiquei()">Confirmar</ion-button>
+      </ion-item>
+    </div>  
+</ion-content>

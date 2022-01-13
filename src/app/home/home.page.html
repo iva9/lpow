@@ -1,0 +1,152 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="large" class="centertt" (click)="ss()">Oreon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fundo" #content>
+  <ion-slides  class="centertt" #slides>
+    <ion-slide *ngIf="cidade.length > 0 && noAuth == false">
+      <div>
+        <a class="a">{{ cidadesDoUsuario }}</a>
+        <ion-card *ngFor="let evento of cidade" class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>
+              {{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-card *ngFor="let evento of cidade3" class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>
+              {{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadcidade($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </div>
+    </ion-slide>
+
+
+    <ion-slide>
+      <div>
+        <a class="a" (click)="ss()"> Nacional </a>
+        <ion-card *ngFor="let evento of nacionais " class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-subtitle class="branco">{{ evento.lugar }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-card *ngFor="let evento of nacional" class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-subtitle class="branco">{{ evento.lugar }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadnacional($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </div>
+    </ion-slide>
+
+
+
+
+    <ion-slide *ngIf="noAuth">
+      <div class="noauth">
+        <a class="a" >{{ escolhaNoAuth }}</a>
+        <ion-searchbar class="searchbar" placeholder="Escolher cidade" (ionInput)="getItems($event)" (click)="abriu()"
+          [(ngModel)]="_cidade" clearInput></ion-searchbar>
+        <ion-list *ngIf="abrir" class="filtro" lines="none" no-lines>
+          <ion-item (click)="noAuth_cidade(item.lugar)" *ngFor="let item of todositems" class="filtro">
+            {{ item.lugar }}
+          </ion-item>
+        </ion-list>
+        <ion-card *ngFor="let evento of cidade" class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>
+              {{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-card *ngFor="let evento of cidade3" class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>
+              {{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadcidade($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </div>
+    </ion-slide> 
+
+    <ion-slide *ngIf="online.length > 0">
+      <div>
+        <a class="a"> Online </a>
+        <ion-card *ngFor="let evento of online " class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-card *ngFor="let evento of onlines" class="card">
+          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+          <ion-card-header class="">
+            <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
+            <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
+            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
+          </ion-card-header>
+        </ion-card>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadOnline($event)">
+          <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </div>
+    </ion-slide>
+  
+  </ion-slides>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="radio-button-off-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button   routerLink="/perfil"  replaceUrl="true" routerDirection="forward">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="end">
+      <ion-fab-button routerLink="/pesquisar"  replaceUrl="true" routerDirection="forward">
+        <ion-icon name="search"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list *ngIf="noAuth" side="top">
+      <ion-fab-button (click)="ajuda()">
+        <ion-icon name="help"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

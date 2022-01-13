@@ -1,0 +1,83 @@
+<ion-header *ngFor="let user of userrr ">
+  <ion-toolbar>
+    <ion-title class="title" size="large">{{ user.username }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="presentActionSheet()">
+      <ion-icon name="menu-outline" size="large"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <img *ngFor="let user of userrr " class="imagem" [src]="user.imgUser" />
+<h2>  </h2>
+
+  <ion-slides>
+
+    <ion-slide>
+      <div>
+        <a class="a">Lista de Up</a>
+        <ion-list>
+          <ion-item lines="none" *ngFor="let evento of eventos" (click)="showmodal(evento)">
+            <ion-thumbnail>
+              <img class="imag" [src]="evento.url">
+            </ion-thumbnail>
+            <h2 class="com">{{ evento.nome }} </h2>
+            <ion-badge slot="end">{{ evento.UPnum }}</ion-badge>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-item lines="none" *ngFor="let evento of eventos2" (click)="showmodal(evento)">
+            <ion-thumbnail>
+              <img class="imag" [src]="evento.url">
+            </ion-thumbnail>
+            <h2 class="com">{{ evento.nome }} </h2>
+            <ion-badge slot="end">{{ evento.UPnum }}</ion-badge>
+          </ion-item>
+        </ion-list>
+        <ion-infinite-scroll threshold="40%" (ionInfinite)="loadups($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Carregando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </div>
+    </ion-slide>
+
+    <ion-slide *ngIf="criados.length > 0">
+      <div>
+        <a class="a">Eventos Publicados</a>
+        <ion-list lines="none">
+          <ion-item *ngFor="let evento of criados" class="card" (click)="showmodal(evento)" lines="none">
+            <ion-thumbnail (click)="showmodal(evento)">
+              <img class="imag" [src]="evento.url">
+            </ion-thumbnail>
+            <h2 class="com">{{ evento.nome }} </h2>
+            <ion-badge slot="end">{{ evento.UPnum }}</ion-badge>
+          </ion-item>
+        </ion-list>
+        <ion-list lines="none">
+          <ion-item *ngFor="let evento of criados2" class="card" (click)="showmodal(evento)" lines="none">
+            <ion-thumbnail (click)="showmodal(evento)">
+              <img class="imag" [src]="evento.url">
+            </ion-thumbnail>
+            <h2 class="com">{{ evento.nome }} </h2>
+            <ion-badge slot="end">{{ evento.UPnum }}</ion-badge>
+          </ion-item>
+        </ion-list>
+        <ion-infinite-scroll threshold="40%" (ionInfinite)="loadcriados($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Carregando...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+
+
+  <ion-content>
