@@ -129,11 +129,11 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-background-mode": {},
       "cordova-plugin-camera": {},
-      "cordova-plugin-splashscreen": {},
       "cordova-plugin-googleplus": {
         "REVERSED_CLIENT_ID": "com.googleusercontent.apps.373924502179-d29hkb11j7e9nu15mvsltmqovktpi06q",
         "WEB_APPLICATION_CLIENT_ID": "373924502179-d29hkb11j7e9nu15mvsltmqovktpi06q.apps.googleusercontent.com"
-      }
+      },
+      "cordova-plugin-splashscreen": {}
     },
     "platforms": [
       "browser"

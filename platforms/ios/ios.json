@@ -73,19 +73,22 @@
   },
   "installed_plugins": {
     "com.darktalker.cordova.screenshot": {
-      "PACKAGE_NAME": "com.Ivanov.Oreon"
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "com.Test.Oreon"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.Ivanov.Oreon"
+      "PACKAGE_NAME": "com.Test.Oreon"
     },
     "cordova-plugin-background-mode": {
-      "PACKAGE_NAME": "com.Ivanov.Oreon"
+      "PACKAGE_NAME": "com.Test.Oreon"
     },
     "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.Ivanov.Oreon"
+      "PACKAGE_NAME": "com.Test.Oreon"
     },
     "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.Ivanov.Oreon"
+      "PACKAGE_NAME": "com.Test.Oreon"
     }
   },
   "dependent_plugins": {},
@@ -323,6 +326,7 @@
   ],
   "plugin_metadata": {
     "com.darktalker.cordova.screenshot": "0.1.5",
+    "cordova-plugin-add-swift-support": "2.0.2",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-background-mode": "0.7.3",
     "cordova-plugin-camera": "5.0.3",

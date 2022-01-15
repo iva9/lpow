@@ -233,6 +233,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
   ];
   module.exports.metadata = {
     "com.darktalker.cordova.screenshot": "0.1.5",
+    "cordova-plugin-add-swift-support": "2.0.2",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-background-mode": "0.7.3",
     "cordova-plugin-camera": "5.0.3",
