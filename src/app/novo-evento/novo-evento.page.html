@@ -41,21 +41,47 @@
 
     <ion-slide>
       <h2 class="th2">A data</h2>
-      <ion-list lines="none">
-      <ion-item class="holder">
-        <ion-datetime  placeholder="Início" displayFormat="DD MMMM HH:mm"[(ngModel)]="dia"
-          monthNames="Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro">
-        </ion-datetime>
-      </ion-item>
-    
-      <ion-item class="holder">
-        <ion-datetime placeholder="Fim"displayFormat="DD MMMM HH:mm" [(ngModel)]="fim" 
-         monthNames="Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro">
-        </ion-datetime>
-      </ion-item>
+      <ion-list lines="none" >
+        <ion-item id="open-modal" class="holder">
+      
+          <ion-text class="holder" >{{ dia1 }}</ion-text>
+        </ion-item>
+
+        <ion-item id="open-modal2" class="holder">
+  
+          <ion-text class="holder" >{{ dia2 }}</ion-text>
+        </ion-item>
     </ion-list>
       <ion-button class="btn2"  shape="round" (click)="novaData()"> Ok </ion-button>
     </ion-slide>
+
+    <ion-modal trigger="open-modal">
+      <ng-template>
+        <ion-content>
+          <ion-datetime #iondatetime size="cover" 
+           [value]="dateValue" 
+          (ionChange)="dateChanged(datetime.value)"
+          showDefaultButtons="true">
+           
+          </ion-datetime>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+
+    <ion-modal trigger="open-modal2">
+      <ng-template>
+        <ion-content>
+          <ion-datetime #iondatetime size="cover"
+           [value]="dateValue" 
+          (ionChange)="dateChanged2(datetime.value)"
+          showDefaultButtons="true">
+           
+          </ion-datetime>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
 
     <ion-slide *ngIf="presenca">
       <h2 class="th2">O link </h2>

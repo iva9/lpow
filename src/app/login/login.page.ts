@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserService } from'../user.service';
 import { AngularFirestore , AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -20,11 +20,13 @@ export class LoginPage implements OnInit {
     emailrecu: string = "";
     abrir: boolean = false;
     temqverificar: boolean = false
+    loading : any;
 
   constructor(
     public afauth:AngularFireAuth,
     public alertController : AlertController,
     public router: Router ,
+    public loadingC: LoadingController,
     public user :UserService,
     private google : GooglePlus,
     private firestore: AngularFirestore,
@@ -36,7 +38,17 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  async presentLoading(){
+    this.loading = await this.loadingC.create({
+       cssClass: 'my-custom-class',
+       message: 'Espere um momento...',
+       
+     });
+     await this.loading.present();
+   }  
+
 async login (){
+  this.presentLoading()
   const {email , password } = this
   try{
     const res = await this.user.login(email , password)
@@ -54,15 +66,19 @@ async login (){
     }
   }catch(err){
     if(err.code == "auth/invalid-password" ){
+      this.loadingC.dismiss()
      return this.showalert("Erro" , "Senha errada")
     }
     if(err.code == "auth/user-not-found" ){
+      this.loadingC.dismiss()
    return   this.showalert("Erro" , "Usuario não encontrado.")
     }
     else{
+      this.loadingC.dismiss()
   return   this.showalert(err.code , err.message)
     }
   }
+  this.loadingC.dismiss()
 }
 
 abriu(){
@@ -103,7 +119,7 @@ async emailverificado(){
 
 this.LoginGoogle().then(() =>{
   //const res =  this.Afauth.currentUser
-  
+  this.presentLoading()
   this.mostraale()
 }).catch(err =>{
   this.showalert("erro" , err)
@@ -124,7 +140,7 @@ async mostraale(){
  const res = await this.afauth.currentUser 
  this.firestore.collection('users', ref => ref.where('iduser', '==', `${res.uid}`)).snapshotChanges().subscribe(usergg => {
    if (usergg.length > 0){
-
+    this.loadingC.dismiss()
     this.router.navigate(['/home'])
     this.showalert('' ,'Login com sucesso' )
    }
@@ -141,6 +157,7 @@ async mostraale(){
      })
   
      this.router.navigate(['/home'])
+     this.loadingC.dismiss()
 
    }
  })

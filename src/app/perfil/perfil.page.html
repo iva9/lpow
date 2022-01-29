@@ -16,7 +16,7 @@
   <img *ngIf="perfilimg" (click)="showmodal()" class="imagem" [src]="perfilimg" />
   <ion-searchbar class="searchbar" placeholder="Escolher cidade" (ionInput)="getItems($event)" (click)="abriu()"  [(ngModel)]="cidade"
     clearInput></ion-searchbar>
-  <ion-list *ngIf="cidade.length > 0 || abrir" class="filtro">
+  <ion-list *ngIf="cidade.length > 0 || abrir" class="filtro" lines="none" no-lines>
     <ion-item (click)="meuslugares(item.lugar)" *ngFor="let item of todositems" class="filtro">
       {{ item.lugar }}
     </ion-item>

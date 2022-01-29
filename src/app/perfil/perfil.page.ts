@@ -148,7 +148,7 @@ export class PerfilPage implements OnInit {
     this.loading = await this.loadingC.create({
        cssClass: 'my-custom-class',
        message: 'Espere um momento...',
-       duration: 2000
+       duration: 3000
      });
      await this.loading.present();
     }
@@ -237,11 +237,14 @@ export class PerfilPage implements OnInit {
   }).catch(function(error) {
     console.log(error)
     // An error happened.
-  });    setTimeout(() => { this.route.navigate(['/criar-user']) 
+
+  });  
+  this.loadingC.dismiss()
+    setTimeout(() => { this.route.navigate(['/criar-user']   ) 
   }, 3500);
   this.ngOnDestroy()
  
-  this.loadingC.dismiss()
+
   }
  
 
@@ -289,7 +292,7 @@ export class PerfilPage implements OnInit {
        this.firestore.collection(`users`).doc(`${res.uid}`).update({cidade: meulugar
        })
       this.afd.database.ref(`users/${res.uid}/cidade`).set(meulugar)
-   
+        this.showalert("Pronto" , "Cidade alterada para " + meulugar)
         }
 
         async deletaract(rte) {const alert = await  this.alertController.create({

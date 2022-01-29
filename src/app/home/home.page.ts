@@ -90,6 +90,7 @@ export class HomePage {
   ordenarpor = false; 
   iduser
   noAuth = false
+  intruso :any
   todositems 
   noAuthCidade
   provCid1  // array provisorio lisata cidade
@@ -155,8 +156,10 @@ this.backgroundMode.disable()
     this.nacional = new Array<any>(); //2° -> do nacional
     this.nacionais = new Array<any>(); //1° -> dos nacionais
     this.cidade = new Array<any>();//1° -> cidade
-    this.showeventos()
+    
+    this.showeventos()// eventos  msm com user deslogado 
     this.showDacidade()
+    
     // ARRUMAR BUSCA NO NACIONAL (ESTA MOSTRANDO OS EVENTOS ONLINE TB)
   
   }
@@ -165,15 +168,43 @@ this.backgroundMode.disable()
   this.nextcity()
 }
   showeventos(){
-   if(this.nacionais.length == 0){
+    this.authh.onAuthStateChanged((user)=>{
+      if (user) {    
+ this.firestore.collection(`users`, ref => ref.where('iduser', '==', `${user.uid}`)).get().subscribe(using=>{
+using.forEach( io =>{ 
+  const order = io.data()
+  const o = order.UP
+  this.ordenarpor = o
+  console.log(this.ordenarpor)
+  if(this.nacionais.length == 0){
     this.eventosNacional = this.listanacional()//  ->  Nacional segment
     this.nacionais = this.w;
-    }
-  
+    console.log(this.nacionais , "--nacionais")
+
     if(this.online.length == 0){
       this.eventosOnline = this.listaonline()
       this.online = this.z//  ->  online segment  
       }
+  
+}})
+ } )    
+       
+  
+   
+    }
+  else{
+    if(this.nacionais.length == 0){
+
+      this.eventosNacional = this.listanacional()//  ->  Nacional segment
+      this.nacionais = this.w;
+  }
+
+  if(this.online.length == 0){
+    this.eventosOnline = this.listaonline()
+    this.online = this.z//  ->  online segment  
+    }
+  
+  }})
   }
   showDacidade(){
     this.authh.onAuthStateChanged((user)=>{
@@ -290,7 +321,11 @@ this.backgroundMode.disable()
     const res = await this.authh.currentUser
     if (res != null){
      this.getcidadade(res.uid)
-    }}
+     return false
+    }
+  else{
+    return true
+  }}
   
   getData(data) {
     var events = data.val()
@@ -353,6 +388,11 @@ this.backgroundMode.disable()
           if(this.ordenarpor == null){
             this.ordenarpor = false
           }
+          //this.eventosNacional = this.listanacional()
+         // this.nacionais = this.w
+
+          //this.eventosOnline = this.listaonline()
+          //this.online = this.z
           //console.log(this.ordenarpor ," ----------------------")
           //console.log(this.nacionais.length == 0)
     
@@ -443,13 +483,14 @@ tamanho(){
 }
 
   listanacional() {
+   console.log(this.ordenarpor , "na nacional")
     if (this.ordenarpor == true){
       //console.log("true")
-      this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('dia', 'asc').limit(2))
+      this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('dia', 'asc').limit(3))
     }
     if (this.ordenarpor == false){
       //console.log("false")
-    this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('UPnum', 'desc').limit(2))}
+    this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('UPnum', 'desc').limit(3))}
     return this.eventoNacional.get().subscribe(coisas => {
       coisas.forEach(n => {
         const data = n.data()
@@ -513,10 +554,10 @@ tamanho(){
 
   listadaciadade2(x) {
     if (this.ordenarpor == true){
-      this.eventocidade = this.firestore.collection('eventos', ref => ref.where('lugar', '==', `${x}`).where('passado', '==', false).orderBy('dia', 'asc').startAfter(this.nextQueryAfter).limit(1))
+      this.eventocidade = this.firestore.collection('eventos', ref => ref.where('lugar', '==', `${x}`).where('passado', '==', false).orderBy('dia', 'asc').startAfter(this.nextQueryAfter).limit(3))
     }
     if(this.ordenarpor == false){
-    this.eventocidade = this.firestore.collection('eventos', ref => ref.where('lugar', '==', `${x}`).where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(this.nextQueryAfter).limit(1))}
+    this.eventocidade = this.firestore.collection('eventos', ref => ref.where('lugar', '==', `${x}`).where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(this.nextQueryAfter).limit(3))}
     return this.eventocidade.get().subscribe(city => {
       city.forEach(a => {
         const data = a.data();
@@ -553,10 +594,10 @@ tamanho(){
   listanacional2() {
     //console.log("nacional chamado")
     if (this.ordenarpor == true){
-      this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('dia', 'asc').startAfter(this.nextQuerynacional).limit(1))
+      this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('dia', 'asc').startAfter(this.nextQuerynacional).limit(3))
     }
     if(this.ordenarpor == false){
-    this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(this.nextQuerynacional).limit(1))}
+    this.eventoNacional = this.firestore.collection('eventos', ref => ref.where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(this.nextQuerynacional).limit(3))}
     return this.eventoNacional.get().subscribe(ncaionais2 => {
       ncaionais2.forEach(a => {
         const data = a.data();
@@ -603,10 +644,10 @@ tamanho(){
 
   listaonline2() {
     if (this.ordenarpor == true){
-      this.eventoOnline = this.firestore.collection('eventos', ref => ref.where('online', '==', 'online').where('passado', '==', false).orderBy('dia', 'asc').startAfter(this.nextQueryOnline).limit(1))
+      this.eventoOnline = this.firestore.collection('eventos', ref => ref.where('online', '==', 'online').where('passado', '==', false).orderBy('dia', 'asc').startAfter(this.nextQueryOnline).limit(3))
     }
     if(this.ordenarpor == false){
-    this.eventoOnline = this.firestore.collection('eventos', ref => ref.where('online', '==', 'online').where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(this.nextQueryOnline).limit(1))}
+    this.eventoOnline = this.firestore.collection('eventos', ref => ref.where('online', '==', 'online').where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(this.nextQueryOnline).limit(3))}
     return this.eventoOnline.get().subscribe(onlines => {
       onlines.forEach(t => {
         const data = t.data();
@@ -732,5 +773,8 @@ tamanho(){
     this.nacional = new Array<any>(); //2° -> do nacional
     this.nacionais = new Array<any>(); //1° -> dos nacionais
     this.cidade = new Array<any>();//1° -> cidade
+    this.y = new Array<any>();
+    this.z = new Array<any>();
+    this.w = new Array<any>();
   }
 }

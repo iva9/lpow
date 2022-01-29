@@ -166,7 +166,7 @@ export class CriarPage implements OnInit {
       this.loading = await this.loadingC.create({
          cssClass: 'my-custom-class',
          message: 'Espere um momento...',
-         duration: 2000
+  
        });
        await this.loading.present();
       }

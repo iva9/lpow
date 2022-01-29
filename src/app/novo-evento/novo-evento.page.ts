@@ -12,6 +12,7 @@ import { LoadingController , ModalController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Camera ,CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx'
 import { EditarModalPage } from '../editar-modal/editar-modal.page'
+import { IonDatetime } from '@ionic/angular';
 declare var google : any;
 
 
@@ -25,19 +26,37 @@ declare var google : any;
 export class NovoEventoPage implements OnInit {
   @ViewChild('fileButton' ,  {static: false}) fileButton;
   @ViewChild('slides' ,{static: false})  slides: IonSlides;
+
+  @ViewChild('iondatetime') datetime: IonDatetime;
+
+  
+
+  public close() {
+    this.datetime.cancel(true)
+  }
+
+  public select(){
+    this.datetime.confirm(true)
+    console.log(this.dateValue)
+  }
+  
   public next(){
     this.slides.slideNext();
   }
   public prev(){
     this.slides.slidePrev();
   }
+
+
   loading : any;
   img 
   selectedImage: any = null;
   items;
   presenca = true
   fim
-  dia2
+  dateValue = '';
+  dia1 = 'Início'
+  dia2 = 'Fim'
   usuario
   ingressoType = ''
   existe : boolean = false
@@ -56,6 +75,7 @@ export class NovoEventoPage implements OnInit {
   public search : string = '';
   private googleAutocomplete = new google.maps.places.AutocompleteService();
   public searchResults = new Array<any>();
+  
  
  
 
@@ -109,11 +129,26 @@ Online(){
     this.showalert("OPS!", "Mude seu nome de usuario para publicar um evento")
    return this.showmodal()
  }
+
+
   this.presenca = false
   this.local = null
   this.lugar = null
   this.next()
 }
+dateChanged(value){
+  this.dia = value
+  moment.locale('pt-BR')
+  this.dia1 = moment(this.dia).format('ddd DD MMM HH:MM')
+  console.log(value)
+}
+dateChanged2(value){
+  this.fim = value
+  moment.locale('pt-BR')
+  this.dia2 = moment(this.fim).format('ddd DD MMM HH:MM')
+  console.log(value)
+}
+
 async showmodal(){
   const modal = await this.modalCtrl.create({
     component : EditarModalPage,
@@ -171,8 +206,9 @@ async name(){
           
         })
       ).subscribe();
-      this.loading.dismiss()
+     
       this.showalert("Evento " , "Publicado com sucesso")
+      this.loading.dismiss()
     }
     if (this.presenca == false) {
       this.presentLoading()
@@ -247,8 +283,9 @@ async name(){
         })
       })
     ).subscribe();
-    this.loading.dismiss()
+
     this.showalert("Evento " , "Publicado com sucesso")
+    this.loading.dismiss()
 }
   searchChanged(){
     if (!this.search.trim().length )  return;
@@ -302,7 +339,6 @@ async presentLoading(){
  this.loading = await this.loadingC.create({
     cssClass: 'my-custom-class',
     message: 'Espere um momento...',
-    duration: 2000
   });
   await this.loading.present();
 } 
