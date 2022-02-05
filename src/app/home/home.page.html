@@ -9,8 +9,8 @@
     <ion-slide *ngIf="cidade.length > 0 && noAuth == false">
       <div>
         <a class="a">{{ cidadesDoUsuario }}</a>
-        <ion-card *ngFor="let evento of cidade" class="card">
-          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+        <ion-card *ngFor="let evento of cidade" class="card" (click)="showmodal(evento)" >
+          <img class="imagem" [src]="evento.url" />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
             <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
@@ -18,8 +18,8 @@
               {{ evento.UPnum }}</ion-badge>
           </ion-card-header>
         </ion-card>
-        <ion-card *ngFor="let evento of cidade3" class="card">
-          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+        <ion-card *ngFor="let evento of cidade3" class="card"(click)="showmodal(evento)">
+          <img class="imagem" [src]="evento.url"/>
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
             <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
@@ -38,8 +38,8 @@
     <ion-slide>
       <div>
         <a class="a" (click)="ss()"> Nacional </a>
-        <ion-card *ngFor="let evento of nacionais " class="card">
-          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+        <ion-card *ngFor="let evento of nacionais " class="card"(click)="showmodal(evento)">
+          <img class="imagem" [src]="evento.url"  />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
             <ion-card-subtitle class="branco">{{ evento.lugar }}</ion-card-subtitle>
@@ -47,8 +47,8 @@
             <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
           </ion-card-header>
         </ion-card>
-        <ion-card *ngFor="let evento of nacional" class="card">
-          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+        <ion-card *ngFor="let evento of nacional" class="card" (click)="showmodal(evento)" >
+          <img class="imagem" [src]="evento.url" />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
             <ion-card-subtitle class="branco">{{ evento.lugar }}</ion-card-subtitle>
@@ -76,8 +76,8 @@
             {{ item.lugar }}
           </ion-item>
         </ion-list>
-        <ion-card *ngFor="let evento of cidade" class="card">
-          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+        <ion-card *ngFor="let evento of cidade" class="card" (click)="showmodal(evento)" >
+          <img class="imagem" [src]="evento.url" />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
             <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
@@ -85,8 +85,8 @@
               {{ evento.UPnum }}</ion-badge>
           </ion-card-header>
         </ion-card>
-        <ion-card *ngFor="let evento of cidade3" class="card">
-          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+        <ion-card *ngFor="let evento of cidade3"   class="card" (click)="showmodal(evento)" >
+          <img class="imagem" [src]="evento.url"  />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
             <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
@@ -104,16 +104,16 @@
     <ion-slide *ngIf="online.length > 0">
       <div>
         <a class="a"> Online </a>
-        <ion-card *ngFor="let evento of online " class="card">
-          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+        <ion-card *ngFor="let evento of online " class="card"  (click)="showmodal(evento)">
+          <img class="imagem" [src]="evento.url" />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
             <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
             <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
           </ion-card-header>
         </ion-card>
-        <ion-card *ngFor="let evento of onlines" class="card">
-          <img class="imagem" [src]="evento.url" (click)="showmodal(evento)" />
+        <ion-card *ngFor="let evento of onlines" class="card" (click)="showmodal(evento)">
+          <img class="imagem" [src]="evento.url"  />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
             <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
