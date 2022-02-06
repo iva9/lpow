@@ -133,7 +133,8 @@
         "REVERSED_CLIENT_ID": "com.googleusercontent.apps.373924502179-d29hkb11j7e9nu15mvsltmqovktpi06q",
         "WEB_APPLICATION_CLIENT_ID": "373924502179-d29hkb11j7e9nu15mvsltmqovktpi06q.apps.googleusercontent.com"
       },
-      "cordova-plugin-splashscreen": {}
+      "cordova-plugin-splashscreen": {},
+      "cordova-custom-config": {}
     },
     "platforms": [
       "browser"

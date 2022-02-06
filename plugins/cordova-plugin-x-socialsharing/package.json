@@ -40,11 +40,44 @@
       "version": ">=3.0.0"
     }
   ],
-  "author": "Eddy Verbruggen - @EddyVerbruggen",
+  "author": {
+    "name": "Eddy Verbruggen - @EddyVerbruggen"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/issues"
   },
   "homepage": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#readme",
-  "types": "./types/index.d.ts"
+  "types": "./types/index.d.ts",
+  "gitHead": "f20414e0999c706cbb924535dac45a99de125f7b",
+  "_id": "cordova-plugin-x-socialsharing@6.0.3",
+  "_nodeVersion": "14.15.1",
+  "_npmVersion": "6.14.11",
+  "dist": {
+    "integrity": "sha512-pnrE2CXsz4G0n0WoFDAasLS1VT3nIsNpddvXgfpiqX3wyOlSjO2NdF+sjYaTvs1B+f7z8EWbYCHpCrgBQiMLIg==",
+    "shasum": "5ae9276a73f4201b7af8727219a6372ccc8ba2cd",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-x-socialsharing/-/cordova-plugin-x-socialsharing-6.0.3.tgz",
+    "fileCount": 18,
+    "unpackedSize": 519115,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgBdvHCRA9TVsSAnZWagAAcNgP/Am1Q+J+IKrzNUL8pept\nSa6/eTWLQco7BAFJdaWZvAVqyfJCIJPAXrdQ2Yae4cFS+cl13metu1cDwZG+\nPfoAqMiWa31kcRiAQZYa2U8NwGdbRL9fFpYi1LrGW4+PUpfwjbO2A0ULabk8\nZxcOs+aiYFPLzcuc5pmqvD4W0xVCTT6c3Ac7Ir+7Nj2e+doekUGoUNTkAMe3\n32gr5/41zEdHPCNPO0PuAEDjLWIMd6pxHjnFdVE1gckwBfCxnQ4onYL2CNO5\nb/hhc4ma53i1hGYeWPCPAEwzIRux0K5k5lipl14sjNMYLeku5JlOMTIrGJVA\nE4bTFjpMC25Zy9tIamjOO8Zd4Dm2IUVG3JR4dIVQQd4v7PGAR2PKoat1VmUj\nbzVOkY47PC37aYoHpsJASdwbx/6IZICjUUWCHSzlG3+e24IFDJpvppTMNdZ9\n536AmwdPhbG266mSHL6OmJ/NWd29ZqyRtjh1qVgDF5LbkzDTENhZN69/egf1\nyPJwnDJZSwLPDiJ3mCGCB1aL3OtCodU5pBEjsSZmJKVrE/U1QoQmFo8iZKoM\n5L26+nh/NuFNsfnrIiK/L5AT9GnpA5hHO0INYWHgMsI+GNAhTxHCUbyH0QCk\nS0d65rHgetRAVG6CYeHnpb12UJDDvm0DxLGIL5CbVDRSTVzDsQvt0WuJUEAo\ns8sk\r\n=hFKK\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "_npmUser": {
+    "name": "eddyverbruggen",
+    "email": "eddyverbruggen@gmail.com"
+  },
+  "directories": {},
+  "maintainers": [
+    {
+      "name": "eddyverbruggen",
+      "email": "eddyverbruggen@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-x-socialsharing_6.0.3_1610996678947_0.415571320515705"
+  },
+  "_hasShrinkwrap": false,
+  "_shasum": "5ae9276a73f4201b7af8727219a6372ccc8ba2cd",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-x-socialsharing/-/cordova-plugin-x-socialsharing-6.0.3.tgz",
+  "_from": "cordova-plugin-x-socialsharing@>=6.0.3 <7.0.0"
 }

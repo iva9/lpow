@@ -70,5 +70,6 @@
   "_hasShrinkwrap": false,
   "_shasum": "d73bda05e2725d3493049bdbe813d113a6f6e508",
   "_resolved": "https://registry.npmjs.org/cordova-plugin-googleplus/-/cordova-plugin-googleplus-8.5.2.tgz",
-  "_from": "cordova-plugin-googleplus@latest"
+  "_from": "cordova-plugin-googleplus@latest",
+  "readme": "ERROR: No README data found!"
 }

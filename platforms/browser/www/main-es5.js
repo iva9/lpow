@@ -386,8 +386,13 @@
         _createClass(AppComponent, [{
           key: "initializeApp",
           value: function initializeApp() {
-            this.platform.ready();
-            this.statusBar.styleDefault();
+            var _this2 = this;
+
+            this.platform.ready().then(function () {
+              _this2.statusBar.overlaysWebView(false);
+
+              _this2.statusBar.backgroundColorByHexString('#000000');
+            });
             this.splashScreen.hide();
           }
         }, {
@@ -908,7 +913,7 @@
           key: "showalert",
           value: function showalert(header, message) {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-              var _this2 = this;
+              var _this3 = this;
 
               var alert;
               return regeneratorRuntime.wrap(function _callee2$(_context2) {
@@ -922,19 +927,19 @@
                         buttons: [{
                           text: 'Re-enviar',
                           handler: function handler() {
-                            _this2.enviaremaildeverific();
+                            _this3.enviaremaildeverific();
                           }
                         }, {
                           text: 'Ja clickei no link',
                           handler: function handler() {
-                            _this2.javerifiquei();
+                            _this3.javerifiquei();
                           }
                         }, {
                           text: 'Login em outra conta',
                           handler: function handler() {
-                            _this2.user.logout();
+                            _this3.user.logout();
 
-                            _this2.route.navigate(['./login']);
+                            _this3.route.navigate(['./login']);
                           }
                         }]
                       });
@@ -984,7 +989,7 @@
           key: "javerifiquei",
           value: function javerifiquei() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-              var _this3 = this;
+              var _this4 = this;
 
               var foi;
               return regeneratorRuntime.wrap(function _callee4$(_context4) {
@@ -1004,7 +1009,7 @@
                         console.log(dd, "email verified na criar user");
 
                         if (dd == true) {
-                          _this3.route.navigate(['./home']);
+                          _this4.route.navigate(['./home']);
                         }
                       }, 3500);
 
@@ -1205,10 +1210,10 @@
         }, {
           key: "getDataFromFire",
           value: function getDataFromFire() {
-            var _this4 = this;
+            var _this5 = this;
 
             this.afdatabase.list('users').valueChanges().subscribe(function (data) {
-              _this4.trataDados(data);
+              _this5.trataDados(data);
             });
           }
         }, {
@@ -1366,24 +1371,24 @@
         }, {
           key: "loginGooglecom",
           value: function loginGooglecom() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.presentLoading();
             this.LoginGoogle().then(function () {
               //const res =  this.Afauth.currentUser
-              _this5.mostraale();
+              _this6.mostraale();
             })["catch"](function (err) {
-              _this5.showalert("erro", err);
+              _this6.showalert("erro", err);
             });
           }
         }, {
           key: "LoginGoogle",
           value: function LoginGoogle() {
-            var _this6 = this;
+            var _this7 = this;
 
             return this.google.login({}).then(function (result) {
               var user_data_google = result;
-              return _this6.afAuth.signInWithCredential(firebase__WEBPACK_IMPORTED_MODULE_5__.auth.GoogleAuthProvider.credential(null, user_data_google.accessToken));
+              return _this7.afAuth.signInWithCredential(firebase__WEBPACK_IMPORTED_MODULE_5__.auth.GoogleAuthProvider.credential(null, user_data_google.accessToken));
             });
           }
         }, {
@@ -1454,7 +1459,7 @@
           key: "javerifiquei",
           value: function javerifiquei() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee10() {
-              var _this7 = this;
+              var _this8 = this;
 
               var foi;
               return regeneratorRuntime.wrap(function _callee10$(_context10) {
@@ -1474,15 +1479,15 @@
                         console.log(dd, "email verified na criar user");
 
                         if (dd == true) {
-                          _this7.showmodalTutoria();
+                          _this8.showmodalTutoria();
 
-                          _this7.route.navigate(['./home']);
+                          _this8.route.navigate(['./home']);
 
-                          _this7.showalert("Sucesso!", "Bem vindo");
+                          _this8.showalert("Sucesso!", "Bem vindo");
                         }
 
                         if (dd == false) {
-                          _this7.showalert("Ops!", "Tente novamente em instantes");
+                          _this8.showalert("Ops!", "Tente novamente em instantes");
                         }
                       }, 3500);
 
@@ -1522,7 +1527,7 @@
           key: "mostraale",
           value: function mostraale() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee12() {
-              var _this8 = this;
+              var _this9 = this;
 
               var res;
               return regeneratorRuntime.wrap(function _callee12$(_context12) {
@@ -1538,33 +1543,33 @@
                         return ref.where('iduser', '==', "".concat(res.uid));
                       }).snapshotChanges().subscribe(function (usergg) {
                         if (usergg.length > 0) {
-                          _this8.loadingC.dismiss();
+                          _this9.loadingC.dismiss();
 
-                          _this8.route.navigate(['/home']);
+                          _this9.route.navigate(['/home']);
 
-                          _this8.showalert('', 'Conta criada com sucesso');
+                          _this9.showalert('', 'Conta criada com sucesso');
                         } else {
                           var username = "Usuario";
                           var imgUser = "https://firebasestorage.googleapis.com/v0/b/oreon-4bfc2.appspot.com/o/profile.png?alt=media&token=3ac5e17d-8119-46e5-9a20-e2e8d1080b18";
                           var iduser = res.uid; //display name ja existe
 
-                          _this8.firestore.collection("users").doc("".concat(res.uid)).set({
+                          _this9.firestore.collection("users").doc("".concat(res.uid)).set({
                             username: username,
                             iduser: iduser,
                             imgUser: imgUser
                           });
 
-                          _this8.afdatabase.database.ref("users/".concat(res.uid, "/username")).set({
+                          _this9.afdatabase.database.ref("users/".concat(res.uid, "/username")).set({
                             username: username,
                             iduser: iduser,
                             imgUser: imgUser
                           });
 
-                          _this8.showmodalTutorial();
+                          _this9.showmodalTutorial();
 
-                          _this8.route.navigate(['/home']);
+                          _this9.route.navigate(['/home']);
 
-                          _this8.loadingC.dismiss();
+                          _this9.loadingC.dismiss();
                         }
                       });
 
@@ -1921,13 +1926,13 @@
         }, {
           key: "takePicture",
           value: function takePicture() {
-            var _this9 = this;
+            var _this10 = this;
 
             this.camera.getPicture({
               sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
               destinationType: this.camera.DestinationType.DATA_URL
             }).then(function (res) {
-              return _this9.img = "data:image/jpeg;base64," + res;
+              return _this10.img = "data:image/jpeg;base64," + res;
             })["catch"](function (e) {
               console.log(e);
             });
@@ -1936,13 +1941,13 @@
         }, {
           key: "showPreview",
           value: function showPreview(event) {
-            var _this10 = this;
+            var _this11 = this;
 
             if (event.target.files && event.target.files[0]) {
               var reader = new FileReader();
 
               reader.onload = function (e) {
-                return _this10.img = e.target.result;
+                return _this11.img = e.target.result;
               };
 
               reader.readAsDataURL(event.target.files[0]);
@@ -1990,7 +1995,7 @@
           key: "editar",
           value: function editar() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee15() {
-              var _this11 = this;
+              var _this12 = this;
 
               var todosnomes, osnomes, name, fileReff;
               return regeneratorRuntime.wrap(function _callee15$(_context15) {
@@ -2039,15 +2044,15 @@
                     case 13:
                       _context15.sent.downloadURL;
                       fileReff.getDownloadURL().subscribe(function (url) {
-                        _this11.url = url;
-                        console.log(_this11.url);
+                        _this12.url = url;
+                        console.log(_this12.url);
 
-                        if (!_this11.newUsername) {
+                        if (!_this12.newUsername) {
                           console.log('não tem nome');
 
-                          _this11.user.updateImage(_this11.url);
+                          _this12.user.updateImage(_this12.url);
                         } else {
-                          _this11.user.updateProfile(_this11.url, _this11.newUsername);
+                          _this12.user.updateProfile(_this12.url, _this12.newUsername);
                         }
                       });
 
@@ -2074,10 +2079,10 @@
         }, {
           key: "getDataFromFire",
           value: function getDataFromFire() {
-            var _this12 = this;
+            var _this13 = this;
 
             this.firebase.list('users').valueChanges().subscribe(function (data) {
-              _this12.trataDados(data);
+              _this13.trataDados(data);
             });
           }
         }, {
@@ -2119,7 +2124,7 @@
         }, {
           key: "geteventos",
           value: function geteventos() {
-            var _this13 = this;
+            var _this14 = this;
 
             console.log("clicado");
             this.eventocidade = this.firestore.collection("eventos", function (ref) {
@@ -2129,13 +2134,13 @@
               coisas.forEach(function (b) {
                 var data = b.data();
                 var id = b.id;
-                _this13.a = Object.assign({
+                _this14.a = Object.assign({
                   id: id
                 }, data);
 
-                _this13.c.push(_this13.a);
+                _this14.c.push(_this14.a);
 
-                console.log(_this13.c);
+                console.log(_this14.c);
               });
             });
           }
@@ -2482,7 +2487,7 @@
         _createClass(EventoPesquisaPage, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.auth.onAuthStateChanged(function (user) {
               if (user) {
@@ -2490,9 +2495,9 @@
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 var uid = user.uid;
                 console.log("logado por aqui");
-                _this14.iduser = uid; // ...
+                _this15.iduser = uid; // ...
               } else {
-                _this14.iduser == null;
+                _this15.iduser == null;
                 console.log("Deslogado"); // User is signed out
                 // ...
               }
@@ -2546,7 +2551,7 @@
         }, {
           key: "getevento",
           value: function getevento(tt) {
-            var _this15 = this;
+            var _this16 = this;
 
             //refazer
             this.evento = this.firestore.collection('eventos', function (ref) {
@@ -2558,19 +2563,19 @@
                 var data = b.data();
                 var id = b.id;
                 moment__WEBPACK_IMPORTED_MODULE_3__.locale('pt-BR');
-                _this15.m = moment__WEBPACK_IMPORTED_MODULE_3__(data.dia).format('ddd DD MMM - HH:mm');
-                data.dia = _this15.m;
-                _this15.eventodb = Object.assign({
+                _this16.m = moment__WEBPACK_IMPORTED_MODULE_3__(data.dia).format('ddd DD MMM - HH:mm');
+                data.dia = _this16.m;
+                _this16.eventodb = Object.assign({
                   id: id
                 }, data);
 
-                _this15.getComent(_this15.eventodb.id);
+                _this16.getComent(_this16.eventodb.id);
 
-                _this15.lugardocomentario = _this15.Firebase.list("coments/".concat(_this15.eventodb.id), function (ref) {
+                _this16.lugardocomentario = _this16.Firebase.list("coments/".concat(_this16.eventodb.id), function (ref) {
                   return ref.limitToLast(75);
                 });
-                console.log(_this15.eventodb);
-                _this15.pode = true;
+                console.log(_this16.eventodb);
+                _this16.pode = true;
               });
             });
           }
@@ -2633,14 +2638,14 @@
         }, {
           key: "getComent",
           value: function getComent(x) {
-            var _this16 = this;
+            var _this17 = this;
 
             this.lugaresdocomentario = this.Firebase.list("coments/".concat(x), function (ref) {
               return ref.limitToLast(75);
             });
             console.log(x);
             this.lugaresdocomentario.valueChanges().subscribe(function (data) {
-              _this16.trataDados(data);
+              _this17.trataDados(data);
             });
           }
         }, {
@@ -2661,7 +2666,7 @@
           key: "showAlertLogin",
           value: function showAlertLogin() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee19() {
-              var _this17 = this;
+              var _this18 = this;
 
               var alert;
               return regeneratorRuntime.wrap(function _callee19$(_context19) {
@@ -2675,7 +2680,7 @@
                         buttons: [{
                           text: 'Criar / Entrar',
                           handler: function handler() {
-                            _this17.router.navigate(['/criar-user']);
+                            _this18.router.navigate(['/criar-user']);
                           }
                         }, {
                           text: 'Ok',
@@ -2937,7 +2942,7 @@
           key: "insertImageDetails",
           value: function insertImageDetails(nome, url, ingresso, dia, fim, local, lugar) {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_0__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee22() {
-              var _this18 = this;
+              var _this19 = this;
 
               var res;
               return regeneratorRuntime.wrap(function _callee22$(_context22) {
@@ -2965,10 +2970,10 @@
                       return this.eventDetailListRealtime.push(this.dataSet).then(function (result) {
                         console.log(result.key);
                         var chave = result.key;
-                        _this18.keydb2 = chave;
-                        var dataseet = _this18.dataSet;
+                        _this19.keydb2 = chave;
+                        var dataseet = _this19.dataSet;
 
-                        _this18.firebase.database.ref("eventDetails/".concat(result.key, "/")).set({
+                        _this19.firebase.database.ref("eventDetails/".concat(result.key, "/")).set({
                           chave: chave,
                           dataseet: dataseet
                         });
@@ -3005,7 +3010,7 @@
           key: "insertOnline",
           value: function insertOnline(nome, url, link, dia, fim) {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_0__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee23() {
-              var _this19 = this;
+              var _this20 = this;
 
               var res;
               return regeneratorRuntime.wrap(function _callee23$(_context23) {
@@ -3033,10 +3038,10 @@
                       return this.eventDetailListRealtime.push(this.dataSet4).then(function (result) {
                         console.log(result.key);
                         var chave = result.key;
-                        _this19.keydb2 = chave;
-                        var dataseet = _this19.dataSet4;
+                        _this20.keydb2 = chave;
+                        var dataseet = _this20.dataSet4;
 
-                        _this19.firebase.database.ref("eventDetails/".concat(result.key, "/")).set({
+                        _this20.firebase.database.ref("eventDetails/".concat(result.key, "/")).set({
                           chave: chave,
                           dataseet: dataseet
                         });
@@ -3473,13 +3478,13 @@
         }, {
           key: "getComent",
           value: function getComent() {
-            var _this20 = this;
+            var _this21 = this;
 
             this.lugaresdocomentario = this.Firebase.list("coments/".concat(this.x.id), function (ref) {
-              return ref.limitToFirst(_this20.num);
+              return ref.limitToFirst(_this21.num);
             });
             this.lugaresdocomentario.valueChanges().subscribe(function (data) {
-              _this20.trataDados(data);
+              _this21.trataDados(data);
             });
           }
         }, {
@@ -3604,7 +3609,7 @@
           key: "showAlertLogin",
           value: function showAlertLogin() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee28() {
-              var _this21 = this;
+              var _this22 = this;
 
               var alert;
               return regeneratorRuntime.wrap(function _callee28$(_context28) {
@@ -3618,9 +3623,9 @@
                         buttons: [{
                           text: 'Criar / Entrar',
                           handler: function handler() {
-                            _this21.router.navigate(['/criar-user']);
+                            _this22.router.navigate(['/criar-user']);
 
-                            _this21.close();
+                            _this22.close();
                           }
                         }, {
                           text: 'Ok',
@@ -3946,7 +3951,7 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee29() {
-              var _this22 = this;
+              var _this23 = this;
 
               var res;
               return regeneratorRuntime.wrap(function _callee29$(_context29) {
@@ -3960,7 +3965,7 @@
                       res = _context29.sent;
                       console.log(res.uid);
                       this.listadecriados(res.uid).subscribe(function (data) {
-                        _this22.criados = data;
+                        _this23.criados = data;
                       });
 
                     case 5:
@@ -4429,42 +4434,42 @@
         }, {
           key: "showeventos",
           value: function showeventos() {
-            var _this23 = this;
+            var _this24 = this;
 
             this.authh.onAuthStateChanged(function (user) {
               if (user) {
-                _this23.firestore.collection("users", function (ref) {
+                _this24.firestore.collection("users", function (ref) {
                   return ref.where('iduser', '==', "".concat(user.uid));
                 }).get().subscribe(function (using) {
                   using.forEach(function (io) {
                     var order = io.data();
                     var o = order.UP;
-                    _this23.ordenarpor = o;
-                    console.log(_this23.ordenarpor);
+                    _this24.ordenarpor = o;
+                    console.log(_this24.ordenarpor);
 
-                    if (_this23.nacionais.length == 0) {
-                      _this23.eventosNacional = _this23.listanacional(); //  ->  Nacional segment
+                    if (_this24.nacionais.length == 0) {
+                      _this24.eventosNacional = _this24.listanacional(); //  ->  Nacional segment
 
-                      _this23.nacionais = _this23.w;
-                      console.log(_this23.nacionais, "--nacionais");
+                      _this24.nacionais = _this24.w;
+                      console.log(_this24.nacionais, "--nacionais");
 
-                      if (_this23.online.length == 0) {
-                        _this23.eventosOnline = _this23.listaonline();
-                        _this23.online = _this23.z; //  ->  online segment  
+                      if (_this24.online.length == 0) {
+                        _this24.eventosOnline = _this24.listaonline();
+                        _this24.online = _this24.z; //  ->  online segment  
                       }
                     }
                   });
                 });
               } else {
-                if (_this23.nacionais.length == 0) {
-                  _this23.eventosNacional = _this23.listanacional(); //  ->  Nacional segment
+                if (_this24.nacionais.length == 0) {
+                  _this24.eventosNacional = _this24.listanacional(); //  ->  Nacional segment
 
-                  _this23.nacionais = _this23.w;
+                  _this24.nacionais = _this24.w;
                 }
 
-                if (_this23.online.length == 0) {
-                  _this23.eventosOnline = _this23.listaonline();
-                  _this23.online = _this23.z; //  ->  online segment  
+                if (_this24.online.length == 0) {
+                  _this24.eventosOnline = _this24.listaonline();
+                  _this24.online = _this24.z; //  ->  online segment  
                 }
               }
             });
@@ -4472,7 +4477,7 @@
         }, {
           key: "showDacidade",
           value: function showDacidade() {
-            var _this24 = this;
+            var _this25 = this;
 
             this.authh.onAuthStateChanged(function (user) {
               if (user) {
@@ -4482,14 +4487,14 @@
                 var res = user;
                 console.log("logado por aqui");
 
-                _this24.getcidadade(uid).subscribe(function (cit) {
-                  _this24.lugar = cit;
+                _this25.getcidadade(uid).subscribe(function (cit) {
+                  _this25.lugar = cit;
 
-                  if (_this24.lugar) {
-                    console.log(_this24.lugar);
-                    _this24.cidadesDoUsuario = _this24.lugar;
+                  if (_this25.lugar) {
+                    console.log(_this25.lugar);
+                    _this25.cidadesDoUsuario = _this25.lugar;
 
-                    _this24.cidadedoUSER(_this24.cidadesDoUsuario);
+                    _this25.cidadedoUSER(_this25.cidadesDoUsuario);
                   } // -> Cidade do usuario e Cidade segment
 
                 });
@@ -4497,13 +4502,13 @@
                 if (res.emailVerified == false) {
                   console.log(res.emailVerified, "emailverified");
 
-                  _this24.criaruserpage.showalert("Ops você já criou uma conta ", "Mas não clickou no link que enviamos, verifique e volte ");
+                  _this25.criaruserpage.showalert("Ops você já criou uma conta ", "Mas não clickou no link que enviamos, verifique e volte ");
 
-                  _this24.login.enviaremaildeverific();
+                  _this25.login.enviaremaildeverific();
                 } // ...
 
               } else {
-                _this24.AuthstateDeslogado();
+                _this25.AuthstateDeslogado();
               }
             });
           }
@@ -4523,10 +4528,10 @@
         }, {
           key: "getDataFromFire",
           value: function getDataFromFire() {
-            var _this25 = this;
+            var _this26 = this;
 
             this.firebase.list('cidades').valueChanges().subscribe(function (data) {
-              _this25.trataDados(data);
+              _this26.trataDados(data);
             });
           }
         }, {
@@ -4703,7 +4708,7 @@
         }, {
           key: "getcidadade",
           value: function getcidadade(user) {
-            var _this26 = this;
+            var _this27 = this;
 
             console.log("getcidade");
             this.userDOC = this.firestore.collection("users", function (ref) {
@@ -4713,10 +4718,10 @@
               return actions.map(function (use) {
                 var data = use.payload.doc.data().cidade;
                 var order = use.payload.doc.data().UP;
-                _this26.ordenarpor = order;
+                _this27.ordenarpor = order;
 
-                if (_this26.ordenarpor == null) {
-                  _this26.ordenarpor = false;
+                if (_this27.ordenarpor == null) {
+                  _this27.ordenarpor = false;
                 } //this.eventosNacional = this.listanacional()
                 // this.nacionais = this.w
                 //this.eventosOnline = this.listaonline()
@@ -4744,7 +4749,7 @@
         }, {
           key: "listadaciadade",
           value: function listadaciadade(x) {
-            var _this27 = this;
+            var _this28 = this;
 
             if (this.ordenarpor == true) {
               this.eventocidade = this.firestore.collection('eventos', function (ref) {
@@ -4763,32 +4768,32 @@
                 var data = b.data();
                 var id = b.id;
 
-                if (data.fim < _this27.hjdia) {
+                if (data.fim < _this28.hjdia) {
                   //console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
-                  _this27.passadostate = _this27.firestore.doc("eventos/".concat(id));
+                  _this28.passadostate = _this28.firestore.doc("eventos/".concat(id));
 
-                  _this27.passadostate.update({
+                  _this28.passadostate.update({
                     passado: true
                   });
                 }
 
                 moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
-                _this27.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
-                data.dia = _this27.m;
-                _this27.provCid1 = Object.assign({
+                _this28.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
+                data.dia = _this28.m;
+                _this28.provCid1 = Object.assign({
                   id: id
                 }, data);
 
-                _this27.y.push(_this27.provCid1);
+                _this28.y.push(_this28.provCid1);
 
-                _this27.nextQueryAfter = b;
+                _this28.nextQueryAfter = b;
               });
             });
           }
         }, {
           key: "listaonline",
           value: function listaonline() {
-            var _this28 = this;
+            var _this29 = this;
 
             if (this.ordenarpor == true) {
               this.eventoOnline = this.firestore.collection('eventos', function (ref) {
@@ -4807,25 +4812,25 @@
                 var data = o.data();
                 var id = o.id;
 
-                if (data.fim < _this28.hjdia) {
+                if (data.fim < _this29.hjdia) {
                   //console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
-                  _this28.passadostate = _this28.firestore.doc("eventos/".concat(id));
+                  _this29.passadostate = _this29.firestore.doc("eventos/".concat(id));
 
-                  _this28.passadostate.update({
+                  _this29.passadostate.update({
                     passado: true
                   });
                 }
 
                 moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
-                _this28.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
-                data.dia = _this28.m;
-                _this28.provOnl1 = Object.assign({
+                _this29.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
+                data.dia = _this29.m;
+                _this29.provOnl1 = Object.assign({
                   id: id
                 }, data);
 
-                _this28.z.push(_this28.provOnl1);
+                _this29.z.push(_this29.provOnl1);
 
-                _this28.nextQueryOnline = o;
+                _this29.nextQueryOnline = o;
               });
             });
           }
@@ -4844,7 +4849,7 @@
         }, {
           key: "listanacional",
           value: function listanacional() {
-            var _this29 = this;
+            var _this30 = this;
 
             console.log(this.ordenarpor, "na nacional");
 
@@ -4867,39 +4872,39 @@
                 var data = n.data();
                 var id = n.id;
 
-                if (data.fim < _this29.hjdia) {
-                  console.log(data.fim, " menor que ", _this29.hjdia); // checar se data do  evento esta no futuro
+                if (data.fim < _this30.hjdia) {
+                  console.log(data.fim, " menor que ", _this30.hjdia); // checar se data do  evento esta no futuro
 
-                  _this29.passadostate = _this29.firestore.doc("eventos/".concat(id));
+                  _this30.passadostate = _this30.firestore.doc("eventos/".concat(id));
 
-                  _this29.passadostate.update({
+                  _this30.passadostate.update({
                     passado: true
                   });
                 }
 
                 moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
-                _this29.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
-                data.dia = _this29.m;
-                _this29.provNac1 = Object.assign({
+                _this30.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
+                data.dia = _this30.m;
+                _this30.provNac1 = Object.assign({
                   id: id
                 }, data);
 
-                _this29.w.push(_this29.provNac1);
+                _this30.w.push(_this30.provNac1);
 
-                _this29.nextQuerynacional = n;
+                _this30.nextQuerynacional = n;
               });
             });
           }
         }, {
           key: "loadcidade",
           value: function loadcidade(event) {
-            var _this30 = this;
+            var _this31 = this;
 
             setTimeout(function () {
-              _this30.num = 2;
+              _this31.num = 2;
 
-              if (_this30.cidade.length >= 1) {
-                _this30.eventosdacidade2 = _this30.listadaciadade2(_this30.cidadesDoUsuario);
+              if (_this31.cidade.length >= 1) {
+                _this31.eventosdacidade2 = _this31.listadaciadade2(_this31.cidadesDoUsuario);
               }
 
               event.target.complete(); //console.log(this.cidade3, "cidade3")
@@ -4908,14 +4913,14 @@
         }, {
           key: "loadnacional",
           value: function loadnacional(event) {
-            var _this31 = this;
+            var _this32 = this;
 
             setTimeout(function () {
               //console.log("chamei ele veio");
-              _this31.num = 2;
+              _this32.num = 2;
 
-              if (_this31.nacionais.length >= 1) {
-                _this31.eventosNacional2 = _this31.listanacional2();
+              if (_this32.nacionais.length >= 1) {
+                _this32.eventosNacional2 = _this32.listanacional2();
               }
 
               event.target.complete();
@@ -4924,15 +4929,15 @@
         }, {
           key: "loadOnline",
           value: function loadOnline(event) {
-            var _this32 = this;
+            var _this33 = this;
 
             // scroll down (Online)
             setTimeout(function () {
               //console.log();
-              _this32.num = 2;
+              _this33.num = 2;
 
-              if (_this32.online.length >= 1) {
-                _this32.eventosOnline2 = _this32.listaonline2();
+              if (_this33.online.length >= 1) {
+                _this33.eventosOnline2 = _this33.listaonline2();
               }
 
               event.target.complete();
@@ -4941,17 +4946,17 @@
         }, {
           key: "listadaciadade2",
           value: function listadaciadade2(x) {
-            var _this33 = this;
+            var _this34 = this;
 
             if (this.ordenarpor == true) {
               this.eventocidade = this.firestore.collection('eventos', function (ref) {
-                return ref.where('lugar', '==', "".concat(x)).where('passado', '==', false).orderBy('dia', 'asc').startAfter(_this33.nextQueryAfter).limit(3);
+                return ref.where('lugar', '==', "".concat(x)).where('passado', '==', false).orderBy('dia', 'asc').startAfter(_this34.nextQueryAfter).limit(3);
               });
             }
 
             if (this.ordenarpor == false) {
               this.eventocidade = this.firestore.collection('eventos', function (ref) {
-                return ref.where('lugar', '==', "".concat(x)).where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(_this33.nextQueryAfter).limit(3);
+                return ref.where('lugar', '==', "".concat(x)).where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(_this34.nextQueryAfter).limit(3);
               });
             }
 
@@ -4960,69 +4965,8 @@
                 var data = a.data();
                 var id = a.id;
 
-                if (data.fim < _this33.hjdia) {
-                  //console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
-                  _this33.passadostate = _this33.firestore.doc("eventos/".concat(id));
-
-                  _this33.passadostate.update({
-                    passado: true
-                  });
-                }
-
-                moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
-                _this33.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm'); // passa data para o Português
-
-                data.dia = _this33.m;
-                _this33.nextQueryAfter = a; // ultimo evento para o infinite scroll
-
-                _this33.conjunto = Object.assign({
-                  id: id
-                }, data);
-
-                _this33.cidade3.push(_this33.conjunto);
-
-                var numeros = _this33.cidade3; // concertar o bug da repetição 
-
-                var uniqueAddresses = Array.from(new Set(numeros.map(function (a) {
-                  return a.id;
-                }))).map(function (id) {
-                  return numeros.find(function (a) {
-                    return a.id === id;
-                  });
-                }); //não repete eventos (bug)
-
-                _this33.cidade3 = uniqueAddresses;
-                return Object.assign({
-                  id: id
-                }, data);
-              });
-            });
-          }
-        }, {
-          key: "listanacional2",
-          value: function listanacional2() {
-            var _this34 = this;
-
-            //console.log("nacional chamado")
-            if (this.ordenarpor == true) {
-              this.eventoNacional = this.firestore.collection('eventos', function (ref) {
-                return ref.where('passado', '==', false).orderBy('dia', 'asc').startAfter(_this34.nextQuerynacional).limit(3);
-              });
-            }
-
-            if (this.ordenarpor == false) {
-              this.eventoNacional = this.firestore.collection('eventos', function (ref) {
-                return ref.where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(_this34.nextQuerynacional).limit(3);
-              });
-            }
-
-            return this.eventoNacional.get().subscribe(function (ncaionais2) {
-              ncaionais2.forEach(function (a) {
-                var data = a.data();
-                var id = a.id;
-
                 if (data.fim < _this34.hjdia) {
-                  // checar se data do  evento esta no futuro
+                  //console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
                   _this34.passadostate = _this34.firestore.doc("eventos/".concat(id));
 
                   _this34.passadostate.update({
@@ -5034,15 +4978,76 @@
                 _this34.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm'); // passa data para o Português
 
                 data.dia = _this34.m;
-                _this34.nextQuerynacional = a; // ultimo evento para o infinite scroll
+                _this34.nextQueryAfter = a; // ultimo evento para o infinite scroll
 
-                _this34.conjuntoNac = Object.assign({
+                _this34.conjunto = Object.assign({
                   id: id
                 }, data);
 
-                _this34.nacional.push(_this34.conjuntoNac);
+                _this34.cidade3.push(_this34.conjunto);
 
-                var numeross = _this34.nacional; // concertar o bug da repetição 
+                var numeros = _this34.cidade3; // concertar o bug da repetição 
+
+                var uniqueAddresses = Array.from(new Set(numeros.map(function (a) {
+                  return a.id;
+                }))).map(function (id) {
+                  return numeros.find(function (a) {
+                    return a.id === id;
+                  });
+                }); //não repete eventos (bug)
+
+                _this34.cidade3 = uniqueAddresses;
+                return Object.assign({
+                  id: id
+                }, data);
+              });
+            });
+          }
+        }, {
+          key: "listanacional2",
+          value: function listanacional2() {
+            var _this35 = this;
+
+            //console.log("nacional chamado")
+            if (this.ordenarpor == true) {
+              this.eventoNacional = this.firestore.collection('eventos', function (ref) {
+                return ref.where('passado', '==', false).orderBy('dia', 'asc').startAfter(_this35.nextQuerynacional).limit(3);
+              });
+            }
+
+            if (this.ordenarpor == false) {
+              this.eventoNacional = this.firestore.collection('eventos', function (ref) {
+                return ref.where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(_this35.nextQuerynacional).limit(3);
+              });
+            }
+
+            return this.eventoNacional.get().subscribe(function (ncaionais2) {
+              ncaionais2.forEach(function (a) {
+                var data = a.data();
+                var id = a.id;
+
+                if (data.fim < _this35.hjdia) {
+                  // checar se data do  evento esta no futuro
+                  _this35.passadostate = _this35.firestore.doc("eventos/".concat(id));
+
+                  _this35.passadostate.update({
+                    passado: true
+                  });
+                }
+
+                moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
+                _this35.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm'); // passa data para o Português
+
+                data.dia = _this35.m;
+                _this35.nextQuerynacional = a; // ultimo evento para o infinite scroll
+
+                _this35.conjuntoNac = Object.assign({
+                  id: id
+                }, data);
+
+                _this35.nacional.push(_this35.conjuntoNac);
+
+                var numeross = _this35.nacional; // concertar o bug da repetição 
 
                 var uniqueAddressesNac = Array.from(new Set(numeross.map(function (a) {
                   return a.id;
@@ -5052,7 +5057,7 @@
                   });
                 }); //não repete eventos (bug)
 
-                _this34.nacional = uniqueAddressesNac; //console.log(this.nacional)
+                _this35.nacional = uniqueAddressesNac; //console.log(this.nacional)
 
                 return Object.assign({
                   id: id
@@ -5091,17 +5096,17 @@
         }, {
           key: "listaonline2",
           value: function listaonline2() {
-            var _this35 = this;
+            var _this36 = this;
 
             if (this.ordenarpor == true) {
               this.eventoOnline = this.firestore.collection('eventos', function (ref) {
-                return ref.where('online', '==', 'online').where('passado', '==', false).orderBy('dia', 'asc').startAfter(_this35.nextQueryOnline).limit(3);
+                return ref.where('online', '==', 'online').where('passado', '==', false).orderBy('dia', 'asc').startAfter(_this36.nextQueryOnline).limit(3);
               });
             }
 
             if (this.ordenarpor == false) {
               this.eventoOnline = this.firestore.collection('eventos', function (ref) {
-                return ref.where('online', '==', 'online').where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(_this35.nextQueryOnline).limit(3);
+                return ref.where('online', '==', 'online').where('passado', '==', false).orderBy('UPnum', 'desc').startAfter(_this36.nextQueryOnline).limit(3);
               });
             }
 
@@ -5110,28 +5115,28 @@
                 var data = t.data();
                 var id = t.id;
 
-                if (data.fim < _this35.hjdia) {
+                if (data.fim < _this36.hjdia) {
                   // checar se data do  evento esta no futuro
-                  _this35.passadostate = _this35.firestore.doc("eventos/".concat(id));
+                  _this36.passadostate = _this36.firestore.doc("eventos/".concat(id));
 
-                  _this35.passadostate.update({
+                  _this36.passadostate.update({
                     passado: true
                   });
                 }
 
                 moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
-                _this35.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm'); // passa data para o Português
+                _this36.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm'); // passa data para o Português
 
-                data.dia = _this35.m;
-                _this35.nextQueryOnline = t; // ultimo evento para o infinite scroll
+                data.dia = _this36.m;
+                _this36.nextQueryOnline = t; // ultimo evento para o infinite scroll
 
-                _this35.conjuntoOnl = Object.assign({
+                _this36.conjuntoOnl = Object.assign({
                   id: id
                 }, data);
 
-                _this35.onlines.push(_this35.conjuntoOnl);
+                _this36.onlines.push(_this36.conjuntoOnl);
 
-                var nume = _this35.onlines; // concertar o bug da repetição 
+                var nume = _this36.onlines; // concertar o bug da repetição 
 
                 var uniqueAddressesOnl = Array.from(new Set(nume.map(function (ad) {
                   return ad.id;
@@ -5141,7 +5146,7 @@
                   });
                 }); //não repete eventos (bug)
 
-                _this35.onlines = uniqueAddressesOnl;
+                _this36.onlines = uniqueAddressesOnl;
                 return Object.assign({
                   id: id
                 }, data);
@@ -5539,11 +5544,11 @@
         }, {
           key: "enviar",
           value: function enviar() {
-            var _this36 = this;
+            var _this37 = this;
 
             var auth = this.afauth;
             auth.sendPasswordResetEmail(this.emailrecu)["catch"](function (error) {
-              return _this36.showalert("Erro", error);
+              return _this37.showalert("Erro", error);
             });
             this.showalert("Email enviado!", "cheque lixo/spam");
           }
@@ -5628,32 +5633,32 @@
         }, {
           key: "loginGooglecom",
           value: function loginGooglecom() {
-            var _this37 = this;
+            var _this38 = this;
 
             this.LoginGoogle().then(function () {
               //const res =  this.Afauth.currentUser
-              _this37.presentLoading();
+              _this38.presentLoading();
 
-              _this37.mostraale();
+              _this38.mostraale();
             })["catch"](function (err) {
-              _this37.showalert("erro", err);
+              _this38.showalert("erro", err);
             });
           }
         }, {
           key: "LoginGoogle",
           value: function LoginGoogle() {
-            var _this38 = this;
+            var _this39 = this;
 
             return this.google.login({}).then(function (result) {
               var user_data_google = result;
-              return _this38.afauth.signInWithCredential(firebase__WEBPACK_IMPORTED_MODULE_4__.auth.GoogleAuthProvider.credential(null, user_data_google.accesToken));
+              return _this39.afauth.signInWithCredential(firebase__WEBPACK_IMPORTED_MODULE_4__.auth.GoogleAuthProvider.credential(null, user_data_google.accesToken));
             });
           }
         }, {
           key: "mostraale",
           value: function mostraale() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee40() {
-              var _this39 = this;
+              var _this40 = this;
 
               var res;
               return regeneratorRuntime.wrap(function _callee40$(_context40) {
@@ -5669,31 +5674,31 @@
                         return ref.where('iduser', '==', "".concat(res.uid));
                       }).snapshotChanges().subscribe(function (usergg) {
                         if (usergg.length > 0) {
-                          _this39.loadingC.dismiss();
+                          _this40.loadingC.dismiss();
 
-                          _this39.router.navigate(['/home']);
+                          _this40.router.navigate(['/home']);
 
-                          _this39.showalert('', 'Login com sucesso');
+                          _this40.showalert('', 'Login com sucesso');
                         } else {
                           var username = "Usuario";
                           var imgUser = "https://firebasestorage.googleapis.com/v0/b/oreon-4bfc2.appspot.com/o/profile.png?alt=media&token=3ac5e17d-8119-46e5-9a20-e2e8d1080b18";
                           var iduser = res.uid; //display name ja existe
 
-                          _this39.firestore.collection("users").doc("".concat(res.uid)).set({
+                          _this40.firestore.collection("users").doc("".concat(res.uid)).set({
                             username: username,
                             iduser: iduser,
                             imgUser: imgUser
                           });
 
-                          _this39.afdatabase.database.ref("users/".concat(res.uid, "/username")).set({
+                          _this40.afdatabase.database.ref("users/".concat(res.uid, "/username")).set({
                             username: username,
                             iduser: iduser,
                             imgUser: imgUser
                           });
 
-                          _this39.router.navigate(['/home']);
+                          _this40.router.navigate(['/home']);
 
-                          _this39.loadingC.dismiss();
+                          _this40.loadingC.dismiss();
                         }
                       });
 
@@ -6062,10 +6067,10 @@
         }, {
           key: "getCidadeDetails",
           value: function getCidadeDetails() {
-            var _this40 = this;
+            var _this41 = this;
 
             this.firebase.list('cidades').valueChanges().subscribe(function (data) {
-              _this40.tratacidades(data);
+              _this41.tratacidades(data);
             });
           }
         }, {
@@ -6178,7 +6183,7 @@
         }, {
           key: "save",
           value: function save() {
-            var _this41 = this;
+            var _this42 = this;
 
             if (this.presenca == true) {
               this.presentLoading();
@@ -6212,22 +6217,22 @@
               var fileRef = this.storage.ref(name);
               this.storage.upload(name, this.selectedImage).snapshotChanges().pipe((0, rxjs_operators__WEBPACK_IMPORTED_MODULE_8__.finalize)(function () {
                 fileRef.getDownloadURL().subscribe(function (url) {
-                  _this41.url = url;
+                  _this42.url = url;
 
-                  _this41.eventoService.insertImageDetails(_this41.nome, _this41.url, _this41.ingresso, _this41.dia, _this41.fim, _this41.local, _this41.lugar);
+                  _this42.eventoService.insertImageDetails(_this42.nome, _this42.url, _this42.ingresso, _this42.dia, _this42.fim, _this42.local, _this42.lugar);
 
-                  if (_this41.items.some(function (cidade) {
-                    return cidade.lugar == _this41.lugar;
+                  if (_this42.items.some(function (cidade) {
+                    return cidade.lugar == _this42.lugar;
                   })) {
                     console.log("cidade", "ja existente");
 
-                    _this41.loading.dismiss();
+                    _this42.loading.dismiss();
 
-                    _this41.showalert("Evento ", "Publicado com sucesso");
+                    _this42.showalert("Evento ", "Publicado com sucesso");
                   } else {
-                    var lugar = _this41.lugar;
+                    var lugar = _this42.lugar;
 
-                    _this41.firebase.list('cidades').push({
+                    _this42.firebase.list('cidades').push({
                       lugar: lugar
                     });
                   }
@@ -6268,13 +6273,13 @@
 
               this.storage.upload(name, this.selectedImage).snapshotChanges().pipe((0, rxjs_operators__WEBPACK_IMPORTED_MODULE_8__.finalize)(function () {
                 _fileRef.getDownloadURL().subscribe(function (url) {
-                  _this41.url = url;
+                  _this42.url = url;
 
-                  _this41.eventoService.insertOnline(_this41.nome, _this41.url, _this41.link, _this41.dia, _this41.fim);
+                  _this42.eventoService.insertOnline(_this42.nome, _this42.url, _this42.link, _this42.dia, _this42.fim);
 
-                  _this41.loading.dismiss();
+                  _this42.loading.dismiss();
 
-                  _this41.showalert("Evento ", "Publicado com sucesso");
+                  _this42.showalert("Evento ", "Publicado com sucesso");
                 });
               })).subscribe();
             }
@@ -6282,13 +6287,13 @@
         }, {
           key: "showPreview",
           value: function showPreview(event) {
-            var _this42 = this;
+            var _this43 = this;
 
             if (event.target.files && event.target.files[0]) {
               var reader = new FileReader();
 
               reader.onload = function (e) {
-                return _this42.img = e.target.result;
+                return _this43.img = e.target.result;
               };
 
               reader.readAsDataURL(event.target.files[0]);
@@ -6307,7 +6312,7 @@
         }, {
           key: "save2",
           value: function save2() {
-            var _this43 = this;
+            var _this44 = this;
 
             this.presentLoading();
 
@@ -6331,11 +6336,11 @@
             var fileRef = this.storage.ref(name);
             this.storage.upload(name, this.selectedImage).snapshotChanges().pipe((0, rxjs_operators__WEBPACK_IMPORTED_MODULE_8__.finalize)(function () {
               fileRef.getDownloadURL().subscribe(function (url) {
-                _this43.url = url;
+                _this44.url = url;
 
-                _this43.eventoService.insertOnline(_this43.nome, _this43.url, _this43.link, _this43.dia, _this43.fim);
+                _this44.eventoService.insertOnline(_this44.nome, _this44.url, _this44.link, _this44.dia, _this44.fim);
 
-                _this43.showalert("Evento", "Publicado com sucesso ");
+                _this44.showalert("Evento", "Publicado com sucesso ");
               });
             })).subscribe();
             this.showalert("Evento ", "Publicado com sucesso");
@@ -6344,14 +6349,14 @@
         }, {
           key: "searchChanged",
           value: function searchChanged() {
-            var _this44 = this;
+            var _this45 = this;
 
             if (!this.search.trim().length) return;
             this.googleAutocomplete.getPlacePredictions({
               input: this.search
             }, function (predictions) {
-              _this44.ngzone.run(function () {
-                _this44.searchResults = predictions;
+              _this45.ngzone.run(function () {
+                _this45.searchResults = predictions;
               });
             });
           }
@@ -6735,7 +6740,7 @@
           key: "ionViewDidEnter",
           value: function ionViewDidEnter() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee46() {
-              var _this45 = this;
+              var _this46 = this;
 
               return regeneratorRuntime.wrap(function _callee46$(_context46) {
                 while (1) {
@@ -6749,19 +6754,19 @@
                           // https://firebase.google.com/docs/reference/js/firebase.User
                           var uid = user.uid;
                           var res = user;
-                          _this45.usuario = res.uid;
+                          _this46.usuario = res.uid;
 
-                          _this45.getDataFromFire();
+                          _this46.getDataFromFire();
 
-                          _this45.user.listadecriados(res.uid);
+                          _this46.user.listadecriados(res.uid);
 
-                          _this45.criados = _this45.user.w;
+                          _this46.criados = _this46.user.w;
 
-                          _this45.user.listadeup(res.uid);
+                          _this46.user.listadeup(res.uid);
 
-                          _this45.ups = _this45.user.y;
+                          _this46.ups = _this46.user.y;
                         } else {
-                          _this45.noAuth = true;
+                          _this46.noAuth = true;
                         }
                       });
 
@@ -6792,7 +6797,7 @@
           key: "presentActionSheet",
           value: function presentActionSheet() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee48() {
-              var _this46 = this;
+              var _this47 = this;
 
               var actionSheet;
               return regeneratorRuntime.wrap(function _callee48$(_context48) {
@@ -6807,32 +6812,32 @@
                           text: 'Tutorial',
                           icon: 'help',
                           handler: function handler() {
-                            _this46.showmodalTutorial();
+                            _this47.showmodalTutorial();
                           }
                         }, {
                           text: 'Criar Evento',
                           icon: 'add',
                           handler: function handler() {
-                            _this46.route.navigate(['/add']);
+                            _this47.route.navigate(['/add']);
                           }
                         }, {
                           text: 'Editar perfil',
                           icon: 'settings',
                           handler: function handler() {
-                            _this46.showmodal();
+                            _this47.showmodal();
                           }
                         }, {
                           text: 'Ordenar eventos por ' + this.escolha,
                           icon: 'options',
                           handler: function handler() {
-                            _this46.orderBy();
+                            _this47.orderBy();
                           }
                         }, {
                           text: 'Sair',
                           role: 'destructive',
                           icon: 'log-out',
                           handler: function handler() {
-                            _this46.logout();
+                            _this47.logout();
                           }
                         }, {
                           text: 'Cancel',
@@ -6957,7 +6962,7 @@
           key: "dadosperfil",
           value: function dadosperfil() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee52() {
-              var _this47 = this;
+              var _this48 = this;
 
               var res;
               return regeneratorRuntime.wrap(function _callee52$(_context52) {
@@ -6974,14 +6979,14 @@
                         this.noAuth = false;
                         this.mainuser = this.firestore.doc("users/".concat(res.uid));
                         this.sub = this.mainuser.valueChanges().subscribe(function (usuario) {
-                          _this47.perfilnome = usuario.username;
-                          _this47.perfilimg = usuario.imgUser;
-                          _this47.perfilUP = usuario.UP;
+                          _this48.perfilnome = usuario.username;
+                          _this48.perfilimg = usuario.imgUser;
+                          _this48.perfilUP = usuario.UP;
 
-                          if (_this47.perfilUP == false) {
-                            _this47.escolha = "Data";
+                          if (_this48.perfilUP == false) {
+                            _this48.escolha = "Data";
                           } else {
-                            _this47.escolha = "UP";
+                            _this48.escolha = "UP";
                           }
                         });
                       }
@@ -7055,7 +7060,7 @@
         }, {
           key: "logout",
           value: function logout() {
-            var _this48 = this;
+            var _this49 = this;
 
             this.presentLoading();
             this.afAuth.signOut().then(function () {})["catch"](function (error) {
@@ -7063,28 +7068,28 @@
             });
             this.loadingC.dismiss();
             setTimeout(function () {
-              _this48.route.navigate(['/criar-user']);
+              _this49.route.navigate(['/criar-user']);
             }, 3500);
             this.ngOnDestroy();
           }
         }, {
           key: "loadups",
           value: function loadups(event) {
-            var _this49 = this;
+            var _this50 = this;
 
             setTimeout(function () {
               console.log();
 
-              if (_this49.ups2.length == 0) {
-                _this49.user.listadeup2(_this49.usuario);
+              if (_this50.ups2.length == 0) {
+                _this50.user.listadeup2(_this50.usuario);
 
-                _this49.ups2 = _this49.user.y2;
+                _this50.ups2 = _this50.user.y2;
 
-                var uniqueUps2 = _this49.ups2.filter(function (elem, i, array) {
+                var uniqueUps2 = _this50.ups2.filter(function (elem, i, array) {
                   return array.indexOf(elem) === i;
                 });
 
-                _this49.ups2 = uniqueUps2;
+                _this50.ups2 = uniqueUps2;
               }
 
               event.target.complete();
@@ -7093,15 +7098,15 @@
         }, {
           key: "loadcriados",
           value: function loadcriados(event) {
-            var _this50 = this;
+            var _this51 = this;
 
             setTimeout(function () {
               console.log();
 
-              if (_this50.criados2.length == 0) {
-                _this50.user.listadecriados2(_this50.usuario);
+              if (_this51.criados2.length == 0) {
+                _this51.user.listadecriados2(_this51.usuario);
 
-                _this50.criados2 = _this50.user.w2;
+                _this51.criados2 = _this51.user.w2;
               }
 
               event.target.complete();
@@ -7110,10 +7115,10 @@
         }, {
           key: "getDataFromFire",
           value: function getDataFromFire() {
-            var _this51 = this;
+            var _this52 = this;
 
             this.afd.list('cidades').valueChanges().subscribe(function (data) {
-              _this51.trataDados(data);
+              _this52.trataDados(data);
             });
           }
         }, {
@@ -7159,7 +7164,7 @@
           key: "deletaract",
           value: function deletaract(rte) {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee55() {
-              var _this52 = this;
+              var _this53 = this;
 
               var alert;
               return regeneratorRuntime.wrap(function _callee55$(_context55) {
@@ -7176,7 +7181,7 @@
                         }, {
                           text: 'Confirmar',
                           handler: function handler() {
-                            _this52["delete"](rte);
+                            _this53["delete"](rte);
                           }
                         }]
                       });
@@ -7412,10 +7417,10 @@
         }, {
           key: "eventosDB",
           value: function eventosDB() {
-            var _this53 = this;
+            var _this54 = this;
 
             this.fd.list('eventDetails').valueChanges().subscribe(function (data) {
-              _this53.trataEventos(data);
+              _this54.trataEventos(data);
             });
           }
         }, {
@@ -7524,11 +7529,11 @@
         }, {
           key: "preloadRoute",
           value: function preloadRoute(path) {
-            var _this54 = this;
+            var _this55 = this;
 
             return new Promise(function (resolve) {
-              if (_this54.routesToPreload && _this54.routesToPreload.length > 0) {
-                var routeToPreload = _this54.routesToPreload.find(function (filterRouteToPreload) {
+              if (_this55.routesToPreload && _this55.routesToPreload.length > 0) {
+                var routeToPreload = _this55.routesToPreload.find(function (filterRouteToPreload) {
                   return filterRouteToPreload.routePath === path;
                 });
 
@@ -8057,7 +8062,7 @@
         }, {
           key: "listadecriados",
           value: function listadecriados(cria) {
-            var _this55 = this;
+            var _this56 = this;
 
             console.log(cria);
             this.eventocriado = this.firestore.collection('eventos', function (ref) {
@@ -8068,44 +8073,8 @@
                 var data = evc.data();
                 var id = evc.id;
 
-                if (data.fim < _this55.hjdia) {
-                  //  console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
-                  _this55.passadostate = _this55.firestore.doc("eventos/".concat(id));
-
-                  _this55.passadostate.update({
-                    passado: true
-                  });
-                }
-
-                moment__WEBPACK_IMPORTED_MODULE_0__.locale('pt-BR');
-                _this55.m = moment__WEBPACK_IMPORTED_MODULE_0__(data.dia).format('ddd DD MMM - HH:mm');
-                data.dia = _this55.m;
-                _this55.provCria1 = Object.assign({
-                  id: id
-                }, data);
-
-                _this55.w.push(_this55.provCria1);
-
-                _this55.nextQueryCriados = evc;
-              });
-            });
-          }
-        }, {
-          key: "listadecriados2",
-          value: function listadecriados2(cria2) {
-            var _this56 = this;
-
-            var lastC = this.nextQueryCriados;
-            this.eventocriado2 = this.firestore.collection('eventos', function (ref) {
-              return ref.where('userID', 'array-contains', "".concat(cria2)).orderBy("UPnum", "desc").startAfter(lastC).limit(3);
-            });
-            return this.eventocriado2.get().subscribe(function (criados) {
-              criados.forEach(function (c) {
-                var data = c.data();
-                var id = c.id;
-
                 if (data.fim < _this56.hjdia) {
-                  //console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
+                  //  console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
                   _this56.passadostate = _this56.firestore.doc("eventos/".concat(id));
 
                   _this56.passadostate.update({
@@ -8116,31 +8085,32 @@
                 moment__WEBPACK_IMPORTED_MODULE_0__.locale('pt-BR');
                 _this56.m = moment__WEBPACK_IMPORTED_MODULE_0__(data.dia).format('ddd DD MMM - HH:mm');
                 data.dia = _this56.m;
-                _this56.provCria2 = Object.assign({
+                _this56.provCria1 = Object.assign({
                   id: id
                 }, data);
 
-                _this56.w2.push(_this56.provCria2);
+                _this56.w.push(_this56.provCria1);
 
-                _this56.nextQueryCriados = c;
+                _this56.nextQueryCriados = evc;
               });
             });
           }
         }, {
-          key: "listadeup",
-          value: function listadeup(up_us) {
+          key: "listadecriados2",
+          value: function listadecriados2(cria2) {
             var _this57 = this;
 
-            this.eventoup = this.firestore.collection('eventos', function (ref) {
-              return ref.where('up', 'array-contains', "".concat(up_us)).orderBy("UPnum", "desc").limit(25);
+            var lastC = this.nextQueryCriados;
+            this.eventocriado2 = this.firestore.collection('eventos', function (ref) {
+              return ref.where('userID', 'array-contains', "".concat(cria2)).orderBy("UPnum", "desc").startAfter(lastC).limit(3);
             });
-            return this.eventoup.get().subscribe(function (upados) {
-              upados.forEach(function (up) {
-                var data = up.data();
-                var id = up.id;
+            return this.eventocriado2.get().subscribe(function (criados) {
+              criados.forEach(function (c) {
+                var data = c.data();
+                var id = c.id;
 
                 if (data.fim < _this57.hjdia) {
-                  // checar se data do  evento esta no futuro
+                  //console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
                   _this57.passadostate = _this57.firestore.doc("eventos/".concat(id));
 
                   _this57.passadostate.update({
@@ -8151,20 +8121,55 @@
                 moment__WEBPACK_IMPORTED_MODULE_0__.locale('pt-BR');
                 _this57.m = moment__WEBPACK_IMPORTED_MODULE_0__(data.dia).format('ddd DD MMM - HH:mm');
                 data.dia = _this57.m;
-                _this57.provUp1 = Object.assign({
+                _this57.provCria2 = Object.assign({
                   id: id
                 }, data);
 
-                _this57.y.push(_this57.provUp1);
+                _this57.w2.push(_this57.provCria2);
 
-                _this57.nextQueryUp = up;
+                _this57.nextQueryCriados = c;
+              });
+            });
+          }
+        }, {
+          key: "listadeup",
+          value: function listadeup(up_us) {
+            var _this58 = this;
+
+            this.eventoup = this.firestore.collection('eventos', function (ref) {
+              return ref.where('up', 'array-contains', "".concat(up_us)).orderBy("UPnum", "desc").limit(25);
+            });
+            return this.eventoup.get().subscribe(function (upados) {
+              upados.forEach(function (up) {
+                var data = up.data();
+                var id = up.id;
+
+                if (data.fim < _this58.hjdia) {
+                  // checar se data do  evento esta no futuro
+                  _this58.passadostate = _this58.firestore.doc("eventos/".concat(id));
+
+                  _this58.passadostate.update({
+                    passado: true
+                  });
+                }
+
+                moment__WEBPACK_IMPORTED_MODULE_0__.locale('pt-BR');
+                _this58.m = moment__WEBPACK_IMPORTED_MODULE_0__(data.dia).format('ddd DD MMM - HH:mm');
+                data.dia = _this58.m;
+                _this58.provUp1 = Object.assign({
+                  id: id
+                }, data);
+
+                _this58.y.push(_this58.provUp1);
+
+                _this58.nextQueryUp = up;
               });
             });
           }
         }, {
           key: "listadeup2",
           value: function listadeup2(user) {
-            var _this58 = this;
+            var _this59 = this;
 
             var last = this.nextQueryUp;
             console.log(last);
@@ -8176,26 +8181,26 @@
                 var data = upi.data();
                 var id = upi.id;
 
-                if (data.fim < _this58.hjdia) {
-                  console.log(data.fim, " menor que ", _this58.hjdia); // checar se data do  evento esta no futuro
+                if (data.fim < _this59.hjdia) {
+                  console.log(data.fim, " menor que ", _this59.hjdia); // checar se data do  evento esta no futuro
 
-                  _this58.passadostate = _this58.firestore.doc("eventos/".concat(id));
+                  _this59.passadostate = _this59.firestore.doc("eventos/".concat(id));
 
-                  _this58.passadostate.update({
+                  _this59.passadostate.update({
                     passado: true
                   });
                 }
 
                 moment__WEBPACK_IMPORTED_MODULE_0__.locale('pt-BR');
-                _this58.m = moment__WEBPACK_IMPORTED_MODULE_0__(data.dia).format('ddd DD MMM - HH:mm');
-                data.dia = _this58.m;
-                _this58.provUp2 = Object.assign({
+                _this59.m = moment__WEBPACK_IMPORTED_MODULE_0__(data.dia).format('ddd DD MMM - HH:mm');
+                data.dia = _this59.m;
+                _this59.provUp2 = Object.assign({
                   id: id
                 }, data);
 
-                _this58.y2.push(_this58.provUp2);
+                _this59.y2.push(_this59.provUp2);
 
-                _this58.nextQueryUp = upi;
+                _this59.nextQueryUp = upi;
               });
             });
           }
@@ -8508,11 +8513,11 @@
         _createClass(UsuarioPesquisaPage, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this59 = this;
+            var _this60 = this;
 
             this.userID = this.route.snapshot.paramMap.get('uid');
             this.getUser(this.userID).subscribe(function (data) {
-              _this59.userrr = data;
+              _this60.userrr = data;
               console.log(data);
             });
             console.log(this.userID);
@@ -8529,28 +8534,28 @@
         }, {
           key: "loadups",
           value: function loadups(event) {
-            var _this60 = this;
+            var _this61 = this;
 
             setTimeout(function () {
               console.log();
 
-              _this60.listadeup2(_this60.userID);
+              _this61.listadeup2(_this61.userID);
 
-              _this60.eventos2 = _this60.y2;
+              _this61.eventos2 = _this61.y2;
               event.target.complete();
             }, 2000);
           }
         }, {
           key: "loadcriados",
           value: function loadcriados(event) {
-            var _this61 = this;
+            var _this62 = this;
 
             setTimeout(function () {
               console.log();
 
-              _this61.listadecriados2(_this61.userID);
+              _this62.listadecriados2(_this62.userID);
 
-              _this61.criados2 = _this61.w2;
+              _this62.criados2 = _this62.w2;
               event.target.complete();
             }, 2000);
           }
@@ -8558,7 +8563,7 @@
           key: "presentActionSheet",
           value: function presentActionSheet() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee62() {
-              var _this62 = this;
+              var _this63 = this;
 
               var actionSheet;
               return regeneratorRuntime.wrap(function _callee62$(_context62) {
@@ -8578,7 +8583,7 @@
                           text: 'Denunciar',
                           icon: 'alert',
                           handler: function handler() {
-                            _this62.denuncia();
+                            _this63.denuncia();
                           }
                         },, {
                           text: 'Cancel',
@@ -8729,7 +8734,7 @@
         }, {
           key: "listadecriados",
           value: function listadecriados(cria) {
-            var _this63 = this;
+            var _this64 = this;
 
             //console.log(cria)
             this.eventocriado = this.firestore.collection('eventos', function (ref) {
@@ -8740,45 +8745,9 @@
                 var data = Evcup.data();
                 var id = Evcup.id;
 
-                if (data.fim < _this63.hjdia) {
-                  console.log(data.fim, " menor que ", _this63.hjdia); // checar se data do  evento esta no futuro
-
-                  _this63.passadostate = _this63.firestore.doc("eventos/".concat(id));
-
-                  _this63.passadostate.update({
-                    passado: true
-                  });
-                }
-
-                moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
-                _this63.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
-                data.dia = _this63.m;
-                _this63.provCria1 = Object.assign({
-                  id: id
-                }, data);
-
-                _this63.w.push(_this63.provCria1);
-
-                _this63.nextQueryCriados = Evcup;
-              });
-            });
-          }
-        }, {
-          key: "listadecriados2",
-          value: function listadecriados2(cria2) {
-            var _this64 = this;
-
-            var lastC = this.nextQueryCriados;
-            this.eventocriado2 = this.firestore.collection('eventos', function (ref) {
-              return ref.where('userID', 'array-contains', "".concat(cria2)).orderBy("UPnum", "desc").startAfter(lastC).limit(10);
-            });
-            return this.eventocriado2.get().subscribe(function (criados) {
-              criados.forEach(function (cRia) {
-                var data = cRia.data();
-                var id = cRia.id;
-
                 if (data.fim < _this64.hjdia) {
-                  //   console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
+                  console.log(data.fim, " menor que ", _this64.hjdia); // checar se data do  evento esta no futuro
+
                   _this64.passadostate = _this64.firestore.doc("eventos/".concat(id));
 
                   _this64.passadostate.update({
@@ -8789,28 +8758,29 @@
                 moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
                 _this64.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
                 data.dia = _this64.m;
-                _this64.provCria2 = Object.assign({
+                _this64.provCria1 = Object.assign({
                   id: id
                 }, data);
 
-                _this64.w2.push(_this64.provCria2);
+                _this64.w.push(_this64.provCria1);
 
-                _this64.nextQueryCriados = cRia;
+                _this64.nextQueryCriados = Evcup;
               });
             });
           }
         }, {
-          key: "listadeup",
-          value: function listadeup(up_us) {
+          key: "listadecriados2",
+          value: function listadecriados2(cria2) {
             var _this65 = this;
 
-            this.eventoup = this.firestore.collection('eventos', function (ref) {
-              return ref.where('up', 'array-contains', "".concat(up_us)).orderBy("UPnum", "desc").limit(10);
+            var lastC = this.nextQueryCriados;
+            this.eventocriado2 = this.firestore.collection('eventos', function (ref) {
+              return ref.where('userID', 'array-contains', "".concat(cria2)).orderBy("UPnum", "desc").startAfter(lastC).limit(10);
             });
-            return this.eventoup.get().subscribe(function (upados) {
-              upados.forEach(function (Ups) {
-                var data = Ups.data();
-                var id = Ups.id;
+            return this.eventocriado2.get().subscribe(function (criados) {
+              criados.forEach(function (cRia) {
+                var data = cRia.data();
+                var id = cRia.id;
 
                 if (data.fim < _this65.hjdia) {
                   //   console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
@@ -8824,31 +8794,28 @@
                 moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
                 _this65.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
                 data.dia = _this65.m;
-                _this65.provUp1 = Object.assign({
+                _this65.provCria2 = Object.assign({
                   id: id
                 }, data);
 
-                _this65.y.push(_this65.provUp1);
+                _this65.w2.push(_this65.provCria2);
 
-                _this65.nextQueryUp = Ups;
-                console.log("this ", _this65.nextQueryUp);
+                _this65.nextQueryCriados = cRia;
               });
             });
           }
         }, {
-          key: "listadeup2",
-          value: function listadeup2(user) {
+          key: "listadeup",
+          value: function listadeup(up_us) {
             var _this66 = this;
 
-            var last = this.nextQueryUp;
-            console.log(last);
-            this.eventoup2 = this.firestore.collection('eventos', function (ref) {
-              return ref.where('up', 'array-contains', "".concat(user)).orderBy("UPnum", "desc").startAfter(last).limit(10);
+            this.eventoup = this.firestore.collection('eventos', function (ref) {
+              return ref.where('up', 'array-contains', "".concat(up_us)).orderBy("UPnum", "desc").limit(10);
             });
-            return this.eventoup2.get().subscribe(function (upei) {
-              upei.forEach(function (upi2) {
-                var data = upi2.data();
-                var id = upi2.id;
+            return this.eventoup.get().subscribe(function (upados) {
+              upados.forEach(function (Ups) {
+                var data = Ups.data();
+                var id = Ups.id;
 
                 if (data.fim < _this66.hjdia) {
                   //   console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
@@ -8862,13 +8829,51 @@
                 moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
                 _this66.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
                 data.dia = _this66.m;
-                _this66.provUp2 = Object.assign({
+                _this66.provUp1 = Object.assign({
                   id: id
                 }, data);
 
-                _this66.y2.push(_this66.provUp2);
+                _this66.y.push(_this66.provUp1);
 
-                _this66.nextQueryUp = upi2;
+                _this66.nextQueryUp = Ups;
+                console.log("this ", _this66.nextQueryUp);
+              });
+            });
+          }
+        }, {
+          key: "listadeup2",
+          value: function listadeup2(user) {
+            var _this67 = this;
+
+            var last = this.nextQueryUp;
+            console.log(last);
+            this.eventoup2 = this.firestore.collection('eventos', function (ref) {
+              return ref.where('up', 'array-contains', "".concat(user)).orderBy("UPnum", "desc").startAfter(last).limit(10);
+            });
+            return this.eventoup2.get().subscribe(function (upei) {
+              upei.forEach(function (upi2) {
+                var data = upi2.data();
+                var id = upi2.id;
+
+                if (data.fim < _this67.hjdia) {
+                  //   console.log(data.fim, " menor que ", this.hjdia) // checar se data do  evento esta no futuro
+                  _this67.passadostate = _this67.firestore.doc("eventos/".concat(id));
+
+                  _this67.passadostate.update({
+                    passado: true
+                  });
+                }
+
+                moment__WEBPACK_IMPORTED_MODULE_5__.locale('pt-BR');
+                _this67.m = moment__WEBPACK_IMPORTED_MODULE_5__(data.dia).format('ddd DD MMM - HH:mm');
+                data.dia = _this67.m;
+                _this67.provUp2 = Object.assign({
+                  id: id
+                }, data);
+
+                _this67.y2.push(_this67.provUp2);
+
+                _this67.nextQueryUp = upi2;
               });
             });
           }
@@ -9224,7 +9229,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-title size=\"large\" class=\"centertt\" (click)=\"ss()\">Oreon</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\" class=\"fundo\" #content>\n  <ion-slides  class=\"centertt\" #slides>\n    <ion-slide *ngIf=\"cidade.length > 0 && noAuth == false\">\n      <div>\n        <a class=\"a\">{{ cidadesDoUsuario }}</a>\n        <ion-card *ngFor=\"let evento of cidade\" class=\"card\">\n          <img class=\"imagem\" [src]=\"evento.url\" (click)=\"showmodal(evento)\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of cidade3\" class=\"card\">\n          <img class=\"imagem\" [src]=\"evento.url\" (click)=\"showmodal(evento)\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadcidade($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n\n\n    <ion-slide>\n      <div>\n        <a class=\"a\" (click)=\"ss()\"> Nacional </a>\n        <ion-card *ngFor=\"let evento of nacionais \" class=\"card\">\n          <img class=\"imagem\" [src]=\"evento.url\" (click)=\"showmodal(evento)\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-subtitle class=\"branco\">{{ evento.lugar }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of nacional\" class=\"card\">\n          <img class=\"imagem\" [src]=\"evento.url\" (click)=\"showmodal(evento)\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-subtitle class=\"branco\">{{ evento.lugar }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadnacional($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n\n\n\n\n    <ion-slide *ngIf=\"noAuth\">\n      <div class=\"noauth\">\n        <a class=\"a\" >{{ escolhaNoAuth }}</a>\n        <ion-searchbar class=\"searchbar\" placeholder=\"Escolher cidade\" (ionInput)=\"getItems($event)\" (click)=\"abriu()\"\n          [(ngModel)]=\"_cidade\" clearInput></ion-searchbar>\n        <ion-list *ngIf=\"abrir\" class=\"filtro\" lines=\"none\" no-lines>\n          <ion-item (click)=\"noAuth_cidade(item.lugar)\" *ngFor=\"let item of todositems\" class=\"filtro\">\n            {{ item.lugar }}\n          </ion-item>\n        </ion-list>\n        <ion-card *ngFor=\"let evento of cidade\" class=\"card\">\n          <img class=\"imagem\" [src]=\"evento.url\" (click)=\"showmodal(evento)\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of cidade3\" class=\"card\">\n          <img class=\"imagem\" [src]=\"evento.url\" (click)=\"showmodal(evento)\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadcidade($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide> \n\n    <ion-slide *ngIf=\"online.length > 0\">\n      <div>\n        <a class=\"a\"> Online </a>\n        <ion-card *ngFor=\"let evento of online \" class=\"card\">\n          <img class=\"imagem\" [src]=\"evento.url\" (click)=\"showmodal(evento)\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of onlines\" class=\"card\">\n          <img class=\"imagem\" [src]=\"evento.url\" (click)=\"showmodal(evento)\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadOnline($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n  \n  </ion-slides>\n\n  <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\">\n    <ion-fab-button>\n      <ion-icon name=\"radio-button-off-outline\"></ion-icon>\n    </ion-fab-button>\n    <ion-fab-list side=\"start\">\n      <ion-fab-button   routerLink=\"/perfil\"  replaceUrl=\"true\" routerDirection=\"forward\">\n        <ion-icon name=\"person-outline\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n    <ion-fab-list side=\"end\">\n      <ion-fab-button routerLink=\"/pesquisar\"  replaceUrl=\"true\" routerDirection=\"forward\">\n        <ion-icon name=\"search\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n    <ion-fab-list *ngIf=\"noAuth\" side=\"top\">\n      <ion-fab-button (click)=\"ajuda()\">\n        <ion-icon name=\"help\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n  </ion-fab>\n</ion-content>";
+      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-title size=\"large\" class=\"centertt\" (click)=\"ss()\">Oreon</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\" class=\"fundo\" #content>\n  <ion-slides  class=\"centertt\" #slides>\n    <ion-slide *ngIf=\"cidade.length > 0 && noAuth == false\">\n      <div>\n        <a class=\"a\">{{ cidadesDoUsuario }}</a>\n        <ion-card *ngFor=\"let evento of cidade\" class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of cidade3\" class=\"card\"(click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\"/>\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadcidade($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n\n\n    <ion-slide>\n      <div>\n        <a class=\"a\" (click)=\"ss()\"> Nacional </a>\n        <ion-card *ngFor=\"let evento of nacionais \" class=\"card\"(click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\"  />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-subtitle class=\"branco\">{{ evento.lugar }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of nacional\" class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-subtitle class=\"branco\">{{ evento.lugar }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadnacional($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n\n\n\n\n    <ion-slide *ngIf=\"noAuth\">\n      <div class=\"noauth\">\n        <a class=\"a\" >{{ escolhaNoAuth }}</a>\n        <ion-searchbar class=\"searchbar\" placeholder=\"Escolher cidade\" (ionInput)=\"getItems($event)\" (click)=\"abriu()\"\n          [(ngModel)]=\"_cidade\" clearInput></ion-searchbar>\n        <ion-list *ngIf=\"abrir\" class=\"filtro\" lines=\"none\" no-lines>\n          <ion-item (click)=\"noAuth_cidade(item.lugar)\" *ngFor=\"let item of todositems\" class=\"filtro\">\n            {{ item.lugar }}\n          </ion-item>\n        </ion-list>\n        <ion-card *ngFor=\"let evento of cidade\" class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of cidade3\"   class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\"  />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadcidade($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide> \n\n    <ion-slide *ngIf=\"online.length > 0\">\n      <div>\n        <a class=\"a\"> Online </a>\n        <ion-card *ngFor=\"let evento of online \" class=\"card\"  (click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of onlines\" class=\"card\" (click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\"  />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadOnline($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n  \n  </ion-slides>\n\n  <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\">\n    <ion-fab-button>\n      <ion-icon name=\"radio-button-off-outline\"></ion-icon>\n    </ion-fab-button>\n    <ion-fab-list side=\"start\">\n      <ion-fab-button   routerLink=\"/perfil\"  replaceUrl=\"true\" routerDirection=\"forward\">\n        <ion-icon name=\"person-outline\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n    <ion-fab-list side=\"end\">\n      <ion-fab-button routerLink=\"/pesquisar\"  replaceUrl=\"true\" routerDirection=\"forward\">\n        <ion-icon name=\"search\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n    <ion-fab-list *ngIf=\"noAuth\" side=\"top\">\n      <ion-fab-button (click)=\"ajuda()\">\n        <ion-icon name=\"help\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n  </ion-fab>\n</ion-content>";
       /***/
     },
 

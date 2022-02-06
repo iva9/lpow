@@ -1,1 +1,0 @@
-!function(){"use strict";(self.webpackChunkOreon=self.webpackChunkOreon||[]).push([[3527],{23527:function(n,e,o){o.r(e),o.d(e,{ion_popover:function(){return r.P}});var r=o(80419);o(31035),o(25466),o(61240),o(44751),o(67286),o(79226),o(80788),o(38651),o(35175),o(92841)}}])}();

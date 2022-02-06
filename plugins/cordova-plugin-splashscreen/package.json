@@ -11,8 +11,13 @@
       "browser"
     ]
   },
-  "repository": "github:apache/cordova-plugin-splashscreen",
-  "bugs": "https://github.com/apache/cordova-plugin-splashscreen/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-splashscreen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/apache/cordova-plugin-splashscreen/issues"
+  },
   "keywords": [
     "cordova",
     "splashscreen",
@@ -39,10 +44,111 @@
       }
     }
   },
-  "author": "Apache Software Foundation",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
   "license": "Apache-2.0",
   "devDependencies": {
     "@cordova/eslint-config": "^3.0.0"
   },
-  "homepage": "https://github.com/apache/cordova-plugin-splashscreen#readme"
+  "homepage": "https://github.com/apache/cordova-plugin-splashscreen#readme",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-splashscreen/-/cordova-plugin-splashscreen-6.0.0.tgz",
+  "_integrity": "",
+  "_from": "cordova-plugin-splashscreen@>=6.0.0 <7.0.0",
+  "_id": "cordova-plugin-splashscreen@6.0.0",
+  "_nodeVersion": "14.4.0",
+  "_npmVersion": "6.14.5",
+  "dist": {
+    "integrity": "sha512-pm4ZtJKQY4bCGXVeIInbGrXilryTevYSKgfvoQJpW9UClOWKAxSsYf2/4G2u1vcn492svOSL42OSa2MhujBWEQ==",
+    "shasum": "674718f87894cd75615da2b55905eb4cc719cf01",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-splashscreen/-/cordova-plugin-splashscreen-6.0.0.tgz",
+    "fileCount": 12,
+    "unpackedSize": 92438,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfFSNkCRA9TVsSAnZWagAA9ZUP/0gli98scPwv66WeNae9\n5+8XZVF0D/bGJmXeIu2Q5W2zW8Yn7vOC+7zUpFNVDvcxloedT3LxTPAq3mx2\n+/gl3psG7lxUBfLcBjVJ/HsMavY4knHCXM3HNT568KIiu9uk8MwVp1b3Lduy\njI5HTfMIqXHw0Oi9AcwCpq1EwwOLoMnkJLqr04F/ib8vdMWeJr4VhaWK6G5g\noMxVmLyvzXGAmQ4Sp+wPtS7HxkDD56w4OkdborTNC7EQy0EUnW4qpX2Ysfiw\nbQqCeoZAxpCgeq/vB0McsuRV0foZM5E6BggPrXJQNAwdEKwF+2zUn8c621ZF\nTAopEpbHb30OogW+h4mokk+XFeZd7AdYlnH3A3fPtGsHtID9psAV2xPkVnMB\nTbOP08naPBOWL0gGEG7W0IShpHrhJplqiOYHdOESC/5Sh1ZDKlDQuztwKOD8\nRX4HV51gh7SthmOqBFjFpqYWgDgiMPdvUydl6/WirdIdDqZ/vHuZxAOKTfGG\nIt6svz2XAB9P1dI7JMMEB9tLahGmenG0jO6/owvdBgC/uAqUPghH27/X4UCh\nCtB92bamDrnXC5clTscvlOFm8RuG7kx9/DGoFhCmBKNYkm9rNjxRQUgOVSrf\nzs8KUJKYN6knU+BoN38scSJS/rlkL9LCy1hui+p1w+DtPbat5sACVDZou3sG\n/b4m\r\n=FlUX\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "maintainers": [
+    {
+      "email": "anis.kadri@gmail.com",
+      "name": "anis"
+    },
+    {
+      "email": "bowserj@apache.org",
+      "name": "bowserj"
+    },
+    {
+      "email": "chris@brody.consulting",
+      "name": "brodybits"
+    },
+    {
+      "email": "apachecordovabot@gmail.com",
+      "name": "cordovaowner"
+    },
+    {
+      "email": "csantana23@gmail.com",
+      "name": "csantanapr"
+    },
+    {
+      "email": "darryl@dpogue.ca",
+      "name": "dpogue"
+    },
+    {
+      "email": "erisu.dev@outlook.jp",
+      "name": "erisu"
+    },
+    {
+      "email": "maj.fil@gmail.com",
+      "name": "filmaj"
+    },
+    {
+      "email": "piotrowski+npm@gmail.com",
+      "name": "janpio"
+    },
+    {
+      "email": "jcesarmobile@gmail.com",
+      "name": "jcesarmobile"
+    },
+    {
+      "email": "kotikov.vladimir@gmail.com",
+      "name": "kotikov.vladimir"
+    },
+    {
+      "email": "simon.macdonald@gmail.com",
+      "name": "macdonst"
+    },
+    {
+      "email": "NiklasMerz@gmx.net",
+      "name": "niklasmerz"
+    },
+    {
+      "email": "purplecabbage@gmail.com",
+      "name": "purplecabbage"
+    },
+    {
+      "email": "shazron@gmail.com",
+      "name": "shazron"
+    },
+    {
+      "email": "stevengill97@gmail.com",
+      "name": "stevegill"
+    },
+    {
+      "email": "piotrowski+npmjs.com@gmail.com",
+      "name": "sujan12"
+    },
+    {
+      "email": "pindoria.suraj@gmail.com",
+      "name": "surajpindoria"
+    }
+  ],
+  "_npmUser": {
+    "name": "erisu",
+    "email": "erisu.dev@outlook.jp"
+  },
+  "directories": {},
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-splashscreen_6.0.0_1595220835686_0.6184583247969058"
+  },
+  "_hasShrinkwrap": false,
+  "_shasum": "674718f87894cd75615da2b55905eb4cc719cf01"
 }

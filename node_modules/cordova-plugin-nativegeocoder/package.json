@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sebastianbaar/cordova-plugin-nativegeocoder.git"
+    "url": "git+https://github.com/sebastianbaar/cordova-plugin-nativegeocoder.git"
   },
   "keywords": [
     "ecosystem:cordova",
@@ -21,10 +21,43 @@
     "geocoding",
     "location"
   ],
-  "author": "Sebastian Baar",
+  "author": {
+    "name": "Sebastian Baar"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sebastianbaar/cordova-plugin-nativegeocoder/issues"
   },
-  "homepage": "https://github.com/sebastianbaar/cordova-plugin-nativegeocoder#readme"
+  "homepage": "https://github.com/sebastianbaar/cordova-plugin-nativegeocoder#readme",
+  "gitHead": "f135b09d0abd7a80a5296a1bd69762bcff5fd519",
+  "_id": "cordova-plugin-nativegeocoder@3.4.1",
+  "_nodeVersion": "10.14.1",
+  "_npmVersion": "6.14.4",
+  "dist": {
+    "integrity": "sha512-2VDRWFJIRk7mYGxPctadvtdeyYpgX/PZl3xAc8zglLK83YQnAp5p2sNoiYokkCMEXK+vSeuff3E7b3fkAC1TsQ==",
+    "shasum": "836408410c6eec12c57961e86d97694d2bb0b2a8",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-nativegeocoder/-/cordova-plugin-nativegeocoder-3.4.1.tgz",
+    "fileCount": 12,
+    "unpackedSize": 44967,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeqUJBCRA9TVsSAnZWagAAsEsQAKMmX6IiNK22eTN61yhB\nun+jF3XtvVXWXeF9YMeidoL9AZzyQZPOYeHp4RG3CECYsRG7A1QWhNQhYb5j\nEMmTaMT2xxi8nh1+KOoRN/+NVvof/EGwmlcV+zKBYu2e90vyWT/60HGDcZ0K\nYR9X56JBI+pGOLF42+W03g2ljZNSog5wc00PCMsFpq/2vVHiSTPnfTnl9pdV\nJWaPjLAQGt99bUqoX2PDDFIYyHBixuUYURosSZISGTeWYmKEM6y3azHPSjvb\n0kHQGwRHbqfj1KudBs6mHC3At5V2YGdY3Drk0hYVEMrMIBOOv2z84jeLxs09\nvRkAGU/L4k1NdTS3jOWa3Q3fjvkgX5UcTcjtMkhV1d6EPLTQGsT5OjADbrs6\nMnM9aTMdQqTIlGJHxN0Qkt8Z4Hk09Kfg6dfIl4Tk4i10gtP2j9j6iqM1TfBu\ngNfq6t0qMptZN57K8LlkRXo+VlsArfs1Io7ydkpSux1o4HY00Ve12UDMbSBW\nFscaa+UBb5z8JGMgxVJrpj5OMdqIMmyI3Trx6gUnVaJ2hzDWY/HGRpEvb2BI\n+TG+cVsvlgv7Cjy9AGMjbaDHyjcsxfyLUM8pUhIjh6XK59uiAYODg1yxJKNV\n2WeaQ/RDCYFeaL2Rb6ZCw90dKN9T3nlX79q34h5cJ093IESiW2OSVtT4nzrd\nD7bK\r\n=K+6t\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "maintainers": [
+    {
+      "name": "sebastianbaar",
+      "email": "seb.baar@gmail.com"
+    }
+  ],
+  "_npmUser": {
+    "name": "sebastianbaar",
+    "email": "mail.sebastianbaar@gmail.com"
+  },
+  "directories": {},
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-nativegeocoder_3.4.1_1588150848954_0.5621858577064902"
+  },
+  "_hasShrinkwrap": false,
+  "_shasum": "836408410c6eec12c57961e86d97694d2bb0b2a8",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-nativegeocoder/-/cordova-plugin-nativegeocoder-3.4.1.tgz",
+  "_from": "cordova-plugin-nativegeocoder@>=3.4.1 <4.0.0"
 }

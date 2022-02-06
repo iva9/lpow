@@ -106,7 +106,7 @@ if (window.location.protocol === "file:") {
     window.handleClientLoad = function() {
         gapi.load('auth2', function () {
             gapi.auth2.init({
-                client_id: "373924502179-d29hkb11j7e9nu15mvsltmqovktpi06q.apps.googleusercontent.com" // CLIENT_ID is populated by the cordova after_prepare hook
+                client_id: "WEB_APPLICATION_CLIENT_ID" // CLIENT_ID is populated by the cordova after_prepare hook
             }).then(function () {
                 __googleSdkReady = true;
 

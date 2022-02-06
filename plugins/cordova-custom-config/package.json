@@ -1,0 +1,85 @@
+{
+  "version": "5.1.1",
+  "name": "cordova-custom-config",
+  "cordova_name": "cordova-custom-config",
+  "description": "Cordova/Phonegap plugin to update platform configuration files based on preferences and config-file data defined in config.xml.",
+  "author": {
+    "name": "Dave Alden"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpa99c/cordova-custom-config.git"
+  },
+  "cordova": {
+    "id": "cordova-custom-config",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "issue": "https://github.com/dpa99c/cordova-custom-config/issues",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova",
+    "cordova-android",
+    "cordova-ios",
+    "phonegap",
+    "config",
+    "configuration",
+    "plist",
+    "manifest"
+  ],
+  "dependencies": {
+    "q": "^1.4.1",
+    "lodash": "^4.17.11",
+    "elementtree": "^0.1.6",
+    "plist": "^3.0.1",
+    "xcode": "^1.0.0",
+    "colors": "1.4.0",
+    "shelljs": "^0.7.0",
+    "tostr": "^0.1.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.6.0",
+    "got": "^6.5.0"
+  },
+  "scripts": {
+    "test": "jshint hooks"
+  },
+  "gitHead": "163152a1d7162fe063a4a975f114fd0d0c0c6e87",
+  "bugs": {
+    "url": "https://github.com/dpa99c/cordova-custom-config/issues"
+  },
+  "homepage": "https://github.com/dpa99c/cordova-custom-config#readme",
+  "_id": "cordova-custom-config@5.1.1",
+  "_nodeVersion": "12.14.0",
+  "_npmVersion": "6.13.4",
+  "dist": {
+    "integrity": "sha512-GH/W0yVCvrxobcs1zp3ARcbG8/XlnCglQqBgUsFkQnf/gVzaA9Eh+Q55W1tgp6yiNZv17aBTPlJYBaKqGsIrFQ==",
+    "shasum": "c0243892848a4b2f869a7fb6a2ff0dcd02f7f3b7",
+    "tarball": "https://registry.npmjs.org/cordova-custom-config/-/cordova-custom-config-5.1.1.tgz",
+    "fileCount": 17,
+    "unpackedSize": 130920,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJh3GDeCRA9TVsSAnZWagAANi4P/3plpcu3NxLftLjepd1v\nbq/83yFLzX8gRJv4nhR0joUMSEyPKTeqK7skYuPQG6dakZLh8wswlqdaxrBY\nC8gMKDhmHy2z8Owz7OQssFGolxrJIlBdbtLD/e1Tel1Q8CMzrWesucrAzS+Z\ng9Y/IINbYiFHr+lvLxgXWLUTO6G8AKGO2UhFu2lpvxu59YhEaT4YeGuVLwYm\nl5+v2tB+YgiPOXajMpUKyekQXJzsKXL8n3xGdJfCMHJtlQhwtILkBtppq5vq\nJE4Bv5BlaKpva7ZlfCTF/A95lf0K1a1HQ4OZ+LpW8alZpO96hmzvCVgnEVWQ\nkrABSBrswzL4OTJ8n5Dt0Wcp6nMKQ5A+ASWvQsNzqs8ZFMw2A3vzo9zjlqy0\nVZUviECIfbBqhv4JFRA+yDp7uMiUdhmInhVgxKaJbnPg9RS9XoCrSs/1WvHb\nNpk+ZfNpTFEKjX6my+7UWFkngWf4W/2ozX6xeBiZNX66e5Unk68v73zu3sT+\n2N5OJQswqaXDzZcniO3fpFHh+E7RKpKSlEQIpSPxIZl90mLYBeGx0onqh/a7\nGs5kvU4Obe0jqPi7MoAU71EXs+nqyieaJjqRgpmRSKiTQSVa2rXguFPblelR\nsjbFttPRxGkoZIU0L4kY5G8rlStar1R9LlOMGcoQLzHZK/hKuFPERgk9Z3lg\nFckq\r\n=Vf8V\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "_npmUser": {
+    "name": "davealden",
+    "email": "dave@workingedge.co.uk"
+  },
+  "directories": {},
+  "maintainers": [
+    {
+      "name": "davealden",
+      "email": "dave@workingedge.co.uk"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-custom-config_5.1.1_1641832670730_0.33923025639870996"
+  },
+  "_hasShrinkwrap": false,
+  "_shasum": "c0243892848a4b2f869a7fb6a2ff0dcd02f7f3b7",
+  "_resolved": "https://registry.npmjs.org/cordova-custom-config/-/cordova-custom-config-5.1.1.tgz",
+  "_from": "cordova-custom-config@latest"
+}

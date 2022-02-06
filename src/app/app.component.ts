@@ -7,12 +7,16 @@ import { Network } from '@ionic-native/network/ngx';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { HomePage } from './home/home.page';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+
   UIDatual 
   constructor(
     private home : HomePage,
@@ -47,8 +51,11 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this.platform.ready()
-      this.statusBar.styleDefault();
+    this.platform.ready().then(()=>{
+
+      
+    })
+    this.statusBar.backgroundColorByHexString('#000000')
       this.splashScreen.hide();
     };
 

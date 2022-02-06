@@ -21,11 +21,13 @@
     },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "com.Test.Oreon"
-    }
-  },
-  "dependent_plugins": {
-    "cordova-plugin-add-swift-support": {
+    },
+    "cordova-custom-config": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "com.Test.Oreon"
     }
-  }
+  },
+  "dependent_plugins": {}
 }

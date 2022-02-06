@@ -13,8 +13,13 @@
       "osx"
     ]
   },
-  "repository": "github:apache/cordova-plugin-camera",
-  "bugs": "https://github.com/apache/cordova-plugin-camera/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-camera.git"
+  },
+  "bugs": {
+    "url": "https://github.com/apache/cordova-plugin-camera/issues"
+  },
   "keywords": [
     "cordova",
     "camera",
@@ -29,7 +34,9 @@
     "test": "npm run lint",
     "lint": "eslint ."
   },
-  "author": "Apache Software Foundation",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
   "license": "Apache-2.0",
   "engines": {
     "cordovaDependencies": {
@@ -57,5 +64,105 @@
   },
   "devDependencies": {
     "@cordova/eslint-config": "^3.0.0"
-  }
+  },
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-camera/-/cordova-plugin-camera-5.0.3.tgz",
+  "_integrity": "",
+  "_from": "cordova-plugin-camera@>=5.0.3 <6.0.0",
+  "homepage": "https://github.com/apache/cordova-plugin-camera#readme",
+  "_id": "cordova-plugin-camera@5.0.3",
+  "_nodeVersion": "12.14.1",
+  "_npmVersion": "6.14.11",
+  "dist": {
+    "integrity": "sha512-CfoqP8+0XGm8wS0Ri6BCaTTq195Z7ny/tXrD14DsYyR7hHjf1nn+B643tzdYuPNVynxMLRQa1T8n1EkCxFyUog==",
+    "shasum": "eb045f15ffa7722ffbec35a0cb32c1a0c5f91066",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-camera/-/cordova-plugin-camera-5.0.3.tgz",
+    "fileCount": 30,
+    "unpackedSize": 330177,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJhEOrmCRA9TVsSAnZWagAAR/kP/01Yf2H9WQ6VRQcZHczE\ncLMiAr2pGzP8MGi/kB7TXdkxb82zVCIsm2GXdRGVCSXqsWDC2Pk+Up8FoOxj\nwdHUM2Zf1HbvwfnWKLmsdHuY+nMoj8yssTZvKOdeue910yy8F0eStLLDGkod\nv/+k2UqNVqCJ4Qm9CNkAwdRlfKO0lW7KjrlQcuzbVNMCOXlHCTjbewFXOcAf\nJ2Jl5K9z1pi/wY9ZcFyB0lYL0BOzJHwGBahVolVedKJcLvhW9PY5iXOpLrxV\nKCGp4QYHvEvraJszeLA6DQ9nlTxMZ1x1CI1ltiqHynCUcDONoCvyyPqjAIjX\nunTDH7k+wg6U8ZU9X/f8yKx861qVtsj4OKdDRMH66IbXGjKkaxjJn1BNYS97\n7LwrDZj670IT1+tOiYWXfji2zaOoPSD4Y0MkBcYv+xU5lLbnK4QXS+J3bblv\nJYz7m/GUtMxtymh1n948W1JR/Kfc3C32zdGSjUUi8hOnbLv+tfRMiit5jv8Q\nrMMoXB6rKwWWMpIXGf/VW2wpwuJGpcUTGXBx2tL26KWJB6kyi9o503SLci4Y\n0G7pKBroctpFss+JLPsirKRgQg0mjF8Lys4AAIpYuykQV0UIJSSqLpJ1iKsS\nMxSvRqVZ+gYvS+usDpXhqJkIDRB28Qff3hFqoC97hxReEdp/1dNLf7uQcARM\naux2\r\n=uxQZ\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "_npmUser": {
+    "name": "niklasmerz",
+    "email": "NiklasMerz@gmx.net"
+  },
+  "directories": {},
+  "maintainers": [
+    {
+      "name": "brodybits",
+      "email": "chris.brody+brodybits@gmail.com"
+    },
+    {
+      "name": "dpogue",
+      "email": "darryl@dpogue.ca"
+    },
+    {
+      "name": "cordovaowner",
+      "email": "apachecordovabot@gmail.com"
+    },
+    {
+      "name": "stevegill",
+      "email": "stevengill97@gmail.com"
+    },
+    {
+      "name": "purplecabbage",
+      "email": "purplecabbage@gmail.com"
+    },
+    {
+      "name": "anis",
+      "email": "anis.kadri@gmail.com"
+    },
+    {
+      "name": "filmaj",
+      "email": "maj.fil@gmail.com"
+    },
+    {
+      "name": "bowserj",
+      "email": "bowserj@apache.org"
+    },
+    {
+      "name": "shazron",
+      "email": "shazron@gmail.com"
+    },
+    {
+      "name": "surajpindoria",
+      "email": "pindoria.suraj@gmail.com"
+    },
+    {
+      "name": "erisu",
+      "email": "erisu.dev@outlook.jp"
+    },
+    {
+      "name": "niklasmerz",
+      "email": "NiklasMerz@gmx.net"
+    },
+    {
+      "name": "janpio",
+      "email": "piotrowski+npm@gmail.com"
+    },
+    {
+      "name": "normanbreau",
+      "email": "norman@nbsolutions.ca"
+    },
+    {
+      "name": "pvpoyer",
+      "email": "pieter.vanpoyer@portofantwerp.com"
+    },
+    {
+      "name": "csantanapr",
+      "email": "csantana23@gmail.com"
+    },
+    {
+      "name": "macdonst",
+      "email": "simon.macdonald@gmail.com"
+    },
+    {
+      "name": "jcesarmobile",
+      "email": "jcesarmobile@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-camera_5.0.3_1628498662830_0.9090373709254398"
+  },
+  "_hasShrinkwrap": false,
+  "_shasum": "eb045f15ffa7722ffbec35a0cb32c1a0c5f91066"
 }
