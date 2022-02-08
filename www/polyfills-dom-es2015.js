@@ -1,10 +1,11 @@
-(self["webpackChunkOreon"] = self["webpackChunkOreon"] || []).push([["polyfills-dom"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["polyfills-dom"],{
 
-/***/ 4180:
+/***/ "QdDj":
 /*!************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/polyfills/dom.js ***!
   \************************************************************/
-/***/ (function() {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
 (function(){
   /*

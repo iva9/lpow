@@ -4,6 +4,7 @@ import { AlertController , LoadingController} from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+
 @Component({
   template:`<ion-button  color="primary"  [navPush]="criar" style="padding-left:100px">Register</ion-button>`,
   selector: 'app-criar-user',
@@ -14,6 +15,7 @@ export class CriarUserPage implements OnInit {
   public loading: any
   criar: any;
   constructor(
+  
     private alert : AlertController,
     private afAuth : AngularFireAuth,
     private route : Router,
@@ -25,6 +27,7 @@ export class CriarUserPage implements OnInit {
   }
 
   ngOnInit() {
+  
   }
 
   home(){

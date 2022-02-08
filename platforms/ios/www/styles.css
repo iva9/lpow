@@ -1,6 +1,3 @@
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[1].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[5].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].rules[1].use[1]!./src/theme/variables.scss ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -195,9 +192,6 @@
     --ion-tab-bar-background: #1f1f1f;
   }
 }
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[5].rules[0].oneOf[1].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[5].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].rules[1].use[1]!./src/global.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -224,84 +218,11 @@ body {
 body.backdrop-no-scroll {
   overflow: hidden;
 }
-/**
- * Card style modal needs additional padding on the
- * top of the header. We accomplish this by targeting
- * the first toolbar in the header.
- * Footer also needs this. We do not adjust the bottom
- * padding though because of the safe area.
- */
-html.ios ion-modal.modal-card ion-header ion-toolbar:first-of-type,
-html.ios ion-modal.modal-sheet ion-header ion-toolbar:first-of-type,
-html.ios ion-modal ion-footer ion-toolbar:first-of-type {
-  padding-top: 6px;
+html.ios ion-modal.modal-card .ion-page > ion-header > ion-toolbar:first-of-type {
+  padding-top: 0px;
 }
-/**
-* Card style modal needs additional padding on the
-* bottom of the header. We accomplish this by targeting
-* the last toolbar in the header.
-*/
-html.ios ion-modal.modal-card ion-header ion-toolbar:last-of-type,
-html.ios ion-modal.modal-sheet ion-header ion-toolbar:last-of-type {
-  padding-bottom: 6px;
-}
-/**
-* Add padding on the left and right
-* of toolbars while accounting for
-* safe area values when in landscape.
-*/
-html.ios ion-modal ion-toolbar {
-  padding-right: calc(var(--ion-safe-area-right) + 8px);
-  padding-left: calc(var(--ion-safe-area-left) + 8px);
-}
-/**
- * Card style modal on iPadOS
- * should only have backdrop on first instance.
- */
-@media screen and (min-width: 768px) {
-  html.ios ion-modal.modal-card:first-of-type {
-    --backdrop-opacity: 0.18;
-  }
-}
-/**
- * Subsequent modals should not have a backdrop/box shadow
- * as it will cause the screen to appear to get progressively
- * darker. With Ionic 6, declarative modals made it
- * possible to have multiple non-presented modals in the DOM,
- * so we could no longer rely on ion-modal:first-of-type.
- * Here we disable the opacity/box-shadow for every modal
- * that comes after the first presented modal.
- *
- * Note: ion-modal:not(.overlay-hidden):first-of-type
- * does not match the first modal to not have
- * the .overlay-hidden class, it will match the
- * first modal in general only if it does not
- * have the .overlay-hidden class.
- * The :nth-child() pseudo-class has support
- * for selectors which would help us here. At the
- * time of writing it does not have great cross browser
- * support.
- *
- * Note 2: This should only apply to non-card and
- * non-sheet modals. Card and sheet modals have their
- * own criteria for displaying backdrops/box shadows.
- */
-ion-modal.modal-default:not(.overlay-hidden) ~ ion-modal.modal-default {
-  --backdrop-opacity: 0;
-  --box-shadow: none;
-}
-/**
- * This works around a bug in WebKit where the
- * content will overflow outside of the bottom border
- * radius when re-painting. As long as a single
- * border radius value is set on .ion-page, this
- * issue does not happen. We set the top left radius
- * here because the top left corner will always have a
- * radius no matter the platform.
- * This behavior only applies to card modals.
- */
-html.ios ion-modal.modal-card .ion-page {
-  border-top-left-radius: var(--border-radius);
+html.ios ion-modal .ion-page {
+  border-radius: inherit;
 }
 .ion-color-primary {
   --ion-color-base: var(--ion-color-primary, #3880ff) !important;
@@ -463,44 +384,6 @@ ion-card-header.ion-color .ion-inherit-color {
 .md .menu-content-push {
   box-shadow: 4px 0px 16px rgba(0, 0, 0, 0.18);
 }
-ion-accordion-group.accordion-group-expand-inset > ion-accordion:first-of-type {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-ion-accordion-group.accordion-group-expand-inset > ion-accordion:last-of-type {
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-ion-accordion-group > ion-accordion:last-of-type ion-item {
-  --border-width: 0px;
-}
-ion-accordion.accordion-animated > [slot=header] .ion-accordion-toggle-icon {
-  transition: 300ms transform cubic-bezier(0.25, 0.8, 0.5, 1);
-}
-@media (prefers-reduced-motion: reduce) {
-  ion-accordion .ion-accordion-toggle-icon {
-    /* stylelint-disable declaration-no-important */
-    transition: none !important;
-  }
-}
-/**
- * The > [slot="header"] selector ensures that we do
- * not modify toggle icons for any nested accordions. The state
- * of one accordion should not affect any accordions inside
- * of a nested accordion group.
- */
-ion-accordion.accordion-expanding > [slot=header] .ion-accordion-toggle-icon,
-ion-accordion.accordion-expanded > [slot=header] .ion-accordion-toggle-icon {
-  transform: rotate(180deg);
-}
-ion-accordion-group.accordion-group-expand-inset.md > ion-accordion.accordion-previous ion-item[slot=header] {
-  --border-width: 0px;
-  --inner-border-width: 0px;
-}
-ion-accordion-group.accordion-group-expand-inset.md > ion-accordion.accordion-expanding:first-of-type,
-ion-accordion-group.accordion-group-expand-inset.md > ion-accordion.accordion-expanded:first-of-type {
-  margin-top: 0;
-}
 ion-input input::-webkit-date-and-time-value {
   text-align: start;
 }
@@ -606,7 +489,6 @@ button {
   border-radius: 0;
   font-family: inherit;
   font-style: inherit;
-  font-feature-settings: inherit;
   font-variant: inherit;
   line-height: 1;
   text-transform: none;
@@ -663,9 +545,6 @@ html {
 html:not(.hydrated) body {
   display: none;
 }
-html.ion-ce body {
-  display: block;
-}
 html.plt-pwa {
   height: 100vh;
 }
@@ -697,12 +576,10 @@ body {
           text-size-adjust: none;
 }
 html {
-  font-family: var(--ion-default-font);
   font-family: var(--ion-font-family);
 }
 a {
   background-color: transparent;
-  color: #3880ff;
   color: var(--ion-color-primary, #3880ff);
 }
 h1,
@@ -817,94 +694,70 @@ sub {
   --padding-end: var(--ion-padding, 16px);
   --padding-top: var(--ion-padding, 16px);
   --padding-bottom: var(--ion-padding, 16px);
-  padding-left: 16px;
   padding-left: var(--ion-padding, 16px);
-  padding-right: 16px;
   padding-right: var(--ion-padding, 16px);
-  padding-top: 16px;
   padding-top: var(--ion-padding, 16px);
-  padding-bottom: 16px;
   padding-bottom: var(--ion-padding, 16px);
 }
 @supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
   .ion-padding {
     padding-left: unset;
     padding-right: unset;
-    -webkit-padding-start: 16px;
     -webkit-padding-start: var(--ion-padding, 16px);
-    padding-inline-start: 16px;
     padding-inline-start: var(--ion-padding, 16px);
-    -webkit-padding-end: 16px;
     -webkit-padding-end: var(--ion-padding, 16px);
-    padding-inline-end: 16px;
     padding-inline-end: var(--ion-padding, 16px);
   }
 }
 .ion-padding-top {
   --padding-top: var(--ion-padding, 16px);
-  padding-top: 16px;
   padding-top: var(--ion-padding, 16px);
 }
 .ion-padding-start {
   --padding-start: var(--ion-padding, 16px);
-  padding-left: 16px;
   padding-left: var(--ion-padding, 16px);
 }
 @supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
   .ion-padding-start {
     padding-left: unset;
-    -webkit-padding-start: 16px;
     -webkit-padding-start: var(--ion-padding, 16px);
-    padding-inline-start: 16px;
     padding-inline-start: var(--ion-padding, 16px);
   }
 }
 .ion-padding-end {
   --padding-end: var(--ion-padding, 16px);
-  padding-right: 16px;
   padding-right: var(--ion-padding, 16px);
 }
 @supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
   .ion-padding-end {
     padding-right: unset;
-    -webkit-padding-end: 16px;
     -webkit-padding-end: var(--ion-padding, 16px);
-    padding-inline-end: 16px;
     padding-inline-end: var(--ion-padding, 16px);
   }
 }
 .ion-padding-bottom {
   --padding-bottom: var(--ion-padding, 16px);
-  padding-bottom: 16px;
   padding-bottom: var(--ion-padding, 16px);
 }
 .ion-padding-vertical {
   --padding-top: var(--ion-padding, 16px);
   --padding-bottom: var(--ion-padding, 16px);
-  padding-top: 16px;
   padding-top: var(--ion-padding, 16px);
-  padding-bottom: 16px;
   padding-bottom: var(--ion-padding, 16px);
 }
 .ion-padding-horizontal {
   --padding-start: var(--ion-padding, 16px);
   --padding-end: var(--ion-padding, 16px);
-  padding-left: 16px;
   padding-left: var(--ion-padding, 16px);
-  padding-right: 16px;
   padding-right: var(--ion-padding, 16px);
 }
 @supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
   .ion-padding-horizontal {
     padding-left: unset;
     padding-right: unset;
-    -webkit-padding-start: 16px;
     -webkit-padding-start: var(--ion-padding, 16px);
-    padding-inline-start: 16px;
     padding-inline-start: var(--ion-padding, 16px);
-    -webkit-padding-end: 16px;
     -webkit-padding-end: var(--ion-padding, 16px);
-    padding-inline-end: 16px;
     padding-inline-end: var(--ion-padding, 16px);
   }
 }
@@ -923,94 +776,70 @@ sub {
   --margin-end: var(--ion-margin, 16px);
   --margin-top: var(--ion-margin, 16px);
   --margin-bottom: var(--ion-margin, 16px);
-  margin-left: 16px;
   margin-left: var(--ion-margin, 16px);
-  margin-right: 16px;
   margin-right: var(--ion-margin, 16px);
-  margin-top: 16px;
   margin-top: var(--ion-margin, 16px);
-  margin-bottom: 16px;
   margin-bottom: var(--ion-margin, 16px);
 }
 @supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
   .ion-margin {
     margin-left: unset;
     margin-right: unset;
-    -webkit-margin-start: 16px;
     -webkit-margin-start: var(--ion-margin, 16px);
-    margin-inline-start: 16px;
     margin-inline-start: var(--ion-margin, 16px);
-    -webkit-margin-end: 16px;
     -webkit-margin-end: var(--ion-margin, 16px);
-    margin-inline-end: 16px;
     margin-inline-end: var(--ion-margin, 16px);
   }
 }
 .ion-margin-top {
   --margin-top: var(--ion-margin, 16px);
-  margin-top: 16px;
   margin-top: var(--ion-margin, 16px);
 }
 .ion-margin-start {
   --margin-start: var(--ion-margin, 16px);
-  margin-left: 16px;
   margin-left: var(--ion-margin, 16px);
 }
 @supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
   .ion-margin-start {
     margin-left: unset;
-    -webkit-margin-start: 16px;
     -webkit-margin-start: var(--ion-margin, 16px);
-    margin-inline-start: 16px;
     margin-inline-start: var(--ion-margin, 16px);
   }
 }
 .ion-margin-end {
   --margin-end: var(--ion-margin, 16px);
-  margin-right: 16px;
   margin-right: var(--ion-margin, 16px);
 }
 @supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
   .ion-margin-end {
     margin-right: unset;
-    -webkit-margin-end: 16px;
     -webkit-margin-end: var(--ion-margin, 16px);
-    margin-inline-end: 16px;
     margin-inline-end: var(--ion-margin, 16px);
   }
 }
 .ion-margin-bottom {
   --margin-bottom: var(--ion-margin, 16px);
-  margin-bottom: 16px;
   margin-bottom: var(--ion-margin, 16px);
 }
 .ion-margin-vertical {
   --margin-top: var(--ion-margin, 16px);
   --margin-bottom: var(--ion-margin, 16px);
-  margin-top: 16px;
   margin-top: var(--ion-margin, 16px);
-  margin-bottom: 16px;
   margin-bottom: var(--ion-margin, 16px);
 }
 .ion-margin-horizontal {
   --margin-start: var(--ion-margin, 16px);
   --margin-end: var(--ion-margin, 16px);
-  margin-left: 16px;
   margin-left: var(--ion-margin, 16px);
-  margin-right: 16px;
   margin-right: var(--ion-margin, 16px);
 }
 @supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
   .ion-margin-horizontal {
     margin-left: unset;
     margin-right: unset;
-    -webkit-margin-start: 16px;
     -webkit-margin-start: var(--ion-margin, 16px);
-    margin-inline-start: 16px;
     margin-inline-start: var(--ion-margin, 16px);
-    -webkit-margin-end: 16px;
     -webkit-margin-end: var(--ion-margin, 16px);
-    margin-inline-end: 16px;
     margin-inline-end: var(--ion-margin, 16px);
   }
 }
@@ -1423,6 +1252,7 @@ ion-header {
   background-color: black;
 }
 .razer {
+  background-color: black;
   position: absolute;
   top: 0;
   right: 0;

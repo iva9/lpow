@@ -54,10 +54,12 @@
 	<array>
 		<string>audio</string>
 	</array>
-	<key>UIStatusBarHidden</key>
-	<true/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDarkContent</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>need camera access to take pictures</string>
 	<key>NSPhotoLibraryUsageDescription</key>

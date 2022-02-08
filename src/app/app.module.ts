@@ -4,7 +4,8 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+
 
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -83,7 +84,7 @@ import { GooglePlus } from "@ionic-native/google-plus/ngx"
       EventoPesquisaPageModule,
       HttpModule,  ],
   providers: [
-    StatusBar,
+  
     Network,
     SplashScreen,
     GoogleMaps,

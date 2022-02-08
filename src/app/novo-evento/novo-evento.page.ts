@@ -27,16 +27,16 @@ export class NovoEventoPage implements OnInit {
   @ViewChild('fileButton' ,  {static: false}) fileButton;
   @ViewChild('slides' ,{static: false})  slides: IonSlides;
 
-  @ViewChild('iondatetime') datetime: IonDatetime;
+  @ViewChild('iondatetime', {static: false}) datetime: IonDatetime;
 
   
 
   public close() {
-    this.datetime.cancel(true)
+    //this.datetime.cancel(true)
   }
 
   public select(){
-    this.datetime.confirm(true)
+    //this.datetime.confirm(true)
     console.log(this.dateValue)
   }
   
@@ -117,6 +117,7 @@ export class NovoEventoPage implements OnInit {
 
 
  Presencial(){
+   console.log("presenca")
   if(this.usuario == "Usuario"){
      this.showalert("OPS!", "Mude seu nome de usuario para publicar um evento")
    return  this.showmodal()
@@ -128,6 +129,7 @@ Online(){
   if(this.usuario == "Usuario"){
     this.showalert("OPS!", "Mude seu nome de usuario para publicar um evento")
    return this.showmodal()
+
  }
 
 

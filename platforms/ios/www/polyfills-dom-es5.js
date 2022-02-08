@@ -1,13 +1,15 @@
 (function () {
-  (self["webpackChunkOreon"] = self["webpackChunkOreon"] || []).push([["polyfills-dom"], {
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["polyfills-dom"], {
     /***/
-    4180:
+    "QdDj":
     /*!************************************************************!*\
       !*** ./node_modules/@ionic/core/dist/esm/polyfills/dom.js ***!
       \************************************************************/
 
+    /*! no static exports found */
+
     /***/
-    function _() {
+    function QdDj(module, exports) {
       (function () {
         /*
           Copyright (c) 2016 The Polymer Project Authors. All rights reserved.

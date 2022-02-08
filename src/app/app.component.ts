@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 import { ToastController } from '@ionic/angular';
 import { Network } from '@ionic-native/network/ngx';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -23,7 +23,7 @@ export class AppComponent {
     private platform: Platform,
     private Auth : AngularFireAuth,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
+    
     private toastController: ToastController,
     public network  : Network,
   ) {
@@ -55,7 +55,7 @@ export class AppComponent {
 
       
     })
-    this.statusBar.backgroundColorByHexString('#000000')
+  
       this.splashScreen.hide();
     };
 
