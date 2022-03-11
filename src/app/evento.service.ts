@@ -39,7 +39,7 @@ export class EventoService {
     lugar:'',//cidade do evento para controle de listas
     up:[],
     userID:[],
-    chave2:'',
+   // chave2:'',
     passado : false,
     UPnum: 0
   }
@@ -126,7 +126,7 @@ export class EventoService {
     lugar:lugar,
     up:[res.uid],
     userID :  [res.uid , res.displayName],
-    chave2 : this.keydb2,
+    //chave2 : this.keydb2,
     passado : false,
     UPnum: 1,
   }; 
@@ -211,7 +211,7 @@ export interface Data2 {// evento Presencial no DB1 - Firestore
   lugar:string
   up:Array<any>,
   userID:Array<any>,
-  chave2:string,
+ // chave2:string,
   passado : boolean,
   UPnum:number
 }

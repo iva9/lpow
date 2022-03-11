@@ -10,7 +10,7 @@ import { ComentUsuario } from'../eventomodal/eventomodal.page';
 import * as moment from 'moment'
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { AlertController } from '@ionic/angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
+import { InAppBrowser  , InAppBrowserOptions} from '@awesome-cordova-plugins/in-app-browser/ngx';
 import 'firebase/firestore'
 
 
@@ -30,6 +30,23 @@ imgus;
 numcoments = 0;
 jadeuUP : boolean = false
 m
+options : InAppBrowserOptions = {
+  location : 'yes',//Or 'no' 
+  hidden : 'no', //Or  'yes'
+  clearcache : 'yes',
+  clearsessioncache : 'yes',
+  zoom : 'yes',//Android only ,shows browser zoom controls 
+  hardwareback : 'yes',
+  mediaPlaybackRequiresUserAction : 'no',
+  shouldPauseOnSuspend : 'no', //Android only 
+  closebuttoncaption : 'Close', //iOS only
+  disallowoverscroll : 'no', //iOS only 
+  toolbar : 'yes', //iOS only 
+  enableViewportScale : 'no', //iOS only 
+  allowInlineMediaPlayback : 'no',//iOS only 
+  presentationstyle : 'pagesheet',//iOS only 
+  fullscreen : 'yes',//Windows only    
+};
 private evento : AngularFirestoreCollection
 eventodb;
 upReference;
@@ -117,7 +134,7 @@ getevento(tt){
   )
 }
 redirectlink(){
- const browser =  this.iab.create(`${this.eventodb.ingresso}`,'_system',{location :'no'})
+ const browser =  this.iab.create(`${this.eventodb.ingresso}`,'_system',this.options)
 
 browser.on('loadstop').subscribe(event => {
    browser.insertCSS({ code: "body{color: red;" });
@@ -126,7 +143,7 @@ browser.on('loadstop').subscribe(event => {
 browser.close();
 }
 redirectmap(){
- const map = this.iab.create(`https://www.google.com/maps/search/?api=1&query=${this.eventodb.local.description}`,'_system')
+ const map = this.iab.create(`https://www.google.com/maps/search/?api=1&query=${this.eventodb.local.description}`,'_system',this.options)
  
  map.on('loadstop').subscribe(event => {
   map.insertCSS({ code: "body{color: red;" });

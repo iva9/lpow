@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home" text="" class="margin" (click)="voltar()"></ion-back-button>
     </ion-buttons>
-    <ion-searchbar class="searchbar" placeholder="Eventos" [(ngModel)]="queryText" (ionInput)="filterEvento($event)" clearInput>
+    <ion-searchbar class="searchbar" placeholder="Eventos"(ionInput)="filterlist($event)" clearInput>
     </ion-searchbar>
   </ion-toolbar>
 </ion-header>
@@ -11,13 +11,13 @@
 
 <ion-content>
   <ion-list lines="none">
-    <ion-item (click)="pesq(evento)" no lines *ngFor="let evento of eventoY">
+    <ion-item no lines *ngFor="let evento of eventolist">
       <ion-thumbnail item-start>
-        <img class="" [src]="evento.dataseet.url">
+        <img *ngIf="evento" class="" (click)="modalevento(evento)" [src]="evento.url">
       </ion-thumbnail>
       <div>
-      <h2 class="com">{{ evento.dataseet.nome }}  </h2>
-      <h3 class="sub">{{ evento.dataseet.lugar }}</h3>
+      <h2 *ngIf="evento" (click)="modalevento(evento)" class="com">{{ evento.nome }}  </h2>
+      <h3 *ngIf="evento" (click)="modalevento(evento)" class="sub">{{ evento.lugar }}</h3>
     </div>
     </ion-item>
   </ion-list>

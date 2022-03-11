@@ -16,7 +16,7 @@
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyClABG0SXj9mDIMW-nZBBKoIaGscHBHoyo" />
-    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyClABG0SXj9mDIMW-nZBBKoIaGscHBHoyo" />
+    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyCXYp8zsb8GG0_kfoc_tajVU_3UNyFiEZE" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
@@ -256,5 +256,4 @@
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
     <plugin name="cordova-plugin-device" spec="2.0.2" />
-    <plugin name="cordova-plugin-googlemaps" spec="^2.7.1" />
 </widget>

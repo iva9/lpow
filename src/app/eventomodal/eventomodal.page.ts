@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { IonContent } from "@ionic/angular";
 import { AlertController } from '@ionic/angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser , InAppBrowserOptions} from '@awesome-cordova-plugins/in-app-browser/ngx';
 import * as moment from 'moment'
 import firebase from 'firebase/app'
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -17,22 +17,39 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class EventomodalPage implements OnInit {
   @ViewChild(IonContent ,  { static: true }) content: IonContent;
   x : any;
+  options : InAppBrowserOptions = {
+    location : 'yes',//Or 'no' 
+    hidden : 'no', //Or  'yes'
+    clearcache : 'yes',
+    clearsessioncache : 'yes',
+    zoom : 'yes',//Android only ,shows browser zoom controls 
+    hardwareback : 'yes',
+    mediaPlaybackRequiresUserAction : 'no',
+    shouldPauseOnSuspend : 'no', //Android only 
+    closebuttoncaption : 'Close', //iOS only
+    disallowoverscroll : 'no', //iOS only 
+    toolbar : 'yes', //iOS only 
+    enableViewportScale : 'no', //iOS only 
+    allowInlineMediaPlayback : 'no',//iOS only 
+    presentationstyle : 'pagesheet',//iOS only 
+    fullscreen : 'yes',//Windows only    
+};
   verdade : boolean = false
-  m;
-  UPnum = 0;
+  momentto;
+  UPnum ;
   num  = 30
   updateReference;
   denunciaReference;
   noAuth = true 
   nome; 
   jadeuUP : boolean = false
-  numcoments = 0;
+  numcoments = 0 ;
   newlocal;
   dado : Array<object> = []
   lugardocomentario;
   comentario : string = ""
    coments;
-   description:boolean = false
+   description:boolean = true
    iduser
    userIDCOMENT
    numTimesLeft = 2;
@@ -65,22 +82,24 @@ export class EventomodalPage implements OnInit {
       this.iduser = res.uid
       this.noAuth = false
     } 
-     this.x = this.navparams.get('customid')
-     this.lugardocomentario = this.Firebase.database.ref(`coments/${this.x.id}`)
-     this.getComent()
-     this.UPnum = this.x.UPnum
-     if(this.x.local){
-       this.description = true
-     }
-     this.jaUpou()
+    this.lugardocomentario = this.Firebase.database.ref(`coments/${this.x.id}`)
+  this.getComent()
 
   }
 criandomodal(evento){
   this.x = evento
-  moment.locale('pt-BR')
-  this.m = moment(this.x.dia).format('ddd DD MMM')
-  console.log(this.m)
+  this.UPnum = this.x.UPnum
+  console.log(evento.id)
+  this.jaUpou()
+  if(this.x.dia.length > 18){
+    moment.locale('pt-BR')
+    this.momentto = moment(this.x.dia).format('ddd DD MMM')
+    console.log(this.momentto)
+    this.x.dia = this.momentto
+  }
+  
   this.eventoid = evento.id
+
 }
 async setcoment(){
   const res =await this.auth.currentUser
@@ -106,7 +125,7 @@ getComent(){
 this.lugaresdocomentario.valueChanges().subscribe(
   data =>{
     this.trataDados(data)
-  }) 
+  })
 }
 async  UP(){
   if (this.iduser == null){
@@ -150,7 +169,8 @@ redirectmap(){
 
 redirectlink(){
   
- this.iab.create(`${this.x.ingresso}` ,'_system')
+  
+ this.iab.create(`${this.x.ingresso}` , '_system' , this.options)
 }
 redirectUser(){
   this.close()

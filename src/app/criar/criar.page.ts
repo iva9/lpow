@@ -60,6 +60,8 @@ export class CriarPage implements OnInit {
        } 
       async register(){
         this.presentLoading()
+        const cidade = 'Brasília'
+        const UP = true
         const todosnomes = this.items
         const osnomes = this.username.toLowerCase()
         const {username, email , password ,cpassword } = this 
@@ -82,13 +84,14 @@ export class CriarPage implements OnInit {
           try{
              const res = await this.afAuth.createUserWithEmailAndPassword(email , password)
              console.log(res)
-             var iduser = res.user.uid
+             const iduser = res.user.uid
              this.firestore.collection("users").doc(`${res.user.uid}`).set({
-              username , iduser ,imgUser
+              username , iduser ,imgUser, UP , cidade
              })
              this.afdatabase.database.ref(`users/${res.user.uid}/username`).set({
                username , iduser , imgUser
               })
+              
               this.enviaremaildeverific()
               this.user.updateProfile( imgUser , username)
              
@@ -166,7 +169,7 @@ export class CriarPage implements OnInit {
       this.loading = await this.loadingC.create({
          cssClass: 'my-custom-class',
          message: 'Espere um momento...',
-  
+         duration: 4000
        });
        await this.loading.present();
       }
@@ -211,12 +214,14 @@ export class CriarPage implements OnInit {
          var username = "Usuario"
          var imgUser = "https://firebasestorage.googleapis.com/v0/b/oreon-4bfc2.appspot.com/o/profile.png?alt=media&token=3ac5e17d-8119-46e5-9a20-e2e8d1080b18"
          var iduser = res.uid
+         var cidade = "Brasília"
+         var UP = false
          //display name ja existe
           this.firestore.collection("users").doc(`${res.uid}`).set({
-          username , iduser ,imgUser
+          username , iduser ,imgUser ,cidade,UP
          })
          this.afdatabase.database.ref(`users/${res.uid}/username`).set({
-         username , iduser , imgUser
+         username , iduser , imgUser , cidade,UP
           })
           this.showmodalTutorial()
           this.route.navigate(['/home'])

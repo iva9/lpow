@@ -133,7 +133,7 @@ export class UsuarioPesquisaPage implements OnInit {
         //}
      // }
     
-      , {
+      {
         text: 'Cancel',
         icon: 'close',
         role: 'cancel',

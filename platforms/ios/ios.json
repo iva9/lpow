@@ -37,16 +37,10 @@
               "count": 1
             }
           ],
-          "UIStatusBarHidden": [
+          "NSLocationWhenInUseUsageDescription": [
             {
-              "xml": "<true />",
-              "count": 2
-            }
-          ],
-          "UIViewControllerBasedStatusBarAppearance": [
-            {
-              "xml": "<false />",
-              "count": 2
+              "xml": "<string>Use geocoder service</string>",
+              "count": 1
             }
           ]
         }
@@ -79,15 +73,11 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "xml": "<feature name=\"NativeGeocoder\"><param name=\"ios-package\" value=\"NativeGeocoder\" /></feature>",
               "count": 1
             },
             {
-              "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
-              "count": 1
-            },
-            {
-              "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
+              "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVWKInAppBrowser\" /><param name=\"onload\" value=\"true\" /></feature>",
               "count": 1
             }
           ]
@@ -97,6 +87,9 @@
   },
   "installed_plugins": {
     "com.darktalker.cordova.screenshot": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-custom-config": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
     "cordova-plugin-device": {
@@ -111,10 +104,14 @@
     "cordova-plugin-file": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
-    "cordova-custom-config": {
+    "cordova-plugin-add-swift-support": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
-    "cordova-plugin-statusbar": {
+    "cordova-plugin-nativegeocoder": {
+      "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service",
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.Test.Oreon"
     }
   },
@@ -351,21 +348,31 @@
       "runs": true
     },
     {
-      "id": "cordova-plugin-statusbar.statusbar",
-      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-      "pluginId": "cordova-plugin-statusbar",
+      "id": "cordova-plugin-nativegeocoder.NativeGeocoder",
+      "file": "plugins/cordova-plugin-nativegeocoder/www/NativeGeocoder.js",
+      "pluginId": "cordova-plugin-nativegeocoder",
       "clobbers": [
-        "window.StatusBar"
+        "nativegeocoder"
+      ]
+    },
+    {
+      "id": "cordova-plugin-inappbrowser.inappbrowser",
+      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "clobbers": [
+        "cordova.InAppBrowser.open"
       ]
     }
   ],
   "plugin_metadata": {
     "com.darktalker.cordova.screenshot": "0.1.5",
+    "cordova-custom-config": "5.1.1",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-background-mode": "0.7.3",
     "cordova-plugin-camera": "5.0.3",
     "cordova-plugin-file": "6.0.2",
-    "cordova-custom-config": "5.1.1",
-    "cordova-plugin-statusbar": "2.4.3"
+    "cordova-plugin-add-swift-support": "2.0.2",
+    "cordova-plugin-nativegeocoder": "3.4.1",
+    "cordova-plugin-inappbrowser": "5.0.0"
   }
 }

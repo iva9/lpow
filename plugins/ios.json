@@ -10,6 +10,9 @@
     "com.darktalker.cordova.screenshot": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
+    "cordova-custom-config": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
     "cordova-plugin-background-mode": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
@@ -22,12 +25,17 @@
     "cordova-plugin-file": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
-    "cordova-custom-config": {
+    "cordova-plugin-nativegeocoder": {
+      "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service",
       "PACKAGE_NAME": "com.Test.Oreon"
     },
-    "cordova-plugin-statusbar": {
+    "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.Test.Oreon"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    }
+  }
 }

@@ -1,12 +1,4 @@
 {
-  "cordova-plugin-googlemaps": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-googlemaps@^2.7.1"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-device": {
     "source": {
       "type": "registry",
@@ -71,14 +63,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-ionic-webview": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-ionic-webview@^5.0.0"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-x-socialsharing": {
     "source": {
       "type": "registry",
@@ -91,14 +75,6 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-camera@^5.0.3"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-ionic-keyboard": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-ionic-keyboard@^2.2.0"
     },
     "is_top_level": true,
     "variables": {}
@@ -117,23 +93,12 @@
       "id": "cordova-plugin-googleplus"
     },
     "is_top_level": true,
-    "variables": {
-      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.373924502179-d29hkb11j7e9nu15mvsltmqovktpi06q",
-      "WEB_APPLICATION_CLIENT_ID": "373924502179-d29hkb11j7e9nu15mvsltmqovktpi06q.apps.googleusercontent.com"
-    }
+    "variables": {}
   },
   "cordova-plugin-whitelist": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-whitelist@^1.3.4"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-inappbrowser": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-inappbrowser@^4.1.0"
     },
     "is_top_level": true,
     "variables": {}
@@ -150,6 +115,22 @@
     "source": {
       "type": "registry",
       "id": "cordova-custom-config"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-googlemaps": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-googlemaps@^2.7.1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-inappbrowser": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-inappbrowser@5.0.0"
     },
     "is_top_level": true,
     "variables": {}

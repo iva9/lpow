@@ -168,6 +168,7 @@ this.backgroundMode.disable()
   this.nextcity()
 }
   showeventos(){
+    
     this.authh.onAuthStateChanged((user)=>{
       if (user) {    
  this.firestore.collection(`users`, ref => ref.where('iduser', '==', `${user.uid}`)).get().subscribe(using=>{
@@ -228,7 +229,7 @@ using.forEach( io =>{
       })
       if (res.emailVerified == false) {
         console.log(res.emailVerified, "emailverified")
-        this.criaruserpage.showalert("Ops você já criou uma conta ", "Mas não clickou no link que enviamos, verifique e volte ")
+        // this.criaruserpage.showalert("Ops você já criou uma conta ", "Mas não clickou no link que enviamos, verifique e volte ")
         this.login.enviaremaildeverific()
       }
        // ...
@@ -336,7 +337,7 @@ using.forEach( io =>{
     const modal = await this.modalCtrl.create({
       component: EventomodalPage,
       componentProps: {
-        customid: zeta
+        x :  zeta
       }
     })
     modal.present();;

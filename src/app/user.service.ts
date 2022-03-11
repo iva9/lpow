@@ -80,15 +80,15 @@ async updateNome(nome){
   this.firebase.database.ref(`users/${res.uid}/username`).set({username,iduser})
 
 }
-async updateImage(url ){
+async updateImage(url){
   const  res = await this.auth.currentUser
   var iduser = res.uid
   res.updateProfile({
     photoURL : url,
   })
-  this.firestore.collection(`users`).doc(`${res.uid}`).update({imgUser: url })
+  this.firestore.collection(`users`).doc(`${iduser}`).update({imgUser: url })
 
-  this.firebase.database.ref(`users/${res.uid}/img`).set(url)
+  this.firebase.database.ref(`users/${iduser}/img`).set(url)
 
 
 }

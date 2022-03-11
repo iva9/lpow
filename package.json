@@ -26,6 +26,8 @@
     "@angular/platform-browser": "^11.1.2",
     "@angular/platform-browser-dynamic": "^11.1.2",
     "@angular/router": "^11.1.2",
+    "@awesome-cordova-plugins/in-app-browser": "^5.39.1",
+    "@awesome-cordova-plugins/native-geocoder": "^5.39.1",
     "@babel/compat-data": "^7.12.13",
     "@capacitor/core": "2.4.6",
     "@firebase/logger": "^0.2.6",
@@ -56,7 +58,6 @@
     "cordova-browser": "6.0.0",
     "cordova-ios": "^6.2.0",
     "cordova-plugin-file": "^6.0.2",
-    "cordova-plugin-googlemaps": "^2.7.1",
     "cordova-plugin-nativegeocoder": "^3.4.1",
     "cordova-plugin-telerik-imagepicker": "^2.3.6",
     "cordova-plugin-x-socialsharing": "^6.0.3",
@@ -87,10 +88,8 @@
     "cordova-plugin-background-mode": "^0.7.3",
     "cordova-plugin-camera": "^5.0.3",
     "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-googlemaps": "^2.7.1",
     "cordova-plugin-googlemaps-sdk": "github:mapsplugin/cordova-plugin-googlemaps-sdk",
-    "cordova-plugin-inappbrowser": "^4.1.0",
-    "cordova-plugin-ionic-keyboard": "^2.2.0",
-    "cordova-plugin-ionic-webview": "^5.0.0",
     "cordova-plugin-network-information": "^3.0.0",
     "cordova-plugin-splashscreen": "^6.0.0",
     "cordova-plugin-statusbar": "^2.4.3",
@@ -115,17 +114,13 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-googlemaps": {},
       "cordova-plugin-nativegeocoder": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
-      "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-file": {},
       "com.darktalker.cordova.screenshot": {},
       "cordova-plugin-x-socialsharing": {},
-      "cordova-plugin-inappbrowser": {},
       "cordova-plugin-network-information": {},
       "cordova-plugin-background-mode": {},
       "cordova-plugin-camera": {},
@@ -134,7 +129,8 @@
         "WEB_APPLICATION_CLIENT_ID": "373924502179-d29hkb11j7e9nu15mvsltmqovktpi06q.apps.googleusercontent.com"
       },
       "cordova-plugin-splashscreen": {},
-      "cordova-custom-config": {}
+      "cordova-custom-config": {},
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "browser"

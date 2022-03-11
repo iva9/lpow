@@ -42,7 +42,7 @@
           <img class="imagem" [src]="evento.url"  />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
-            <ion-card-subtitle class="branco">{{ evento.lugar }}</ion-card-subtitle>
+            <ion-card-subtitle *ngIf="evento.lugar" class="branco">{{ evento.lugar }}</ion-card-subtitle>
             <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
             <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
           </ion-card-header>
@@ -51,7 +51,7 @@
           <img class="imagem" [src]="evento.url" />
           <ion-card-header class="">
             <ion-card-subtitle class="branco">{{ evento.dia }}</ion-card-subtitle>
-            <ion-card-subtitle class="branco">{{ evento.lugar }}</ion-card-subtitle>
+            <ion-card-subtitle *ngIf="evento.lugar" class="branco">{{ evento.lugar }}</ion-card-subtitle>
             <ion-card-title class="brancotitle">{{ evento.nome }}</ion-card-title>
             <ion-badge item-end>{{ evento.UPnum }}</ion-badge>
           </ion-card-header>

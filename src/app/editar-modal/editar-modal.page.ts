@@ -6,6 +6,7 @@ import { AngularFireDatabase } from '@angular/fire/database'
 import {UserService} from '../user.service'
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 import { delay , map } from 'rxjs/operators';
 import { Data } from '../evento.service'
 import { Subscription } from 'rxjs';
@@ -80,7 +81,7 @@ export class EditarModalPage implements OnInit {
       reader.onload = (e: any) => this.img = e.target.result;
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
-      this.novoe.img = event.target.files[0]
+      console.log(this.selectedImage)
     }else{
       this.img = "../assets/icon/profile.png";
       this.selectedImage = null;
@@ -100,6 +101,7 @@ export class EditarModalPage implements OnInit {
   }
 
 async editar(){
+  
   this.presentLoading()
   const todosnomes = this.items
   const osnomes = this.newUsername.toLowerCase()
@@ -118,27 +120,44 @@ async editar(){
     }
   }
 
-  if (this.selectedImage){
-  var name = this.selectedImage.name;
-  const fileReff =  this.storage.ref(name);
+  if (this.selectedImage){  
+    console.log("update")
   
-   (await this.storage.upload(name, this.selectedImage)).downloadURL
-    
-    fileReff.getDownloadURL().subscribe((url) => {
-        this.url = url;
-        console.log(this.url)
         if(!this.newUsername){
           console.log('não tem nome')
-          this.user.updateImage( this.url)
+          await this.url
+          this.updateimage()
         }
         else{
-        this.user.updateProfile(this.url , this.newUsername)
-    }} ) }
+          this.user.updateNome(this.newUsername.toLowerCase())
+          this.updateimage()
           
+          }   }  
           this.close()
           this.loadingC.dismiss()
-          } 
+        
+        }
 criandomodal(){}
+
+ async updateimage(){
+  const  res = await this.auth.currentUser
+  var iduser = res.uid
+  var name = this.selectedImage.name;
+  const fileRef = this.storage.ref(name);
+  this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(
+    finalize(() => {
+      fileRef.getDownloadURL().subscribe((url) => {
+      this.url = url
+      res.updateProfile({
+        photoURL : this.url,
+      })
+      this.firestore.collection(`users`).doc(`${iduser}`).update({imgUser: this.url })
+    
+      this.firebase.database.ref(`users/${iduser}/img`).set(this.url)
+      console.log("image update")
+        ;})})).subscribe()
+  
+}
 
 close(){
   this.modal.dismiss();

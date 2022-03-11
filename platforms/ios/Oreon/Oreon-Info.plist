@@ -54,12 +54,10 @@
 	<array>
 		<string>audio</string>
 	</array>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleDarkContent</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>UIStatusBarHidden</key>
-	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Use geocoder service</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Use geocoder service</string>
 	<key>NSCameraUsageDescription</key>
 	<string>need camera access to take pictures</string>
 	<key>NSPhotoLibraryUsageDescription</key>

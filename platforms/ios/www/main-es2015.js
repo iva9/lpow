@@ -648,7 +648,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title (click)=\"close()\" size=\"large\" class=\"centertt\">Editar </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"center\">\n    <input type=\"file\" (change)=\"showPreview($event)\" class=\"filebtn\" #fileButton/>\n    <img class=\"imagem\"  (click)=\"takePicture()\" [src]=\"img\">\n    <ion-list class=\"margintop\" no-lines>\n      <ion-item lines=\"none\" >\n        <ion-input type=\"text\" placeholder=\"Nome de Usuario\" name=\"id\" [(ngModel)]=\"newUsername\"></ion-input>\n      </ion-item>\n      </ion-list>\n      </div>\n      <div class=\"publicar\">    \n      <ion-button shape=\"round\"  (click)=\"editar() \"  class=\"publicar\">Concluir</ion-button>\n      </div>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title (click)=\"close()\" size=\"large\" class=\"centertt\">Editar </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class=\"center\">\n    <input type=\"file\" (change)=\"showPreview($event)\" class=\"filebtn\" #fileButton/>\n    <img class=\"imagem\"  (click)=\"writeUserData()\" [src]=\"img\">\n    <ion-list class=\"margintop\" no-lines>\n      <ion-item lines=\"none\" >\n        <ion-input type=\"text\" placeholder=\"Nome de Usuario\" name=\"id\" [(ngModel)]=\"newUsername\"></ion-input>\n      </ion-item>\n      </ion-list>\n      </div>\n      <div class=\"publicar\">    \n      <ion-button shape=\"round\"  (click)=\"editar() \"  class=\"publicar\">Concluir</ion-button>\n      </div>\n</ion-content>\n");
 
 /***/ }),
 
@@ -747,7 +747,7 @@ EventomodalPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".corbot {\n  color: #3880ff;\n}\n\n.shw {\n  margin-top: -10em;\n  padding-top: -4em;\n}\n\nion-slide {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  height: 90%;\n}\n\n.icon {\n  color: #FFFFFF;\n  margin-top: -1em;\n}\n\n.th2 {\n  color: #FFFFFF;\n  text-align: left;\n}\n\nion-content {\n  --ion-background-color: #000000;\n}\n\n.item1 {\n  margin-top: 0.1em;\n  --background: #000000;\n  --color:#FFFFFF;\n}\n\n.itemm {\n  margin-top: 1em;\n  --background: #000000;\n  --color:#FFFFFF;\n}\n\nion-toolbar {\n  --padding-top: 24px ;\n  --background: black;\n}\n\n.searchbar {\n  --color: #FFFFFF;\n  --placeholder-color:#FFFFFF;\n  --background:#1C1C1C;\n}\n\n.imag {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n\n.ma {\n  margin-left: 1em;\n}\n\n.card {\n  max-height: 35vh;\n  align-content: center;\n  background: rgba(92, 92, 92, 0.473);\n  color: white;\n}\n\n.holder {\n  --color: #FFFFFF;\n  --placeholder-color:#FFFFFF;\n  --background:#000000;\n}\n\n.centertt {\n  text-align: center;\n  background-color: black;\n  color: white;\n}\n\n.publicar {\n  text-align: center;\n}\n\nion-list {\n  --background-color: #1C1C1C;\n  --color: white;\n}\n\n.filtro {\n  --background-color:#1C1C1C;\n  --color: white;\n}\n\n.filebtn {\n  opacity: 0;\n  position: absolute;\n  top: -100em;\n  left: -100em;\n}\n\n.btn {\n  margin-top: 85%;\n}\n\n.btn2 {\n  margin-top: 10%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL25vdm8tZXZlbnRvLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLGNBQUE7QUFBSjs7QUFJRTtFQUNFLGlCQUFBO0VBQ0EsaUJBQUE7QUFESjs7QUFHRTtFQUNFLGFBQUE7RUFDQSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxXQUFBO0FBQUo7O0FBR0U7RUFDRSxjQUFBO0VBQ0EsZ0JBQUE7QUFBSjs7QUFFRTtFQUNFLGNBQUE7RUFDQSxnQkFBQTtBQUNKOztBQUNFO0VBQ0UsK0JBQUE7QUFFSjs7QUFDSTtFQUNFLGlCQUFBO0VBQ0EscUJBQUE7RUFDQSxlQUFBO0FBRU47O0FBQUU7RUFDRSxlQUFBO0VBQ0EscUJBQUE7RUFDQSxlQUFBO0FBR0o7O0FBQUk7RUFDRSxvQkFBQTtFQUNBLG1CQUFBO0FBR047O0FBREU7RUFDRSxnQkFBQTtFQUNBLDJCQUFBO0VBQ0Esb0JBQUE7QUFJSjs7QUFGQztFQUNDLFlBQUE7RUFDQSxXQUFBO0VBQ0Esb0JBQUE7S0FBQSxpQkFBQTtBQUtGOztBQUhDO0VBQ0UsZ0JBQUE7QUFNSDs7QUFKQztFQUNDLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSxtQ0FBQTtFQUNBLFlBQUE7QUFPRjs7QUFKQTtFQUNFLGdCQUFBO0VBQ0EsMkJBQUE7RUFDQSxvQkFBQTtBQU9GOztBQUxBO0VBQ0Usa0JBQUE7RUFDQSx1QkFBQTtFQUNBLFlBQUE7QUFRRjs7QUFOQTtFQUNFLGtCQUFBO0FBU0Y7O0FBUEE7RUFDQywyQkFBQTtFQUNDLGNBQUE7QUFVRjs7QUFSQTtFQUNFLDBCQUFBO0VBQ0EsY0FBQTtBQVdGOztBQVRBO0VBQ0MsVUFBQTtFQUNBLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUFZRDs7QUFWQTtFQUNFLGVBQUE7QUFhRjs7QUFYQTtFQUNFLGVBQUE7QUFjRiIsImZpbGUiOiJub3ZvLWV2ZW50by5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbiAgLmNvcmJvdHtcbiAgICBjb2xvciA6IzM4ODBmZjtcbiAgfVxuICBcblxuICAuc2h3e1xuICAgIG1hcmdpbi10b3A6IC0xMGVtO1xuICAgIHBhZGRpbmctdG9wOiAtNGVtO1xuICB9XG4gIGlvbi1zbGlkZXsgXG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogOTAlXG4gIH1cblxuICAuaWNvbntcbiAgICBjb2xvcjogI0ZGRkZGRjtcbiAgICBtYXJnaW4tdG9wOiAtMWVtO1xuICB9XG4gIC50aDJ7ICBcbiAgICBjb2xvcjogI0ZGRkZGRjtcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xuICB9XG4gIGlvbi1jb250ZW50IHtcbiAgICAtLWlvbi1iYWNrZ3JvdW5kLWNvbG9yOiAjMDAwMDAwO31cblxuICAgIFxuICAgIC5pdGVtMXtcbiAgICAgIG1hcmdpbi10b3A6MC4xZW07XG4gICAgICAtLWJhY2tncm91bmQ6ICMwMDAwMDA7XG4gICAgICAtLWNvbG9yOiNGRkZGRkY7XG4gIH1cbiAgLml0ZW1te1xuICAgIG1hcmdpbi10b3A6MWVtO1xuICAgIC0tYmFja2dyb3VuZDogIzAwMDAwMDtcbiAgICAtLWNvbG9yOiNGRkZGRkY7XG59XG5cbiAgICBpb24tdG9vbGJhcntcbiAgICAgIC0tcGFkZGluZy10b3A6IDI0cHggO1xuICAgICAgLS1iYWNrZ3JvdW5kOiBibGFjaztcbiAgfVxuICAuc2VhcmNoYmFye1xuICAgIC0tY29sb3I6ICNGRkZGRkY7IFxuICAgIC0tcGxhY2Vob2xkZXItY29sb3I6I0ZGRkZGRjtcbiAgICAtLWJhY2tncm91bmQ6IzFDMUMxQztcbiB9XG4gLmltYWd7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDEwMCU7XG4gIG9iamVjdC1maXQ6IGNvdmVyO1xuIH1cbiAubWF7XG4gICBtYXJnaW4tbGVmdDogMWVtO1xuIH1cbiAuY2FyZHtcbiAgbWF4LWhlaWdodDogMzV2aCA7XG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjs7XG4gIGJhY2tncm91bmQ6cmdiYSg5MiwgOTIsIDkyLCAwLjQ3Myk7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cblxuLmhvbGRlcntcbiAgLS1jb2xvcjogI0ZGRkZGRjsgXG4gIC0tcGxhY2Vob2xkZXItY29sb3I6I0ZGRkZGRjtcbiAgLS1iYWNrZ3JvdW5kOiMwMDAwMDA7XG59ICBcbi5jZW50ZXJ0dHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcbiAgY29sb3I6IHdoaXRlO1xufVxuLnB1YmxpY2Fye1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5pb24tbGlzdHtcbiAtLWJhY2tncm91bmQtY29sb3I6ICMxQzFDMUM7XG4gIC0tY29sb3I6IHdoaXRlO1xufVxuLmZpbHRyb3tcbiAgLS1iYWNrZ3JvdW5kLWNvbG9yOiMxQzFDMUM7XG4gIC0tY29sb3I6IHdoaXRlO1xufVxuLmZpbGVidG4ge1xuXHRvcGFjaXR5OiAwO1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHRvcDogLTEwMGVtO1xuXHRsZWZ0OiAtMTAwZW07XG59XG4uYnRue1xuICBtYXJnaW4tdG9wOiA4NSU7XG59XG4uYnRuMntcbiAgbWFyZ2luLXRvcDogMTAlO1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".corbot {\n  color: #3880ff;\n}\n\n.shw {\n  margin-top: -10em;\n  padding-top: -4em;\n}\n\nion-slide {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  height: 90%;\n}\n\n.icon {\n  color: #FFFFFF;\n  margin-top: -1em;\n}\n\n.th2 {\n  color: #FFFFFF;\n  text-align: left;\n}\n\nion-content {\n  --ion-background-color: #000000;\n}\n\n.item1 {\n  margin-top: 0.1em;\n  --background: #000000;\n  --color:#FFFFFF;\n}\n\n.itemm {\n  margin-top: 1em;\n  --background: #000000;\n  --color:#FFFFFF;\n}\n\nion-toolbar {\n  --padding-top: 24px ;\n  --background: black;\n}\n\n.searchbar {\n  --color: #FFFFFF;\n  --placeholder-color:#FFFFFF;\n  --background:#1C1C1C;\n}\n\n.imag {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n\n.ma {\n  margin-left: 1em;\n}\n\n.card {\n  max-height: 35vh;\n  align-content: center;\n  background: rgba(92, 92, 92, 0.473);\n  color: white;\n}\n\n.holder {\n  --color: #FFFFFF;\n  --placeholder-color:#FFFFFF;\n  --background:#000000;\n}\n\n.centertt {\n  text-align: center;\n  background-color: black;\n  color: white;\n}\n\n.publicar {\n  text-align: center;\n}\n\nion-list {\n  --background-color: #1C1C1C;\n  --color: white;\n}\n\n.filtro {\n  --background-color:#1C1C1C;\n  --color: white;\n}\n\n.filebtn {\n  opacity: 0;\n  position: absolute;\n  top: -100em;\n  left: -100em;\n}\n\n.btn {\n  margin-top: 85%;\n}\n\n.btn2 {\n  margin-top: 10%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL25vdm8tZXZlbnRvLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDRTtFQUNFLGNBQUE7QUFBSjs7QUFJRTtFQUNFLGlCQUFBO0VBQ0EsaUJBQUE7QUFESjs7QUFHRTtFQUNFLGFBQUE7RUFDQSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxXQUFBO0FBQUo7O0FBR0U7RUFDRSxjQUFBO0VBQ0EsZ0JBQUE7QUFBSjs7QUFFRTtFQUNFLGNBQUE7RUFDQSxnQkFBQTtBQUNKOztBQUNFO0VBQ0UsK0JBQUE7QUFFSjs7QUFDSTtFQUNFLGlCQUFBO0VBQ0EscUJBQUE7RUFDQSxlQUFBO0FBRU47O0FBQUU7RUFDRSxlQUFBO0VBQ0EscUJBQUE7RUFDQSxlQUFBO0FBR0o7O0FBQUk7RUFDRSxvQkFBQTtFQUNBLG1CQUFBO0FBR047O0FBREU7RUFDRSxnQkFBQTtFQUNBLDJCQUFBO0VBQ0Esb0JBQUE7QUFJSjs7QUFGQztFQUNDLFlBQUE7RUFDQSxXQUFBO0VBQ0Esb0JBQUE7S0FBQSxpQkFBQTtBQUtGOztBQUhDO0VBQ0UsZ0JBQUE7QUFNSDs7QUFKQztFQUNDLGdCQUFBO0VBQ0EscUJBQUE7RUFDQSxtQ0FBQTtFQUNBLFlBQUE7QUFPRjs7QUFKQTtFQUNFLGdCQUFBO0VBQ0EsMkJBQUE7RUFDQSxvQkFBQTtBQU9GOztBQUxBO0VBQ0Usa0JBQUE7RUFDQSx1QkFBQTtFQUNBLFlBQUE7QUFRRjs7QUFOQTtFQUNFLGtCQUFBO0FBU0Y7O0FBUEE7RUFDQywyQkFBQTtFQUNDLGNBQUE7QUFVRjs7QUFSQTtFQUNFLDBCQUFBO0VBQ0EsY0FBQTtBQVdGOztBQVRBO0VBQ0MsVUFBQTtFQUNBLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUFZRDs7QUFWQTtFQUNFLGVBQUE7QUFhRjs7QUFYQTtFQUNFLGVBQUE7QUFjRiIsImZpbGUiOiJub3ZvLWV2ZW50by5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbiAgLmNvcmJvdHtcbiAgICBjb2xvciA6IzM4ODBmZjtcbiAgfVxuICBcblxuICAuc2h3e1xuICAgIG1hcmdpbi10b3A6IC0xMGVtO1xuICAgIHBhZGRpbmctdG9wOiAtNGVtO1xuICB9XG4gIGlvbi1zbGlkZXsgXG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogOTAlXG4gIH1cblxuICAuaWNvbntcbiAgICBjb2xvcjogI0ZGRkZGRjtcbiAgICBtYXJnaW4tdG9wOiAtMWVtO1xuICB9XG4gIC50aDJ7ICBcbiAgICBjb2xvcjogI0ZGRkZGRjtcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xuICB9XG4gIGlvbi1jb250ZW50IHtcbiAgICAtLWlvbi1iYWNrZ3JvdW5kLWNvbG9yOiAjMDAwMDAwO31cblxuICAgIFxuICAgIC5pdGVtMXtcbiAgICAgIG1hcmdpbi10b3A6MC4xZW07XG4gICAgICAtLWJhY2tncm91bmQ6ICMwMDAwMDA7XG4gICAgICAtLWNvbG9yOiNGRkZGRkY7XG4gIH1cbiAgLml0ZW1te1xuICAgIG1hcmdpbi10b3A6MWVtO1xuICAgIC0tYmFja2dyb3VuZDogIzAwMDAwMDtcbiAgICAtLWNvbG9yOiNGRkZGRkY7XG59XG5cbiAgICBpb24tdG9vbGJhcntcbiAgICAgIC0tcGFkZGluZy10b3A6IDI0cHggO1xuICAgICAgLS1iYWNrZ3JvdW5kOiBibGFjaztcbiAgfVxuICAuc2VhcmNoYmFye1xuICAgIC0tY29sb3I6ICNGRkZGRkY7IFxuICAgIC0tcGxhY2Vob2xkZXItY29sb3I6I0ZGRkZGRjtcbiAgICAtLWJhY2tncm91bmQ6IzFDMUMxQztcbiB9XG4gLmltYWd7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDEwMCU7XG4gIG9iamVjdC1maXQ6IGNvdmVyO1xuIH1cbiAubWF7XG4gICBtYXJnaW4tbGVmdDogMWVtO1xuIH1cbiAuY2FyZHtcbiAgbWF4LWhlaWdodDogMzV2aCA7XG4gIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjs7XG4gIGJhY2tncm91bmQ6cmdiYSg5MiwgOTIsIDkyLCAwLjQ3Myk7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cblxuLmhvbGRlcntcbiAgLS1jb2xvcjogI0ZGRkZGRjsgXG4gIC0tcGxhY2Vob2xkZXItY29sb3I6I0ZGRkZGRjtcbiAgLS1iYWNrZ3JvdW5kOiMwMDAwMDA7XG59ICBcbi5jZW50ZXJ0dHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcbiAgY29sb3I6IHdoaXRlO1xufVxuLnB1YmxpY2Fye1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5pb24tbGlzdHtcbiAtLWJhY2tncm91bmQtY29sb3I6ICMxQzFDMUM7XG4gIC0tY29sb3I6IHdoaXRlO1xufVxuLmZpbHRyb3tcbiAgLS1iYWNrZ3JvdW5kLWNvbG9yOiMxQzFDMUM7XG4gIC0tY29sb3I6IHdoaXRlO1xufVxuLmZpbGVidG4ge1xuXHRvcGFjaXR5OiAwO1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHRvcDogLTEwMGVtO1xuXHRsZWZ0OiAtMTAwZW07XG59XG4uYnRue1xuICBtYXJnaW4tdG9wOiA4NSU7XG59XG4uYnRuMntcbiAgbWFyZ2luLXRvcDogMTAlO1xufVxuIl19 */");
 
 /***/ }),
 
@@ -1401,7 +1401,6 @@ let UsuarioPesquisaPage = class UsuarioPesquisaPage {
                     // handler: () => {
                     //}
                     // }
-                    ,
                     {
                         text: 'Cancel',
                         icon: 'close',
@@ -2107,7 +2106,7 @@ PerfilPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title size=\"large\" class=\"centertt\" (click)=\"ss()\">Oreon</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\" class=\"fundo\" #content>\n  <ion-slides  class=\"centertt\" #slides>\n    <ion-slide *ngIf=\"cidade.length > 0 && noAuth == false\">\n      <div>\n        <a class=\"a\">{{ cidadesDoUsuario }}</a>\n        <ion-card *ngFor=\"let evento of cidade\" class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of cidade3\" class=\"card\"(click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\"/>\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadcidade($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n\n\n    <ion-slide>\n      <div>\n        <a class=\"a\" (click)=\"ss()\"> Nacional </a>\n        <ion-card *ngFor=\"let evento of nacionais \" class=\"card\"(click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\"  />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-subtitle class=\"branco\">{{ evento.lugar }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of nacional\" class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-subtitle class=\"branco\">{{ evento.lugar }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadnacional($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n\n\n\n\n    <ion-slide *ngIf=\"noAuth\">\n      <div class=\"noauth\">\n        <a class=\"a\" >{{ escolhaNoAuth }}</a>\n        <ion-searchbar class=\"searchbar\" placeholder=\"Escolher cidade\" (ionInput)=\"getItems($event)\" (click)=\"abriu()\"\n          [(ngModel)]=\"_cidade\" clearInput></ion-searchbar>\n        <ion-list *ngIf=\"abrir\" class=\"filtro\" lines=\"none\" no-lines>\n          <ion-item (click)=\"noAuth_cidade(item.lugar)\" *ngFor=\"let item of todositems\" class=\"filtro\">\n            {{ item.lugar }}\n          </ion-item>\n        </ion-list>\n        <ion-card *ngFor=\"let evento of cidade\" class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of cidade3\"   class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\"  />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadcidade($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide> \n\n    <ion-slide *ngIf=\"online.length > 0\">\n      <div>\n        <a class=\"a\"> Online </a>\n        <ion-card *ngFor=\"let evento of online \" class=\"card\"  (click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of onlines\" class=\"card\" (click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\"  />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadOnline($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n  \n  </ion-slides>\n\n  <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\">\n    <ion-fab-button>\n      <ion-icon name=\"radio-button-off-outline\"></ion-icon>\n    </ion-fab-button>\n    <ion-fab-list side=\"start\">\n      <ion-fab-button   routerLink=\"/perfil\"  replaceUrl=\"true\" routerDirection=\"forward\">\n        <ion-icon name=\"person-outline\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n    <ion-fab-list side=\"end\">\n      <ion-fab-button routerLink=\"/pesquisar\"  replaceUrl=\"true\" routerDirection=\"forward\">\n        <ion-icon name=\"search\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n    <ion-fab-list *ngIf=\"noAuth\" side=\"top\">\n      <ion-fab-button (click)=\"ajuda()\">\n        <ion-icon name=\"help\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n  </ion-fab>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title size=\"large\" class=\"centertt\" (click)=\"ss()\">Oreon</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\" class=\"fundo\" #content>\n  <ion-slides  class=\"centertt\" #slides>\n    <ion-slide *ngIf=\"cidade.length > 0 && noAuth == false\">\n      <div>\n        <a class=\"a\">{{ cidadesDoUsuario }}</a>\n        <ion-card *ngFor=\"let evento of cidade\" class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of cidade3\" class=\"card\"(click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\"/>\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadcidade($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n\n\n    <ion-slide>\n      <div>\n        <a class=\"a\" (click)=\"ss()\"> Nacional </a>\n        <ion-card *ngFor=\"let evento of nacionais \" class=\"card\"(click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\"  />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-subtitle *ngIf=\"evento.lugar\" class=\"branco\">{{ evento.lugar }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of nacional\" class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-subtitle *ngIf=\"evento.lugar\" class=\"branco\">{{ evento.lugar }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadnacional($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n\n\n\n\n    <ion-slide *ngIf=\"noAuth\">\n      <div class=\"noauth\">\n        <a class=\"a\" >{{ escolhaNoAuth }}</a>\n        <ion-searchbar class=\"searchbar\" placeholder=\"Escolher cidade\" (ionInput)=\"getItems($event)\" (click)=\"abriu()\"\n          [(ngModel)]=\"_cidade\" clearInput></ion-searchbar>\n        <ion-list *ngIf=\"abrir\" class=\"filtro\" lines=\"none\" no-lines>\n          <ion-item (click)=\"noAuth_cidade(item.lugar)\" *ngFor=\"let item of todositems\" class=\"filtro\">\n            {{ item.lugar }}\n          </ion-item>\n        </ion-list>\n        <ion-card *ngFor=\"let evento of cidade\" class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of cidade3\"   class=\"card\" (click)=\"showmodal(evento)\" >\n          <img class=\"imagem\" [src]=\"evento.url\"  />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>\n              {{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadcidade($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide> \n\n    <ion-slide *ngIf=\"online.length > 0\">\n      <div>\n        <a class=\"a\"> Online </a>\n        <ion-card *ngFor=\"let evento of online \" class=\"card\"  (click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\" />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-card *ngFor=\"let evento of onlines\" class=\"card\" (click)=\"showmodal(evento)\">\n          <img class=\"imagem\" [src]=\"evento.url\"  />\n          <ion-card-header class=\"\">\n            <ion-card-subtitle class=\"branco\">{{ evento.dia }}</ion-card-subtitle>\n            <ion-card-title class=\"brancotitle\">{{ evento.nome }}</ion-card-title>\n            <ion-badge item-end>{{ evento.UPnum }}</ion-badge>\n          </ion-card-header>\n        </ion-card>\n        <ion-infinite-scroll threshold=\"100px\" (ionInfinite)=\"loadOnline($event)\">\n          <ion-infinite-scroll-content loadingSpinner=\"bubbles\" loadingText=\"Carregando...\">\n          </ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n      </div>\n    </ion-slide>\n  \n  </ion-slides>\n\n  <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\">\n    <ion-fab-button>\n      <ion-icon name=\"radio-button-off-outline\"></ion-icon>\n    </ion-fab-button>\n    <ion-fab-list side=\"start\">\n      <ion-fab-button   routerLink=\"/perfil\"  replaceUrl=\"true\" routerDirection=\"forward\">\n        <ion-icon name=\"person-outline\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n    <ion-fab-list side=\"end\">\n      <ion-fab-button routerLink=\"/pesquisar\"  replaceUrl=\"true\" routerDirection=\"forward\">\n        <ion-icon name=\"search\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n    <ion-fab-list *ngIf=\"noAuth\" side=\"top\">\n      <ion-fab-button (click)=\"ajuda()\">\n        <ion-icon name=\"help\"></ion-icon>\n      </ion-fab-button>\n    </ion-fab-list>\n  </ion-fab>\n</ion-content>");
 
 /***/ }),
 
@@ -2130,6 +2129,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "LvDl");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _eventomodal_eventomodal_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../eventomodal/eventomodal.page */ "wuIU");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+
+
+
 
 
 
@@ -2139,16 +2144,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PesquisarPage = class PesquisarPage {
-    constructor(fd, firestore, router) {
+    constructor(fd, firestore, router, modalCtrl, eventModal) {
         this.fd = fd;
         this.firestore = firestore;
         this.router = router;
+        this.modalCtrl = modalCtrl;
+        this.eventModal = eventModal;
         this.queryText = '';
         console.log("pré LoAD");
     }
     ngOnInit() {
         this.eventosDB();
         console.log("pré LoAD");
+        this.initializeitems();
+    }
+    modalevento(zeta) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const modal = yield this.modalCtrl.create({
+                component: _eventomodal_eventomodal_page__WEBPACK_IMPORTED_MODULE_9__["EventomodalPage"],
+                componentProps: {
+                    x: zeta
+                }
+            });
+            modal.present();
+            ;
+            this.eventModal.criandomodal(zeta);
+        });
     }
     eventosDB() {
         this.fd.list('eventDetails').valueChanges().subscribe(data => {
@@ -2172,7 +2193,26 @@ let PesquisarPage = class PesquisarPage {
     voltar() {
         this.router.navigate(['./home']);
     }
+    initializeitems() {
+        const eventoslist = this.firestore.collection('eventos', ref => ref.limit(7)).valueChanges().pipe((Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["first"])())).toPromise();
+        return eventoslist;
+    }
+    filterlist(evt) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.eventolist = yield this.initializeitems();
+            const searchtemrs = evt.srcElement.value;
+            if (!searchtemrs) {
+                return;
+            }
+            this.eventolist = this.eventolist.filter(currentevento => {
+                if (currentevento.nome && searchtemrs) {
+                    return (currentevento.nome.toLowerCase().indexOf(searchtemrs.toLowerCase()) > -1);
+                }
+            });
+        });
+    }
     pesq(evento) {
+        // lugar , url , nome , chave
         this.eventoID = evento.chave;
         this.router.navigate(['/evento-pesquisa/' + this.eventoID]);
     }
@@ -2180,7 +2220,9 @@ let PesquisarPage = class PesquisarPage {
 PesquisarPage.ctorParameters = () => [
     { type: _angular_fire_database__WEBPACK_IMPORTED_MODULE_4__["AngularFireDatabase"] },
     { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_10__["ModalController"] },
+    { type: _eventomodal_eventomodal_page__WEBPACK_IMPORTED_MODULE_9__["EventomodalPage"] }
 ];
 PesquisarPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -2189,7 +2231,10 @@ PesquisarPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [_pesquisar_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_4__["AngularFireDatabase"],
-        _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]])
+        _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_10__["ModalController"],
+        _eventomodal_eventomodal_page__WEBPACK_IMPORTED_MODULE_9__["EventomodalPage"]])
 ], PesquisarPage);
 
 
@@ -2244,7 +2289,7 @@ let EventoService = class EventoService {
             lugar: '',
             up: [],
             userID: [],
-            chave2: '',
+            // chave2:'',
             passado: false,
             UPnum: 0
         };
@@ -2314,7 +2359,7 @@ let EventoService = class EventoService {
                 lugar: lugar,
                 up: [res.uid],
                 userID: [res.uid, res.displayName],
-                chave2: this.keydb2,
+                //chave2 : this.keydb2,
                 passado: false,
                 UPnum: 1,
             };
@@ -2440,42 +2485,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/fire/database */ "sSZD");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/fire/auth */ "UbJi");
 /* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/fire/auth-guard */ "HTFn");
-/* harmony import */ var _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/image-picker/ngx */ "tAfe");
-/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/file/ngx */ "FAH8");
-/* harmony import */ var _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/google-maps */ "tBOM");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./app.component */ "Sy1n");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./app-routing.module */ "vY5A");
-/* harmony import */ var _firebase__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./firebase */ "PgrP");
-/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./user.service */ "xdv0");
-/* harmony import */ var _perfil_perfil_page__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./perfil/perfil.page */ "W8eC");
-/* harmony import */ var _login_login_page__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./login/login.page */ "34Y5");
-/* harmony import */ var _home_home_page__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./home/home.page */ "zpKS");
-/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "m/P+");
-/* harmony import */ var _eventomodal_eventomodal_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./eventomodal/eventomodal.module */ "JBpm");
-/* harmony import */ var _eventomodal_eventomodal_page__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./eventomodal/eventomodal.page */ "wuIU");
-/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @ionic-native/network/ngx */ "kwrG");
-/* harmony import */ var _selective_loading_strategy_service__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./selective-loading-strategy.service */ "W6WT");
-/* harmony import */ var _editar_modal_editar_modal_page__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./editar-modal/editar-modal.page */ "vkXh");
-/* harmony import */ var _editar_modal_editar_modal_module__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./editar-modal/editar-modal.module */ "h1CP");
-/* harmony import */ var _novo_evento_novo_evento_page__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./novo-evento/novo-evento.page */ "y/1N");
-/* harmony import */ var _novo_evento_novo_evento_module__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./novo-evento/novo-evento.module */ "I6jx");
-/* harmony import */ var _ionic_native_screenshot_ngx__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @ionic-native/screenshot/ngx */ "jAoO");
-/* harmony import */ var _usuario_pesquisa_usuario_pesquisa_page__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./usuario-pesquisa/usuario-pesquisa.page */ "V4wL");
-/* harmony import */ var _usuario_pesquisa_usuario_pesquisa_module__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./usuario-pesquisa/usuario-pesquisa.module */ "n+sE");
-/* harmony import */ var _home_home_module__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./home/home.module */ "ct+p");
-/* harmony import */ var _evento_pesquisa_evento_pesquisa_page__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./evento-pesquisa/evento-pesquisa.page */ "yeiI");
-/* harmony import */ var _evento_pesquisa_evento_pesquisa_module__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./evento-pesquisa/evento-pesquisa.module */ "VG/Z");
-/* harmony import */ var _criar_user_criar_user_page__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./criar-user/criar-user.page */ "tzKc");
-/* harmony import */ var _tutorial_tutorial_page__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./tutorial/tutorial.page */ "5o7k");
-/* harmony import */ var _tutorial_tutorial_module__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./tutorial/tutorial.module */ "6MGo");
-/* harmony import */ var _eventos_do_usuario_proximo_evento_module__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./eventos-do-usuario/proximo-evento.module */ "sFwW");
-/* harmony import */ var _eventos_do_usuario_proximo_evento_page__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./eventos-do-usuario/proximo-evento.page */ "BfPd");
-/* harmony import */ var _pesquisar_pesquisar_page__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./pesquisar/pesquisar.page */ "WyfB");
-/* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ "/XPu");
-/* harmony import */ var _ionic_native_background_mode_ngx__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @ionic-native/background-mode/ngx */ "1xeP");
-/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "a/9d");
-/* harmony import */ var _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! @ionic-native/google-plus/ngx */ "up+p");
+/* harmony import */ var _awesome_cordova_plugins_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @awesome-cordova-plugins/native-geocoder/ngx */ "itIa");
+/* harmony import */ var _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/image-picker/ngx */ "tAfe");
+/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/file/ngx */ "FAH8");
+/* harmony import */ var _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/google-maps */ "tBOM");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./app.component */ "Sy1n");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./app-routing.module */ "vY5A");
+/* harmony import */ var _firebase__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./firebase */ "PgrP");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./user.service */ "xdv0");
+/* harmony import */ var _perfil_perfil_page__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./perfil/perfil.page */ "W8eC");
+/* harmony import */ var _login_login_page__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./login/login.page */ "34Y5");
+/* harmony import */ var _home_home_page__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./home/home.page */ "zpKS");
+/* harmony import */ var _awesome_cordova_plugins_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @awesome-cordova-plugins/in-app-browser/ngx */ "gAW/");
+/* harmony import */ var _eventomodal_eventomodal_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./eventomodal/eventomodal.module */ "JBpm");
+/* harmony import */ var _eventomodal_eventomodal_page__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./eventomodal/eventomodal.page */ "wuIU");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @ionic-native/network/ngx */ "kwrG");
+/* harmony import */ var _selective_loading_strategy_service__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./selective-loading-strategy.service */ "W6WT");
+/* harmony import */ var _editar_modal_editar_modal_page__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./editar-modal/editar-modal.page */ "vkXh");
+/* harmony import */ var _editar_modal_editar_modal_module__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./editar-modal/editar-modal.module */ "h1CP");
+/* harmony import */ var _novo_evento_novo_evento_page__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./novo-evento/novo-evento.page */ "y/1N");
+/* harmony import */ var _novo_evento_novo_evento_module__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./novo-evento/novo-evento.module */ "I6jx");
+/* harmony import */ var _ionic_native_screenshot_ngx__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @ionic-native/screenshot/ngx */ "jAoO");
+/* harmony import */ var _usuario_pesquisa_usuario_pesquisa_page__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./usuario-pesquisa/usuario-pesquisa.page */ "V4wL");
+/* harmony import */ var _usuario_pesquisa_usuario_pesquisa_module__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./usuario-pesquisa/usuario-pesquisa.module */ "n+sE");
+/* harmony import */ var _home_home_module__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./home/home.module */ "ct+p");
+/* harmony import */ var _evento_pesquisa_evento_pesquisa_page__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./evento-pesquisa/evento-pesquisa.page */ "yeiI");
+/* harmony import */ var _evento_pesquisa_evento_pesquisa_module__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./evento-pesquisa/evento-pesquisa.module */ "VG/Z");
+/* harmony import */ var _criar_user_criar_user_page__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./criar-user/criar-user.page */ "tzKc");
+/* harmony import */ var _tutorial_tutorial_page__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./tutorial/tutorial.page */ "5o7k");
+/* harmony import */ var _tutorial_tutorial_module__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./tutorial/tutorial.module */ "6MGo");
+/* harmony import */ var _eventos_do_usuario_proximo_evento_module__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./eventos-do-usuario/proximo-evento.module */ "sFwW");
+/* harmony import */ var _eventos_do_usuario_proximo_evento_page__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./eventos-do-usuario/proximo-evento.page */ "BfPd");
+/* harmony import */ var _pesquisar_pesquisar_page__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./pesquisar/pesquisar.page */ "WyfB");
+/* harmony import */ var _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @ionic-native/social-sharing/ngx */ "/XPu");
+/* harmony import */ var _ionic_native_background_mode_ngx__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! @ionic-native/background-mode/ngx */ "1xeP");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "a/9d");
+/* harmony import */ var _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! @ionic-native/google-plus/ngx */ "up+p");
 var AppModule_1;
+
 
 
 
@@ -2539,59 +2586,60 @@ AppModule.ctorParameters = () => [
 ];
 AppModule = AppModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_17__["AppComponent"],],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_18__["AppComponent"],],
         entryComponents: [],
         imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_18__["AppRoutingModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_19__["AppRoutingModule"],
             _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_9__["AngularFirestoreModule"],
-            _angular_fire__WEBPACK_IMPORTED_MODULE_8__["AngularFireModule"].initializeApp(_firebase__WEBPACK_IMPORTED_MODULE_19__["environment"].firebaseConfig),
+            _angular_fire__WEBPACK_IMPORTED_MODULE_8__["AngularFireModule"].initializeApp(_firebase__WEBPACK_IMPORTED_MODULE_20__["environment"].firebaseConfig),
             _angular_fire_storage__WEBPACK_IMPORTED_MODULE_10__["AngularFireStorageModule"],
             _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_13__["AngularFireAuthGuardModule"],
             _angular_fire_database__WEBPACK_IMPORTED_MODULE_11__["AngularFireDatabaseModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
-            _home_home_module__WEBPACK_IMPORTED_MODULE_36__["HomePageModule"],
+            _home_home_module__WEBPACK_IMPORTED_MODULE_37__["HomePageModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"],
             _angular_fire_auth__WEBPACK_IMPORTED_MODULE_12__["AngularFireAuthModule"],
-            _eventomodal_eventomodal_module__WEBPACK_IMPORTED_MODULE_25__["EventomodalPageModule"],
-            _novo_evento_novo_evento_module__WEBPACK_IMPORTED_MODULE_32__["NovoEventoPageModule"],
-            _eventos_do_usuario_proximo_evento_module__WEBPACK_IMPORTED_MODULE_42__["ProximoEventoPageModule"],
-            _editar_modal_editar_modal_module__WEBPACK_IMPORTED_MODULE_30__["EditarModalPageModule"],
-            _tutorial_tutorial_module__WEBPACK_IMPORTED_MODULE_41__["TutorialPageModule"],
-            _usuario_pesquisa_usuario_pesquisa_module__WEBPACK_IMPORTED_MODULE_35__["UsuarioPesquisaPageModule"],
-            _evento_pesquisa_evento_pesquisa_module__WEBPACK_IMPORTED_MODULE_38__["EventoPesquisaPageModule"],
+            _eventomodal_eventomodal_module__WEBPACK_IMPORTED_MODULE_26__["EventomodalPageModule"],
+            _novo_evento_novo_evento_module__WEBPACK_IMPORTED_MODULE_33__["NovoEventoPageModule"],
+            _eventos_do_usuario_proximo_evento_module__WEBPACK_IMPORTED_MODULE_43__["ProximoEventoPageModule"],
+            _editar_modal_editar_modal_module__WEBPACK_IMPORTED_MODULE_31__["EditarModalPageModule"],
+            _tutorial_tutorial_module__WEBPACK_IMPORTED_MODULE_42__["TutorialPageModule"],
+            _usuario_pesquisa_usuario_pesquisa_module__WEBPACK_IMPORTED_MODULE_36__["UsuarioPesquisaPageModule"],
+            _evento_pesquisa_evento_pesquisa_module__WEBPACK_IMPORTED_MODULE_39__["EventoPesquisaPageModule"],
             _angular_http__WEBPACK_IMPORTED_MODULE_7__["HttpModule"],],
         providers: [
-            _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_27__["Network"],
+            _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_28__["Network"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
-            _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_16__["GoogleMaps"],
-            _user_service__WEBPACK_IMPORTED_MODULE_20__["UserService"],
-            _perfil_perfil_page__WEBPACK_IMPORTED_MODULE_21__["PerfilPage"],
-            _criar_user_criar_user_page__WEBPACK_IMPORTED_MODULE_39__["CriarUserPage"],
-            _pesquisar_pesquisar_page__WEBPACK_IMPORTED_MODULE_44__["PesquisarPage"],
-            _novo_evento_novo_evento_page__WEBPACK_IMPORTED_MODULE_31__["NovoEventoPage"],
-            _tutorial_tutorial_page__WEBPACK_IMPORTED_MODULE_40__["TutorialPage"],
-            _login_login_page__WEBPACK_IMPORTED_MODULE_22__["LoginPage"],
-            _selective_loading_strategy_service__WEBPACK_IMPORTED_MODULE_28__["SimpleLoadingStrategy"],
-            _home_home_page__WEBPACK_IMPORTED_MODULE_23__["HomePage"],
-            _editar_modal_editar_modal_page__WEBPACK_IMPORTED_MODULE_29__["EditarModalPage"],
-            _eventomodal_eventomodal_page__WEBPACK_IMPORTED_MODULE_26__["EventomodalPage"],
-            _usuario_pesquisa_usuario_pesquisa_page__WEBPACK_IMPORTED_MODULE_34__["UsuarioPesquisaPage"],
-            _ionic_native_screenshot_ngx__WEBPACK_IMPORTED_MODULE_33__["Screenshot"],
-            _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_24__["InAppBrowser"],
-            _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_45__["SocialSharing"],
-            _ionic_native_background_mode_ngx__WEBPACK_IMPORTED_MODULE_46__["BackgroundMode"],
+            _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_17__["GoogleMaps"],
+            _user_service__WEBPACK_IMPORTED_MODULE_21__["UserService"],
+            _perfil_perfil_page__WEBPACK_IMPORTED_MODULE_22__["PerfilPage"],
+            _criar_user_criar_user_page__WEBPACK_IMPORTED_MODULE_40__["CriarUserPage"],
+            _pesquisar_pesquisar_page__WEBPACK_IMPORTED_MODULE_45__["PesquisarPage"],
+            _novo_evento_novo_evento_page__WEBPACK_IMPORTED_MODULE_32__["NovoEventoPage"],
+            _tutorial_tutorial_page__WEBPACK_IMPORTED_MODULE_41__["TutorialPage"],
+            _login_login_page__WEBPACK_IMPORTED_MODULE_23__["LoginPage"],
+            _selective_loading_strategy_service__WEBPACK_IMPORTED_MODULE_29__["SimpleLoadingStrategy"],
+            _home_home_page__WEBPACK_IMPORTED_MODULE_24__["HomePage"],
+            _editar_modal_editar_modal_page__WEBPACK_IMPORTED_MODULE_30__["EditarModalPage"],
+            _eventomodal_eventomodal_page__WEBPACK_IMPORTED_MODULE_27__["EventomodalPage"],
+            _usuario_pesquisa_usuario_pesquisa_page__WEBPACK_IMPORTED_MODULE_35__["UsuarioPesquisaPage"],
+            _ionic_native_screenshot_ngx__WEBPACK_IMPORTED_MODULE_34__["Screenshot"],
+            _awesome_cordova_plugins_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_14__["NativeGeocoder"],
+            _awesome_cordova_plugins_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_25__["InAppBrowser"],
+            _ionic_native_social_sharing_ngx__WEBPACK_IMPORTED_MODULE_46__["SocialSharing"],
+            _ionic_native_background_mode_ngx__WEBPACK_IMPORTED_MODULE_47__["BackgroundMode"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavParams"],
-            _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_14__["ImagePicker"],
-            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_47__["Camera"],
-            _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_48__["GooglePlus"],
-            _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_15__["File"],
+            _ionic_native_image_picker_ngx__WEBPACK_IMPORTED_MODULE_15__["ImagePicker"],
+            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_48__["Camera"],
+            _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_49__["GooglePlus"],
+            _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_16__["File"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ActionSheetController"],
-            _eventos_do_usuario_proximo_evento_page__WEBPACK_IMPORTED_MODULE_43__["ProximoEventoPage"],
-            _evento_pesquisa_evento_pesquisa_page__WEBPACK_IMPORTED_MODULE_37__["EventoPesquisaPage"],
+            _eventos_do_usuario_proximo_evento_page__WEBPACK_IMPORTED_MODULE_44__["ProximoEventoPage"],
+            _evento_pesquisa_evento_pesquisa_page__WEBPACK_IMPORTED_MODULE_38__["EventoPesquisaPage"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"], }
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_17__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_18__["AppComponent"]]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], AppModule);
@@ -2708,7 +2756,7 @@ HomePageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title size=\"large\" class=\"centertt\">Publicar Evento</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"perfil\" text=\"\"></ion-back-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-slides  #slides>\n    <ion-slide >\n\n        <h2 class=\"th2\">Seu evento é <br> Presencial ou Online?</h2>\n        <ion-button class=\"btn\"  shape=\"round\" (click)=\"Presencial()\"> Presencial </ion-button>\n        <ion-button shape=\"round\" (click)=\"Online()\"> Online </ion-button>\n        <h2 class=\"th2\"></h2>\n       \n    </ion-slide>  \n    <ion-slide>    \n        <h2 class=\"th2\">Banner do evento</h2>\n        <ion-card class=\"card\">\n          <input type=\"file\" (change)=\"showPreview($event)\" class=\"filebtn\" #fileButton/>\n          <img class=\"imagem\"  (click)=\"writeUserData()\" [src]=\"img\">\n        </ion-card>\n        <h2 class=\"th2\"></h2>\n    </ion-slide>\n\n    <ion-slide>\n     \n        <h2 class=\"th2\">O nome</h2>\n        <ion-list class=\"fundo\">\n          <ion-item  lines=\"none\" class=\"itemm\">\n            <ion-input  #myinput enterkeyhint=\"done\" placeholder=\"Show do Kleb\"  type=\"text\" [(ngModel)]=\"nome\" ></ion-input>\n            <ion-button  (click)=\"next()\" color=\"primary\"  [disabled]=\"!nome\"> Confirmar\n            </ion-button>\n          </ion-item>\n        </ion-list>\n  \n    </ion-slide>\n\n    <ion-slide>\n      <h2 class=\"th2\">A data</h2>\n      <ion-list lines=\"none\" >\n        <ion-item id=\"open-modal\" class=\"holder\">\n      \n          <ion-text class=\"holder\" >{{ dia1 }}</ion-text>\n        </ion-item>\n\n        <ion-item id=\"open-modal2\" class=\"holder\">\n  \n          <ion-text class=\"holder\" >{{ dia2 }}</ion-text>\n        </ion-item>\n    </ion-list>\n      <ion-button class=\"btn2\"  shape=\"round\" (click)=\"novaData()\"> Ok </ion-button>\n    </ion-slide>\n\n    <ion-modal trigger=\"open-modal\">\n      <ng-template>\n        <ion-content>\n          <ion-datetime #iondatetime size=\"cover\" \n           [value]=\"dateValue\" \n          (ionChange)=\"dateChanged(datetime.value)\"\n          showDefaultButtons=\"true\">\n           \n          </ion-datetime>\n        </ion-content>\n      </ng-template>\n    </ion-modal>\n\n\n    <ion-modal trigger=\"open-modal2\">\n      <ng-template>\n        <ion-content>\n          <ion-datetime #iondatetime size=\"cover\"\n           [value]=\"dateValue\" \n          (ionChange)=\"dateChanged2(datetime.value)\"\n          showDefaultButtons=\"true\">\n           \n          </ion-datetime>\n        </ion-content>\n      </ng-template>\n    </ion-modal>\n\n\n    <ion-slide *ngIf=\"presenca\">\n      <h2 class=\"th2\">O link </h2>\n      <ion-list class=\"fundo\">\n        <ion-item  lines=\"none\" class=\"itemm\">\n          <ion-input  #myinput enterkeyhint=\"done\" placeholder=\"Link do evento\"  type=\"url\" [(ngModel)]=\"ingresso\" ></ion-input>\n          <ion-button   color=\"primary\"(click)=\"next()\"  [disabled]=\"!ingresso\"> Confirmar\n          </ion-button>\n        </ion-item>\n      </ion-list>\n    </ion-slide>\n\n    <ion-slide  *ngIf=\"!presenca\">\n      <h2 class=\"th2\">O link </h2>\n      <ion-list class=\"fundo\">\n        <ion-item  lines=\"none\" class=\"itemm\">\n          <ion-input  #myinput enterkeyhint=\"done\" placeholder=\"https:\"  type=\"url\" [(ngModel)]=\"link\" ></ion-input>\n          <ion-button   color=\"primary\"(click)=\"next()\"  [disabled]=\"!link\"> Confirmar\n          </ion-button>\n        </ion-item>\n      </ion-list>\n    </ion-slide>\n  \n    <ion-slide *ngIf=\"presenca\">\n      <ion-list lines=\"none\">\n      <ion-item *ngIf=\"local\" class=\"filtro\">\n        {{ local.description }}\n        <ion-icon (click)=\"next()\" class=\"corbot\" slot=\"end\" name=\"checkmark-circle-outline\"></ion-icon>\n      </ion-item>\n    </ion-list>\n      <ion-searchbar class=\"searchbar\" placeholder=\"Local\" (ionChange)=\"searchChanged()\" [(ngModel)]=\"search\">\n      </ion-searchbar>\n      <ion-list [hidden]=\"!search.length\" class=\"filtro\">\n        <ion-item (click)=\"localizou(result)\" *ngFor=\"let result of searchResults\" class=\"holder\">\n          {{ result.description }}\n        </ion-item>\n      \n       </ion-list> \n    </ion-slide>  \n\n    <ion-slide>\n      <ion-card class=\"card\">\n        <input type=\"file\" (change)=\"showPreview($event)\" class=\"filebtn\" #fileButton/>\n        <img class=\"imagem\"  (click)=\"writeUserData()\" [src]=\"img\">\n      </ion-card>\n      <ion-list lines=\"none\">\n        <ion-item (click)=\"editNome()\" *ngIf=\"nome\" class=\"item1\">\n          <ion-icon  name=\"checkmark-done-outline\"></ion-icon>\n          <h6 class=\"ma\">{{ nome }}</h6>\n        </ion-item>\n        <ion-item  (click)=\"editDia()\" *ngIf=\"dia2\" class=\"item1\">\n          <ion-icon  name=\"calendar-outline\" ></ion-icon>\n          <h6 class=\"ma\">{{ dia2 }}</h6>\n        </ion-item>\n        <ion-item (click)=\"editIngresso()\"  *ngIf=\"ingresso\" class=\"item1\">\n          <ion-icon name=\"globe-outline\"></ion-icon>\n          <h6 class=\"ma\">Link</h6>\n        </ion-item>\n        <ion-item (click)=\"editLink()\"  *ngIf=\"link\" class=\"item1\">\n          <ion-icon name=\"globe-outline\"></ion-icon>\n          <h6 class=\"ma\">Link</h6>\n        </ion-item>\n        <ion-item (click)=\"editLocal()\" *ngIf=\"local\" class=\"item1\">\n          <ion-icon name=\"location-sharp\" size=\"large\"></ion-icon>\n          <h6 class=\"ma\">{{ local.description }}</h6>\n        </ion-item>\n        <ion-item class=\"item1\">\n          <ion-icon  name=\"person-sharp\"></ion-icon>\n          <h6 class=\"ma\">{{ usuario }}</h6>\n        </ion-item>\n      </ion-list>  \n     \n        <ion-button expand=\"block\" shape=\"round\" (click)=\"save()\"> Publicar </ion-button>\n      \n    </ion-slide>  \n  \n  </ion-slides>\n  \n ");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title size=\"large\" class=\"centertt\" >Publicar Evento</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"perfil\" text=\"\"></ion-back-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-slides  #slides>\n\n  <ion-slide >\n\n    <h2 class=\"th2\">Seu evento é <br> Presencial ou Online?</h2>\n    <ion-button class=\"btn\" expand=\"block\" shape=\"round\" (click)=\"Presencial()\"> Presencial </ion-button>\n    <ion-button expand=\"block\" shape=\"round\" (click)=\"Online()\"> Online </ion-button>\n    <h2 class=\"th2\"></h2>\n   \n</ion-slide>  \n\n    <ion-slide>    \n        <h2 class=\"th2\">Banner do evento</h2>\n        <ion-card class=\"card\">\n          <input type=\"file\" (change)=\"showPreview($event)\" class=\"filebtn\" #fileButton/>\n          <img class=\"imagem\"  (click)=\"writeUserData()\" [src]=\"img\">\n        </ion-card>\n        <h2 class=\"th2\"></h2>\n    </ion-slide>\n\n    <ion-slide>\n     \n        <h2 class=\"th2\">O nome</h2>\n        <ion-list class=\"fundo\">\n          <ion-item  lines=\"none\" class=\"itemm\">\n            <ion-input  #myinput enterkeyhint=\"done\" placeholder=\"Show do Kleb\"  type=\"text\" [(ngModel)]=\"nome\" ></ion-input>\n            <ion-button  (click)=\"next()\" color=\"primary\"  [disabled]=\"!nome\"> Confirmar\n            </ion-button>\n          </ion-item>\n        </ion-list>\n  \n    </ion-slide>\n\n    <ion-slide>\n      <h2 class=\"th2\">A data</h2>\n      <ion-list lines=\"none\" >\n        <ion-item class=\"holder\">\n          <ion-datetime  placeholder=\"Início\" displayFormat=\"DD MMMM HH:mm\"[(ngModel)]=\"dia\"\n            monthNames=\"Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro\">\n          </ion-datetime>\n        </ion-item>\n      \n        <ion-item class=\"holder\">\n          <ion-datetime placeholder=\"Fim\"displayFormat=\"DD MMMM HH:mm\" [(ngModel)]=\"fim\" \n           monthNames=\"Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro\">\n          </ion-datetime>\n  \n        </ion-item>\n        <ion-button class=\"btn2\" expand=\"block\" shape=\"round\" (click)=\"novaData()\"> Ok </ion-button>\n\n    </ion-list>\n      \n    </ion-slide>\n\n\n    <ion-slide *ngIf=\"presenca\">\n      <h2 class=\"th2\">O link </h2>\n      <ion-list class=\"fundo\">\n        <ion-item  lines=\"none\" class=\"itemm\">\n          <ion-input  #myinput enterkeyhint=\"done\" placeholder=\"Link do evento\"  type=\"url\" [(ngModel)]=\"ingresso\" ></ion-input>\n          <ion-button   color=\"primary\"(click)=\"next()\"  [disabled]=\"!ingresso\"> Confirmar\n          </ion-button>\n        </ion-item>\n      </ion-list>\n    </ion-slide>\n\n    <ion-slide  *ngIf=\"!presenca\">\n      <h2 class=\"th2\">O link </h2>\n      <ion-list class=\"fundo\">\n        <ion-item  lines=\"none\" class=\"itemm\">\n          <ion-input  #myinput enterkeyhint=\"done\" placeholder=\"https:\"  type=\"url\" [(ngModel)]=\"link\" ></ion-input>\n          <ion-button   color=\"primary\"(click)=\"next()\"  [disabled]=\"!link\"> Confirmar\n          </ion-button>\n        </ion-item>\n      </ion-list>\n    </ion-slide>\n  \n    <ion-slide *ngIf=\"presenca\">\n      <ion-list lines=\"none\">\n      <ion-item *ngIf=\"local\" class=\"filtro\">\n        {{ local.description }}\n        <ion-icon (click)=\"nextlocal()\" class=\"corbot\" slot=\"end\" name=\"checkmark-circle-outline\"></ion-icon>\n      </ion-item>\n    </ion-list>\n      <ion-searchbar class=\"searchbar\" placeholder=\"Local\" (ionChange)=\"searchChanged()\" [(ngModel)]=\"search\">\n      </ion-searchbar>\n      <ion-list [hidden]=\"!search.length\" class=\"filtro\">\n        <ion-item (click)=\"geocodetest(result.structured_formatting.secondary_text , result)\" *ngFor=\"let result of searchResults\" class=\"holder\">\n          {{ result.description }}\n        </ion-item>\n      \n       </ion-list> \n    </ion-slide>  \n\n    <ion-slide>\n      <ion-card class=\"card\">\n        <input type=\"file\" (change)=\"showPreview($event)\" class=\"filebtn\" #fileButton/>\n        <img class=\"imagem\"  (click)=\"writeUserData()\" [src]=\"img\">\n      </ion-card>\n      <ion-list lines=\"none\">\n        <ion-item (click)=\"editNome()\" *ngIf=\"nome\" class=\"item1\">\n          <ion-icon  name=\"checkmark-done-outline\"></ion-icon>\n          <h6 class=\"ma\">{{ nome }}</h6>\n        </ion-item>\n        <ion-item  (click)=\"editDia()\" *ngIf=\"dia2\" class=\"item1\">\n          <ion-icon  name=\"calendar-outline\" ></ion-icon>\n          <h6 class=\"ma\">{{ dia2 }}</h6>\n        </ion-item>\n        <ion-item (click)=\"editIngresso()\"  *ngIf=\"ingresso\" class=\"item1\">\n          <ion-icon name=\"globe-outline\"></ion-icon>\n          <h6 class=\"ma\">Link</h6>\n        </ion-item>\n        <ion-item (click)=\"editLink()\"  *ngIf=\"link\" class=\"item1\">\n          <ion-icon name=\"globe-outline\"></ion-icon>\n          <h6 class=\"ma\">Link</h6>\n        </ion-item>\n        <ion-item (click)=\"editLocal()\" *ngIf=\"local\" class=\"item1\">\n          <ion-icon name=\"location-sharp\" size=\"large\"></ion-icon>\n          <h6 class=\"ma\">{{ local.description }}</h6>\n        </ion-item>\n        <ion-item *ngIf=\"usuario\" class=\"item1\">\n          <ion-icon  name=\"person-sharp\"></ion-icon>\n          <h6 class=\"ma\">{{ usuario.displayName }}</h6>\n        </ion-item>\n      </ion-list>  \n     \n        <ion-button expand=\"block\" shape=\"round\" (click)=\"save()\"> Publicar </ion-button>\n      \n    </ion-slide>  \n  \n  </ion-slides>\n  <h2></h2>\n</ion-content>\n  \n ");
 
 /***/ }),
 
@@ -2721,7 +2769,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"home\" text=\"\" class=\"margin\" (click)=\"voltar()\"></ion-back-button>\n    </ion-buttons>\n    <ion-searchbar class=\"searchbar\" placeholder=\"Eventos\" [(ngModel)]=\"queryText\" (ionInput)=\"filterEvento($event)\" clearInput>\n    </ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n  <ion-list lines=\"none\">\n    <ion-item (click)=\"pesq(evento)\" no lines *ngFor=\"let evento of eventoY\">\n      <ion-thumbnail item-start>\n        <img class=\"\" [src]=\"evento.dataseet.url\">\n      </ion-thumbnail>\n      <div>\n      <h2 class=\"com\">{{ evento.dataseet.nome }}  </h2>\n      <h3 class=\"sub\">{{ evento.dataseet.lugar }}</h3>\n    </div>\n    </ion-item>\n  </ion-list>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"home\" text=\"\" class=\"margin\" (click)=\"voltar()\"></ion-back-button>\n    </ion-buttons>\n    <ion-searchbar class=\"searchbar\" placeholder=\"Eventos\"(ionInput)=\"filterlist($event)\" clearInput>\n    </ion-searchbar>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n  <ion-list lines=\"none\">\n    <ion-item no lines *ngFor=\"let evento of eventolist\">\n      <ion-thumbnail item-start>\n        <img *ngIf=\"evento\" class=\"\" (click)=\"modalevento(evento)\" [src]=\"evento.url\">\n      </ion-thumbnail>\n      <div>\n      <h2 *ngIf=\"evento\" (click)=\"modalevento(evento)\" class=\"com\">{{ evento.nome }}  </h2>\n      <h3 *ngIf=\"evento\" (click)=\"modalevento(evento)\" class=\"sub\">{{ evento.lugar }}</h3>\n    </div>\n    </ion-item>\n  </ion-list>\n</ion-content>");
 
 /***/ }),
 
@@ -2838,6 +2886,8 @@ let CriarPage = class CriarPage {
     register() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.presentLoading();
+            const cidade = 'Brasília';
+            const UP = true;
             const todosnomes = this.items;
             const osnomes = this.username.toLowerCase();
             const { username, email, password, cpassword } = this;
@@ -2858,9 +2908,9 @@ let CriarPage = class CriarPage {
             try {
                 const res = yield this.afAuth.createUserWithEmailAndPassword(email, password);
                 console.log(res);
-                var iduser = res.user.uid;
+                const iduser = res.user.uid;
                 this.firestore.collection("users").doc(`${res.user.uid}`).set({
-                    username, iduser, imgUser
+                    username, iduser, imgUser, UP, cidade
                 });
                 this.afdatabase.database.ref(`users/${res.user.uid}/username`).set({
                     username, iduser, imgUser
@@ -2933,6 +2983,7 @@ let CriarPage = class CriarPage {
             this.loading = yield this.loadingC.create({
                 cssClass: 'my-custom-class',
                 message: 'Espere um momento...',
+                duration: 4000
             });
             yield this.loading.present();
         });
@@ -2976,12 +3027,14 @@ let CriarPage = class CriarPage {
                     var username = "Usuario";
                     var imgUser = "https://firebasestorage.googleapis.com/v0/b/oreon-4bfc2.appspot.com/o/profile.png?alt=media&token=3ac5e17d-8119-46e5-9a20-e2e8d1080b18";
                     var iduser = res.uid;
+                    var cidade = "Brasília";
+                    var UP = false;
                     //display name ja existe
                     this.firestore.collection("users").doc(`${res.uid}`).set({
-                        username, iduser, imgUser
+                        username, iduser, imgUser, cidade, UP
                     });
                     this.afdatabase.database.ref(`users/${res.uid}/username`).set({
-                        username, iduser, imgUser
+                        username, iduser, imgUser, cidade, UP
                     });
                     this.showmodalTutorial();
                     this.route.navigate(['/home']);
@@ -3084,7 +3137,7 @@ EditarModalPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title *ngIf=\"x\"(click)=\"close()\" size=\"large\" class=\"centertt\">{{ x.nome }} </ion-title>\n    <ion-icon (click)=\"close()\" class=\"icon\" name=\"chevron-down-sharp\"></ion-icon>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"black\">\n  <ion-card class=\"card\">\n    <img  class=\"imag\"*ngIf=\"x\" (click)=\"close()\"[src]=\"x.url\" />\n  </ion-card>\n  <ion-list lines=\"none\" no-lines>\n    <ion-item >\n        <ion-button size=\"small\"color=\"primary\"  [disabled]=\"jadeuUP\" (click)=\"UP()\" slot=\"start\">UP</ion-button>\n        {{ UPnum }}\n    </ion-item>\n    <ion-item > \n        <ion-icon  size=\"large\" name=\"chatbubble-sharp\" slot=\"start\"></ion-icon>\n        {{ numcoments }}\n    </ion-item>\n    <ion-item *ngIf=\"x\" >\n      <ion-icon name=\"calendar-outline\" item-start></ion-icon>\n      <h2 class=\"com\"> {{ x.dia }} </h2>\n    </ion-item>\n    <ion-item *ngIf=\"x\" (click)=\"redirectlink()\" >\n      <ion-icon name=\"globe-outline\"></ion-icon>\n      <h2 class=\"com\">Link</h2>\n    </ion-item>\n    <ion-item  *ngIf=\"description\" (click)=\"redirectmap()\">\n      <ion-icon name=\"location-sharp\" size=\"large\"></ion-icon>\n      <h2 class=\"com\">{{ x.local.description }}</h2>\n    </ion-item>\n    <ion-item  *ngIf=\"x\" (click)=\"redirectUser()\">\n      <ion-icon name=\"person-sharp\"></ion-icon>\n      <h2 class=\"com\">{{ x.userID[1] }}</h2>\n    </ion-item>\n  </ion-list>\n  <ion-list (click)=\"comentauth()\" lines=\"none\">\n    <ion-item no-lines >\n      <ion-input  placeholder=\"Comentario:\" type=\"string\" [disabled]=\"noAuth\" [(ngModel)]=\"comentario\"></ion-input>\n      <ion-button color=\"primary\" (click)=\"setcoment()\" [disabled]=\"!comentario.length\"> Enviar\n      </ion-button>\n    </ion-item>\n  </ion-list>\n  <ion-list lines=\"none\">\n    <div *ngFor=\"let kdcoment of coments\" (click)=\"page(kdcoment)\">\n      <ion-item id=\"output\" >\n        <ion-avatar item-start>\n          <img [src]=\"kdcoment.img\">\n        </ion-avatar>\n        <h2 class=\"com\">{{ kdcoment.username }} : {{ kdcoment.comentarioU }} </h2>\n      </ion-item>\n    </div>\n  </ion-list>\n  <ion-infinite-scroll [disabled]=\"numTimesLeft <= 0\" threshold=\"40%\" (ionInfinite)=\"loadcoments($event)\">\n    <ion-infinite-scroll-content\n      loadingSpinner=\"bubbles\"\n      loadingText=\"Carregando...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title *ngIf=\"x\"(click)=\"close()\" size=\"large\" class=\"centertt\">{{ x.nome }} </ion-title>\n    <ion-icon (click)=\"close()\" class=\"icon\" name=\"chevron-down-sharp\"></ion-icon>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"black\">\n  <ion-card class=\"card\">\n    <img  class=\"imag\"*ngIf=\"x\" (click)=\"close()\"[src]=\"x.url\" />\n  </ion-card>\n  <ion-list lines=\"none\" no-lines>\n    <ion-item >\n        <ion-button size=\"small\"color=\"primary\"  [disabled]=\"jadeuUP\" (click)=\"UP()\" slot=\"start\">UP</ion-button>\n        {{ x.UPnum }}\n    </ion-item>\n    <ion-item > \n        <ion-icon  size=\"large\" name=\"chatbubble-sharp\" slot=\"start\"></ion-icon>\n        {{ numcoments }}\n    </ion-item>\n    <ion-item *ngIf=\"x\" >\n      <ion-icon name=\"calendar-outline\" item-start></ion-icon>\n      <h2 class=\"com\"> {{ x.dia }} </h2>\n    </ion-item>\n    <ion-item *ngIf=\"x\" (click)=\"redirectlink()\" >\n      <ion-icon name=\"globe-outline\"></ion-icon>\n      <h2 class=\"com\">Link</h2>\n    </ion-item>\n    <ion-item  *ngIf=\"x.local\" (click)=\"redirectmap()\">\n      <ion-icon name=\"location-sharp\" size=\"large\"></ion-icon>\n      <h2 class=\"com\">{{ x.local.description }}</h2>\n    </ion-item>\n    <ion-item  *ngIf=\"x\" (click)=\"redirectUser()\">\n      <ion-icon name=\"person-sharp\"></ion-icon>\n      <h2 class=\"com\">{{ x.userID[1] }}</h2>\n    </ion-item>\n  </ion-list>\n  <ion-list *ngIf=\"x.id\" (click)=\"comentauth()\" lines=\"none\">\n    <ion-item no-lines >\n      <ion-input  placeholder=\"Comentario:\" type=\"string\" [disabled]=\"noAuth\" [(ngModel)]=\"comentario\"></ion-input>\n      <ion-button color=\"primary\" (click)=\"setcoment()\" [disabled]=\"!comentario.length\"> Enviar\n      </ion-button>\n    </ion-item>\n  </ion-list>\n  <ion-list *ngIf=\"x.id\" lines=\"none\">\n    <div *ngFor=\"let kdcoment of coments\" (click)=\"page(kdcoment)\">\n      <ion-item id=\"output\" >\n        <ion-avatar item-start>\n          <img [src]=\"kdcoment.img\">\n        </ion-avatar>\n        <h2 class=\"com\">{{ kdcoment.username }} : {{ kdcoment.comentarioU }} </h2>\n      </ion-item>\n    </div>\n  </ion-list>\n  <ion-infinite-scroll [disabled]=\"numTimesLeft <= 0\" threshold=\"40%\" (ionInfinite)=\"loadcoments($event)\">\n    <ion-infinite-scroll-content\n      loadingSpinner=\"bubbles\"\n      loadingText=\"Carregando...\">\n    </ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>");
 
 /***/ }),
 
@@ -3335,7 +3388,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("ion-toolbar {\n  --padding-top: 1.5ex ;\n  --background: black;\n  text-align: center;\n}\n\n.p {\n  color: white;\n  margin-left: 1em;\n  margin-top: 0.5em;\n  margin-right: 1em;\n  padding-bottom: 1em;\n}\n\n.slide {\n  margin-top: 10%;\n}\n\nion-content {\n  --ion-background-color: #000000;\n  --ion-color:#FFFFFF;\n}\n\nion-footer {\n  --ion-background-color: #000000;\n  background-color: #000000;\n  text-align: center;\n}\n\nion-title {\n  --color: white;\n  size: large;\n}\n\n.corbot {\n  color: #3880ff;\n}\n\n.holder {\n  --color: #FFFFFF;\n  --placeholder-color:#FFFFFF;\n  --background:black;\n}\n\n.title {\n  font-family: sans-serif;\n  font-style: Trebuchet;\n  font-weight: bold;\n  font-size: x-large;\n  text-align: center;\n  color: white;\n  background-color: black;\n}\n\n.slide3 {\n  margin-top: 40%;\n}\n\n.holder2 {\n  color: #FFFFFF;\n  margin-top: -1ex;\n  --placeholder-color:#FFFFFF;\n  --placeholder-opacity: -100%;\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3R1dG9yaWFsLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFBO0VBQ0EsbUJBQUE7RUFDQSxrQkFBQTtBQUNKOztBQUNFO0VBQ0UsWUFBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLG1CQUFBO0FBRUo7O0FBQUE7RUFDSSxlQUFBO0FBR0o7O0FBREE7RUFDSSwrQkFBQTtFQUNBLG1CQUFBO0FBSUo7O0FBRkU7RUFDRSwrQkFBQTtFQUNBLHlCQUFBO0VBQ0Esa0JBQUE7QUFLSjs7QUFIRTtFQUNTLGNBQUE7RUFDQSxXQUFBO0FBTVg7O0FBSkU7RUFDRyxjQUFBO0FBT0w7O0FBTEM7RUFDSSxnQkFBQTtFQUNBLDJCQUFBO0VBQ0Esa0JBQUE7QUFRTDs7QUFOQztFQUNFLHVCQUFBO0VBQ0EscUJBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0Usa0JBQUE7RUFDQSxZQUFBO0VBQ0EsdUJBQUE7QUFTTDs7QUFQRztFQUNJLGVBQUE7QUFVUDs7QUFQRTtFQUNDLGNBQUE7RUFDQSxnQkFBQTtFQUNBLDJCQUFBO0VBQ0EsNEJBQUE7RUFDQSxrQkFBQTtBQVVIIiwiZmlsZSI6InR1dG9yaWFsLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi10b29sYmFye1xuICAgIC0tcGFkZGluZy10b3A6IDEuNWV4IDtcbiAgICAtLWJhY2tncm91bmQ6IGJsYWNrO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgfVxuICAucHtcbiAgICBjb2xvcjogd2hpdGU7XG4gICAgbWFyZ2luLWxlZnQ6IDFlbTtcbiAgICBtYXJnaW4tdG9wOiAwLjVlbTtcbiAgICBtYXJnaW4tcmlnaHQ6IDFlbTtcbiAgICBwYWRkaW5nLWJvdHRvbTogMWVtO1xuICB9XG4uc2xpZGV7XG4gICAgbWFyZ2luLXRvcDoxMCU7XG59XG5pb24tY29udGVudCB7XG4gICAgLS1pb24tYmFja2dyb3VuZC1jb2xvcjogIzAwMDAwMDtcbiAgICAtLWlvbi1jb2xvcjojRkZGRkZGO1xuICB9XG4gIGlvbi1mb290ZXJ7XG4gICAgLS1pb24tYmFja2dyb3VuZC1jb2xvcjogIzAwMDAwMDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDAwMDAwO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgfVxuICBpb24tdGl0bGV7XG4gICAgICAgICAgIC0tY29sb3I6IHdoaXRlO1xuICAgICAgICAgICBzaXplOiBsYXJnZTtcbiAgfVxuICAuY29yYm90e1xuICAgICBjb2xvciA6IzM4ODBmZjtcbiAgIH1cbiAuaG9sZGVye1xuICAgICAtLWNvbG9yOiAjRkZGRkZGOyBcbiAgICAgLS1wbGFjZWhvbGRlci1jb2xvcjojRkZGRkZGO1xuICAgICAtLWJhY2tncm91bmQ6YmxhY2s7XG4gfVxuIC50aXRsZXtcbiAgIGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmO1xuICAgZm9udC1zdHlsZTogVHJlYnVjaGV0O1xuICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICBmb250LXNpemU6eC1sYXJnZTtcbiAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICBjb2xvcjogd2hpdGU7XG4gICAgIGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xuICB9XG4gICAuc2xpZGUze1xuICAgICAgIG1hcmdpbi10b3A6IDQwJTtcbiAgIH1cbiAgXG4gIC5ob2xkZXIye1xuICAgY29sb3I6ICNGRkZGRkY7IFxuICAgbWFyZ2luLXRvcDogLTFleDtcbiAgIC0tcGxhY2Vob2xkZXItY29sb3I6I0ZGRkZGRjtcbiAgIC0tcGxhY2Vob2xkZXItb3BhY2l0eTogLTEwMCU7XG4gICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gfSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("ion-toolbar {\n  --padding-top: 1.5ex ;\n  --background: #0f0f0f;\n  text-align: center;\n}\n\n.p {\n  color: white;\n  margin-left: 1em;\n  margin-top: 0.5em;\n  margin-right: 1em;\n  padding-bottom: 1em;\n}\n\n.slide {\n  margin-top: 10%;\n}\n\nion-slide {\n  --ion-background-color: #1C1C1C;\n}\n\nion-content {\n  --ion-background-color: #0f0f0f;\n  --ion-color:#FFFFFF;\n}\n\nion-footer {\n  --ion-background-color: #0f0f0f;\n  background-color: #0f0f0f;\n  text-align: center;\n}\n\nion-title {\n  --color: white;\n  size: large;\n}\n\n.corbot {\n  color: #3880ff;\n}\n\n.holder {\n  --color: #FFFFFF;\n  --placeholder-color:#FFFFFF;\n  --background:#0f0f0f;\n}\n\n.title {\n  font-family: sans-serif;\n  font-style: Trebuchet;\n  font-weight: bold;\n  font-size: x-large;\n  text-align: center;\n  color: white;\n  background-color: #0f0f0f;\n}\n\n.slide3 {\n  margin-top: 40%;\n}\n\n.holder2 {\n  color: #FFFFFF;\n  margin-top: -1ex;\n  --placeholder-color:#FFFFFF;\n  --placeholder-opacity: -100%;\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3R1dG9yaWFsLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFBO0VBQ0EscUJBQUE7RUFDQSxrQkFBQTtBQUNKOztBQUNFO0VBQ0UsWUFBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLG1CQUFBO0FBRUo7O0FBQUE7RUFDSSxlQUFBO0FBR0o7O0FBREE7RUFDRSwrQkFBQTtBQUlGOztBQUZBO0VBQ0ksK0JBQUE7RUFDQSxtQkFBQTtBQUtKOztBQUhFO0VBQ0UsK0JBQUE7RUFDQSx5QkFBQTtFQUNBLGtCQUFBO0FBTUo7O0FBSkU7RUFDUyxjQUFBO0VBQ0EsV0FBQTtBQU9YOztBQUxFO0VBQ0csY0FBQTtBQVFMOztBQU5DO0VBQ0ksZ0JBQUE7RUFDQSwyQkFBQTtFQUNBLG9CQUFBO0FBU0w7O0FBUEM7RUFDRSx1QkFBQTtFQUNBLHFCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNFLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLHlCQUFBO0FBVUw7O0FBUkc7RUFDSSxlQUFBO0FBV1A7O0FBUkU7RUFDQyxjQUFBO0VBQ0EsZ0JBQUE7RUFDQSwyQkFBQTtFQUNBLDRCQUFBO0VBQ0Esa0JBQUE7QUFXSCIsImZpbGUiOiJ0dXRvcmlhbC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tdG9vbGJhcntcbiAgICAtLXBhZGRpbmctdG9wOiAxLjVleCA7XG4gICAgLS1iYWNrZ3JvdW5kOiAjMGYwZjBmO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgfVxuICAucHtcbiAgICBjb2xvcjogd2hpdGU7XG4gICAgbWFyZ2luLWxlZnQ6IDFlbTtcbiAgICBtYXJnaW4tdG9wOiAwLjVlbTtcbiAgICBtYXJnaW4tcmlnaHQ6IDFlbTtcbiAgICBwYWRkaW5nLWJvdHRvbTogMWVtO1xuICB9XG4uc2xpZGV7XG4gICAgbWFyZ2luLXRvcDoxMCU7XG59XG5pb24tc2xpZGV7XG4gIC0taW9uLWJhY2tncm91bmQtY29sb3I6ICMxQzFDMUM7XG59XG5pb24tY29udGVudCB7XG4gICAgLS1pb24tYmFja2dyb3VuZC1jb2xvcjogIzBmMGYwZjtcbiAgICAtLWlvbi1jb2xvcjojRkZGRkZGO1xuICB9XG4gIGlvbi1mb290ZXJ7XG4gICAgLS1pb24tYmFja2dyb3VuZC1jb2xvcjogIzBmMGYwZjtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMGYwZjBmO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgfVxuICBpb24tdGl0bGV7XG4gICAgICAgICAgIC0tY29sb3I6IHdoaXRlO1xuICAgICAgICAgICBzaXplOiBsYXJnZTtcbiAgfVxuICAuY29yYm90e1xuICAgICBjb2xvciA6IzM4ODBmZjtcbiAgIH1cbiAuaG9sZGVye1xuICAgICAtLWNvbG9yOiAjRkZGRkZGOyBcbiAgICAgLS1wbGFjZWhvbGRlci1jb2xvcjojRkZGRkZGO1xuICAgICAtLWJhY2tncm91bmQ6IzBmMGYwZjtcbiB9XG4gLnRpdGxle1xuICAgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWY7XG4gICBmb250LXN0eWxlOiBUcmVidWNoZXQ7XG4gICBmb250LXdlaWdodDogYm9sZDtcbiAgIGZvbnQtc2l6ZTp4LWxhcmdlO1xuICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgIGNvbG9yOiB3aGl0ZTtcbiAgICAgYmFja2dyb3VuZC1jb2xvcjogIzBmMGYwZjtcbiAgfVxuICAgLnNsaWRlM3tcbiAgICAgICBtYXJnaW4tdG9wOiA0MCU7XG4gICB9XG4gIFxuICAuaG9sZGVyMntcbiAgIGNvbG9yOiAjRkZGRkZGOyBcbiAgIG1hcmdpbi10b3A6IC0xZXg7XG4gICAtLXBsYWNlaG9sZGVyLWNvbG9yOiNGRkZGRkY7XG4gICAtLXBsYWNlaG9sZGVyLW9wYWNpdHk6IC0xMDAlO1xuICAgdGV4dC1hbGlnbjogY2VudGVyO1xuIH0iXX0= */");
 
 /***/ }),
 
@@ -3705,9 +3758,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/fire/database */ "sSZD");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../user.service */ "xdv0");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/fire/firestore */ "I/3d");
-/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "a/9d");
-/* harmony import */ var _novo_evento_novo_evento_page__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../novo-evento/novo-evento.page */ "y/1N");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/fire/firestore */ "I/3d");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "a/9d");
+/* harmony import */ var _novo_evento_novo_evento_page__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../novo-evento/novo-evento.page */ "y/1N");
+
 
 
 
@@ -3764,7 +3819,7 @@ let EditarModalPage = class EditarModalPage {
             reader.onload = (e) => this.img = e.target.result;
             reader.readAsDataURL(event.target.files[0]);
             this.selectedImage = event.target.files[0];
-            this.novoe.img = event.target.files[0];
+            console.log(this.selectedImage);
         }
         else {
             this.img = "../assets/icon/profile.png";
@@ -3802,26 +3857,41 @@ let EditarModalPage = class EditarModalPage {
                 }
             }
             if (this.selectedImage) {
-                var name = this.selectedImage.name;
-                const fileReff = this.storage.ref(name);
-                (yield this.storage.upload(name, this.selectedImage)).downloadURL;
-                fileReff.getDownloadURL().subscribe((url) => {
-                    this.url = url;
-                    console.log(this.url);
-                    if (!this.newUsername) {
-                        console.log('não tem nome');
-                        this.user.updateImage(this.url);
-                    }
-                    else {
-                        this.user.updateProfile(this.url, this.newUsername);
-                    }
-                });
+                console.log("update");
+                if (!this.newUsername) {
+                    console.log('não tem nome');
+                    yield this.url;
+                    this.updateimage();
+                }
+                else {
+                    this.user.updateNome(this.newUsername.toLowerCase());
+                    this.updateimage();
+                }
             }
             this.close();
             this.loadingC.dismiss();
         });
     }
     criandomodal() { }
+    updateimage() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const res = yield this.auth.currentUser;
+            var iduser = res.uid;
+            var name = this.selectedImage.name;
+            const fileRef = this.storage.ref(name);
+            this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["finalize"])(() => {
+                fileRef.getDownloadURL().subscribe((url) => {
+                    this.url = url;
+                    res.updateProfile({
+                        photoURL: this.url,
+                    });
+                    this.firestore.collection(`users`).doc(`${iduser}`).update({ imgUser: this.url });
+                    this.firebase.database.ref(`users/${iduser}/img`).set(this.url);
+                    console.log("image update");
+                });
+            })).subscribe();
+        });
+    }
     close() {
         this.modal.dismiss();
     }
@@ -3861,15 +3931,15 @@ EditarModalPage.ctorParameters = () => [
     { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_6__["AngularFireStorage"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"], args: [_angular_fire_storage__WEBPACK_IMPORTED_MODULE_6__["AngularFireStorage"],] }] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"], args: [_user_service__WEBPACK_IMPORTED_MODULE_8__["UserService"],] }] },
     { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"] },
-    { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_11__["Camera"] },
+    { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_12__["Camera"] },
     { type: _user_service__WEBPACK_IMPORTED_MODULE_8__["UserService"] },
-    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_10__["AngularFirestore"] },
+    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_11__["AngularFirestore"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavParams"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"] },
     { type: _angular_fire_database__WEBPACK_IMPORTED_MODULE_7__["AngularFireDatabase"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] },
-    { type: _novo_evento_novo_evento_page__WEBPACK_IMPORTED_MODULE_12__["NovoEventoPage"] }
+    { type: _novo_evento_novo_evento_page__WEBPACK_IMPORTED_MODULE_13__["NovoEventoPage"] }
 ];
 EditarModalPage.propDecorators = {
     fileButton: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: ['fileButton', { static: false },] }]
@@ -3883,15 +3953,15 @@ EditarModalPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_fire_storage__WEBPACK_IMPORTED_MODULE_6__["AngularFireStorage"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"],
         _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"],
-        _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_11__["Camera"],
+        _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_12__["Camera"],
         _user_service__WEBPACK_IMPORTED_MODULE_8__["UserService"],
-        _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_10__["AngularFirestore"],
+        _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_11__["AngularFirestore"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavParams"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"],
         _angular_fire_database__WEBPACK_IMPORTED_MODULE_7__["AngularFireDatabase"],
         _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"],
-        _novo_evento_novo_evento_page__WEBPACK_IMPORTED_MODULE_12__["NovoEventoPage"]])
+        _novo_evento_novo_evento_page__WEBPACK_IMPORTED_MODULE_13__["NovoEventoPage"]])
 ], EditarModalPage);
 
 
@@ -3916,7 +3986,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/database */ "sSZD");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/fire/auth */ "UbJi");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "m/P+");
+/* harmony import */ var _awesome_cordova_plugins_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @awesome-cordova-plugins/in-app-browser/ngx */ "gAW/");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "wd/R");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! firebase/app */ "Wcq6");
@@ -3946,15 +4016,31 @@ let EventomodalPage = class EventomodalPage {
         this.auth = auth;
         this.firestore = firestore;
         this.iab = iab;
+        this.options = {
+            location: 'yes',
+            hidden: 'no',
+            clearcache: 'yes',
+            clearsessioncache: 'yes',
+            zoom: 'yes',
+            hardwareback: 'yes',
+            mediaPlaybackRequiresUserAction: 'no',
+            shouldPauseOnSuspend: 'no',
+            closebuttoncaption: 'Close',
+            disallowoverscroll: 'no',
+            toolbar: 'yes',
+            enableViewportScale: 'no',
+            allowInlineMediaPlayback: 'no',
+            presentationstyle: 'pagesheet',
+            fullscreen: 'yes',
+        };
         this.verdade = false;
-        this.UPnum = 0;
         this.num = 30;
         this.noAuth = true;
         this.jadeuUP = false;
         this.numcoments = 0;
         this.dado = [];
         this.comentario = "";
-        this.description = false;
+        this.description = true;
         this.numTimesLeft = 2;
         this.ComentSet = {
             img: '',
@@ -3970,21 +4056,21 @@ let EventomodalPage = class EventomodalPage {
                 this.iduser = res.uid;
                 this.noAuth = false;
             }
-            this.x = this.navparams.get('customid');
             this.lugardocomentario = this.Firebase.database.ref(`coments/${this.x.id}`);
             this.getComent();
-            this.UPnum = this.x.UPnum;
-            if (this.x.local) {
-                this.description = true;
-            }
-            this.jaUpou();
         });
     }
     criandomodal(evento) {
         this.x = evento;
-        moment__WEBPACK_IMPORTED_MODULE_9__["locale"]('pt-BR');
-        this.m = moment__WEBPACK_IMPORTED_MODULE_9__(this.x.dia).format('ddd DD MMM');
-        console.log(this.m);
+        this.UPnum = this.x.UPnum;
+        console.log(evento.id);
+        this.jaUpou();
+        if (this.x.dia.length > 18) {
+            moment__WEBPACK_IMPORTED_MODULE_9__["locale"]('pt-BR');
+            this.momentto = moment__WEBPACK_IMPORTED_MODULE_9__(this.x.dia).format('ddd DD MMM');
+            console.log(this.momentto);
+            this.x.dia = this.momentto;
+        }
         this.eventoid = evento.id;
     }
     setcoment() {
@@ -4045,7 +4131,7 @@ let EventomodalPage = class EventomodalPage {
         this.iab.create(`https://www.google.com/maps/search/?api=1&query=${this.x.local.description}`, '_system');
     }
     redirectlink() {
-        this.iab.create(`${this.x.ingresso}`, '_system');
+        this.iab.create(`${this.x.ingresso}`, '_system', this.options);
     }
     redirectUser() {
         this.close();
@@ -4118,7 +4204,7 @@ EventomodalPage.ctorParameters = () => [
     { type: _angular_fire_database__WEBPACK_IMPORTED_MODULE_5__["AngularFireDatabase"] },
     { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuth"] },
     { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_11__["AngularFirestore"] },
-    { type: _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_8__["InAppBrowser"] }
+    { type: _awesome_cordova_plugins_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_8__["InAppBrowser"] }
 ];
 EventomodalPage.propDecorators = {
     content: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonContent"], { static: true },] }]
@@ -4136,7 +4222,7 @@ EventomodalPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _angular_fire_database__WEBPACK_IMPORTED_MODULE_5__["AngularFireDatabase"],
         _angular_fire_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuth"],
         _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_11__["AngularFirestore"],
-        _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_8__["InAppBrowser"]])
+        _awesome_cordova_plugins_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_8__["InAppBrowser"]])
 ], EventomodalPage);
 
 
@@ -4222,8 +4308,8 @@ let UserService = class UserService {
             res.updateProfile({
                 photoURL: url,
             });
-            this.firestore.collection(`users`).doc(`${res.uid}`).update({ imgUser: url });
-            this.firebase.database.ref(`users/${res.uid}/img`).set(url);
+            this.firestore.collection(`users`).doc(`${iduser}`).update({ imgUser: url });
+            this.firebase.database.ref(`users/${iduser}/img`).set(url);
         });
     }
     login(email, password) {
@@ -4382,16 +4468,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _novo_evento_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./novo-evento.page.scss */ "MUNy");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/storage */ "Vaw3");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
-/* harmony import */ var _evento_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../evento.service */ "XITf");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/fire/database */ "sSZD");
-/* harmony import */ var _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/google-maps */ "tBOM");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "wd/R");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/fire/auth */ "UbJi");
-/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "a/9d");
-/* harmony import */ var _editar_modal_editar_modal_page__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../editar-modal/editar-modal.page */ "vkXh");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/firestore */ "I/3d");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _evento_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../evento.service */ "XITf");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/fire/database */ "sSZD");
+/* harmony import */ var _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/google-maps */ "tBOM");
+/* harmony import */ var _awesome_cordova_plugins_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @awesome-cordova-plugins/native-geocoder/ngx */ "itIa");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! moment */ "wd/R");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/fire/auth */ "UbJi");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "a/9d");
+/* harmony import */ var _editar_modal_editar_modal_page__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../editar-modal/editar-modal.page */ "vkXh");
+
+
 
 
 
@@ -4410,16 +4500,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let NovoEventoPage = class NovoEventoPage {
-    constructor(storage, camera, eventoService, modalCtrl, firebase, ngzone, alert, auth, loadingC) {
+    constructor(storage, camera, eventoService, firestore, modalCtrl, firebase, ngzone, geo, alert, auth, loadingC) {
         this.storage = storage;
         this.camera = camera;
         this.eventoService = eventoService;
+        this.firestore = firestore;
         this.modalCtrl = modalCtrl;
         this.firebase = firebase;
         this.ngzone = ngzone;
+        this.geo = geo;
         this.alert = alert;
         this.auth = auth;
         this.loadingC = loadingC;
+        this.dataSet2 = {
+            nome: '',
+            url: '',
+            ingresso: "",
+            dia: '',
+            fim: '',
+            local: '',
+            lugar: '',
+            up: [],
+            userID: [],
+            passado: false,
+            UPnum: 0
+        };
         this.selectedImage = null;
         this.presenca = true;
         this.dateValue = '';
@@ -4448,6 +4553,7 @@ let NovoEventoPage = class NovoEventoPage {
     prev() {
         this.slides.slidePrev();
     }
+    ;
     ngOnInit() {
         this.eventoService.getImageDetailList();
         this.img = "../assets/icon/unnamed.png";
@@ -4465,23 +4571,67 @@ let NovoEventoPage = class NovoEventoPage {
     }
     novaData() {
         this.next();
-        moment__WEBPACK_IMPORTED_MODULE_10__["locale"]('pt-BR');
-        this.dia2 = moment__WEBPACK_IMPORTED_MODULE_10__(this.dia).format('ddd DD MMM');
+        moment__WEBPACK_IMPORTED_MODULE_12__["locale"]('pt-BR');
+        this.dia2 = moment__WEBPACK_IMPORTED_MODULE_12__(this.dia).format('ddd DD MMM');
+    }
+    geocodetest(resukt, localcompleto) {
+        console.log(resukt, "opa");
+        this.search = "";
+        this.local = localcompleto;
+        let options = {
+            useLocale: true,
+            maxResults: 1
+        };
+        this.geo.forwardGeocode(resukt, options).then(res => {
+            (res);
+            console.log(res);
+            this.lugar = res[0].locality;
+            console.log(this.lugar);
+            if (this.lugar == "Brasília") {
+                console.log("ok");
+            }
+            else if (this.lugar == "Rio de Janeiro") {
+                console.log("ok");
+            }
+            else if (this.lugar == "São Paulo") {
+                console.log("ok");
+            }
+            else {
+                this.search, this.local = "";
+                return this.showalert("Ops!", "O Oreon só está disponivel em Brasília, Rio de Janeiro e São paulo");
+            }
+            console.log(this.lugar);
+            return this.lugar;
+        }).catch(err => {
+            console.log(err);
+            var re1 = /Rio de Janeiro/gi;
+            var re2 = /Brasília/gi;
+            var re3 = /São Paulo/gi;
+            if (this.local.description.search(re1) == -1) {
+                this.lugar = "Rio de Janeiro";
+                console.log("ok");
+            }
+            else if (this.local.description.search(re2) == -1) {
+                this.lugar = "Brasília";
+                console.log("ok");
+            }
+            else if (this.local.description.search(re3) == -1) {
+                this.lugar = "São Paulo";
+                console.log("ok");
+            }
+            else {
+                return this.showalert("Ops!", "O Oreon só está disponivel em Brasília, Rio de Janeiro e São paulo");
+            }
+        });
     }
     Presencial() {
-        console.log("presenca");
-        if (this.usuario == "Usuario") {
-            this.showalert("OPS!", "Mude seu nome de usuario para publicar um evento");
-            return this.showmodal();
-        }
-        this.presenca = true;
+        this.next();
+    }
+    pres() {
         this.next();
     }
     Online() {
-        if (this.usuario == "Usuario") {
-            this.showalert("OPS!", "Mude seu nome de usuario para publicar um evento");
-            return this.showmodal();
-        }
+        console.log("online");
         this.presenca = false;
         this.local = null;
         this.lugar = null;
@@ -4489,20 +4639,20 @@ let NovoEventoPage = class NovoEventoPage {
     }
     dateChanged(value) {
         this.dia = value;
-        moment__WEBPACK_IMPORTED_MODULE_10__["locale"]('pt-BR');
-        this.dia1 = moment__WEBPACK_IMPORTED_MODULE_10__(this.dia).format('ddd DD MMM HH:MM');
+        moment__WEBPACK_IMPORTED_MODULE_12__["locale"]('pt-BR');
+        this.dia1 = moment__WEBPACK_IMPORTED_MODULE_12__(this.dia).format('ddd DD MMM HH:MM');
         console.log(value);
     }
     dateChanged2(value) {
         this.fim = value;
-        moment__WEBPACK_IMPORTED_MODULE_10__["locale"]('pt-BR');
-        this.dia2 = moment__WEBPACK_IMPORTED_MODULE_10__(this.fim).format('ddd DD MMM HH:MM');
+        moment__WEBPACK_IMPORTED_MODULE_12__["locale"]('pt-BR');
+        this.dia2 = moment__WEBPACK_IMPORTED_MODULE_12__(this.fim).format('ddd DD MMM HH:MM');
         console.log(value);
     }
     showmodal() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const modal = yield this.modalCtrl.create({
-                component: _editar_modal_editar_modal_page__WEBPACK_IMPORTED_MODULE_13__["EditarModalPage"],
+                component: _editar_modal_editar_modal_page__WEBPACK_IMPORTED_MODULE_15__["EditarModalPage"],
                 componentProps: {}
             });
             modal.present();
@@ -4511,7 +4661,7 @@ let NovoEventoPage = class NovoEventoPage {
     }
     name() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            const res = (yield this.auth.currentUser).displayName;
+            const res = (yield this.auth.currentUser);
             this.usuario = res;
         });
     }
@@ -4519,74 +4669,59 @@ let NovoEventoPage = class NovoEventoPage {
         if (this.presenca == true) {
             this.presentLoading();
             if (this.nome == null) {
+                this.loading.dismiss();
                 return this.showalert("Erro ", "Nome do evento é Obrigatório");
             }
             if (this.selectedImage == null) {
+                this.loading.dismiss();
                 return this.showalert("Erro ", "Imagem do evento é Obrigatório");
             }
             if (this.dia == null) {
+                this.loading.dismiss();
                 return this.showalert("Erro ", "Data de ínicio do evento é Obrigatório");
             }
             if (this.fim == null) {
+                this.loading.dismiss();
                 return this.showalert("Erro ", "Data de fim do evento é Obrigatório");
             }
             if (this.local == null) {
+                this.loading.dismiss();
                 return this.showalert("Erro ", "Local do evento é Obrigatório");
             }
             if (this.ingresso == null) {
+                this.loading.dismiss();
                 console.log(this.ingresso);
                 return this.showalert("Erro ", "Link do evento é Obrigatório, caso o evento não possua link de ingresso use o link de perfil do instagram do evento ou do produtor.");
             }
-            var name = this.selectedImage.name;
-            const fileRef = this.storage.ref(name);
-            this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["finalize"])(() => {
-                fileRef.getDownloadURL().subscribe((url) => {
-                    this.url = url;
-                    this.eventoService.insertImageDetails(this.nome, this.url, this.ingresso, this.dia, this.fim, this.local, this.lugar);
-                    if (this.items.some(cidade => (cidade.lugar == this.lugar))) {
-                        console.log("cidade", "ja existente");
-                        this.loading.dismiss();
-                        this.showalert("Evento ", "Publicado com sucesso");
-                    }
-                    else {
-                        var lugar = this.lugar;
-                        this.firebase.list('cidades').push({
-                            lugar
-                        });
-                    }
-                    ;
-                });
-            })).subscribe();
+            this.provisorio();
             this.showalert("Evento ", "Publicado com sucesso");
             this.loading.dismiss();
         }
         if (this.presenca == false) {
             this.presentLoading();
             if (this.nome == null) {
+                this.loading.dismiss();
                 return this.showalert("Erro ", "Nome do evento é Obrigatório");
             }
             if (this.selectedImage == null) {
+                this.loading.dismiss();
                 return this.showalert("Erro ", "Imagem do evento é Obrigatório");
             }
             if (this.dia == null) {
+                this.loading.dismiss();
                 return this.showalert("Erro ", "Data de ínicio do evento é Obrigatório");
             }
             if (this.fim == null) {
+                this.loading.dismiss();
                 return this.showalert("Erro ", "Data de fim do evento é Obrigatório");
             }
             if (this.link == null) {
+                this.loading.dismiss();
                 return this.showalert("Erro ", "Link do evento é Obrigatório");
             }
-            var name = this.selectedImage.name;
-            const fileRef = this.storage.ref(name);
-            this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["finalize"])(() => {
-                fileRef.getDownloadURL().subscribe((url) => {
-                    this.url = url;
-                    this.eventoService.insertOnline(this.nome, this.url, this.link, this.dia, this.fim);
-                    this.loading.dismiss();
-                    this.showalert("Evento ", "Publicado com sucesso");
-                });
-            })).subscribe();
+            this.provsorioOnline();
+            this.showalert("Evento ", "Publicado com sucesso");
+            this.loading.dismiss();
         }
     }
     showPreview(event) {
@@ -4595,6 +4730,12 @@ let NovoEventoPage = class NovoEventoPage {
             reader.onload = (e) => this.img = e.target.result;
             reader.readAsDataURL(event.target.files[0]);
             this.selectedImage = event.target.files[0];
+            console.log(this.selectedImage.size);
+            if (this.selectedImage.size > 500000) {
+                this.img = "../assets/icon/profile.png";
+                this.selectedImage = null;
+                return this.showalert("Erro", "tamanho da imagem muito grande, reduza para no máximo 500 KB ");
+            }
             this.next();
         }
         else {
@@ -4621,14 +4762,13 @@ let NovoEventoPage = class NovoEventoPage {
         }
         var name = this.selectedImage.name;
         const fileRef = this.storage.ref(name);
-        this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["finalize"])(() => {
+        this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["finalize"])(() => {
             fileRef.getDownloadURL().subscribe((url) => {
                 this.url = url;
                 this.eventoService.insertOnline(this.nome, this.url, this.link, this.dia, this.fim);
                 this.showalert("Evento", "Publicado com sucesso ");
             });
         })).subscribe();
-        this.showalert("Evento ", "Publicado com sucesso");
         this.loading.dismiss();
     }
     searchChanged() {
@@ -4650,12 +4790,31 @@ let NovoEventoPage = class NovoEventoPage {
             yield alert.present();
         });
     }
+    nextlocal() {
+        this.next();
+        console.log(this.lugar);
+    }
+    showalert2(header, message, x, y) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const alert = yield this.alert.create({
+                header,
+                message,
+                buttons: [{
+                        text: 'OK',
+                        handler: () => {
+                            this.provs();
+                        }
+                    }]
+            });
+            yield alert.present();
+        });
+    }
     localizou(item) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             this.search = "";
             this.local = item;
             this.destnation = item;
-            const info = yield _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_9__["Geocoder"].geocode({ address: this.destnation.description });
+            const info = yield _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_10__["Geocoder"].geocode({ address: this.destnation.description });
             this.lugar = info[0].subAdminArea;
             if (info[0].adminArea == "Distrito Federal") {
                 this.lugar = "Brasília";
@@ -4678,9 +4837,9 @@ let NovoEventoPage = class NovoEventoPage {
         });
     }
     load() {
-        _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_9__["Environment"].setEnv({
-            'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyClABG0SXj9mDIMW-nZBBKoIaGscHBHoyo',
-            'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyClABG0SXj9mDIMW-nZBBKoIaGscHBHoyo'
+        _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_10__["Environment"].setEnv({
+            'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyCXYp8zsb8GG0_kfoc_tajVU_3UNyFiEZE',
+            'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyCXYp8zsb8GG0_kfoc_tajVU_3UNyFiEZE'
         });
     }
     presentLoading() {
@@ -4688,9 +4847,114 @@ let NovoEventoPage = class NovoEventoPage {
             this.loading = yield this.loadingC.create({
                 cssClass: 'my-custom-class',
                 message: 'Espere um momento...',
+                duration: 2000
             });
             yield this.loading.present();
         });
+    }
+    provs() {
+        this.provs1();
+        this.provs2();
+        this.provs3();
+        this.provs4();
+        this.provs5();
+        this.provs6();
+    }
+    provsOnline() {
+        this.provs1();
+        this.provs2();
+        this.provs3();
+        this.provs4();
+        this.provs6();
+    }
+    provs1() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            console.log("provs");
+            const res = yield this.auth.currentUser;
+            const ref = this.firestore.collection('eventos').doc(this.ref);
+            ref.update({ up: [res.uid] });
+        });
+    }
+    provs2() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const res = yield this.auth.currentUser;
+            const ref = this.firestore.collection('eventos').doc(this.ref);
+            ref.update({ userID: [res.uid, res.displayName] });
+        });
+    }
+    provs3() {
+        const ref = this.firestore.collection('eventos').doc(this.ref);
+        ref.update({ dia: this.dia }).catch(error => {
+            console.log(error);
+            return this.showalert("Error", "Algo deu errado");
+        });
+    }
+    provs4() {
+        console.log("provs4");
+        const ref = this.firestore.collection('eventos').doc(this.ref);
+        ref.update({ fim: this.fim }).catch(error => {
+            console.log(error);
+            return this.showalert("Error", "Algo deu errado");
+        });
+    }
+    provs5() {
+        const ref = this.firestore.collection('eventos').doc(this.ref);
+        ref.update({ lugar: this.lugar });
+    }
+    provs6() {
+        const ref = this.firestore.collection('eventos').doc(this.ref);
+        var name = this.selectedImage.name;
+        const fileRef = this.storage.ref(name);
+        this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["finalize"])(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+                ref.update({ url: url });
+            });
+        })).subscribe();
+    }
+    provisorio() {
+        this.presentLoading();
+        console.log("tamanho?");
+        var name = this.selectedImage.name;
+        var add = this.firestore.createId();
+        this.ref = add;
+        console.log(add);
+        const ref = this.firestore.collection('eventos').doc(add);
+        const nome = this.nome;
+        const ingresso = this.ingresso; //link
+        const local = this.local;
+        const passado = false;
+        const UPnum = 1;
+        this.firestore.collection('eventos').doc(add).set({ nome, local, UPnum, ingresso, passado }).catch(error => {
+            return this.showalert("Error", "Tente novamente mais tarde");
+        });
+        this.provs();
+        console.log("ok publicado");
+        this.loadingC.dismiss();
+    }
+    provsorioOnline() {
+        this.presentLoading();
+        console.log("tamanho?");
+        var name = this.selectedImage.name;
+        var add = this.firestore.createId();
+        this.ref = add;
+        console.log(add);
+        const ref = this.firestore.collection('eventos').doc(add);
+        const nome = this.nome;
+        const ingresso = this.link; //link
+        const passado = false;
+        const UPnum = 1;
+        console.log(nome);
+        console.log(ingresso);
+        console.log(UPnum);
+        console.log(passado);
+        this.firestore.collection('eventos').doc(add).set({ nome, UPnum, ingresso, passado }).catch(error => {
+            console.log(error);
+            return this.showalert("Error", "Tente novamente mais tarde");
+        });
+        this.provsOnline();
+        console.log("ok publicado");
+        this.showalert("ok", "publicado");
+        this.loadingC.dismiss();
     }
     editNome() {
         this.prev();
@@ -4717,14 +4981,16 @@ let NovoEventoPage = class NovoEventoPage {
 };
 NovoEventoPage.ctorParameters = () => [
     { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"], args: [_angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"],] }] },
-    { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_12__["Camera"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"], args: [_evento_service__WEBPACK_IMPORTED_MODULE_6__["EventoService"],] }] },
-    { type: _evento_service__WEBPACK_IMPORTED_MODULE_6__["EventoService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["ModalController"] },
-    { type: _angular_fire_database__WEBPACK_IMPORTED_MODULE_8__["AngularFireDatabase"] },
+    { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_14__["Camera"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"], args: [_evento_service__WEBPACK_IMPORTED_MODULE_7__["EventoService"],] }] },
+    { type: _evento_service__WEBPACK_IMPORTED_MODULE_7__["EventoService"] },
+    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ModalController"] },
+    { type: _angular_fire_database__WEBPACK_IMPORTED_MODULE_9__["AngularFireDatabase"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["AlertController"] },
-    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_11__["AngularFireAuth"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["LoadingController"] }
+    { type: _awesome_cordova_plugins_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_11__["NativeGeocoder"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["AlertController"] },
+    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_13__["AngularFireAuth"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["LoadingController"] }
 ];
 NovoEventoPage.propDecorators = {
     fileButton: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: ['fileButton', { static: false },] }],
@@ -4738,14 +5004,16 @@ NovoEventoPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [_novo_evento_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"],
-        _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_12__["Camera"],
-        _evento_service__WEBPACK_IMPORTED_MODULE_6__["EventoService"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["ModalController"],
-        _angular_fire_database__WEBPACK_IMPORTED_MODULE_8__["AngularFireDatabase"],
+        _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_14__["Camera"],
+        _evento_service__WEBPACK_IMPORTED_MODULE_7__["EventoService"],
+        _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ModalController"],
+        _angular_fire_database__WEBPACK_IMPORTED_MODULE_9__["AngularFireDatabase"],
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["AlertController"],
-        _angular_fire_auth__WEBPACK_IMPORTED_MODULE_11__["AngularFireAuth"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["LoadingController"]])
+        _awesome_cordova_plugins_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_11__["NativeGeocoder"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["AlertController"],
+        _angular_fire_auth__WEBPACK_IMPORTED_MODULE_13__["AngularFireAuth"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["LoadingController"]])
 ], NovoEventoPage);
 
 
@@ -4775,7 +5043,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "wd/R");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "m/P+");
+/* harmony import */ var _awesome_cordova_plugins_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @awesome-cordova-plugins/in-app-browser/ngx */ "gAW/");
 /* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! firebase/firestore */ "5x/H");
 
 
@@ -4803,6 +5071,23 @@ let EventoPesquisaPage = class EventoPesquisaPage {
         this.pode = false;
         this.numcoments = 0;
         this.jadeuUP = false;
+        this.options = {
+            location: 'yes',
+            hidden: 'no',
+            clearcache: 'yes',
+            clearsessioncache: 'yes',
+            zoom: 'yes',
+            hardwareback: 'yes',
+            mediaPlaybackRequiresUserAction: 'no',
+            shouldPauseOnSuspend: 'no',
+            closebuttoncaption: 'Close',
+            disallowoverscroll: 'no',
+            toolbar: 'yes',
+            enableViewportScale: 'no',
+            allowInlineMediaPlayback: 'no',
+            presentationstyle: 'pagesheet',
+            fullscreen: 'yes',
+        };
         this.comentario = "";
         this.ComentSet = {
             img: '',
@@ -4871,14 +5156,14 @@ let EventoPesquisaPage = class EventoPesquisaPage {
         });
     }
     redirectlink() {
-        const browser = this.iab.create(`${this.eventodb.ingresso}`, '_system', { location: 'no' });
+        const browser = this.iab.create(`${this.eventodb.ingresso}`, '_system', this.options);
         browser.on('loadstop').subscribe(event => {
             browser.insertCSS({ code: "body{color: red;" });
         });
         browser.close();
     }
     redirectmap() {
-        const map = this.iab.create(`https://www.google.com/maps/search/?api=1&query=${this.eventodb.local.description}`, '_system');
+        const map = this.iab.create(`https://www.google.com/maps/search/?api=1&query=${this.eventodb.local.description}`, '_system', this.options);
         map.on('loadstop').subscribe(event => {
             map.insertCSS({ code: "body{color: red;" });
         });
@@ -4973,7 +5258,7 @@ EventoPesquisaPage.ctorParameters = () => [
     { type: _angular_fire_database__WEBPACK_IMPORTED_MODULE_4__["AngularFireDatabase"] },
     { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuth"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
-    { type: _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_11__["InAppBrowser"] }
+    { type: _awesome_cordova_plugins_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_11__["InAppBrowser"] }
 ];
 EventoPesquisaPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -4987,7 +5272,7 @@ EventoPesquisaPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _angular_fire_database__WEBPACK_IMPORTED_MODULE_4__["AngularFireDatabase"],
         _angular_fire_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuth"],
         _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
-        _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_11__["InAppBrowser"]])
+        _awesome_cordova_plugins_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_11__["InAppBrowser"]])
 ], EventoPesquisaPage);
 
 
@@ -5243,7 +5528,7 @@ let HomePage = class HomePage {
                 });
                 if (res.emailVerified == false) {
                     console.log(res.emailVerified, "emailverified");
-                    this.criaruserpage.showalert("Ops você já criou uma conta ", "Mas não clickou no link que enviamos, verifique e volte ");
+                    // this.criaruserpage.showalert("Ops você já criou uma conta ", "Mas não clickou no link que enviamos, verifique e volte ")
                     this.login.enviaremaildeverific();
                 }
                 // ...
@@ -5337,7 +5622,7 @@ let HomePage = class HomePage {
             const modal = yield this.modalCtrl.create({
                 component: _eventomodal_eventomodal_page__WEBPACK_IMPORTED_MODULE_9__["EventomodalPage"],
                 componentProps: {
-                    customid: zeta
+                    x: zeta
                 }
             });
             modal.present();

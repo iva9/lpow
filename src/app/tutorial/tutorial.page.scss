@@ -1,6 +1,6 @@
 ion-toolbar{
     --padding-top: 1.5ex ;
-    --background: black;
+    --background: #0f0f0f;
     text-align: center;
   }
   .p{
@@ -13,13 +13,16 @@ ion-toolbar{
 .slide{
     margin-top:10%;
 }
+ion-slide{
+  --ion-background-color: #1C1C1C;
+}
 ion-content {
-    --ion-background-color: #000000;
+    --ion-background-color: #0f0f0f;
     --ion-color:#FFFFFF;
   }
   ion-footer{
-    --ion-background-color: #000000;
-    background-color: #000000;
+    --ion-background-color: #0f0f0f;
+    background-color: #0f0f0f;
     text-align: center;
   }
   ion-title{
@@ -32,7 +35,7 @@ ion-content {
  .holder{
      --color: #FFFFFF; 
      --placeholder-color:#FFFFFF;
-     --background:black;
+     --background:#0f0f0f;
  }
  .title{
    font-family: sans-serif;
@@ -41,7 +44,7 @@ ion-content {
    font-size:x-large;
      text-align: center;
      color: white;
-     background-color: black;
+     background-color: #0f0f0f;
   }
    .slide3{
        margin-top: 40%;

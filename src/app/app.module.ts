@@ -17,6 +17,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule  } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard'
 
+import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
 
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { File } from '@ionic-native/file/ngx';
@@ -31,7 +32,7 @@ import { LoginPage } from './login/login.page';
 import { HomePage } from './home/home.page'
 
 import { NavController } from 'ionic-angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { EventomodalPageModule } from './eventomodal/eventomodal.module'
 import { EventomodalPage } from './eventomodal/eventomodal.page';
 import { NavParams } from '@ionic/angular';
@@ -101,6 +102,7 @@ import { GooglePlus } from "@ionic-native/google-plus/ngx"
     EventomodalPage,
     UsuarioPesquisaPage,
     Screenshot,
+    NativeGeocoder,
     InAppBrowser,
     SocialSharing,
     BackgroundMode,

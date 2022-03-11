@@ -12,7 +12,7 @@
   <ion-list lines="none" no-lines>
     <ion-item >
         <ion-button size="small"color="primary"  [disabled]="jadeuUP" (click)="UP()" slot="start">UP</ion-button>
-        {{ UPnum }}
+        {{ x.UPnum }}
     </ion-item>
     <ion-item > 
         <ion-icon  size="large" name="chatbubble-sharp" slot="start"></ion-icon>
@@ -26,7 +26,7 @@
       <ion-icon name="globe-outline"></ion-icon>
       <h2 class="com">Link</h2>
     </ion-item>
-    <ion-item  *ngIf="description" (click)="redirectmap()">
+    <ion-item  *ngIf="x.local" (click)="redirectmap()">
       <ion-icon name="location-sharp" size="large"></ion-icon>
       <h2 class="com">{{ x.local.description }}</h2>
     </ion-item>
@@ -35,14 +35,14 @@
       <h2 class="com">{{ x.userID[1] }}</h2>
     </ion-item>
   </ion-list>
-  <ion-list (click)="comentauth()" lines="none">
+  <ion-list *ngIf="x.id" (click)="comentauth()" lines="none">
     <ion-item no-lines >
       <ion-input  placeholder="Comentario:" type="string" [disabled]="noAuth" [(ngModel)]="comentario"></ion-input>
       <ion-button color="primary" (click)="setcoment()" [disabled]="!comentario.length"> Enviar
       </ion-button>
     </ion-item>
   </ion-list>
-  <ion-list lines="none">
+  <ion-list *ngIf="x.id" lines="none">
     <div *ngFor="let kdcoment of coments" (click)="page(kdcoment)">
       <ion-item id="output" >
         <ion-avatar item-start>

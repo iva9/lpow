@@ -231,21 +231,31 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "cordova-plugin-statusbar.statusbar",
-      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-      "pluginId": "cordova-plugin-statusbar",
+      "id": "cordova-plugin-nativegeocoder.NativeGeocoder",
+      "file": "plugins/cordova-plugin-nativegeocoder/www/NativeGeocoder.js",
+      "pluginId": "cordova-plugin-nativegeocoder",
       "clobbers": [
-        "window.StatusBar"
+        "nativegeocoder"
+      ]
+    },
+    {
+      "id": "cordova-plugin-inappbrowser.inappbrowser",
+      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "clobbers": [
+        "cordova.InAppBrowser.open"
       ]
     }
   ];
   module.exports.metadata = {
     "com.darktalker.cordova.screenshot": "0.1.5",
+    "cordova-custom-config": "5.1.1",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-background-mode": "0.7.3",
     "cordova-plugin-camera": "5.0.3",
     "cordova-plugin-file": "6.0.2",
-    "cordova-custom-config": "5.1.1",
-    "cordova-plugin-statusbar": "2.4.3"
+    "cordova-plugin-add-swift-support": "2.0.2",
+    "cordova-plugin-nativegeocoder": "3.4.1",
+    "cordova-plugin-inappbrowser": "5.0.0"
   };
 });

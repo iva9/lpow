@@ -7,7 +7,7 @@
 <ion-content>
   <div class="center">
     <input type="file" (change)="showPreview($event)" class="filebtn" #fileButton/>
-    <img class="imagem"  (click)="takePicture()" [src]="img">
+    <img class="imagem"  (click)="writeUserData()" [src]="img">
     <ion-list class="margintop" no-lines>
       <ion-item lines="none" >
         <ion-input type="text" placeholder="Nome de Usuario" name="id" [(ngModel)]="newUsername"></ion-input>

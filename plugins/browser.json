@@ -16,22 +16,13 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
-    "cordova-plugin-googlemaps": {
-      "PACKAGE_NAME": "com.Test.Oreon"
-    },
     "cordova-plugin-network-information": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
     "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
-    "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "com.Test.Oreon"
-    },
     "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.Test.Oreon"
-    },
-    "cordova-plugin-ionic-keyboard": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
     "cordova-plugin-file": {
@@ -44,15 +35,25 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
-    "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "com.Test.Oreon"
-    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.Test.Oreon"
     },
     "cordova-custom-config": {
       "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-googlemaps": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-nativegeocoder": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.Test.Oreon"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    }
+  }
 }
