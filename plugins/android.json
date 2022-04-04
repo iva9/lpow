@@ -1,0 +1,66 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com.darktalker.cordova.screenshot": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-custom-config": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-googlemaps": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-googleplus": {
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-nativegeocoder": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.Test.Oreon"
+    }
+  }
+}

@@ -77,7 +77,9 @@
       "id": "cordova-plugin-camera@^5.0.3"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+"
+    }
   },
   "cordova-plugin-file": {
     "source": {
@@ -93,7 +95,9 @@
       "id": "cordova-plugin-googleplus"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "PLAY_SERVICES_VERSION": "15.0.1"
+    }
   },
   "cordova-plugin-whitelist": {
     "source": {

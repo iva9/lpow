@@ -82,6 +82,11 @@ export class EditarModalPage implements OnInit {
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
       console.log(this.selectedImage)
+      if(this.selectedImage.size > 500000){
+        this.img = "../assets/icon/profile.png";
+        this.selectedImage = null;
+        return this.showalert("Erro" , "tamanho da imagem muito grande, reduza para no máximo 500 KB ")
+      }
     }else{
       this.img = "../assets/icon/profile.png";
       this.selectedImage = null;

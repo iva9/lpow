@@ -22,7 +22,7 @@
     <ion-slide>    
         <h2 class="th2">Banner do evento</h2>
         <ion-card class="card">
-          <input type="file" (change)="showPreview($event)" class="filebtn" #fileButton/>
+          <input type="file" accept="image/*" (change)="showPreview($event)" class="filebtn" #fileButton/>
           <img class="imagem"  (click)="writeUserData()" [src]="img">
         </ion-card>
         <h2 class="th2"></h2>
@@ -104,7 +104,7 @@
 
     <ion-slide>
       <ion-card class="card">
-        <input type="file" (change)="showPreview($event)" class="filebtn" #fileButton/>
+        <input type="file" accept="image/*" (change)="showPreview($event)" class="filebtn" #fileButton/>
         <img class="imagem"  (click)="writeUserData()" [src]="img">
       </ion-card>
       <ion-list lines="none">

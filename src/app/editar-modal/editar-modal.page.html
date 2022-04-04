@@ -6,7 +6,7 @@
 
 <ion-content>
   <div class="center">
-    <input type="file" (change)="showPreview($event)" class="filebtn" #fileButton/>
+    <input type="file" accept="image/*" (change)="showPreview($event)" class="filebtn" #fileButton/>
     <img class="imagem"  (click)="writeUserData()" [src]="img">
     <ion-list class="margintop" no-lines>
       <ion-item lines="none" >

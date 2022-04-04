@@ -89,7 +89,7 @@ voltar(){
 
 initializeitems(){
 
-  const eventoslist = this.firestore.collection('eventos' , ref=> ref.limit(7)).valueChanges().pipe((first())).toPromise()
+  const eventoslist = this.firestore.collection('eventos' ).valueChanges().pipe((first())).toPromise()
   return eventoslist
 
 }

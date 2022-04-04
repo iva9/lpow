@@ -156,7 +156,7 @@ export class PerfilPage implements OnInit {
     const modal = await this.modalCtrl.create({
       component : EventomodalPage,
       componentProps:{
-        customid :  zeta
+        x :  zeta
       }
     })
     modal.present();;
